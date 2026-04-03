@@ -431,7 +431,17 @@ shuf -i 1-20 -n 1
 
 ## 场景配图 (Scene Illustration)
 
-**CRITICAL RULE**: **Every significant story moment MUST generate an image automatically.**
+**🚨 CRITICAL RULE**: **Every significant story moment MUST generate an image automatically BEFORE narration.**
+
+### ⚡ Agent Execution Order (MANDATORY)
+
+When a trigger event occurs:
+1. **FIRST**: Identify trigger type (location/NPC/combat/etc.)
+2. **SECOND**: Generate image immediately (run script, DO NOT wait)
+3. **THIRD**: Send image with message tool
+4. **FOURTH**: Continue narration
+
+**DO NOT** narrate first and generate later. **DO NOT** wait for user to ask "where's the picture?"
 
 ### When to Generate Images (AUTO-TRIGGER)
 
@@ -439,7 +449,7 @@ shuf -i 1-20 -n 1
 1. **New location arrival** - Player enters camp/dungeon/city
 2. **Training completion** - After learning a new skill
 3. **Combat start** - First round of any fight
-4. **NPC encounter** - Meeting important characters
+4. **NPC encounter** - Meeting important characters (approaching Firestar = TRIGGER)
 5. **Quest milestones** - Completing objectives
 6. **Ceremony/ritual** - Apprentice ceremony, leader coronation, etc.
 7. **Discovery** - Finding items, secrets, new areas
@@ -449,6 +459,15 @@ shuf -i 1-20 -n 1
 - Info dumps / lore explanations (unless player explicitly explores a location)
 - "What can I do?" meta questions
 - Save/load operations
+
+**Example Flow:**
+```
+User: "I want to talk to Firestar"
+→ Agent: "This is NPC encounter trigger!"
+→ IMMEDIATELY run generate_image.py
+→ Send image + start dialogue
+→ NOT: Start dialogue, then "oh wait, I should generate image"
+```
 
 ### Image Generation Command
 ```bash
