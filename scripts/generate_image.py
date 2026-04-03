@@ -135,7 +135,7 @@ def main():
     client = genai.Client(api_key=api_key)
 
     # Set up output path
-    output_path = Path(args.filename)
+    output_path = Path(args.filename).expanduser()
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Load input images if provided (up to 14 supported by Nano Banana Pro)
