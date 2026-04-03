@@ -1,60 +1,181 @@
-# YumFu - 武侠江湖 MUD ⚔️
+# YumFu - Multi-World MUD 🌍⚔️🪄
 
-金庸、古龙武侠世界的文字冒险游戏 + 水墨风AI配图
+**Choose Your Adventure** - Text-based RPG with AI-generated art across multiple fantasy universes
 
-## 快速开始
+## 🌐 Supported Worlds
 
-```
-/yumfu start     # 开始新游戏
-/yumfu continue  # 继续游戏
-/yumfu help      # 查看帮助
-```
+### 🇨🇳 中文世界 (Chinese Wuxia)
+- ⚔️ **笑傲江湖** (Xiaoao Jianghu) - Swordsman era, Mt. Hua Sect conflicts
+- 🗡️ **倚天屠龙记** (Yitian Tulongji) - Heaven Sword & Dragon Saber *(coming soon)*
+- 📖 **射雕英雄传** (Shediao Yingxiongzhuan) - Legend of the Condor Heroes *(coming soon)*
 
-## 特色
-
-- ⚔️ **经典武侠世界** - 金庸、古龙小说场景
-- 🎨 **水墨风配图** - 每个场景自动生成水墨画风图片
-- 📚 **多条故事线** - 九大门派、多种结局
-- 🎲 **策略战斗** - 回合制战斗，招式克制
-- 📖 **武侠文风** - 原汁原味的武侠叙事
-
-## 核心系统
-
-### 门派
-少林、武当、峨嵋、丐帮、明教、古墓派、华山、全真教、日月神教、独行侠
-
-### 秘籍
-九阴真经、九阳神功、独孤九剑、降龙十八掌、葵花宝典、六脉神剑...
-
-### 属性
-体力、内力、攻击、防御、速度、悟性、善恶值
-
-## 平台兼容性
-
-**✅ 完整支持：OpenClaw**
-- 多人在线（Telegram群聊）
-- 自动发送配图
-- PvP和组队
-
-**⚠️ 部分支持：Claude Code / 原生Claude**
-- 仅单人模式
-- 需手动查看配图
-- 详见 `COMPATIBILITY.md`
-
-## 配置
-
-需要：
-- `GEMINI_API_KEY`（图片生成，可选）
-- Python 3.x + `uv`（用于运行图片生成脚本）
-
-## 存档
-
-- 默认存档：`~/clawd/memory/yumfu-save.json`
-- 多存档：`~/clawd/memory/yumfu/saves/`
-- 图片归档：`~/.openclaw/media/outbound/yumfu/`
-
-详细文档见 `SKILL.md`
+### 🇬🇧 English Worlds (Fantasy)
+- ⚡ **Harry Potter** - Hogwarts, four houses, wizarding duels
+- 🗡️ **Lord of the Rings** - Middle-earth, Fellowship *(coming soon)*
+- 🐉 **Game of Thrones** - Westeros, Iron Throne *(coming soon)*
+- 🐺 **The Witcher** - Monster hunting, Signs *(coming soon)*
 
 ---
 
-**江湖路远，侠之大者！** 🗡️
+## 🚀 Quick Start
+
+```bash
+/yumfu start
+```
+
+**Step 1: Choose Language** | **选择语言**
+```
+🌍 Welcome to YumFu! | 欢迎来到YumFu！
+
+1. 中文 (Chinese)
+2. English
+
+Reply: /yumfu lang 1
+```
+
+**Step 2: Choose Your World** | **选择世界**
+```
+Choose your realm:
+
+1. ⚔️ 笑傲江湖 (Xiaoao Jianghu)
+2. ⚡ Harry Potter Universe
+
+Reply: /yumfu world 1
+```
+
+**Step 3: Start Your Adventure!**
+
+---
+
+## ✨ Features
+
+- 🌍 **Multi-language** - Chinese & English
+- 🎭 **Multiple universes** - Wuxia, Harry Potter, LOTR, GoT...
+- 🎨 **AI-generated art** - Each scene gets a styled illustration
+- 🤝 **Multiplayer** - PvP duels, teams (OpenClaw only)
+- 📖 **Rich storytelling** - Authentic genre writing
+- 💾 **Save system** - Multiple save slots per world
+
+---
+
+## 🎮 Core Systems
+
+- **Character progression** - Level 1-100, skill trees
+- **Combat system** - Turn-based with strategy
+- **Faction reputation** - Join houses/sects, earn respect
+- **Legendary artifacts** - Elder Wand, One Ring, Nine Yin Manual...
+- **NPC interactions** - Dumbledore, Gandalf, Dongfang Bubai...
+
+---
+
+## 平台兼容性 | Platform Compatibility
+
+**✅ Full support: OpenClaw**
+- Multiplayer (PvP, teams)
+- Auto-send images
+- Telegram groups
+
+**⚠️ Partial support: Claude Code / Native Claude**
+- Single-player only
+- Manual image viewing
+- See `COMPATIBILITY.md`
+
+---
+
+## 配置 | Configuration
+
+**Required:**
+- `GEMINI_API_KEY` (for AI art generation, optional)
+- Python 3.x + `uv` (to run image scripts)
+
+**Optional:**
+- `YUMFU_NO_IMAGES=1` - Text-only mode (no API key needed)
+
+---
+
+## 📂 Project Structure
+
+```
+yumfu/
+├── worlds/              # World configurations
+│   ├── xiaoao.json      # 笑傲江湖
+│   └── harry-potter.json # Harry Potter
+├── i18n/                # Localization
+│   ├── zh.json          # Chinese UI
+│   └── en.json          # English UI
+├── scripts/
+│   ├── generate_image.py  # AI art generation
+│   └── backup.sh          # Local save backup
+├── SKILL.md             # Full documentation
+├── MULTI-WORLD-DESIGN.md # Design philosophy
+└── COMPATIBILITY.md     # Platform guide
+```
+
+---
+
+## 🗺️ Roadmap
+
+### Phase 1 ✅ (Complete)
+- [x] Chinese (笑傲江湖)
+- [x] English (Harry Potter)
+- [x] Bilingual UI
+- [x] World config system
+
+### Phase 2 (Next)
+- [ ] Add LOTR, GoT, The Witcher
+- [ ] More Chinese worlds (倚天, 射雕, 天龙)
+- [ ] Cross-world easter eggs
+
+### Phase 3 (Future)
+- [ ] Community-contributed worlds
+- [ ] Custom world editor
+- [ ] Character import across worlds
+
+---
+
+## 🎯 Example Gameplay
+
+### 笑傲江湖 (Xiaoao Jianghu)
+```
+你来到华山派，宁中则看着你说："孩子，江湖险恶，好好修炼。"
+[获得] 华山剑谱（初级）
+[体力] 100/100  [内力] 50/50
+
+> /yumfu train 华山剑法
+你在思过崖苦练剑法，突然领悟了「有凤来仪」...
+[华山剑法] Lv1 → Lv2
+```
+
+### Harry Potter
+```
+You arrive at Diagon Alley. Ollivander peers at you curiously.
+"Ah, a new wand-bearer. Let me see..."
+[Obtained] Phoenix Feather Wand
+[HP] 100/100  [MP] 50/50
+
+> /yumfu train Expelliarmus
+You practice the Disarming Charm in the Room of Requirement...
+[Expelliarmus] Lv1 → Lv2
+```
+
+---
+
+## 🤝 Contributing
+
+Want to add a new world? See `MULTI-WORLD-DESIGN.md` for the template!
+
+Ideas for new worlds:
+- Naruto (ninja villages)
+- Star Wars (Jedi/Sith)
+- Greek Mythology (gods & heroes)
+- Cyberpunk 2077 (netrunners & corpo)
+
+---
+
+## 📜 License
+
+Open source - feel free to fork and add your own worlds!
+
+---
+
+**江湖路远，侠之大者！** | **The adventure awaits, brave wizard!** ⚔️🪄
