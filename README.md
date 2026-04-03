@@ -11,6 +11,7 @@
 
 ### 🇬🇧 English Worlds (Fantasy)
 - ⚡ **Harry Potter** - Hogwarts, four houses, wizarding duels
+- 🐱 **Warrior Cats** - ThunderClan, RiverClan, WindClan, ShadowClan
 - 🗡️ **Lord of the Rings** - Middle-earth, Fellowship *(coming soon)*
 - 🐉 **Game of Thrones** - Westeros, Iron Throne *(coming soon)*
 - 🐺 **The Witcher** - Monster hunting, Signs *(coming soon)*
@@ -39,8 +40,9 @@ Choose your realm:
 
 1. ⚔️ 笑傲江湖 (Xiaoao Jianghu)
 2. ⚡ Harry Potter Universe
+3. 🐱 Warrior Cats
 
-Reply: /yumfu world 1
+Reply: /yumfu world 3
 ```
 
 **Step 3: Start Your Adventure!**
@@ -156,6 +158,19 @@ You arrive at Diagon Alley. Ollivander peers at you curiously.
 > /yumfu train Expelliarmus
 You practice the Disarming Charm in the Room of Requirement...
 [Expelliarmus] Lv1 → Lv2
+```
+
+### Warrior Cats
+```
+You pad into ThunderClan camp. Firestar looks at you with warm eyes.
+"Welcome, young kit. You will train hard to become a warrior."
+[Obtained] Apprentice Name: Rushpaw
+[HP] 100/100  [Stamina] 50/50
+
+> /yumfu hunt mouse
+You crouch low in the undergrowth, tail still. A mouse scurries by...
+[Success!] You caught a plump mouse for the fresh-kill pile!
+[Forest Stalking] Lv1 → Lv2
 ```
 
 ---

@@ -13,6 +13,7 @@
 2. **Lord of the Rings** - 中土世界、九大种族、魔戒远征
 3. **Game of Thrones** - 七大王国、权力的游戏、龙
 4. **The Witcher** - 猎魔人、怪物狩猎、魔法流派
+5. **Warrior Cats** - 野猫部落、四大部族、星族指引
 
 ---
 
@@ -90,6 +91,12 @@ Choose your fantasy realm:
    - Schools: Wolf, Cat, Griffin, Bear
    - Skills: Signs (magic), Alchemy, Swordsmanship, Monster lore
    - Artifacts: Witcher Medallions, Silver Swords
+
+5. 🐱 Warrior Cats
+   - Era: Forest Territory / Lake Territory
+   - Clans: ThunderClan, RiverClan, WindClan, ShadowClan
+   - Skills: Hunting, Battle moves, StarClan connection
+   - Artifacts: Leader's 9 lives, Medicine Cat herbs
 
 Reply: /yumfu world <number>
 ```

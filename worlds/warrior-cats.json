@@ -1,0 +1,365 @@
+{
+  "id": "warrior-cats",
+  "name_zh": "猫武士",
+  "name_en": "Warrior Cats",
+  "language": "en",
+  "genre": "animal-fantasy",
+  "era": "Forest Territory / Lake Territory",
+  "description_zh": "野猫部落的传奇故事，四大部落为领地和猎物而战，遵循星族指引和武士守则",
+  "description_en": "Epic tales of feral cat clans, four clans battle for territory and prey, guided by StarClan and the Warrior Code",
+  
+  "factions": [
+    {
+      "id": "thunderclan",
+      "name_zh": "雷族",
+      "name_en": "ThunderClan",
+      "alignment": "brave",
+      "specialty": "Forest hunting & courage",
+      "territory": "Dense forest, great for stalking prey",
+      "starting_skills": ["Forest Stalking", "Branch Leaping"],
+      "traits": "Brave, loyal, compassionate"
+    },
+    {
+      "id": "riverclan",
+      "name_zh": "河族",
+      "name_en": "RiverClan",
+      "alignment": "clever",
+      "specialty": "Swimming & fishing",
+      "territory": "River and streams, fish-rich waters",
+      "starting_skills": ["Swimming", "Fishing"],
+      "traits": "Clever, strong, sleek"
+    },
+    {
+      "id": "windclan",
+      "name_zh": "风族",
+      "name_en": "WindClan",
+      "alignment": "swift",
+      "specialty": "Speed & moorland hunting",
+      "territory": "Open moorland, great for running",
+      "starting_skills": ["Swift Running", "Rabbit Chasing"],
+      "traits": "Fast, agile, nervous"
+    },
+    {
+      "id": "shadowclan",
+      "name_zh": "影族",
+      "name_en": "ShadowClan",
+      "alignment": "cunning",
+      "specialty": "Night hunting & stealth",
+      "territory": "Pine forest and marshes, dark and secretive",
+      "starting_skills": ["Night Vision", "Silent Stalking"],
+      "traits": "Cunning, ambitious, battle-hardened"
+    },
+    {
+      "id": "independent",
+      "name_zh": "独行猫",
+      "name_en": "Rogue/Loner",
+      "alignment": "neutral",
+      "specialty": "Survival without clan",
+      "territory": "Twolegplace (human settlements) or wilderness",
+      "starting_skills": ["Scavenging", "Solo Hunting"],
+      "traits": "Independent, resourceful"
+    }
+  ],
+  
+  "rank_progression": [
+    {
+      "rank": "kit",
+      "name_zh": "幼猫",
+      "name_en": "Kit",
+      "age": "0-6 moons",
+      "description": "Newborn to 6 months old, live in nursery"
+    },
+    {
+      "rank": "apprentice",
+      "name_zh": "学徒",
+      "name_en": "Apprentice",
+      "age": "6-12 moons",
+      "description": "Training to become warrior, suffix -paw",
+      "ceremony": "Do you promise to uphold the warrior code?"
+    },
+    {
+      "rank": "warrior",
+      "name_zh": "武士",
+      "name_en": "Warrior",
+      "age": "12+ moons",
+      "description": "Full clan member, hunts and fights for clan"
+    },
+    {
+      "rank": "deputy",
+      "name_zh": "副族长",
+      "name_en": "Deputy",
+      "description": "Second-in-command, organizes patrols"
+    },
+    {
+      "rank": "leader",
+      "name_zh": "族长",
+      "name_en": "Leader",
+      "description": "Clan leader with 9 lives from StarClan, suffix -star"
+    },
+    {
+      "rank": "medicine_cat",
+      "name_zh": "巫医",
+      "name_en": "Medicine Cat",
+      "description": "Healer, interprets signs from StarClan"
+    },
+    {
+      "rank": "elder",
+      "name_zh": "长老",
+      "name_en": "Elder",
+      "description": "Retired warriors, honored and cared for"
+    }
+  ],
+  
+  "legendary_skills": [
+    {
+      "name_zh": "星族祝福",
+      "name_en": "StarClan's Blessing",
+      "difficulty": "Very Hard",
+      "location": "Moonpool",
+      "teacher": "StarClan",
+      "description": "Receive prophecy and guidance from ancestors"
+    },
+    {
+      "name_zh": "九命加身",
+      "name_en": "Nine Lives Ceremony",
+      "difficulty": "Leader Only",
+      "location": "Moonpool",
+      "requirement": "Become Clan Leader",
+      "description": "Receive 9 lives from StarClan"
+    },
+    {
+      "name_zh": "黑森林武技",
+      "name_en": "Dark Forest Training",
+      "difficulty": "Forbidden",
+      "location": "Dark Forest (dreams)",
+      "side_effect": "Corrupts warrior code loyalty",
+      "description": "Train with Dark Forest cats in dreams"
+    },
+    {
+      "name_zh": "狮焰战技",
+      "name_en": "LionBlaze's Invincibility",
+      "difficulty": "Legendary",
+      "location": "Special Prophecy Cats Only",
+      "description": "Cannot be defeated in battle (The Three prophecy)"
+    }
+  ],
+  
+  "npcs": [
+    {
+      "name_zh": "火星",
+      "name_en": "Firestar",
+      "title_zh": "雷族族长",
+      "title_en": "ThunderClan Leader",
+      "location": "ThunderClan Camp",
+      "level": 95,
+      "clan": "ThunderClan",
+      "teachable_skills": ["Courage in Battle", "Kittypet Integration"],
+      "personality": "Noble, brave, compassionate",
+      "backstory": "Former kittypet Rusty who became legendary leader"
+    },
+    {
+      "name_zh": "虎星",
+      "name_en": "Tigerstar",
+      "title_zh": "影族族长",
+      "title_en": "ShadowClan Leader",
+      "location": "ShadowClan Camp / Dark Forest",
+      "level": 98,
+      "clan": "ShadowClan",
+      "teachable_skills": ["Ambush Tactics", "Manipulation"],
+      "personality": "Ambitious, ruthless, power-hungry",
+      "backstory": "ThunderClan traitor who sought total control"
+    },
+    {
+      "name_zh": "蓝星",
+      "name_en": "Bluestar",
+      "title_zh": "雷族前族长",
+      "title_en": "Former ThunderClan Leader",
+      "location": "StarClan",
+      "level": 90,
+      "clan": "ThunderClan",
+      "teachable_skills": ["Leadership", "Sacrifice"],
+      "personality": "Wise, tragic, noble"
+    },
+    {
+      "name_zh": "灰条",
+      "name_en": "Graystripe",
+      "title_zh": "雷族武士",
+      "title_en": "ThunderClan Warrior",
+      "location": "ThunderClan Camp",
+      "level": 75,
+      "clan": "ThunderClan",
+      "personality": "Loyal, friendly, brave"
+    },
+    {
+      "name_zh": "叶池",
+      "name_en": "Leafpool",
+      "title_zh": "巫医",
+      "title_en": "Medicine Cat",
+      "location": "ThunderClan Medicine Den",
+      "level": 70,
+      "clan": "ThunderClan",
+      "teachable_skills": ["Herb Knowledge", "StarClan Communication"],
+      "personality": "Gentle, wise, conflicted"
+    }
+  ],
+  
+  "locations": [
+    {
+      "id": "thunderclan-camp",
+      "name_zh": "雷族营地",
+      "name_en": "ThunderClan Camp",
+      "description_zh": "位于森林深处的石谷，被荆棘围墙保护",
+      "description_en": "Stone hollow deep in forest, protected by thorn barrier",
+      "npcs": ["Firestar", "Graystripe", "Leafpool"],
+      "available_quests": ["Border Patrol", "Hunting Party"]
+    },
+    {
+      "id": "moonpool",
+      "name_zh": "月池",
+      "name_en": "Moonpool",
+      "description_zh": "神圣的水池，巫医与星族交流的地方",
+      "description_en": "Sacred pool where medicine cats commune with StarClan",
+      "npcs": ["StarClan spirits"],
+      "secret": "StarClan prophecies"
+    },
+    {
+      "id": "fourtrees",
+      "name_zh": "四乔木",
+      "name_en": "Fourtrees",
+      "description_zh": "四棵巨橡树下，四族停战聚会之地",
+      "description_en": "Four great oaks where clans meet in truce each full moon",
+      "npcs": ["All clan leaders during Gathering"],
+      "special": "Gathering site - no fighting allowed"
+    },
+    {
+      "id": "dark-forest",
+      "name_zh": "黑森林",
+      "name_en": "Dark Forest",
+      "description_zh": "邪恶武士死后去的地方，永恒的战斗训练场",
+      "description_en": "Where evil cats go after death, eternal battle training grounds",
+      "npcs": ["Tigerstar", "Hawkfrost", "Mapleshade"],
+      "danger_level": "Extreme",
+      "secret": "Forbidden training in dreams"
+    },
+    {
+      "id": "twolegplace",
+      "name_zh": "两脚兽地盘",
+      "name_en": "Twolegplace",
+      "description_zh": "人类居住区，宠物猫和流浪猫的家",
+      "description_en": "Human settlements, home of kittypets and rogues",
+      "npcs": ["Kittypets", "Rogues"],
+      "danger_level": "Low"
+    },
+    {
+      "id": "sunningrocks",
+      "name_zh": "阳光石",
+      "name_en": "Sunningrocks",
+      "description_zh": "雷族和河族争夺的领地",
+      "description_en": "Disputed territory between ThunderClan and RiverClan",
+      "conflict": "ThunderClan vs RiverClan"
+    }
+  ],
+  
+  "warrior_code": [
+    "Defend your Clan, even with your life",
+    "Do not hunt or trespass on another Clan's territory",
+    "Elders, queens, and kits must be fed before apprentices and warriors",
+    "Prey is killed only to be eaten",
+    "A kit must be at least six moons old to become an apprentice",
+    "Newly appointed warriors will keep a silent vigil for one night",
+    "A cat cannot be made deputy without having mentored at least one apprentice",
+    "The deputy will become Clan leader when the leader dies or retires",
+    "A Gathering of all Clans is held at the full moon during a truce",
+    "Boundaries must be checked and marked daily",
+    "No warrior can neglect a kit in pain or danger",
+    "The word of the Clan leader is the warrior code",
+    "An honorable warrior does not need to kill to win battles",
+    "A warrior rejects the soft life of a kittypet"
+  ],
+  
+  "hunting_prey": [
+    {"name": "Mouse", "difficulty": "Easy", "best_clan": "ThunderClan"},
+    {"name": "Vole", "difficulty": "Easy", "best_clan": "WindClan"},
+    {"name": "Rabbit", "difficulty": "Medium", "best_clan": "WindClan"},
+    {"name": "Squirrel", "difficulty": "Medium", "best_clan": "ThunderClan"},
+    {"name": "Fish", "difficulty": "Medium", "best_clan": "RiverClan"},
+    {"name": "Bird", "difficulty": "Hard", "best_clan": "All"},
+    {"name": "Frog", "difficulty": "Easy", "best_clan": "ShadowClan"}
+  ],
+  
+  "herbs_and_remedies": [
+    {"name": "Cobwebs", "use": "Stop bleeding"},
+    {"name": "Marigold", "use": "Infection prevention"},
+    {"name": "Poppy seeds", "use": "Pain relief, sleep"},
+    {"name": "Catmint", "use": "Cure greencough"},
+    {"name": "Dock", "use": "Soothe scratches"},
+    {"name": "Borage leaves", "use": "Increase milk for nursing queens"}
+  ],
+  
+  "art_style": "Stylized feral cat illustration in natural forest setting, semi-realistic animal anatomy with expressive eyes, dappled sunlight through trees, earthy tones (browns, greens, grays), soft fur textures, dramatic poses showing hunting/battle stances, Warriors book cover aesthetic by Wayne McLoughlin",
+  
+  "starting_location": "ThunderClan Camp",
+  "main_quest": "Prove yourself as a loyal warrior and rise through the ranks",
+  
+  "stat_names": {
+    "hp_zh": "生命值",
+    "hp_en": "Health",
+    "mp_zh": "精力",
+    "mp_en": "Stamina",
+    "attack_zh": "战斗力",
+    "attack_en": "Battle Skill",
+    "defense_zh": "敏捷度",
+    "defense_en": "Agility",
+    "speed_zh": "速度",
+    "speed_en": "Speed",
+    "wisdom_zh": "智慧",
+    "wisdom_en": "Wisdom"
+  },
+  
+  "combat_terms": {
+    "duel_start_zh": "战斗开始！",
+    "duel_start_en": "Battle begins!",
+    "attack_zh": "扑咬",
+    "attack_en": "Pounce",
+    "defend_zh": "躲闪",
+    "defend_en": "Dodge",
+    "special_move_zh": "武士绝技",
+    "special_move_en": "Battle Move"
+  },
+  
+  "battle_moves": [
+    {
+      "name": "Back Kick",
+      "description": "Explosive surprise move to catch opponent off-guard"
+    },
+    {
+      "name": "Belly Rake",
+      "description": "Slice belly with back claws while on back"
+    },
+    {
+      "name": "Front Paw Blow",
+      "description": "Frontal attack with paw to head"
+    },
+    {
+      "name": "Leap-and-Hold",
+      "description": "Jump onto enemy's back and grip with claws"
+    },
+    {
+      "name": "Tail Yank",
+      "description": "Grab opponent's tail to throw off balance"
+    }
+  ],
+  
+  "special_events": [
+    "Gathering (Full moon - all clans meet in truce)",
+    "Medicine Cat Meeting (Half moon - medicine cats visit Moonpool)",
+    "Leadership Ceremony (New leader receives 9 lives)",
+    "Warrior Naming Ceremony",
+    "Apprentice Ceremony (Kit becomes -paw)",
+    "Border Skirmish",
+    "Greencough Outbreak",
+    "Prophecy from StarClan",
+    "Forbidden Romance Across Clans",
+    "Dark Forest Invasion (The Great Battle)"
+  ]
+}
