@@ -1,23 +1,54 @@
 ---
 name: yumfu
-description: 武侠江湖 MUD - 多人在线武侠世界，PvP/组队/共享NPC，每步配水墨风配图
-homepage: https://github.com/openclaw/openclaw
+description: Multi-World MUD - Wuxia, Harry Potter, LOTR & more | 多世界MUD - 武侠/哈利波特/指环王等
+homepage: https://github.com/yumyumtum/yumfu
 metadata:
   {
     "openclaw":
       {
-        "emoji": "⚔️",
+        "emoji": "🌍",
         "requires": { "bins": ["uv"], "env": ["GEMINI_API_KEY"] },
         "primaryEnv": "GEMINI_API_KEY"
       }
   }
 ---
 
-# 武侠江湖 MUD (YumFu) ⚔️
+# YumFu - Multi-World MUD 🌍
 
-**多人在线武侠世界** - 金庸、古龙小说宇宙，支持 PvP、组队、共享NPC、相互影响。
+**Choose Your Adventure** | **选择你的冒险**
 
-## 🎮 核心特色
+- ⚔️ **Wuxia Jianghu** (武侠江湖) - Jin Yong, Gu Long novels
+- ⚡ **Harry Potter** - Hogwarts, magic, wizarding duels
+- 🗡️ **Lord of the Rings** - Middle-earth, Fellowship
+- 🐉 **Game of Thrones** - Westeros, power struggles
+- 🐺 **The Witcher** - Monster hunting, Slavic folklore
+
+---
+
+## 🌐 Language & World Selection | 语言与世界选择
+
+**First time?** Start with language selection:
+```
+/yumfu start
+```
+
+You'll see / 你会看到:
+```
+🌍 Welcome to YumFu! | 欢迎来到YumFu！
+
+1. 中文 (Chinese) - 武侠世界
+2. English - Fantasy Realms
+
+Reply: /yumfu lang <1|2>
+```
+
+Then choose your world / 然后选择世界:
+- **中文**: 笑傲江湖, 倚天屠龙记, 射雕英雄传, 天龙八部
+- **English**: Harry Potter, LOTR, Game of Thrones, The Witcher
+
+---
+
+## 🎮 核心特色 | Core Features
 
 - ⚔️ **多人在线** - 在群聊中 @我 即可加入江湖
 - 🤝 **组队冒险** - 最多5人组队，共享经验和战利品

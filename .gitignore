@@ -2,12 +2,16 @@
 # 保护用户隐私，不上传游戏存档和进度
 
 # 用户存档（在 ~/clawd/memory/yumfu/）
-*.json
-saves/
-backups/
-events/
-teams/
-history/
+saves/**/*.json
+backups/**/*.json
+events/**/*.json
+teams/**/*.json
+history/**/*.json
+world-state.json
+
+# 允许世界观配置和本地化文件
+!worlds/*.json
+!i18n/*.json
 
 # 图片输出（在 ~/.openclaw/media/outbound/yumfu/）
 *.png
