@@ -17,11 +17,16 @@ metadata:
 
 **Choose Your Adventure** | **选择你的冒险**
 
-- ⚔️ **Wuxia Jianghu** (武侠江湖) - Jin Yong, Gu Long novels
+### ✅ **Available Now:**
+- ⚔️ **Xiaoao Jianghu** (笑傲江湖) - Jin Yong wuxia classic
 - ⚡ **Harry Potter** - Hogwarts, magic, wizarding duels
+- 🐱 **Warrior Cats** - Clan life, forest territories, warrior code
+
+### 🚧 **Coming Soon (Roadmap):**
 - 🗡️ **Lord of the Rings** - Middle-earth, Fellowship
 - 🐉 **Game of Thrones** - Westeros, power struggles
 - 🐺 **The Witcher** - Monster hunting, Slavic folklore
+- 📚 **More Jin Yong Novels** - 倚天屠龙记, 射雕英雄传, 天龙八部
 
 ---
 
@@ -43,8 +48,15 @@ Reply: /yumfu lang <1|2>
 ```
 
 Then choose your world / 然后选择世界:
-- **中文**: 笑傲江湖, 倚天屠龙记, 射雕英雄传, 天龙八部
-- **English**: Harry Potter, LOTR, Game of Thrones, The Witcher
+
+**中文 (Available Now):**
+- **笑傲江湖** (Xiaoao Jianghu) - 华山派、武当、少林、江湖恩怨
+
+**English (Available Now):**
+- **Harry Potter** - Hogwarts houses, magic, wizarding adventures
+- **Warrior Cats** - ThunderClan, RiverClan, forest territories
+
+**Coming Soon:** LOTR, Game of Thrones, The Witcher, 倚天屠龙记, 射雕英雄传
 
 ---
 
@@ -61,7 +73,27 @@ Then choose your world / 然后选择世界:
 
 ## 触发指令
 
-所有指令以 `/yumfu` 或 `/江湖` 开头：
+所有指令以 `/yumfu` 或 `/江湖` 开头
+
+### 🌐 Language Support | 双语支持
+
+**All commands support both English and Chinese aliases:**
+
+| English | 中文 | Action |
+|---------|------|--------|
+| `/yumfu start` | `/yumfu 开始` | Start new game / 开始新游戏 |
+| `/yumfu continue` | `/yumfu 继续` | Continue saved game / 继续游戏 |
+| `/yumfu status` | `/yumfu 状态` | Show character stats / 显示状态 |
+| `/yumfu help` | `/yumfu 帮助` | Show all commands / 显示帮助 |
+| `/yumfu go <place>` | `/yumfu 去 <地点>` | Travel to location / 前往某地 |
+| `/yumfu look` | `/yumfu 看` | Look around / 查看四周 |
+| `/yumfu map` | `/yumfu 地图` | Show map / 显示地图 |
+| `/yumfu fight <target>` | `/yumfu 战 <对手>` | Start combat / 发起战斗 |
+| `/yumfu train <skill>` | `/yumfu 练 <功法>` | Train skill / 修炼武功 |
+
+**Use the language that matches your selected world!**
+
+---
 
 ### 游戏管理
 - `/yumfu start` 或 `/yumfu 开始` — 开始新游戏（创建角色）
@@ -216,14 +248,20 @@ Then choose your world / 然后选择世界:
 memory/yumfu/
 ├── world-state.json          # 共享世界状态（NPC、秘籍、门派控制）
 ├── saves/
-│   ├── user-123456789.json  # 玩家存档（按 Telegram ID）
-│   ├── user-2345678901.json
-│   └── ...
+│   ├── xiaoao/               # 笑傲江湖存档目录
+│   │   ├── user-123456789.json
+│   │   └── user-2345678901.json
+│   ├── harry-potter/         # Harry Potter存档目录
+│   │   └── user-123456789.json
+│   └── warrior-cats/         # Warrior Cats存档目录
+│       └── user-123456789.json
 ├── teams/
 │   └── team-华山论剑.json     # 临时队伍状态
 └── events/
     └── 2026-04-01.json        # 今日江湖大事
 ```
+
+**Note:** Each world uses a separate subfolder to prevent save conflicts.
 
 ### 世界状态（world-state.json）
 ```json
@@ -258,8 +296,10 @@ memory/yumfu/
 ### 玩家存档（user-{id}.json）
 ```json
 {
-  "version": 1,
+  "version": 2,
   "user_id": "123456789",
+  "language": "zh",
+  "universe": "xiaoao",
   "character": { "name": "大红虾🦐", "level": 1, ... },
   "location": "洛阳城",
   "inventory": [...],
@@ -269,6 +309,45 @@ memory/yumfu/
   "in_combat_with": null
 }
 ```
+
+**Important:** Save path is `~/clawd/memory/yumfu/saves/{universe}/user-{id}.json`
+
+### 💾 Save File Management (Agent Instructions)
+
+**CRITICAL:** Persist game state after every significant action to prevent data loss!
+
+#### When to Save:
+1. **Training completion** - New skill learned
+2. **Combat end** - HP/stats changed
+3. **Quest milestone** - Progress updated
+4. **Location change** - Player moved
+5. **Inventory change** - Item gained/used
+6. **Character creation** - First save
+
+#### Save Workflow:
+```python
+# 1. Update character state in memory
+character["hp"] = new_hp
+character["location"] = new_location
+
+# 2. Write to correct path
+save_path = f"~/clawd/memory/yumfu/saves/{universe}/user-{user_id}.json"
+with open(save_path, 'w') as f:
+    json.dump(save_data, f, indent=2)
+
+# 3. Verify write succeeded
+if os.path.exists(save_path):
+    print(f"✅ Game saved: {save_path}")
+else:
+    # Recovery: attempt backup path
+    print(f"❌ Save failed! Attempting recovery...")
+```
+
+#### Error Recovery:
+- If save fails: **Notify player immediately**
+- Attempt backup save to `~/clawd/memory/yumfu/backups/`
+- Log error to `~/clawd/memory/yumfu/save-errors.log`
+- **Never silently fail** - player must know their progress may be lost
 
 ### 队伍状态（team-{name}.json）
 ```json
@@ -298,12 +377,27 @@ Agent **就是**游戏引擎：
 9. **保存状态** - 更新玩家存档和世界状态
 
 ### 叙述风格
-- 所有输出使用中文，武侠文风
-- 叙事与游戏机制结合
-- 明确显示属性变化：`[体力 -15] [内力 +5]`
-- 战斗描写要有张力
-- NPC对话符合人物性格
-- **多人互动要有代入感** - "你看到大红虾正在和洪七公切磋"
+
+**Narrative style adapts to the world:**
+
+#### 🇨🇳 **Chinese Worlds (Xiaoao Jianghu)**
+- Use Chinese throughout
+- Wuxia literary style (武侠文风)
+- Show attributes: `[体力 -15] [内力 +5]`
+- Combat descriptions with flair
+- NPC dialogue matches personality
+
+#### 🇬🇧 **English Worlds (Harry Potter, Warrior Cats)**
+- Use English throughout
+- Genre-appropriate style (magical/wilderness)
+- Show attributes: `[HP -15] [Stamina +5]`
+- Combat/action descriptions fitting the world
+- NPC dialogue matches character voice
+
+**Universal:**
+- Blend narrative with game mechanics
+- Combat writing has tension
+- **Multiplayer interactions are immersive** - "You see 大红虾 sparring with 洪七公" / "You see Tumpaw training with Willowpelt"
 
 ### 骰子与随机
 使用透明的随机系统：
@@ -447,12 +541,54 @@ Semi-realistic warrior cats art style, forest atmosphere with dappled sunlight, 
 
 ---
 
+## 平台兼容性 | Platform Support
+
+YumFu works across multiple AI platforms with varying feature sets:
+
+### 🌟 **OpenClaw (Telegram, Discord, etc.)**
+**Full multiplayer experience:**
+- ✅ Multi-player (teams, PvP, shared world)
+- ✅ AI-generated images (auto-sent)
+- ✅ Persistent saves across sessions
+- ✅ Group chat support
+- ✅ User identification via platform ID
+
+**Best for:** Group adventures, PvP, shared world events
+
+---
+
+### 🖥️ **Claude Code / Desktop AI**
+**Single-player mode:**
+- ✅ Full gameplay (exploration, combat, quests)
+- ✅ AI-generated images (manual save/view)
+- ✅ Persistent saves (local files)
+- ❌ No multiplayer (PvP/teams disabled)
+- ❌ No shared world state
+
+**Best for:** Solo story-driven campaigns
+
+---
+
+### 💬 **Native Claude (Web/Mobile)**
+**Text-only mode:**
+- ✅ Basic gameplay (limited features)
+- ✅ Manual save/load via copy-paste JSON
+- ❌ No images
+- ❌ No multiplayer
+- ❌ No persistent saves (session-based)
+
+**Best for:** Quick casual play, testing stories
+
+---
+
 ## 初始化
 
 ### 首次游戏
+
+**OpenClaw (Telegram/Discord):**
 1. 玩家在群聊中 `@我 /yumfu start`
 2. 角色创建流程：姓名、门派、属性
-3. 生成该玩家的存档 `user-{telegram_id}.json`
+3. 生成该玩家的存档 `~/clawd/memory/yumfu/saves/{universe}/user-{platform_id}.json`
 4. 显示开场剧情
 5. 生成第一张场景图
 6. 记录到世界事件
