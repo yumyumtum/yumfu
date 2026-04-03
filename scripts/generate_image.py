@@ -7,11 +7,12 @@
 # ]
 # ///
 # YumFu武侠游戏图片生成脚本（无自动发送）
-# 基于好吃侠（Gemini 3 Pro Image）
+# 基于 Gemini 3 Pro Image API
 #
-# 与好吃侠的区别：
+# 特点：
 # - 不输出 MEDIA: 标记
 # - 由游戏引擎控制发送时机
+# - 专为水墨武侠风格设计
 #
 """
 Generate images using Google's Nano Banana Pro (Gemini 3 Pro Image) API.

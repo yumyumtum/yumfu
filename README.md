@@ -33,7 +33,7 @@
 
 需要：
 - `GEMINI_API_KEY`（图片生成）
-- 好吃侠 skill（`~/clawd/skills/haochixia/`）
+- Python 3.x + `uv`（用于运行图片生成脚本）
 
 ## 存档
 
