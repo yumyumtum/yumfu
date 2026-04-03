@@ -1,0 +1,166 @@
+{
+  "id": "xiaoao",
+  "name_zh": "笑傲江湖",
+  "name_en": "The Smiling, Proud Wanderer",
+  "language": "zh",
+  "genre": "wuxia",
+  "era": "明朝中期",
+  "description_zh": "华山派内部气剑之争，正邪两道恩怨纠葛，剑宗复仇计划暗流涌动",
+  "description_en": "Internal conflict between sword and qi schools of Mt. Hua Sect, clash between orthodox and unorthodox martial artists",
+  
+  "factions": [
+    {
+      "id": "huashan",
+      "name_zh": "华山派",
+      "name_en": "Mt. Hua Sect",
+      "alignment": "orthodox",
+      "specialty": "剑法",
+      "starting_skills": ["华山剑法", "紫霞神功"]
+    },
+    {
+      "id": "wudang",
+      "name_zh": "武当派",
+      "name_en": "Wudang Sect",
+      "alignment": "orthodox",
+      "specialty": "内功+剑法",
+      "starting_skills": ["太极剑", "纯阳无极功"]
+    },
+    {
+      "id": "shaolin",
+      "name_zh": "少林寺",
+      "name_en": "Shaolin Temple",
+      "alignment": "orthodox",
+      "specialty": "拳法+棍法",
+      "starting_skills": ["罗汉拳", "易筋经"]
+    },
+    {
+      "id": "riyue",
+      "name_zh": "日月神教",
+      "name_en": "Sun Moon Holy Cult",
+      "alignment": "unorthodox",
+      "specialty": "诡异武功",
+      "starting_skills": ["吸星大法", "魔教剑法"]
+    },
+    {
+      "id": "independent",
+      "name_zh": "独行侠",
+      "name_en": "Independent",
+      "alignment": "neutral",
+      "specialty": "自由发展",
+      "starting_skills": ["基础剑法", "基础内功"]
+    }
+  ],
+  
+  "legendary_skills": [
+    {
+      "name_zh": "独孤九剑",
+      "name_en": "Dugu Nine Swords",
+      "difficulty": "极难",
+      "location": "华山思过崖",
+      "teacher": "风清扬"
+    },
+    {
+      "name_zh": "辟邪剑法",
+      "name_en": "Evil-Warding Sword",
+      "difficulty": "极难",
+      "location": "林家老宅",
+      "requirement": "特殊条件"
+    },
+    {
+      "name_zh": "吸星大法",
+      "name_en": "Star Absorbing Technique",
+      "difficulty": "困难",
+      "location": "西湖牢底",
+      "side_effect": "走火入魔风险"
+    }
+  ],
+  
+  "npcs": [
+    {
+      "name_zh": "风清扬",
+      "name_en": "Feng Qingyang",
+      "title_zh": "剑道宗师",
+      "title_en": "Sword Saint",
+      "location": "华山思过崖",
+      "level": 98,
+      "teachable_skills": ["独孤九剑"],
+      "personality": "隐世高人"
+    },
+    {
+      "name_zh": "东方不败",
+      "name_en": "Dongfang Bubai",
+      "title_zh": "日月神教教主",
+      "title_en": "Cult Leader",
+      "location": "黑木崖",
+      "level": 99,
+      "teachable_skills": ["葵花宝典"],
+      "personality": "阴狠毒辣"
+    },
+    {
+      "name_zh": "岳不群",
+      "name_en": "Yue Buqun",
+      "title_zh": "君子剑",
+      "title_en": "Gentleman Sword",
+      "location": "华山派",
+      "level": 85,
+      "teachable_skills": ["紫霞神功", "华山剑法"],
+      "personality": "伪君子"
+    },
+    {
+      "name_zh": "令狐冲",
+      "name_en": "Linghu Chong",
+      "title_zh": "华山大弟子",
+      "title_en": "First Disciple",
+      "location": "华山派",
+      "level": 70,
+      "personality": "豪爽洒脱"
+    }
+  ],
+  
+  "locations": [
+    {
+      "id": "huashan",
+      "name_zh": "华山派",
+      "name_en": "Mt. Hua Sect",
+      "description_zh": "五岳剑派之一，坐落于西岳华山",
+      "npcs": ["岳不群", "宁中则", "令狐冲"],
+      "available_quests": ["剑宗复仇"]
+    },
+    {
+      "id": "siguo-cliff",
+      "name_zh": "思过崖",
+      "name_en": "Reflection Cliff",
+      "description_zh": "华山派惩罚弟子之地，隐藏着剑道秘密",
+      "npcs": ["风清扬"],
+      "secret": "独孤九剑秘籍"
+    },
+    {
+      "id": "heimu-cliff",
+      "name_zh": "黑木崖",
+      "name_en": "Black Wood Cliff",
+      "description_zh": "日月神教总坛，机关重重",
+      "npcs": ["东方不败"],
+      "danger_level": "极高"
+    }
+  ],
+  
+  "art_style": "Chinese wuxia ink wash painting style (水墨武侠风), dramatic cinematic composition, muted earth tones with selective vivid accents (red, gold), atmospheric fog and light rays, textured rice paper background",
+  
+  "starting_location": "华山派",
+  "main_quest": "剑宗复仇",
+  
+  "stat_names": {
+    "hp_zh": "体力",
+    "hp_en": "Health",
+    "mp_zh": "内力",
+    "mp_en": "Inner Force",
+    "attack_zh": "攻击",
+    "attack_en": "Attack",
+    "defense_zh": "防御",
+    "defense_en": "Defense",
+    "speed_zh": "身法",
+    "speed_en": "Agility",
+    "wisdom_zh": "悟性",
+    "wisdom_en": "Comprehension"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "id": "harry-potter",
+  "name_zh": "哈利波特",
+  "name_en": "Harry Potter",
+  "language": "en",
+  "genre": "magical-fantasy",
+  "era": "1990s",
+  "description_zh": "霍格沃茨魔法学校，四大学院竞争，黑魔王的阴影笼罩巫师界",
+  "description_en": "Hogwarts School of Witchcraft and Wizardry, four houses compete, the Dark Lord's shadow looms over the wizarding world",
+  
+  "factions": [
+    {
+      "id": "gryffindor",
+      "name_zh": "格兰芬多",
+      "name_en": "Gryffindor",
+      "alignment": "light",
+      "specialty": "Bravery & Combat Magic",
+      "starting_skills": ["Expelliarmus", "Lumos"]
+    },
+    {
+      "id": "slytherin",
+      "name_zh": "斯莱特林",
+      "name_en": "Slytherin",
+      "alignment": "dark",
+      "specialty": "Cunning & Dark Arts",
+      "starting_skills": ["Serpensortia", "Legilimency Basics"]
+    },
+    {
+      "id": "ravenclaw",
+      "name_zh": "拉文克劳",
+      "name_en": "Ravenclaw",
+      "alignment": "neutral",
+      "specialty": "Wisdom & Advanced Magic",
+      "starting_skills": ["Alohomora", "Wingardium Leviosa"]
+    },
+    {
+      "id": "hufflepuff",
+      "name_zh": "赫奇帕奇",
+      "name_en": "Hufflepuff",
+      "alignment": "light",
+      "specialty": "Loyalty & Herbology",
+      "starting_skills": ["Protego", "Herbivicus"]
+    },
+    {
+      "id": "independent",
+      "name_zh": "独立巫师",
+      "name_en": "Independent Wizard",
+      "alignment": "neutral",
+      "specialty": "Free Development",
+      "starting_skills": ["Basic Charms", "Basic Transfiguration"]
+    }
+  ],
+  
+  "legendary_skills": [
+    {
+      "name_zh": "守护神咒",
+      "name_en": "Patronus Charm",
+      "difficulty": "Very Hard",
+      "location": "Room of Requirement",
+      "teacher": "Albus Dumbledore"
+    },
+    {
+      "name_zh": "索命咒",
+      "name_en": "Avada Kedavra",
+      "difficulty": "Forbidden",
+      "location": "Forbidden Forest",
+      "requirement": "Dark Path Only",
+      "side_effect": "Corrupts soul"
+    },
+    {
+      "name_zh": "摄神取念",
+      "name_en": "Legilimency",
+      "difficulty": "Hard",
+      "location": "Dumbledore's Office",
+      "teacher": "Severus Snape"
+    }
+  ],
+  
+  "npcs": [
+    {
+      "name_zh": "阿不思·邓布利多",
+      "name_en": "Albus Dumbledore",
+      "title_zh": "校长",
+      "title_en": "Headmaster",
+      "location": "Headmaster's Office",
+      "level": 99,
+      "teachable_skills": ["Patronus Charm", "Advanced Transfiguration"],
+      "personality": "Wise and mysterious"
+    },
+    {
+      "name_zh": "伏地魔",
+      "name_en": "Lord Voldemort",
+      "title_zh": "黑魔王",
+      "title_en": "Dark Lord",
+      "location": "Unknown (wandering)",
+      "level": 98,
+      "teachable_skills": ["Dark Arts"],
+      "personality": "Evil and merciless"
+    },
+    {
+      "name_zh": "西弗勒斯·斯内普",
+      "name_en": "Severus Snape",
+      "title_zh": "魔药课教授",
+      "title_en": "Potions Master",
+      "location": "Dungeons",
+      "level": 85,
+      "teachable_skills": ["Legilimency", "Potions"],
+      "personality": "Cold and sarcastic"
+    },
+    {
+      "name_zh": "哈利·波特",
+      "name_en": "Harry Potter",
+      "title_zh": "幸存的男孩",
+      "title_en": "The Boy Who Lived",
+      "location": "Gryffindor Common Room",
+      "level": 50,
+      "personality": "Brave and kind"
+    }
+  ],
+  
+  "locations": [
+    {
+      "id": "diagon-alley",
+      "name_zh": "对角巷",
+      "name_en": "Diagon Alley",
+      "description_zh": "巫师界的购物街，出售魔杖、魔法书、魔药材料",
+      "npcs": ["Ollivander"],
+      "shops": ["Ollivanders", "Flourish and Blotts", "Apothecary"]
+    },
+    {
+      "id": "hogwarts",
+      "name_zh": "霍格沃茨",
+      "name_en": "Hogwarts",
+      "description_zh": "英国最著名的魔法学校，四大学院所在地",
+      "npcs": ["Dumbledore", "Snape", "Harry Potter"],
+      "available_quests": ["House Cup Competition"]
+    },
+    {
+      "id": "forbidden-forest",
+      "name_zh": "禁林",
+      "name_en": "Forbidden Forest",
+      "description_zh": "霍格沃茨禁地，栖息着危险的魔法生物",
+      "npcs": ["Aragog", "Centaurs"],
+      "danger_level": "High"
+    },
+    {
+      "id": "room-of-requirement",
+      "name_zh": "有求必应屋",
+      "name_en": "Room of Requirement",
+      "description_zh": "只在需要时出现的神秘房间",
+      "secret": "Advanced spell practice"
+    }
+  ],
+  
+  "art_style": "Magical wizarding world illustration, Hogwarts castle aesthetic in soft warm lighting, watercolor style with ink accents, enchanted atmosphere with floating candles and magical particles, Victorian-era architecture, mystical and whimsical",
+  
+  "starting_location": "Diagon Alley",
+  "main_quest": "Defeat Voldemort",
+  
+  "stat_names": {
+    "hp_zh": "生命值",
+    "hp_en": "Health Points",
+    "mp_zh": "魔力值",
+    "mp_en": "Magic Points",
+    "attack_zh": "魔法攻击",
+    "attack_en": "Spell Power",
+    "defense_zh": "魔法防御",
+    "defense_en": "Magic Resistance",
+    "speed_zh": "反应速度",
+    "speed_en": "Reflexes",
+    "wisdom_zh": "智慧",
+    "wisdom_en": "Intelligence"
+  },
+  
+  "combat_terms": {
+    "duel_start_zh": "魔杖决斗开始！",
+    "duel_start_en": "Wand duel begins!",
+    "cast_spell_zh": "施放咒语",
+    "cast_spell_en": "Cast spell",
+    "block_zh": "盔甲护身",
+    "block_en": "Shield charm"
+  }
+}
