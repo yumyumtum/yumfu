@@ -29,10 +29,22 @@
 ### 属性
 体力、内力、攻击、防御、速度、悟性、善恶值
 
+## 平台兼容性
+
+**✅ 完整支持：OpenClaw**
+- 多人在线（Telegram群聊）
+- 自动发送配图
+- PvP和组队
+
+**⚠️ 部分支持：Claude Code / 原生Claude**
+- 仅单人模式
+- 需手动查看配图
+- 详见 `COMPATIBILITY.md`
+
 ## 配置
 
 需要：
-- `GEMINI_API_KEY`（图片生成）
+- `GEMINI_API_KEY`（图片生成，可选）
 - Python 3.x + `uv`（用于运行图片生成脚本）
 
 ## 存档
