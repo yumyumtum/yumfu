@@ -335,25 +335,56 @@ shuf -i 1-20 -n 1
 
 ---
 
-## 场景配图 (武侠图景)
+## 场景配图 (Scene Illustration)
 
-**每个游戏回合必须生成配图**，使用 YumFu 内置的图片生成脚本（Gemini 图片生成）。
+**CRITICAL RULE**: **Every significant story moment MUST generate an image automatically.**
 
-### 图片生成指令
+### When to Generate Images (AUTO-TRIGGER)
+
+✅ **ALWAYS generate for:**
+1. **New location arrival** - Player enters camp/dungeon/city
+2. **Training completion** - After learning a new skill
+3. **Combat start** - First round of any fight
+4. **NPC encounter** - Meeting important characters
+5. **Quest milestones** - Completing objectives
+6. **Ceremony/ritual** - Apprentice ceremony, leader coronation, etc.
+7. **Discovery** - Finding items, secrets, new areas
+
+❌ **DO NOT generate for:**
+- Menu screens / stat displays
+- Info dumps / lore explanations (unless player explicitly explores a location)
+- "What can I do?" meta questions
+- Save/load operations
+
+### Image Generation Command
 ```bash
 uv run ~/clawd/skills/yumfu/scripts/generate_image.py \
-  --prompt "<场景提示词>" \
+  --prompt "<scene prompt>" \
   --filename "~/.openclaw/media/outbound/yumfu/$(date +%Y%m%d-%H%M%S)-<scene>.png" \
-  --resolution 1K
+  --resolution 2K
 ```
 
-**注意**：YumFu 使用专用脚本，不会自动发送图片，由游戏引擎控制发送时机。
+**Note**: Script does NOT auto-send. Use `message` tool with `media` parameter to send.
 
-### 固定艺术风格
-**所有场景提示词必须以此风格前缀开头**：
+---
 
+### Art Styles by World
+
+**Each world has its own signature art style. ALWAYS include the style prefix in prompts.**
+
+#### 🇨🇳 Xiaoao Jianghu (笑傲江湖)
 ```
 Chinese wuxia ink wash painting style (水墨武侠风), dramatic cinematic composition, muted earth tones with selective vivid accents (red, gold), atmospheric fog and light rays, textured rice paper background,
+```
+
+#### 🧙 Harry Potter
+```
+Hogwarts watercolor illustration style, magical atmosphere, warm candlelight and moonlight, storybook composition, detailed wizarding world architecture, enchanted particle effects, painterly texture,
+```
+
+#### 🐱 Warrior Cats
+```
+Semi-realistic warrior cats art style, forest atmosphere with dappled sunlight, detailed cat anatomy and expressions, natural woodland setting, dramatic lighting through trees, storybook illustration quality,
 ```
 
 ### 场景类型与提示词模板
