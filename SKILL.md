@@ -1,6 +1,6 @@
 ---
 name: yumfu
-description: Multi-World MUD - Wuxia, Harry Potter, LOTR & more | 多世界MUD - 武侠/哈利波特/指环王等
+description: "Multi-World text adventure MUD game (Wuxia, Harry Potter, Warrior Cats, LOTR). Use when: user types /yumfu, /江湖, or asks to play a text adventure, MUD game, role-playing game, or interactive story. NOT for: stock analysis, news, weather."
 homepage: https://github.com/yumyumtum/yumfu
 metadata:
   {
@@ -8,7 +8,8 @@ metadata:
       {
         "emoji": "🌍",
         "requires": { "bins": ["uv"], "env": ["GEMINI_API_KEY"] },
-        "primaryEnv": "GEMINI_API_KEY"
+        "primaryEnv": "GEMINI_API_KEY",
+        "triggers": ["/yumfu", "/江湖"]
       }
   }
 ---
@@ -698,6 +699,94 @@ YumFu works across multiple AI platforms with varying feature sets:
 - **世界状态要一致** - 所有玩家看到同一个NPC状态
 - **PvP要平衡** - 等级差过大可以拒绝决斗
 
+### 🔴 MANDATORY: Session Logging (对话记录 - 必须执行)
+
+**Every single game turn MUST be logged for storybook generation.**
+
+#### When to Log
+
+**After EVERY player action**, immediately run:
+
+```python
+from scripts.session_logger import log_turn
+
+# Log complete turn
+log_turn(
+    user_id="1309815719",           # Telegram user ID
+    universe="warrior-cats",         # Current world
+    player_input="/yumfu look",      # What player typed
+    ai_response="You see...",        # Your narrative response
+    image="tumpaw-camp-123.png"      # Optional: if image generated this turn
+)
+```
+
+#### Integration Points
+
+1. **Player command received** → Store `player_input`
+2. **Generate narrative** → Store `ai_response`
+3. **Generate image (if triggered)** → Store `image` filename
+4. **Before sending reply** → Call `log_turn()` with all 3 components
+
+#### Example Flow
+
+```python
+# 1. Player types: "/yumfu look"
+player_input = "/yumfu look"
+
+# 2. Generate response
+ai_response = "You see the ThunderClan camp bustling with activity. Warriors share tongues near the fresh-kill pile..."
+
+# 3. Check if image should be generated (see Image Generation rules)
+image_filename = None
+if should_generate_image("location"):  # Location arrival
+    image_filename = generate_image("tumpaw-thunderclan-camp")
+    # Returns: "tumpaw-thunderclan-camp-20260403-075523.png"
+
+# 4. Log the turn BEFORE sending
+from scripts.session_logger import log_turn
+log_turn(
+    user_id="1309815719",
+    universe="warrior-cats",
+    player_input=player_input,
+    ai_response=ai_response,
+    image=image_filename
+)
+
+# 5. Send response to user
+reply(ai_response)
+if image_filename:
+    send_image(image_filename)
+```
+
+#### What Gets Logged
+
+- ✅ **Player input** - Exact command typed
+- ✅ **AI response** - Complete narrative text
+- ✅ **Images** - Filename if generated
+- ✅ **Timestamp** - Auto-added by logger
+
+#### Where Logs Are Stored
+
+```
+~/clawd/memory/yumfu/sessions/{universe}/user-{id}/session-{timestamp}.jsonl
+```
+
+Example:
+```
+~/clawd/memory/yumfu/sessions/warrior-cats/user-1309815719/session-20260403-001349.jsonl
+```
+
+#### JSONL Format
+
+Each line in the log file:
+```json
+{"timestamp": "2026-04-03T00:15:23", "type": "turn", "player": "/yumfu look", "ai": "You see...", "image": "tumpaw-camp-123.png"}
+```
+
+#### ⚠️ DO NOT SKIP THIS
+
+Logging is **NOT optional**. Every turn must be logged or storybook generation will be incomplete.
+
 ### 对于玩家
 - 多与NPC对话，触发隐藏任务
 - 善用打坐恢复和顿悟
@@ -734,103 +823,132 @@ YumFu works across multiple AI platforms with varying feature sets:
 ### How It Works
 
 **1. During Gameplay:**
-- All dialogue, events, and choices are logged to `~/clawd/memory/yumfu/sessions/{universe}/user-{id}/`
-- Images generated during play are tracked in the save file
-- Session files use JSONL format (one event per line)
+- **Every turn is automatically logged** via `scripts/session_logger.py` (see Mandatory Logging above)
+- Logs include player input + AI response + images
+- Session files use JSONL format: `~/clawd/memory/yumfu/sessions/{universe}/user-{id}/session-{timestamp}.jsonl`
+- Each session auto-expires after 2 hours of inactivity (new session starts on next play)
 
 **2. Generate Storybook:**
 ```bash
-# After finishing an adventure
-uv run ~/clawd/skills/yumfu/scripts/generate_storybook.py \
+# V3 - Full conversation flow (RECOMMENDED)
+uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v3.py \
+  --user-id 1309815719 \
+  --universe warrior-cats
+
+# Auto-detects latest session or specify one:
+uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v3.py \
   --user-id 1309815719 \
   --universe warrior-cats \
   --session-id 20260403-001349
 
-# Or let it auto-detect from save file
-uv run ~/clawd/skills/yumfu/scripts/generate_storybook.py \
+# V2 - Simple (from save notes only, no full dialogue)
+uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v2.py \
   --user-id 1309815719 \
   --universe warrior-cats
 ```
 
 **3. Output:**
 ```
-~/clawd/memory/yumfu/storybooks/warrior-cats/user-1309815719-session-20260403/
-├── story.md              # Markdown version
-├── storybook.pdf         # Beautiful PDF with images
+~/clawd/memory/yumfu/storybooks/warrior-cats/user-1309815719-20260403-075523/
+├── storybook.html        # Open in browser, click "Print to PDF"
 └── images/               # All session images
-    ├── tumpaw-ceremony.png
-    ├── tumpaw-firestar.png
-    └── tumpaw-fishing.png
+    ├── tumpaw-ceremony-20260403.png
+    ├── tumpaw-firestar-20260403.png
+    └── tumpaw-fishing-20260403.png
 ```
 
 ### Features
 
-- ✅ **Auto-tracking** - No manual logging needed
-- ✅ **Beautiful formatting** - Professional PDF layout
-- ✅ **Image integration** - All AI-generated art included
+- ✅ **Auto-tracking** - Every turn logged via SessionLogger
+- ✅ **Complete conversation** - Full player input + AI response flow
+- ✅ **Beautiful formatting** - Professional HTML → PDF layout
+- ✅ **Image integration** - All AI-generated art at correct positions
 - ✅ **Stats summary** - Final character stats and relationships
 - ✅ **Achievements** - All unlocked achievements listed
 - ✅ **Multi-language** - Works with Chinese and English worlds
+- ✅ **Session management** - Auto-creates new sessions after 2h inactivity
 
-### Example Storybook Structure
+### V3 Storybook Structure (Complete Conversation)
 
-```markdown
-# Tumpaw: A Warrior Cats Tale
+The V3 generator creates a **complete dialogue flow** storybook:
 
-**Universe:** Warrior Cats  
-**Character:** Tumpaw  
-**Rank:** Apprentice  
-**Journey Date:** April 3, 2026
+```html
+[Tumpaw's Adventure - Title Page]
 
----
+▶️ Player: /yumfu look
+You see the ThunderClan camp bustling with activity. Warriors share tongues 
+near the fresh-kill pile while apprentices practice battle moves...
 
-## 📖 The Story Begins
+[Image: ThunderClan Camp - embedded here]
 
-### Chapter 1
-Born in ThunderClan nursery...
+▶️ Player: /yumfu train swimming
+Willowpelt leads you to the river border. "Swimming is unusual for ThunderClan," 
+she purrs, "but if you have the talent, we'll develop it..."
 
-### Chapter 2
-Became apprentice at 6 moons old...
+▶️ Player: /yumfu go river
+You pad down to the river. The water flows swiftly, sunlight glinting off the surface...
 
-## 🎨 Moments Captured
-
-### Tumpaw Ceremony
-![Ceremony](images/tumpaw-ceremony.png)
-
-### Meeting Firestar
-![Firestar](images/tumpaw-firestar.png)
-
-## 🏆 Achievements Unlocked
-- ✨ First Day as Apprentice
-- ✨ Learned to Swim
-
-## 📊 Final Stats
-- **Hunting:** 13
-- **Fighting:** 6
-- **Swimming:** 15
-
-## 💝 Bonds Formed
-- **Willowpelt** (❤️ 35): Mentor, proud of progress
-- **Firestar** (❤️ 30): Sees potential
+[Image: Tumpaw at River - embedded here]
 
 ---
-*Generated by YumFu Storybook Generator*
+[Final Stats & Achievements]
 ```
+
+**Key difference from V2:**
+- V3 shows **every command you typed** + AI's full response
+- Images appear exactly where they were generated in the conversation
+- V2 only shows summary events from save file notes
 
 ### When to Generate
 
 **Trigger storybook generation when:**
 - Player reaches major milestone (becomes warrior, leader, etc.)
-- Player explicitly requests (`/yumfu storybook`)
+- Player explicitly requests (`/yumfu storybook` or asks for PDF)
 - Session ends (character dies, quest completed)
 - Player hasn't played in 24+ hours (auto-archive)
 
-### Agent Instructions
+### Agent Instructions for Storybook Generation
 
-When player reaches an ending or requests storybook:
-1. Call `generate_storybook.py` with user's ID and universe
-2. Wait for PDF generation (10-30 seconds)
-3. Send PDF to user via `message` tool with media parameter
-4. Congratulate them on their adventure!
+When player requests storybook or reaches milestone:
+
+```python
+# 1. Generate HTML storybook
+import subprocess
+result = subprocess.run([
+    "uv", "run", 
+    "~/clawd/skills/yumfu/scripts/generate_storybook_v3.py",
+    "--user-id", "1309815719",
+    "--universe", "warrior-cats"
+], capture_output=True, text=True)
+
+# 2. Find the generated HTML file
+# Output will show: "HTML: /path/to/storybook.html"
+
+# 3. Convert to PDF using browser tool
+from browser import pdf
+pdf_path = pdf(
+    url=f"file://{html_file_path}",
+    path="~/.openclaw/media/outbound/tumpaw-adventure.pdf"
+)
+
+# 4. Send to user
+message.send(
+    channel="telegram",
+    target="1309815719",
+    media=pdf_path,
+    message="📖 Your adventure storybook is complete! This PDF contains your complete journey with all images."
+)
+```
+
+**Or use the simpler OpenClaw workflow:**
+
+```bash
+# Generate HTML
+cd ~/clawd/skills/yumfu
+uv run scripts/generate_storybook_v3.py --user-id 1309815719 --universe warrior-cats
+
+# Convert to PDF (browser tool handles this)
+# Send via message tool
+```
 
 ---

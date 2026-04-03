@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """
-Session Logger for YumFu
-Tracks gameplay conversations and events for storybook generation.
+Session Logger for YumFu - V2
+Tracks COMPLETE gameplay conversations and events for storybook generation.
 
 Usage:
-    from scripts.session_logger import SessionLogger
+    from scripts.session_logger import log_turn, get_current_session
     
-    logger = SessionLogger(user_id, universe)
-    logger.log_event("Tumpaw meets Firestar", image="tumpaw-firestar.png")
-    logger.log_dialogue("Firestar", "Welcome, young apprentice!")
-    logger.save()
+    # At the start of each game turn
+    log_turn(
+        user_id="1309815719",
+        universe="warrior-cats",
+        player_input="/yumfu look",
+        ai_response="You see the ThunderClan camp...",
+        image_generated="tumpaw-camp-20260403.png"
+    )
 """
 
 import json
@@ -32,12 +36,29 @@ class SessionLogger:
         # Create directories
         self.session_dir.mkdir(parents=True, exist_ok=True)
         
-        # Session data
-        self.events = []
+        # Session metadata
         self.start_time = datetime.now().isoformat()
         
+    def log_turn(self, player_input: str, ai_response: str, image: Optional[str] = None):
+        """
+        Log a complete game turn (player action + AI response + optional image)
+        
+        Args:
+            player_input: What the player typed (e.g., "/yumfu look")
+            ai_response: The AI's narrative response
+            image: Optional image filename if generated this turn
+        """
+        entry = {
+            "timestamp": datetime.now().isoformat(),
+            "type": "turn",
+            "player": player_input,
+            "ai": ai_response,
+            "image": image
+        }
+        self._append_to_file(entry)
+    
     def log_event(self, event: str, image: Optional[str] = None, metadata: dict = None):
-        """Log a story event"""
+        """Log a story event (location change, achievement, etc.)"""
         entry = {
             "timestamp": datetime.now().isoformat(),
             "type": "event",
@@ -45,11 +66,10 @@ class SessionLogger:
             "image": image,
             "metadata": metadata or {}
         }
-        self.events.append(entry)
         self._append_to_file(entry)
     
     def log_dialogue(self, speaker: str, text: str, image: Optional[str] = None):
-        """Log character dialogue"""
+        """Log NPC dialogue"""
         entry = {
             "timestamp": datetime.now().isoformat(),
             "type": "dialogue",
@@ -57,31 +77,16 @@ class SessionLogger:
             "content": text,
             "image": image
         }
-        self.events.append(entry)
         self._append_to_file(entry)
     
-    def log_choice(self, choice: str, options: list):
-        """Log player choice"""
+    def log_image(self, filename: str, description: str = ""):
+        """Log an image generation"""
         entry = {
             "timestamp": datetime.now().isoformat(),
-            "type": "choice",
-            "chosen": choice,
-            "options": options
+            "type": "image",
+            "filename": filename,
+            "description": description
         }
-        self.events.append(entry)
-        self._append_to_file(entry)
-    
-    def log_stat_change(self, stat: str, old_value, new_value):
-        """Log attribute changes"""
-        entry = {
-            "timestamp": datetime.now().isoformat(),
-            "type": "stat_change",
-            "stat": stat,
-            "old": old_value,
-            "new": new_value,
-            "change": new_value - old_value
-        }
-        self.events.append(entry)
         self._append_to_file(entry)
     
     def _append_to_file(self, entry: dict):
@@ -89,15 +94,14 @@ class SessionLogger:
         with open(self.session_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(entry, ensure_ascii=False) + '\n')
     
-    def save(self):
-        """Finalize session log"""
+    def finalize(self):
+        """Create session summary"""
         summary = {
             "user_id": self.user_id,
             "universe": self.universe,
             "session_id": self.session_id,
             "start_time": self.start_time,
-            "end_time": datetime.now().isoformat(),
-            "event_count": len(self.events)
+            "end_time": datetime.now().isoformat()
         }
         
         summary_file = self.session_dir / f"session-{self.session_id}-summary.json"
@@ -107,9 +111,11 @@ class SessionLogger:
         return self.session_file
 
 
-def get_current_session(user_id: str, universe: str) -> Optional[SessionLogger]:
-    """Get or create current session logger"""
-    # Check if there's an active session in the last 2 hours
+def get_current_session(user_id: str, universe: str) -> SessionLogger:
+    """
+    Get or create current session logger.
+    Sessions expire after 2 hours of inactivity.
+    """
     session_dir = Path.home() / "clawd/memory/yumfu/sessions" / universe / f"user-{user_id}"
     
     if not session_dir.exists():
@@ -132,3 +138,31 @@ def get_current_session(user_id: str, universe: str) -> Optional[SessionLogger]:
     else:
         # Start new session
         return SessionLogger(user_id, universe)
+
+
+def log_turn(user_id: str, universe: str, player_input: str, ai_response: str, image: Optional[str] = None):
+    """
+    Convenience function to log a complete turn.
+    Automatically manages sessions (creates/resumes).
+    
+    Example:
+        log_turn(
+            user_id="1309815719",
+            universe="warrior-cats",
+            player_input="/yumfu look",
+            ai_response="You see the ThunderClan camp bustling with activity...",
+            image_generated="tumpaw-camp-20260403.png"
+        )
+    """
+    logger = get_current_session(user_id, universe)
+    logger.log_turn(player_input, ai_response, image)
+    return logger.session_file
+
+
+def log_image_only(user_id: str, universe: str, filename: str, description: str = ""):
+    """
+    Log an image generation (when no dialogue happens in same turn)
+    """
+    logger = get_current_session(user_id, universe)
+    logger.log_image(filename, description)
+    return logger.session_file
