@@ -2,6 +2,16 @@
 
 **Choose Your Adventure** - Text-based RPG with AI-generated art across multiple fantasy universes
 
+---
+
+## 🎨 **Game Screenshots**
+
+### Warrior Cats - Nursery Scene
+![Warrior Cats Nursery](assets/screenshots/warrior-cats-nursery.png)
+*Three RiverClan kits (Tumkit, Splashkit, Reedkit) playing moss-ball in their cozy reed den - Generated with Warrior Cats art style (semi-realistic feral cats, forest setting, Wayne McLoughlin aesthetic)*
+
+---
+
 ## 🌐 Supported Worlds
 
 ### 🇨🇳 中文世界 (Chinese Wuxia)
