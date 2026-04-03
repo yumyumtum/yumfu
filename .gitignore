@@ -1,0 +1,29 @@
+# YumFu - Git Ignore
+# 保护用户隐私，不上传游戏存档和进度
+
+# 用户存档（在 ~/clawd/memory/yumfu/）
+*.json
+saves/
+backups/
+events/
+teams/
+history/
+
+# 图片输出（在 ~/.openclaw/media/outbound/yumfu/）
+*.png
+*.jpg
+*.jpeg
+
+# 系统文件
+.DS_Store
+*.pyc
+__pycache__/
+.env
+
+# 临时文件
+*.log
+*.tmp
+*.swp
+*~
+
+# 注意：SKILL.md、README.md、scripts/ 等代码文件会被上传
