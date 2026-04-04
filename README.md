@@ -30,9 +30,28 @@
 
 ## 🚀 Quick Start
 
+### 🎮 Two Ways to Play
+
+**Option 1: Commands** (Classic MUD style)
 ```bash
 /yumfu start
+/yumfu look
+/yumfu fight wild boar
 ```
+
+**Option 2: Natural Language** (Just talk!)
+```
+"I want to explore the forest"
+"Attack the goblin with my sword"
+"Talk to Dumbledore about the Elder Wand"
+"我想去华山派学剑法"
+```
+
+**💡 Pro Tip**: You don't need to use `/yumfu` commands! Your AI agent understands natural language. Just describe what you want to do in the game, and the agent will handle it.
+
+---
+
+### 📖 Setup Steps
 
 **Step 1: Choose Language** | **选择语言**
 ```
@@ -41,7 +60,7 @@
 1. 中文 (Chinese)
 2. English
 
-Reply: /yumfu lang 1
+Reply: /yumfu lang 1  (or just say "Chinese please")
 ```
 
 **Step 2: Choose Your World** | **选择世界**
@@ -52,7 +71,7 @@ Choose your realm:
 2. ⚡ Harry Potter Universe
 3. 🐱 Warrior Cats
 
-Reply: /yumfu world 3
+Reply: /yumfu world 3  (or just say "I want to play Warrior Cats")
 ```
 
 **Step 3: Start Your Adventure!**
@@ -61,6 +80,7 @@ Reply: /yumfu world 3
 
 ## ✨ Features
 
+- 🗣️ **Natural Language** - Just talk! No need for commands (e.g., "I want to explore the castle")
 - 🌍 **Multi-language** - Chinese & English
 - 🎭 **Multiple universes** - Wuxia, Harry Potter, LOTR, GoT...
 - 🎨 **AI-generated art** - Each scene gets a styled illustration
@@ -148,6 +168,8 @@ yumfu/
 ## 🎯 Example Gameplay
 
 ### 笑傲江湖 (Xiaoao Jianghu)
+
+**Using Commands:**
 ```
 你来到华山派，宁中则看着你说："孩子，江湖险恶，好好修炼。"
 [获得] 华山剑谱（初级）
@@ -158,7 +180,21 @@ yumfu/
 [华山剑法] Lv1 → Lv2
 ```
 
+**Using Natural Language:**
+```
+> "我想去找风清扬学独孤九剑"
+你登上思过崖，一位白发老者正在对弈...
+
+> "向风清扬行礼，请求传授剑法"
+风清扬看了你一眼："有点根骨，先破解这三招。"
+[开始] 剑法测试
+```
+
+---
+
 ### Harry Potter
+
+**Using Commands:**
 ```
 You arrive at Diagon Alley. Ollivander peers at you curiously.
 "Ah, a new wand-bearer. Let me see..."
@@ -170,7 +206,21 @@ You practice the Disarming Charm in the Room of Requirement...
 [Expelliarmus] Lv1 → Lv2
 ```
 
+**Using Natural Language:**
+```
+> "I want to explore the Forbidden Forest"
+You step past Hagrid's hut into the shadowy woods...
+
+> "Cast Lumos to light the way"
+Your wand-tip ignites! Spiders scatter in the silver glow.
+[Learned] Lumos (Basic Light Charm)
+```
+
+---
+
 ### Warrior Cats
+
+**Using Commands:**
 ```
 You pad into ThunderClan camp. Firestar looks at you with warm eyes.
 "Welcome, young kit. You will train hard to become a warrior."
@@ -182,6 +232,20 @@ You crouch low in the undergrowth, tail still. A mouse scurries by...
 [Success!] You caught a plump mouse for the fresh-kill pile!
 [Forest Stalking] Lv1 → Lv2
 ```
+
+**Using Natural Language:**
+```
+> "I want to go on a border patrol with my mentor"
+Willowpelt nods. "Follow me to the ShadowClan border, Rushpaw."
+
+> "Sniff the air for enemy scent"
+You taste the wind... RiverClan! Fresh markers, less than a sunrise old.
+[Learned] Scent Tracking
+```
+
+---
+
+**💡 Remember**: Commands like `/yumfu fight` are optional shortcuts. You can always just talk to your agent naturally!
 
 ---
 
