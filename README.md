@@ -25,11 +25,35 @@ YumFu is **local-first** and respects your privacy:
 
 ---
 
-## 🎨 **Game Screenshots**
+## 🎨 **World Showcase**
 
-### Warrior Cats - Nursery Scene
-![Warrior Cats Nursery](assets/screenshots/warrior-cats-nursery.png)
-*Three RiverClan kits (Tumkit, Splashkit, Reedkit) playing moss-ball in their cozy reed den - Generated with Warrior Cats art style (semi-realistic feral cats, forest setting, Wayne McLoughlin aesthetic)*
+<table>
+<tr>
+<td width="33%">
+
+### ⚔️ 笑傲江湖 (Wuxia)
+![Xiaoao Jianghu](docs/showcase/showcase-xiaoao-jianghu.png)
+*Ancient Chinese martial arts world - Shaolin Temple, misty mountains, traditional robes*
+
+</td>
+<td width="33%">
+
+### ⚡ Harry Potter
+![Harry Potter](docs/showcase/showcase-harry-potter.png)
+*Hogwarts magic - Slytherin common room, underwater Great Lake, spell practice*
+
+</td>
+<td width="33%">
+
+### 🐉 Game of Thrones
+![Game of Thrones](docs/showcase/showcase-game-of-thrones.png)
+*Westeros politics - Sunspear palace, Dornish desert, House Martell*
+
+</td>
+</tr>
+</table>
+
+*All images generated in real-time during gameplay with world-specific art styles*
 
 ---
 
