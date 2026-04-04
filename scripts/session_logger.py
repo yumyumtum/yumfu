@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
-Session Logger for YumFu - V2
-Tracks COMPLETE gameplay conversations and events for storybook generation.
+Session Logger for YumFu - V2 (OPTIONAL - Privacy-Aware)
+Tracks gameplay conversations for storybook generation.
+
+⚠️ PRIVACY NOTICE:
+This logger stores complete gameplay conversations (player input + AI responses).
+To disable logging, set environment variable: YUMFU_NO_LOGGING=1
 
 Usage:
-    from scripts.session_logger import log_turn, get_current_session
+    from scripts.session_logger import log_turn
     
-    # At the start of each game turn
+    # Logging is automatically disabled if YUMFU_NO_LOGGING=1
     log_turn(
         user_id="1309815719",
         universe="warrior-cats",
@@ -17,13 +21,26 @@ Usage:
 """
 
 import json
+import os
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
 
 
+# Privacy control: Check if logging is disabled
+def _is_logging_disabled() -> bool:
+    """Check if user has disabled session logging for privacy"""
+    return os.getenv("YUMFU_NO_LOGGING", "0") == "1"
+
+
 class SessionLogger:
     def __init__(self, user_id: str, universe: str, session_id: str = None):
+        # Check if logging is disabled
+        if _is_logging_disabled():
+            self.disabled = True
+            return
+        
+        self.disabled = False
         self.user_id = user_id
         self.universe = universe
         self.session_id = session_id or datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -48,6 +65,9 @@ class SessionLogger:
             ai_response: The AI's narrative response
             image: Optional image filename if generated this turn
         """
+        if self.disabled:
+            return  # No-op if logging disabled
+        
         entry = {
             "timestamp": datetime.now().isoformat(),
             "type": "turn",
@@ -59,6 +79,8 @@ class SessionLogger:
     
     def log_event(self, event: str, image: Optional[str] = None, metadata: dict = None):
         """Log a story event (location change, achievement, etc.)"""
+        if self.disabled:
+            return
         entry = {
             "timestamp": datetime.now().isoformat(),
             "type": "event",
@@ -70,6 +92,8 @@ class SessionLogger:
     
     def log_dialogue(self, speaker: str, text: str, image: Optional[str] = None):
         """Log NPC dialogue"""
+        if self.disabled:
+            return
         entry = {
             "timestamp": datetime.now().isoformat(),
             "type": "dialogue",
@@ -81,6 +105,8 @@ class SessionLogger:
     
     def log_image(self, filename: str, description: str = ""):
         """Log an image generation"""
+        if self.disabled:
+            return
         entry = {
             "timestamp": datetime.now().isoformat(),
             "type": "image",
@@ -91,6 +117,8 @@ class SessionLogger:
     
     def _append_to_file(self, entry: dict):
         """Append entry to JSONL file"""
+        if self.disabled:
+            return
         with open(self.session_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(entry, ensure_ascii=False) + '\n')
     

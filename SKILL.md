@@ -7,8 +7,7 @@ metadata:
     "openclaw":
       {
         "emoji": "🌍",
-        "requires": { "bins": ["uv"], "env": ["GEMINI_API_KEY"] },
-        "primaryEnv": "GEMINI_API_KEY",
+        "requires": { "bins": ["uv"] },
         "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan"]
       }
   }
@@ -17,6 +16,47 @@ metadata:
 # YumFu - Multi-World MUD 🌍
 
 **Choose Your Adventure** | **选择你的冒险**
+
+---
+
+## 🔒 Privacy & Configuration (READ FIRST!)
+
+### 🛡️ Privacy Controls
+
+YumFu is **local-first** and respects your privacy:
+
+**✅ Always Stored Locally**:
+- Game saves: `~/clawd/memory/yumfu/saves/`
+- AI images: `~/.openclaw/media/outbound/yumfu/`
+
+**⚠️ Optional Features** (can be disabled):
+- **Session logging**: Full gameplay logs for storybooks (`YUMFU_NO_LOGGING=1` to disable)
+- **AI images**: Gemini API calls (`YUMFU_NO_IMAGES=1` for text-only)
+
+**🚫 Never Sent Anywhere**:
+- Your game saves
+- Your personal info
+- Your session logs
+
+**🔑 External API** (optional):
+- **Only**: Google Gemini API for image generation
+- **Sent**: Scene descriptions (e.g., "forest with wolf")
+- **NOT sent**: Your character data, personal info, or saves
+
+**For full privacy policy, see [PRIVACY.md](PRIVACY.md)**
+
+### 🛠️ Configuration Options
+
+```bash
+# Text-only mode (no API calls)
+export YUMFU_NO_IMAGES=1
+
+# Disable session logging (max privacy)
+export YUMFU_NO_LOGGING=1
+
+# Enable AI images (optional)
+export GEMINI_API_KEY="your-key-here"
+```
 
 ---
 

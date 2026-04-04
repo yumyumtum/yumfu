@@ -5,7 +5,23 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Security](https://img.shields.io/badge/security-audited-green.svg)](SECURITY.md)
 [![Safe Code](https://img.shields.io/badge/code-no%20eval-brightgreen.svg)](SECURITY.md)
+[![Privacy](https://img.shields.io/badge/privacy-local--first-brightgreen.svg)](PRIVACY.md)
 [![ClawHub](https://img.shields.io/badge/ClawHub-yumfu-purple)](https://clawhub.ai/skills/yumfu)
+
+---
+
+## 🔒 Privacy & Data
+
+YumFu is **local-first** and respects your privacy:
+
+- ✅ **All game data stored locally** on your machine
+- ✅ **No telemetry or tracking**
+- ✅ **Session logging is optional** (`YUMFU_NO_LOGGING=1` to disable)
+- ✅ **AI images are optional** (`YUMFU_NO_IMAGES=1` for text-only)
+- ✅ **Only external API**: Google Gemini (optional, for images only)
+- ✅ **Open source**: Fully auditable (GPLv3)
+
+**See [PRIVACY.md](PRIVACY.md) for full privacy policy**
 
 ---
 
