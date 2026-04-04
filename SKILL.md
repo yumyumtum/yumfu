@@ -1,6 +1,6 @@
 ---
 name: yumfu
-description: "Multi-World text adventure MUD game (Wuxia, Harry Potter, Warrior Cats, LOTR). Use when: user types /yumfu, /江湖, or asks to play a text adventure, MUD game, role-playing game, or interactive story. NOT for: stock analysis, news, weather."
+description: "Multi-World text adventure MUD game (Wuxia, Harry Potter, Warrior Cats, LOTR). Use when: user types /yumfu, /江湖, or asks to play a text adventure, MUD game, role-playing game, interactive story, wuxia game, 武侠游戏, 角色扮演, Harry Potter RP, warrior cats adventure. ALWAYS use this skill for ongoing game sessions (笑傲江湖, Harry Potter, Warrior Cats). NOT for: stock analysis, news, weather, real-world tasks."
 homepage: https://github.com/yumyumtum/yumfu
 metadata:
   {
@@ -9,7 +9,7 @@ metadata:
         "emoji": "🌍",
         "requires": { "bins": ["uv"], "env": ["GEMINI_API_KEY"] },
         "primaryEnv": "GEMINI_API_KEY",
-        "triggers": ["/yumfu", "/江湖"]
+        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan"]
       }
   }
 ---
@@ -17,6 +17,31 @@ metadata:
 # YumFu - Multi-World MUD 🌍
 
 **Choose Your Adventure** | **选择你的冒险**
+
+---
+
+## ⚠️ CRITICAL: Always Use This Skill for Game Sessions!
+
+**If the user is:**
+- Playing an ongoing YumFu game (笑傲江湖, Harry Potter, Warrior Cats, etc.)
+- Asking about their character/progress
+- Describing game actions ("I want to fight", "去华山派", "explore the forest")
+
+**Then you MUST:**
+1. ✅ Load their save file with `load_game.py`
+2. ✅ Generate images for significant moments (location/NPC/combat/etc.)
+3. ✅ Save their progress with `save_game.py`
+4. ✅ Use the world's art style and narrative tone
+
+**DO NOT:**
+- ❌ Manually roleplay without checking save files
+- ❌ Skip image generation for key scenes
+- ❌ Forget to save progress
+
+**This ensures:**
+- Consistent character progression
+- Visual immersion with AI art
+- Data persistence across sessions
 
 ---
 
@@ -546,7 +571,12 @@ shuf -i 1-20 -n 1
 
 ### ⚡ Agent Execution Order (MANDATORY)
 
-When a trigger event occurs:
+**🔍 PRE-CHECK before EVERY response:**
+1. Is this a game action? (not just status/help)
+2. Does it involve: location change, NPC, combat, discovery, training, or plot?
+3. If YES → **MUST generate image!**
+
+**When a trigger event occurs:**
 1. **FIRST**: Identify trigger type (location/NPC/combat/etc.)
 2. **SECOND**: Generate image immediately (run script, DO NOT wait)
 3. **THIRD**: Send image with message tool
@@ -554,22 +584,47 @@ When a trigger event occurs:
 
 **DO NOT** narrate first and generate later. **DO NOT** wait for user to ask "where's the picture?"
 
+**Image Generation Checklist (use this!):**
+```
+□ Is this a new scene/location?
+□ Is the player meeting an NPC?
+□ Is combat starting?
+□ Is the player learning/discovering something significant?
+□ Is this a plot milestone?
+
+If ANY checkbox = YES → GENERATE IMAGE NOW!
+```
+
 ### When to Generate Images (AUTO-TRIGGER)
 
 ✅ **ALWAYS generate for:**
-1. **New location arrival** - Player enters camp/dungeon/city
-2. **Training completion** - After learning a new skill
-3. **Combat start** - First round of any fight
-4. **NPC encounter** - Meeting important characters (approaching Firestar = TRIGGER)
-5. **Quest milestones** - Completing objectives
+1. **New location arrival** - Player enters camp/dungeon/city (华山派、霍格沃茨、雷族营地)
+2. **Training completion** - After learning a new skill (修炼成功、学会咒语、完成训练)
+3. **Combat start** - First round of any fight (战斗开始、决斗、PVP)
+4. **NPC encounter** - Meeting important characters (风清扬、邓布利多、火星、岳不群)
+5. **Quest milestones** - Completing objectives (任务完成、关键选择)
 6. **Ceremony/ritual** - Apprentice ceremony, leader coronation, etc.
-7. **Discovery** - Finding items, secrets, new areas
+7. **Discovery** - Finding items, secrets, new areas (发现秘籍、隐藏地点)
+8. **Dramatic moments** - Plot twists, revelations, boss battles (剧情高潮)
 
 ❌ **DO NOT generate for:**
-- Menu screens / stat displays
+- Menu screens / stat displays (`/yumfu status`)
 - Info dumps / lore explanations (unless player explicitly explores a location)
 - "What can I do?" meta questions
 - Save/load operations
+- Simple inventory checks or character sheet requests
+
+**🚨 If in doubt → GENERATE!** Better to have too many images than too few.
+
+**Example Triggers from Today's Session (April 4):**
+```
+✅ "思过崖叫阵风清扬" → NPC encounter → GENERATE!
+✅ "破案揭发内奸劳德诺" → Discovery → GENERATE!
+✅ "后山暗门防御战" → Combat start → GENERATE!
+✅ "拜师风清扬，学习独孤九剑" → Training/Ceremony → GENERATE!
+```
+
+**All of these should have triggered image generation but didn't!**
 
 **Example Flow:**
 ```
