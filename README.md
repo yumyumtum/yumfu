@@ -2,6 +2,11 @@
 
 **Choose Your Adventure** - Text-based RPG with AI-generated art across multiple fantasy universes
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Security](https://img.shields.io/badge/security-audited-green.svg)](SECURITY.md)
+[![Safe Code](https://img.shields.io/badge/code-no%20eval-brightgreen.svg)](SECURITY.md)
+[![ClawHub](https://img.shields.io/badge/ClawHub-yumfu-purple)](https://clawhub.ai/skills/yumfu)
+
 ---
 
 ## 🎨 **Game Screenshots**

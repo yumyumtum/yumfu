@@ -426,9 +426,14 @@ echo '{"character": {...}}' | \
 #### Agent Workflow (Recommended)
 
 ```python
+import json
+
 # 1. Load existing save (or detect new user)
-result = exec("uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id {id} --universe {world} --quiet")
-save_data = json.loads(result)
+# SAFE: Use exec tool (OpenClaw handles safe execution)
+result = exec({
+    "command": "uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id USER_ID --universe UNIVERSE --quiet"
+})
+save_data = json.loads(result.stdout)
 
 if not save_data["exists"]:
     # New user - guide to character creation
@@ -438,9 +443,12 @@ if not save_data["exists"]:
 save_data["data"]["character"]["hp"] -= 15
 save_data["data"]["location"] = "华山派·练武场"
 
-# 3. Save back
+# 3. Save back (stdin avoids shell injection)
 save_json = json.dumps(save_data["data"])
-exec(f"echo '{save_json}' | uv run ~/clawd/skills/yumfu/scripts/save_game.py --user-id {id} --universe {world}")
+result = exec({
+    "command": f"uv run ~/clawd/skills/yumfu/scripts/save_game.py --user-id {user_id} --universe {universe}"
+})
+write(stdin=save_json)  # Pass JSON safely via stdin
 ```
 
 #### Error Recovery:
