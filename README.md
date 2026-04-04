@@ -199,7 +199,19 @@ Ideas for new worlds:
 
 ## 📜 License
 
-Open source - feel free to fork and add your own worlds!
+**YumFu** is licensed under the [GNU General Public License v3.0 (GPLv3)](LICENSE).
+
+This means:
+- ✅ You can **use, modify, and distribute** this software freely
+- ✅ You can use it for **commercial purposes**
+- ⚠️ If you distribute modified versions, you **must**:
+  - Release the source code under GPLv3
+  - Include the original copyright notice
+  - State what changes you made
+
+**TL;DR**: Open source forever, derivative works must also be open source.
+
+See the [full license text](LICENSE) for details.
 
 ---
 
