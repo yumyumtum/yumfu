@@ -23,7 +23,7 @@
 - ⚡ **Harry Potter** - Hogwarts, four houses, wizarding duels
 - 🐱 **Warrior Cats** - ThunderClan, RiverClan, WindClan, ShadowClan
 - 🗡️ **Lord of the Rings** - Middle-earth, Fellowship of the Ring, destroy One Ring ✅
-- 🐉 **Game of Thrones** - Westeros, Iron Throne *(coming soon)*
+- 🐉 **Game of Thrones** - Westeros, Iron Throne, War of Five Kings ✅
 - 🐺 **The Witcher** - Monster hunting, Signs *(coming soon)*
 
 ---
