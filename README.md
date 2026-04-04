@@ -31,23 +31,23 @@ YumFu is **local-first** and respects your privacy:
 <tr>
 <td width="33%">
 
-### ⚔️ 笑傲江湖 (Wuxia)
-![Xiaoao Jianghu](docs/showcase/showcase-xiaoao-jianghu.png)
-*Ancient Chinese martial arts world - Shaolin Temple, misty mountains, traditional robes*
+### ⚔️ Chinese Wuxia
+![Chinese Wuxia](docs/showcase/showcase-xiaoao-jianghu.png)
+*Ancient martial arts world - Traditional temples, misty mountains, heroic swordsmen*
 
 </td>
 <td width="33%">
 
-### ⚡ Harry Potter
-![Harry Potter](docs/showcase/showcase-harry-potter.png)
-*Hogwarts magic - Slytherin common room, underwater Great Lake, spell practice*
+### ⚡ Wizard School
+![Wizard School](docs/showcase/showcase-harry-potter.png)
+*Magical academy - Underground chambers, enchanted lakes, spell practice*
 
 </td>
 <td width="33%">
 
-### 🐉 Game of Thrones
-![Game of Thrones](docs/showcase/showcase-game-of-thrones.png)
-*Westeros politics - Sunspear palace, Dornish desert, House Martell*
+### 🐉 Medieval Fantasy
+![Medieval Fantasy](docs/showcase/showcase-game-of-thrones.png)
+*Political intrigue - Desert palaces, noble houses, strategic conflicts*
 
 </td>
 </tr>
@@ -57,19 +57,21 @@ YumFu is **local-first** and respects your privacy:
 
 ---
 
-## 🌐 Supported Worlds
+## 🌎 Available Worlds
 
-### 🇨🇳 中文世界 (Chinese Wuxia)
-- ⚔️ **笑傲江湖** (Xiaoao Jianghu) - Swordsman era, Mt. Hua Sect conflicts
-- 🗡️ **倚天屠龙记** (Yitian Tulongji) - Heaven Sword - 🗡️ **倚天屠龙记** (Yitian Tulongji) - Heaven Sword & Dragon Saber *(coming soon)* Dragon Saber, Zhang Wuji, Ming Cult ✅
-- 📖 **射雕英雄传** (Shediao Yingxiongzhuan) - Legend of the Condor Heroes *(coming soon)*
+YumFu offers multiple fantasy universes to explore. Each world has unique gameplay mechanics, art styles, and storylines.
 
-### 🇬🇧 English Worlds (Fantasy)
-- ⚡ **Harry Potter** - Hogwarts, four houses, wizarding duels
-- 🐱 **Warrior Cats** - ThunderClan, RiverClan, WindClan, ShadowClan
-- 🗡️ **Lord of the Rings** - Middle-earth, Fellowship of the Ring, destroy One Ring ✅
-- 🐉 **Game of Thrones** - Westeros, Iron Throne, War of Five Kings ✅
-- 🐺 **The Witcher** - Monster hunting, Signs *(coming soon)*
+### 🇨🇳 Chinese Wuxia (中文武侠)
+- ⚔️ **Swordsman Tales** - Martial arts sects, honor duels, legendary techniques
+- 🗡️ **Dragon & Sword Epic** - Ancient artifacts, mystical powers *(coming soon)*
+- 📖 **Hero Legends** - Classic wuxia adventures *(coming soon)*
+
+### 🇬🇧 Western Fantasy
+- ⚡ **Wizard School** - Magic academy, four houses, spell duels
+- 🐱 **Warrior Clans** - Feline tribes, forest territories, clan politics
+- 🗡️ **Middle-earth Quest** - Epic journey, fellowship, ancient evil ✅
+- 🐉 **Medieval Kingdoms** - Political intrigue, noble houses, throne wars ✅
+- 🐺 **Monster Hunter** - Witcher-inspired adventures *(coming soon)*
 
 ---
 
