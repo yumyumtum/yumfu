@@ -16,7 +16,7 @@
 
 ### 🇨🇳 中文世界 (Chinese Wuxia)
 - ⚔️ **笑傲江湖** (Xiaoao Jianghu) - Swordsman era, Mt. Hua Sect conflicts
-- 🗡️ **倚天屠龙记** (Yitian Tulongji) - Heaven Sword & Dragon Saber *(coming soon)*
+- 🗡️ **倚天屠龙记** (Yitian Tulongji) - Heaven Sword - 🗡️ **倚天屠龙记** (Yitian Tulongji) - Heaven Sword & Dragon Saber *(coming soon)* Dragon Saber, Zhang Wuji, Ming Cult ✅
 - 📖 **射雕英雄传** (Shediao Yingxiongzhuan) - Legend of the Condor Heroes *(coming soon)*
 
 ### 🇬🇧 English Worlds (Fantasy)
