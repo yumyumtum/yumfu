@@ -274,11 +274,11 @@
   "friendship_system": {
     "friend_slots": 5,
     "friendship_levels": [
-      {"level": 1, "name": "Acquaintance", "affection": 0-20, "unlocks": "Small talk"},
-      {"level": 2, "name": "Casual Friend", "affection": 21-40, "unlocks": "Study together"},
-      {"level": 3, "name": "Good Friend", "affection": 41-65, "unlocks": "Share secrets"},
-      {"level": 4, "name": "Close Friend", "affection": 66-85, "unlocks": "Team spells, backup in fights"},
-      {"level": 5, "name": "Best Friend", "affection": 86-100, "unlocks": "Unbreakable Vow, combined Patronus"}
+      {"level": 1, "name": "Acquaintance", "affection": "0-20", "unlocks": "Small talk"},
+      {"level": 2, "name": "Casual Friend", "affection": "21-40", "unlocks": "Study together"},
+      {"level": 3, "name": "Good Friend", "affection": "41-65", "unlocks": "Share secrets"},
+      {"level": 4, "name": "Close Friend", "affection": "66-85", "unlocks": "Team spells, backup in fights"},
+      {"level": 5, "name": "Best Friend", "affection": "86-100", "unlocks": "Unbreakable Vow, combined Patronus"}
     ],
     "friendship_activities": [
       "Study together (+5 affection, +exam bonus)",
@@ -491,9 +491,9 @@
       "personality": "Wise, mysterious, kind but secretive",
       "teachable_spells": ["Patronus Charm (Year 3+)", "Advanced Transfiguration"],
       "relationship_stages": [
-        {"stage": 1, "affection": 0-40, "status": "Respected authority"},
-        {"stage": 2, "affection": 41-70, "status": "Mentor figure"},
-        {"stage": 3, "affection": 71-100, "status": "Confidant, shares prophecy"}
+        {"stage": 1, "affection": "0-40", "status": "Respected authority"},
+        {"stage": 2, "affection": "41-70", "status": "Mentor figure"},
+        {"stage": 3, "affection": "71-100", "status": "Confidant, shares prophecy"}
       ],
       "quest_giver": true,
       "office_password_changes": "Weekly (lemon drop, sherbet lemon, etc.)"
@@ -506,10 +506,10 @@
       "personality": "Cold, sarcastic, secretly protecting you",
       "teachable_spells": ["Legilimency", "Occlumency", "Advanced Potions"],
       "relationship_stages": [
-        {"stage": 1, "affection": <0, "status": "Hostile (default)"},
-        {"stage": 2, "affection": 1-30, "status": "Tolerates you"},
-        {"stage": 3, "affection": 31-70, "status": "Reluctant respect"},
-        {"stage": 4, "affection": 71-100, "status": "Reveals truth (endgame)"}
+        {"stage": 1, "affection": "<0", "status": "Hostile (default)"},
+        {"stage": 2, "affection": "1-30", "status": "Tolerates you"},
+        {"stage": 3, "affection": "31-70", "status": "Reluctant respect"},
+        {"stage": 4, "affection": "71-100", "status": "Reveals truth (endgame)"}
       ],
       "hidden_agenda": "Protecting Lily Potter's child",
       "final_revelation": "Year 7, dying memories"
@@ -604,11 +604,11 @@
     "range": [-100, 100],
     "actions_impact": {
       "Use Unforgivable Curses": -30,
-      "Help friends": +10,
+      "Help friends": 10,
       "Cheat in exams": -5,
-      "Stand up to bullies": +15,
+      "Stand up to bullies": 15,
       "Join Death Eaters": -50,
-      "Sacrifice for others": +30
+      "Sacrifice for others": 30
     },
     "endings": [
       "Hero of Hogwarts (Light ≥80)",

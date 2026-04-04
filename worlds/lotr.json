@@ -54,10 +54,10 @@
       "homeland": "The Shire",
       "traits": ["Small stature", "Stealthy", "Resistant to corruption", "Love of comfort"],
       "stat_bonuses": {
-        "stealth": +20,
-        "corruption_resistance": +30,
+        "stealth": 20,
+        "corruption_resistance": 30,
         "strength": -10,
-        "courage": +10
+        "courage": 10
       },
       "special_abilities": [
         "Sneaking past enemies (higher success rate)",
@@ -75,10 +75,10 @@
       "homeland": "Gondor / Rohan",
       "traits": ["Versatile", "Leadership", "Mortal and corruptible", "Brave"],
       "stat_bonuses": {
-        "strength": +10,
-        "leadership": +15,
-        "corruption_resistance": +0,
-        "versatility": +10
+        "strength": 10,
+        "leadership": 15,
+        "corruption_resistance": 0,
+        "versatility": 10
       },
       "special_abilities": [
         "Rally allies (inspire +20% team damage for 3 turns)",
@@ -97,10 +97,10 @@
       "homeland": "Rivendell / Lothlórien / Mirkwood",
       "traits": ["Immortal", "Graceful", "Master archers", "Wise"],
       "stat_bonuses": {
-        "agility": +20,
-        "archery": +25,
-        "magic_resistance": +15,
-        "perception": +20
+        "agility": 20,
+        "archery": 25,
+        "magic_resistance": 15,
+        "perception": 20
       },
       "special_abilities": [
         "Never miss with bow (auto-crit on aimed shots)",
@@ -119,10 +119,10 @@
       "homeland": "Lonely Mountain / Iron Hills",
       "traits": ["Stout", "Stubborn", "Master craftsmen", "Greedy for treasure"],
       "stat_bonuses": {
-        "strength": +15,
-        "defense": +20,
-        "greed": +10,
-        "mining": +30
+        "strength": 15,
+        "defense": 20,
+        "greed": 10,
+        "mining": 30
       },
       "special_abilities": [
         "Axe mastery (+30% melee damage)",
@@ -141,10 +141,10 @@
       "homeland": "Valinor (sent to Middle-earth)",
       "traits": ["Ancient", "Powerful magic", "Guides not rulers", "Limited direct intervention"],
       "stat_bonuses": {
-        "magic_power": +50,
-        "wisdom": +40,
-        "physical_strength": +5,
-        "authority": +30
+        "magic_power": 50,
+        "wisdom": 40,
+        "physical_strength": 5,
+        "authority": 30
       },
       "special_abilities": [
         "Staff of Power (devastating magic attacks)",
@@ -530,10 +530,10 @@
       "personality": "Split personality, cunning, tragic, obsessed with Ring",
       "role": "Guide (treacherous)",
       "relationship_stages": [
-        {"stage": 1, "affection": 0-30, "status": "Hostile, tries to steal Ring"},
-        {"stage": 2, "affection": 31-60, "status": "Sméagol emerges, helps reluctantly"},
-        {"stage": 3, "affection": 61-80, "status": "Conflicted, can be saved (rare)"},
-        {"stage": 4, "affection": 81-100, "status": "Redemption arc (very rare, requires kindness)"}
+        {"stage": 1, "affection": "0-30", "status": "Hostile, tries to steal Ring"},
+        {"stage": 2, "affection": "31-60", "status": "Sméagol emerges, helps reluctantly"},
+        {"stage": 3, "affection": "61-80", "status": "Conflicted, can be saved (rare)"},
+        {"stage": 4, "affection": "81-100", "status": "Redemption arc (very rare, requires kindness)"}
       ],
       "betrayal": "Leads Frodo to Shelob (canonical)",
       "final_role": "Bites off Ring from Frodo, falls into lava",
@@ -612,15 +612,15 @@
     "range": [0, 100],
     "ring_influence": "Increases corruption over time",
     "good_actions": {
-      "Spare Gollum": -10 corruption,
-      "Share lembas bread": -5 corruption,
-      "Encourage Sam": -5 corruption,
-      "Refuse Ring": -20 corruption
+      "Spare Gollum": "-10 corruption",
+      "Share lembas bread": "-5 corruption",
+      "Encourage Sam": "-5 corruption",
+      "Refuse Ring": "-20 corruption"
     },
     "bad_actions": {
-      "Use One Ring": +10 corruption,
-      "Betray allies": +30 corruption,
-      "Claim Ring at Mount Doom": +100 corruption (instant corruption)
+      "Use One Ring": "10 corruption",
+      "Betray allies": "30 corruption",
+      "Claim Ring at Mount Doom": "100 corruption (instant corruption)"
     },
     "endings": [
       "Hero of Middle-earth (Corruption ≤20, Ring destroyed)",

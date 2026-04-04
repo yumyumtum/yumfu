@@ -297,11 +297,11 @@
       "personality": "伪君子，野心家，表面和善内心狠毒",
       "hidden_agenda": "觊觎辟邪剑谱",
       "relationship_stages": [
-        {"stage": 1, "affection": 0-30, "status": "普通弟子"},
-        {"stage": 2, "affection": 31-60, "status": "得意弟子，传授高级武功"},
-        {"stage": 3, "affection": 61-80, "status": "心腹，托付重任"},
-        {"stage": 4, "affection": 81-100, "status": "继承人候选"},
-        {"stage": "背叛", "affection": <-50, "status": "追杀叛徒"}
+        {"stage": 1, "affection": "0-30", "status": "普通弟子"},
+        {"stage": 2, "affection": "31-60", "status": "得意弟子，传授高级武功"},
+        {"stage": 3, "affection": "61-80", "status": "心腹，托付重任"},
+        {"stage": 4, "affection": "81-100", "status": "继承人候选"},
+        {"stage": "背叛", "affection": "<-50", "status": "追杀叛徒"}
       ],
       "quest_giver": true,
       "quests": [
@@ -336,9 +336,9 @@
         "与华山气宗产生矛盾（可选）"
       ],
       "relationship_stages": [
-        {"stage": 1, "affection": 0-50, "status": "考验资质"},
-        {"stage": 2, "affection": 51-80, "status": "传授独孤九剑"},
-        {"stage": 3, "affection": 81-100, "status": "视如衣钵传人"}
+        {"stage": 1, "affection": "0-50", "status": "考验资质"},
+        {"stage": 2, "affection": "51-80", "status": "传授独孤九剑"},
+        {"stage": 3, "affection": "81-100", "status": "视如衣钵传人"}
       ],
       "quest_giver": true,
       "quests": [
@@ -364,9 +364,9 @@
       "personality": "阴狠毒辣，修炼葵花宝典后性情大变",
       "hidden_agenda": "追求武学极致，不问江湖事",
       "relationship_stages": [
-        {"stage": "敌对", "affection": <0, "status": "必杀名单"},
-        {"stage": "中立", "affection": 0-50, "status": "无视存在"},
-        {"stage": "欣赏", "affection": 51-100, "status": "惺惺相惜（极难达成）"}
+        {"stage": "敌对", "affection": "<0", "status": "必杀名单"},
+        {"stage": "中立", "affection": "0-50", "status": "无视存在"},
+        {"stage": "欣赏", "affection": "51-100", "status": "惺惺相惜（极难达成）"}
       ],
       "boss_fight": {
         "trigger": "终极剧情",
@@ -386,9 +386,9 @@
       "personality": "豪爽洒脱，嗜酒如命，重情重义",
       "relationship_type": "师兄弟/竞争对手/好友（取决于选择）",
       "relationship_stages": [
-        {"stage": 1, "affection": 0-40, "status": "同门师兄弟"},
-        {"stage": 2, "affection": 41-70, "status": "酒肉好友"},
-        {"stage": 3, "affection": 71-100, "status": "生死之交"}
+        {"stage": 1, "affection": "0-40", "status": "同门师兄弟"},
+        {"stage": 2, "affection": "41-70", "status": "酒肉好友"},
+        {"stage": 3, "affection": "71-100", "status": "生死之交"}
       ],
       "can_team": true,
       "team_bonus": "合击技：【华山双剑】",
@@ -411,10 +411,10 @@
       "personality": "聪慧温柔，琴棋书画样样精通",
       "relationship_type": "情感线（可选）",
       "relationship_stages": [
-        {"stage": 1, "affection": 0-30, "status": "陌生人"},
-        {"stage": 2, "affection": 31-60, "status": "知音"},
-        {"stage": 3, "affection": 61-85, "status": "暗生情愫"},
-        {"stage": 4, "affection": 86-100, "status": "终身伴侣"}
+        {"stage": 1, "affection": "0-30", "status": "陌生人"},
+        {"stage": 2, "affection": "31-60", "status": "知音"},
+        {"stage": 3, "affection": "61-85", "status": "暗生情愫"},
+        {"stage": 4, "affection": "86-100", "status": "终身伴侣"}
       ],
       "romance_requirements": [
         "完成【绿竹巷奇遇】",
@@ -454,9 +454,9 @@
       "personality": "天真活泼，任性",
       "relationship_type": "青梅竹马（可选情感线）",
       "relationship_stages": [
-        {"stage": 1, "affection": 0-40, "status": "师兄妹"},
-        {"stage": 2, "affection": 41-70, "status": "好感"},
-        {"stage": 3, "affection": 71-100, "status": "恋人"}
+        {"stage": 1, "affection": "0-40", "status": "师兄妹"},
+        {"stage": 2, "affection": "41-70", "status": "好感"},
+        {"stage": 3, "affection": "71-100", "status": "恋人"}
       ],
       "romance_conflicts": "林平之线（原著剧情）",
       "romance_warning": "可能触发悲剧结局"
@@ -604,13 +604,13 @@
     "善恶值范围": [-100, 100],
     "actions_impact": {
       "杀无辜": -10,
-      "杀恶人": +5,
-      "救人": +10,
+      "杀恶人": 5,
+      "救人": 10,
       "偷盗": -5,
       "使用吸星大法": -3,
       "学辟邪剑法": -20,
       "加入魔教": -30,
-      "维护正道": +15
+      "维护正道": 15
     },
     "reputation_effects": {
       "正派（60-100）": "正派欢迎，魔教敌视，可学正派绝学",

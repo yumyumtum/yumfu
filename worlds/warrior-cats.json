@@ -429,10 +429,10 @@
       "night": "Theory (Warrior Code, clan history)"
     },
     "relationship_progression": [
-      {"level": 1, "affection": 0-30, "status": "Strict teacher"},
-      {"level": 2, "affection": 31-60, "status": "Respectful bond"},
-      {"level": 3, "affection": 61-85, "status": "Close mentor-student"},
-      {"level": 4, "affection": 86-100, "status": "Lifelong bond (like parent)"}
+      {"level": 1, "affection": "0-30", "status": "Strict teacher"},
+      {"level": 2, "affection": "31-60", "status": "Respectful bond"},
+      {"level": 3, "affection": "61-85", "status": "Close mentor-student"},
+      {"level": 4, "affection": "86-100", "status": "Lifelong bond (like parent)"}
     ],
     "famous_mentor_pairs": [
       "Bluestar → Fireheart",
@@ -612,9 +612,9 @@
       "backstory": "Born Rusty, joined ThunderClan at 6 moons, rose from apprentice to legendary leader",
       "teachable_skills": ["Courage", "Kittypet Integration Philosophy"],
       "relationship_stages": [
-        {"level": 1, "affection": 0-40, "status": "Respected leader"},
-        {"level": 2, "affection": 41-70, "status": "Trusted warrior"},
-        {"level": 3, "affection": 71-100, "status": "Close ally, chosen for important quests"}
+        {"level": 1, "affection": "0-40", "status": "Respected leader"},
+        {"level": 2, "affection": "41-70", "status": "Trusted warrior"},
+        {"level": 3, "affection": "71-100", "status": "Close ally, chosen for important quests"}
       ],
       "mate": "Sandstorm",
       "kits": ["Leafpool", "Squirrelflight"],
@@ -632,9 +632,9 @@
       "death": "Killed by Scourge (BloodClan)",
       "dark_forest_role": "Trains living cats in dreams to build army",
       "relationship_stages": [
-        {"level": 1, "affection": <-50, "status": "Enemy"},
-        {"level": 2, "affection": -49-0, "status": "Tempted by power"},
-        {"level": 3, "affection": 1-50, "status": "Dark apprentice (corruption path)"}
+        {"level": 1, "affection": "<-50", "status": "Enemy"},
+        {"level": 2, "affection": "-49-0", "status": "Tempted by power"},
+        {"level": 3, "affection": "1-50", "status": "Dark apprentice (corruption path)"}
       ],
       "warning": "Befriending Tigerstar leads to dark endings"
     },
@@ -663,9 +663,9 @@
       "secret": "Forbidden romance with Crowfeather, secret kits",
       "kits": "Lionblaze, Jayfeather, Hollyleaf (raised by Squirrelflight)",
       "relationship_stages": [
-        {"level": 1, "affection": 0-40, "status": "Medicine cat student"},
-        {"level": 2, "affection": 41-70, "status": "Healer bond"},
-        {"level": 3, "affection": 71-100, "status": "Confidant, shares prophecies"}
+        {"level": 1, "affection": "0-40", "status": "Medicine cat student"},
+        {"level": 2, "affection": "41-70", "status": "Healer bond"},
+        {"level": 3, "affection": "71-100", "status": "Confidant, shares prophecies"}
       ]
     },
     {
