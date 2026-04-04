@@ -18,6 +18,22 @@ metadata:
 
 **Choose Your Adventure** | **选择你的冒险**
 
+---
+
+## 🤖 AI Agent Instructions (READ FIRST!)
+
+**CRITICAL Save/Load Rules:**
+1. **ALWAYS use unified scripts** for save/load operations:
+   - Load: `~/clawd/skills/yumfu/scripts/load_game.py`
+   - Save: `~/clawd/skills/yumfu/scripts/save_game.py`
+2. **NEVER manually construct save file paths or JSON format**
+3. **Auto-detect new users** - Check save existence before every command
+4. **Quick reference**: `~/clawd/skills/yumfu/scripts/SAVE_LOAD_REFERENCE.md`
+
+**See detailed instructions in "💾 Save File Management" section below.**
+
+---
+
 ### ✅ **Available Now:**
 - ⚔️ **Xiaoao Jianghu** (笑傲江湖) - Jin Yong wuxia classic
 - ⚡ **Harry Potter** - Hogwarts, magic, wizarding duels
@@ -102,6 +118,8 @@ Then choose your world / 然后选择世界:
 - `/yumfu save` — 保存当前游戏状态
 - `/yumfu status` 或 `/yumfu 状态` — 显示角色属性、物品、位置
 - `/yumfu help` 或 `/yumfu 帮助` — 显示所有指令
+
+**🚨 First-time users:** If you try any command and see "Welcome! You don't have a character yet", use `/yumfu start` to create your character first. The system will auto-detect this and guide you!
 
 ### 移动与探索
 - `/yumfu go <地点>` 或 `/yumfu 去 <地点>` — 前往某地
@@ -318,37 +336,93 @@ memory/yumfu/
 **CRITICAL:** Persist game state after every significant action to prevent data loss!
 
 #### When to Save:
-1. **Training completion** - New skill learned
-2. **Combat end** - HP/stats changed
-3. **Quest milestone** - Progress updated
-4. **Location change** - Player moved
-5. **Inventory change** - Item gained/used
-6. **Character creation** - First save
+1. **Character creation** - 🚨 **IMMEDIATE save after name/faction selection** (HIGHEST PRIORITY)
+2. **Training completion** - New skill learned
+3. **Combat end** - HP/stats changed
+4. **Quest milestone** - Progress updated
+5. **Location change** - Player moved
+6. **Inventory change** - Item gained/used
 
-#### Save Workflow:
+**🚨 CRITICAL: Character creation MUST save immediately before any other actions!**
+
+#### 🛠️ Unified Save/Load Scripts (USE THESE!)
+
+**DO NOT manually construct save logic.** Use the standard scripts to avoid format errors:
+
+##### 📥 Load Game
+```bash
+# Load specific user's save
+uv run ~/clawd/skills/yumfu/scripts/load_game.py \
+  --user-id 1309815719 \
+  --universe xiaoao \
+  --quiet
+
+# Check all worlds for a user
+uv run ~/clawd/skills/yumfu/scripts/load_game.py \
+  --user-id 1309815719 \
+  --check-all
+```
+
+**Output (JSON):**
+```json
+{
+  "exists": true,
+  "data": { "character": {...}, "location": "...", ... },
+  "character_name": "小虾米",
+  "level": 1,
+  "location": "洛阳城·同福客栈门口",
+  "save_path": "/Users/tommy/clawd/memory/yumfu/saves/xiaoao/user-1309815719.json"
+}
+```
+
+##### 💾 Save Game
+```bash
+# Save from JSON string
+uv run ~/clawd/skills/yumfu/scripts/save_game.py \
+  --user-id 1309815719 \
+  --universe xiaoao \
+  --data '{"character": {"name": "小虾米", "level": 2, ...}, "location": "华山派"}'
+
+# Or pipe JSON (preferred for large saves)
+echo '{"character": {...}}' | \
+  uv run ~/clawd/skills/yumfu/scripts/save_game.py \
+    --user-id 1309815719 \
+    --universe xiaoao
+```
+
+**Output:**
+```
+✅ Game saved successfully!
+📁 Path: /Users/tommy/clawd/memory/yumfu/saves/xiaoao/user-1309815719.json
+💾 Backup: /Users/tommy/clawd/memory/yumfu/backups/user-1309815719-xiaoao-20260404-101234.json
+👤 Character: 小虾米 (Lv.2)
+```
+
+#### Agent Workflow (Recommended)
+
 ```python
-# 1. Update character state in memory
-character["hp"] = new_hp
-character["location"] = new_location
+# 1. Load existing save (or detect new user)
+result = exec("uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id {id} --universe {world} --quiet")
+save_data = json.loads(result)
 
-# 2. Write to correct path
-save_path = f"~/clawd/memory/yumfu/saves/{universe}/user-{user_id}.json"
-with open(save_path, 'w') as f:
-    json.dump(save_data, f, indent=2)
+if not save_data["exists"]:
+    # New user - guide to character creation
+    return "Welcome! Use /yumfu start to create your character."
 
-# 3. Verify write succeeded
-if os.path.exists(save_path):
-    print(f"✅ Game saved: {save_path}")
-else:
-    # Recovery: attempt backup path
-    print(f"❌ Save failed! Attempting recovery...")
+# 2. Modify game state
+save_data["data"]["character"]["hp"] -= 15
+save_data["data"]["location"] = "华山派·练武场"
+
+# 3. Save back
+save_json = json.dumps(save_data["data"])
+exec(f"echo '{save_json}' | uv run ~/clawd/skills/yumfu/scripts/save_game.py --user-id {id} --universe {world}")
 ```
 
 #### Error Recovery:
-- If save fails: **Notify player immediately**
-- Attempt backup save to `~/clawd/memory/yumfu/backups/`
-- Log error to `~/clawd/memory/yumfu/save-errors.log`
+- Scripts automatically create backups before overwriting
+- If save fails: Scripts will attempt emergency save to `/tmp/`
 - **Never silently fail** - player must know their progress may be lost
+- Check script exit code: `0` = success, `1` = failure
 
 ### 队伍状态（team-{name}.json）
 ```json
@@ -367,7 +441,43 @@ else:
 
 ### 游戏引擎
 Agent **就是**游戏引擎：
-1. **识别玩家** - 从 Telegram ID 加载对应存档
+
+#### 🚨 **Step 0: Auto-Detect Save File (MANDATORY)**
+**EVERY command (except `/yumfu start` and `/yumfu help`) MUST start with this check:**
+
+```python
+import os
+import json
+
+def check_or_create_save(user_id, universe="xiaoao"):
+    """Auto-detect save file. If missing, guide user to create character."""
+    save_path = os.path.expanduser(f"~/clawd/memory/yumfu/saves/{universe}/user-{user_id}.json")
+    
+    if os.path.exists(save_path):
+        with open(save_path, 'r') as f:
+            return (True, json.load(f))
+    else:
+        return (False, None)
+
+# Usage at START of every command handler:
+user_id = message_context.get("sender_id") or message_context.get("user_id")
+has_save, save_data = check_or_create_save(user_id)
+
+if not has_save:
+    return """🌍 Welcome to YumFu! You don't have a character yet.
+
+Let's create one! Use: /yumfu start
+
+Available worlds:
+⚔️ Xiaoao Jianghu (笑傲江湖)
+⚡ Harry Potter
+🐱 Warrior Cats"""
+```
+
+**This prevents "no save found" errors and auto-guides new players.**
+
+#### Main Engine Flow:
+1. **识别玩家** - 从 Telegram ID 加载对应存档（Step 0自动处理）
 2. **读取世界状态** - `world-state.json`
 3. **处理玩家指令** - 修炼、战斗、组队、PvP
 4. **生成武侠文风剧情** - 中文叙述
