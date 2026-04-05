@@ -668,64 +668,57 @@ shuf -i 1-20 -n 1
 
 ## 场景配图 (Scene Illustration)
 
-**🚨 CRITICAL RULE**: **Every significant story moment MUST generate an image automatically BEFORE narration.**
+**🚨 CRITICAL RULE**: **EVERY game turn MUST generate an image BEFORE narration. No exceptions.**
+
+### ⚡ Image Generation Policy (UPDATED 2026-04-05)
+
+**🔴 MANDATORY: Generate image for EVERY response**
+
+If the user's message is a **game action** (not `/yumfu status`, `/yumfu help`, or meta commands):
+
+✅ **ALWAYS generate image FIRST, then narrate**
+
+**Execution order (STRICT):**
+1. 🔍 Parse user action
+2. 🎨 **Generate image immediately** (DO NOT narrate first!)
+3. 📸 Send image with narrative text
+4. 💾 Update game state
+5. 📝 Log turn to session file
+
+**DO NOT:**
+- ❌ Narrate without image
+- ❌ Send text first, image later
+- ❌ Skip images for "minor" scenes
+- ❌ Wait for user to ask "where's the picture?"
+
+**Why every turn needs an image:**
+- Maintains visual novel immersion
+- Provides consistent experience
+- Prevents forgetting to generate
+- Creates complete storybook logs
 
 ### ⚡ Agent Execution Order (MANDATORY)
 
 **🔍 PRE-CHECK before EVERY response:**
-1. Is this a game action? (not just status/help)
-2. Does it involve: location change, NPC, combat, discovery, training, or plot?
-3. If YES → **MUST generate image!**
+1. Is this a game action? (not just status/help/meta)
+2. If YES → **MUST generate image FIRST!**
+3. If NO (status/help) → Skip image, reply directly
 
-**When a trigger event occurs:**
-1. **FIRST**: Identify trigger type (location/NPC/combat/etc.)
-2. **SECOND**: Generate image immediately (run script, DO NOT wait)
-3. **THIRD**: Send image with message tool
-4. **FOURTH**: Continue narration
+**When user takes ANY game action:**
+1. **FIRST**: Generate scene image (location, NPC, action, etc.)
+2. **SECOND**: Write 150-300 word narrative
+3. **THIRD**: Send image + narrative together via message tool
+4. **FOURTH**: Update save file
+5. **FIFTH**: Log turn to session JSONL
 
-**DO NOT** narrate first and generate later. **DO NOT** wait for user to ask "where's the picture?"
+**Image-exempt commands (only these!):**
+- `/yumfu status` / `/yumfu 状态` - Character sheet
+- `/yumfu help` / `/yumfu 帮助` - Command list
+- `/yumfu save` - Save operation
+- Meta questions ("what can I do?", "explain combat")
 
-**Image Generation Checklist (use this!):**
-```
-□ Is this a new scene/location?
-□ Is the player meeting an NPC?
-□ Is combat starting?
-□ Is the player learning/discovering something significant?
-□ Is this a plot milestone?
+**Everything else = Image required!**
 
-If ANY checkbox = YES → GENERATE IMAGE NOW!
-```
-
-### When to Generate Images (AUTO-TRIGGER)
-
-✅ **ALWAYS generate for:**
-1. **New location arrival** - Player enters camp/dungeon/city (华山派、霍格沃茨、雷族营地)
-2. **Training completion** - After learning a new skill (修炼成功、学会咒语、完成训练)
-3. **Combat start** - First round of any fight (战斗开始、决斗、PVP)
-4. **NPC encounter** - Meeting important characters (风清扬、邓布利多、火星、岳不群)
-5. **Quest milestones** - Completing objectives (任务完成、关键选择)
-6. **Ceremony/ritual** - Apprentice ceremony, leader coronation, etc.
-7. **Discovery** - Finding items, secrets, new areas (发现秘籍、隐藏地点)
-8. **Dramatic moments** - Plot twists, revelations, boss battles (剧情高潮)
-
-❌ **DO NOT generate for:**
-- Menu screens / stat displays (`/yumfu status`)
-- Info dumps / lore explanations (unless player explicitly explores a location)
-- "What can I do?" meta questions
-- Save/load operations
-- Simple inventory checks or character sheet requests
-
-**🚨 If in doubt → GENERATE!** Better to have too many images than too few.
-
-**Example Triggers from Today's Session (April 4):**
-```
-✅ "思过崖叫阵风清扬" → NPC encounter → GENERATE!
-✅ "破案揭发内奸劳德诺" → Discovery → GENERATE!
-✅ "后山暗门防御战" → Combat start → GENERATE!
-✅ "拜师风清扬，学习独孤九剑" → Training/Ceremony → GENERATE!
-```
-
-**All of these should have triggered image generation but didn't!**
 
 **Example Flow:**
 ```
