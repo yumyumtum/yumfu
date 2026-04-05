@@ -469,9 +469,9 @@ echo '{"character": {...}}' | \
 import json
 
 # 1. Load existing save (or detect new user)
-# SAFE: Use exec tool (OpenClaw handles safe execution)
+# Note: user_id should be validated/sanitized by OpenClaw before reaching this point
 result = exec({
-    "command": "uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id USER_ID --universe UNIVERSE --quiet"
+    "command": f"uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id {user_id} --universe {universe} --quiet"
 })
 save_data = json.loads(result.stdout)
 
@@ -483,12 +483,13 @@ if not save_data["exists"]:
 save_data["data"]["character"]["hp"] -= 15
 save_data["data"]["location"] = "华山派·练武场"
 
-# 3. Save back (stdin avoids shell injection)
+# 3. Save back using stdin (avoids command injection)
 save_json = json.dumps(save_data["data"])
 result = exec({
     "command": f"uv run ~/clawd/skills/yumfu/scripts/save_game.py --user-id {user_id} --universe {universe}"
 })
-write(stdin=save_json)  # Pass JSON safely via stdin
+# Pass JSON via stdin to avoid shell escaping issues
+process.write({"sessionId": result.sessionId, "data": save_json, "eof": True})
 ```
 
 #### Error Recovery:
@@ -1125,32 +1126,29 @@ You pad down to the river. The water flows swiftly, sunlight glinting off the su
 When player requests storybook or reaches milestone:
 
 ```python
-# 1. Generate HTML storybook
-import subprocess
-result = subprocess.run([
-    "uv", "run", 
-    "~/clawd/skills/yumfu/scripts/generate_storybook_v3.py",
-    "--user-id", "1309815719",
-    "--universe", "warrior-cats"
-], capture_output=True, text=True)
+# 1. Generate HTML storybook using exec tool
+result = exec({
+    "command": "uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v3.py --user-id 1309815719 --universe warrior-cats"
+})
 
 # 2. Find the generated HTML file
 # Output will show: "HTML: /path/to/storybook.html"
 
 # 3. Convert to PDF using browser tool
-from browser import pdf
-pdf_path = pdf(
-    url=f"file://{html_file_path}",
-    path="~/.openclaw/media/outbound/tumpaw-adventure.pdf"
-)
+pdf_path = browser({
+    "action": "pdf",
+    "url": f"file://{html_file_path}",
+    "path": "~/.openclaw/media/outbound/tumpaw-adventure.pdf"
+})
 
 # 4. Send to user
-message.send(
-    channel="telegram",
-    target="1309815719",
-    media=pdf_path,
-    message="📖 Your adventure storybook is complete! This PDF contains your complete journey with all images."
-)
+message({
+    "action": "send",
+    "channel": "telegram",
+    "target": "1309815719",
+    "media": pdf_path,
+    "message": "📖 Your adventure storybook is complete! This PDF contains your complete journey with all images."
+})
 ```
 
 **Or use the simpler OpenClaw workflow:**
