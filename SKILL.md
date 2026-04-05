@@ -145,6 +145,66 @@ Then choose your world / 然后选择世界:
 
 **🚨 First-time users:** If you try any command and see "Welcome! You don't have a character yet", use `/yumfu start` to create your character first. The system will auto-detect this and guide you!
 
+#### 📋 `/yumfu continue` Workflow (详细流程)
+
+**When user says `/yumfu continue`:**
+
+**Step 1: Check for existing saves**
+```bash
+python3 ~/clawd/skills/yumfu/scripts/load_game.py \
+  --user-id {user_id} \
+  --check-all \
+  --pretty
+```
+
+**Step 2: Parse results**
+- If **0 saves found** → Guide user to `/yumfu start`
+- If **1 save found** → Auto-load that world
+- If **2+ saves found** → List all saves and ask user to choose
+
+**Step 3: Display saves (if multiple)**
+Example output:
+```
+🎮 You have 3 saved games:
+
+1. 🗡️ 笑傲江湖 - 小虾米 (Lv.3)
+   📍 Location: 华山派·思过崖
+   🕐 Last played: 2 days ago
+
+2. 🪄 Harry Potter - Tom Brady (Lv.5)
+   📍 Location: Gryffindor Common Room
+   🕐 Last played: 1 hour ago
+
+3. 🐱 Warrior Cats - Tumpaw (Lv.2)
+   📍 Location: ThunderClan Camp
+   🕐 Last played: 3 days ago
+
+Which adventure do you want to continue?
+Reply: 1, 2, 3, or world name (xiaoao/harry/warrior)
+```
+
+**Step 4: Load selected world**
+```bash
+python3 ~/clawd/skills/yumfu/scripts/load_game.py \
+  --user-id {user_id} \
+  --universe {selected_world} \
+  --pretty
+```
+
+**Step 5: Resume gameplay**
+Continue from their last location with a recap:
+```
+欢迎回来，小虾米！
+
+你站在华山派思过崖边缘，冷风呼啸。上次你刚从山洞中获得了一本破旧的剑谱...
+
+[内力] 250/300  [体力] 180/200
+[装备] 长剑（品质：普通）
+[任务] 破解剑谱秘密 (进度: 30%)
+
+你打算做什么？
+```
+
 ### 移动与探索
 - `/yumfu go <地点>` 或 `/yumfu 去 <地点>` — 前往某地
 - `/yumfu look` 或 `/yumfu 看` — 查看当前位置
