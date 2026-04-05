@@ -543,6 +543,39 @@ Available worlds:
 - Combat writing has tension
 - **Multiplayer interactions are immersive** - "You see 大红虾 sparring with 洪七公" / "You see Tumpaw training with Willowpelt"
 
+### 📝 Response Length Guidelines
+
+**Target: 150-300 words per turn** (每回合150-300词)
+
+**⚠️ Avoid these extremes:**
+- ❌ **Too short** (< 100 words): Feels lazy, lacks immersion
+  - Bad: "You walk into the room. There's a table. What do you do?"
+  - Good: Describe the atmosphere, NPC reactions, sensory details
+
+- ❌ **Too long** (> 400 words): Overwhelming, slows gameplay
+  - Bad: 3 paragraphs of backstory + detailed room description + NPC monologue
+  - Good: Focus on the immediate scene, keep action moving
+
+**✅ Ideal structure (150-300 words):**
+1. **Scene setting** (2-3 sentences): Where you are, what's happening
+2. **Action/Event** (3-4 sentences): What just happened, NPC reaction
+3. **Status update** (1-2 lines): HP/Stamina changes, skill gains
+4. **Options/Hook** (1-2 sentences): What you can do next
+
+**Example (good length)**:
+```
+你推开酒楼木门，一阵酒肉香气扡19面而来。厅内三五江湖人士正低声交谈，角落里一名蒙面人独自饮酒。小二点头哈腰：“客官里边请！”
+
+你刚坐下，那蒙面人忽然抬头，目光如电。他缓缓起身，手按刀柄：“华山派的？”声音冰冷而警惕。周围食客纷纷侧目，空气骤然紧绗。
+
+[内力] 95/100  [体力] 80/100
+
+你可以：1) 回应他的质问  2) 装作不闻  3) 先发制人
+```
+(~150 words - perfect!)
+
+**Remember:** Quality over quantity. Make every word count.
+
 ### 骰子与随机
 使用透明的随机系统：
 ```bash
