@@ -10,6 +10,44 @@
 
 ---
 
+## 🚀 Installation
+
+### OpenClaw (Recommended)
+
+For Telegram, Discord, WhatsApp, and other OpenClaw platforms:
+
+```bash
+clawhub install yumfu
+```
+
+Then start playing:
+```
+/yumfu start
+```
+
+### Standalone (GitHub)
+
+For local development or non-OpenClaw use:
+
+```bash
+git clone https://github.com/yumyumtum/yumfu.git
+cd yumfu
+uv sync
+
+# Optional: Enable AI image generation
+export GEMINI_API_KEY="your-key-here"
+
+# Start playing
+/yumfu start
+```
+
+**Requirements**:
+- Python 3.10+
+- [uv](https://github.com/astral-sh/uv) package manager
+- (Optional) Google Gemini API key for AI images
+
+---
+
 ## 🔒 Privacy & Data
 
 YumFu is **local-first** and respects your privacy:
@@ -76,6 +114,36 @@ YumFu offers multiple fantasy universes to explore. Each world has unique gamepl
 ---
 
 ## 🚀 Quick Start
+
+### Installation
+
+**For OpenClaw Users** (Telegram, Discord, etc.):
+```bash
+clawhub install yumfu
+```
+
+**For GitHub Users**:
+```bash
+# Clone the repository
+git clone https://github.com/yumyumtum/yumfu.git
+cd yumfu
+
+# Install dependencies
+uv sync
+
+# Optional: Set up AI image generation
+export GEMINI_API_KEY="your-key-here"
+
+# Start playing!
+/yumfu start
+```
+
+**Quick Links**:
+- 📦 ClawHub: [clawhub.ai/skills/yumfu](https://clawhub.ai/skills/yumfu)
+- 🐙 GitHub: [github.com/yumyumtum/yumfu](https://github.com/yumyumtum/yumfu)
+- 📖 Documentation: See [SKILL.md](SKILL.md) for full agent instructions
+
+---
 
 ### 🎮 Two Ways to Play
 
