@@ -115,10 +115,10 @@ Reply: /yumfu lang 1  (or just say "Chinese please")
 Choose your realm:
 
 1. ⚔️ 笑傲江湖 (Xiaoao Jianghu)
-2. ⚡ Harry Potter Universe
-3. 🐱 Warrior Cats
+2. ⚡ Wizard School Universe
+3. 🐱 Warrior Clans
 
-Reply: /yumfu world 3  (or just say "I want to play Warrior Cats")
+Reply: /yumfu world 3  (or just say "I want to play Warrior Clans")
 ```
 
 **Step 3: Start Your Adventure!**
@@ -129,7 +129,7 @@ Reply: /yumfu world 3  (or just say "I want to play Warrior Cats")
 
 - 🗣️ **Natural Language** - Just talk! No need for commands (e.g., "I want to explore the castle")
 - 🌍 **Multi-language** - Chinese & English
-- 🎭 **Multiple universes** - Wuxia, Harry Potter, LOTR, GoT...
+- 🎭 **Multiple universes** - Wuxia, Wizard School, Middle-earth, Medieval...
 - 🎨 **AI-generated art** - Each scene gets a styled illustration
 - 🤝 **Multiplayer** - PvP duels, teams (OpenClaw only)
 - 📖 **Rich storytelling** - Authentic genre writing
@@ -178,7 +178,7 @@ Reply: /yumfu world 3  (or just say "I want to play Warrior Cats")
 yumfu/
 ├── worlds/              # World configurations
 │   ├── xiaoao.json      # 笑傲江湖
-│   └── harry-potter.json # Harry Potter
+│   └── harry-potter.json # Wizard School
 ├── i18n/                # Localization
 │   ├── zh.json          # Chinese UI
 │   └── en.json          # English UI
@@ -196,12 +196,12 @@ yumfu/
 
 ### Phase 1 ✅ (Complete)
 - [x] Chinese (笑傲江湖)
-- [x] English (Harry Potter)
+- [x] English (Wizard School)
 - [x] Bilingual UI
 - [x] World config system
 
 ### Phase 2 (Next)
-- [ ] Add LOTR, GoT, The Witcher
+- [ ] Add Middle-earth, Medieval, Monster Hunter
 - [ ] More Chinese worlds (倚天, 射雕, 天龙)
 - [ ] Cross-world easter eggs
 
@@ -239,7 +239,7 @@ yumfu/
 
 ---
 
-### Harry Potter
+### Wizard School
 
 **Using Commands:**
 ```
@@ -265,7 +265,7 @@ Your wand-tip ignites! Spiders scatter in the silver glow.
 
 ---
 
-### Warrior Cats
+### Warrior Clans
 
 **Using Commands:**
 ```
