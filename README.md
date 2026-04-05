@@ -374,6 +374,27 @@ Ideas for new worlds:
 
 ---
 
+## 🔗 More YumSkills
+
+Looking for more AI skills? Check out the **[YumSkills Collection](https://github.com/yumyumtum/YumSkills)**:
+
+| Skill | Description | Category |
+|-------|-------------|----------|
+| [📊 yumstock](https://github.com/yumyumtum/YumSkills/tree/main/yumstock) | Three-pillar weighted US stock analysis with macro-gated Buy/Hold/Sell verdicts | Markets |
+| [🦅 yumetfeagle](https://github.com/yumyumtum/YumSkills/tree/main/yumetfeagle) | ETF sector rotation scanner with Eagle's Pick recommendations | Markets |
+| [🎋 zen-koan-daily](https://github.com/yumyumtum/YumSkills/tree/main/zen-koan-daily) | Daily Zen Buddhist koan with AI ink wash art and TTS audio | Spirituality |
+| [🌱 Continuance](https://github.com/yumyumtum/YumSkills/tree/main/Continuance) | Daily spiritual guidance from The Book of Continuance | Spirituality |
+
+**Install via ClawHub**:
+```bash
+clawhub install yumstock
+clawhub install yumetfeagle
+clawhub install zen-koan-daily
+clawhub install continuance
+```
+
+---
+
 ## 📜 License
 
 **YumFu** is licensed under the [GNU General Public License v3.0 (GPLv3)](LICENSE).
