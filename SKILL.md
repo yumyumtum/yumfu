@@ -13,11 +13,36 @@ metadata:
   }
 ---
 
-# YumFu - Multi-World MUD 🌍
+# YumFu 🌍
 
-**Choose Your Adventure** | **选择你的冒险**
+**Multi-world text adventure RPG with AI art.** Play solo or with friends across 7 universes.
+
+**Start**: `/yumfu start` &nbsp;|&nbsp; **Continue**: `/yumfu continue`
+
+### 🗺️ Worlds
+
+| World | Genre | Status |
+|-------|-------|--------|
+| ⚔️ 笑傲江湖 | Wuxia / 武侠 | ✅ Ready |
+| ⚡ Harry Potter | Magic school | ✅ Ready |
+| 🐱 Warrior Cats | Animal clan | ✅ Ready |
+| 🛵 F15 Down | Modern military | ✅ NEW |
+| 🗡️ LOTR | Epic fantasy | 🚧 Soon |
+| 🐉 Game of Thrones | Political | 🚧 Soon |
+| ⚔️ 倚天屠龙记 | Jin Yong wuxia | 🚧 Soon |
+
+### ✨ Features
+- 🎨 AI-generated art every scene (world-specific style)
+- 📖 30+ story branches, 6-8 unique endings per world
+- 🧠 NPCs remember your choices
+- 💾 Persistent saves across sessions
+- 📚 Storybook PDF export of your adventure
 
 ---
+
+<!-- ============================================================
+     AI AGENT INSTRUCTIONS BELOW — not shown to end users
+     ============================================================ -->
 
 ## ⚠️ CRITICAL: Always Use This Skill for Game Sessions!
 
