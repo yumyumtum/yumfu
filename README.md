@@ -109,6 +109,12 @@ YumFu offers multiple fantasy universes to explore. Each world has unique gamepl
 - 🐉 **Medieval Kingdoms** - Political intrigue, noble houses, throne wars ✅
 - 🐺 **Monster Hunter** - Witcher-inspired adventures *(coming soon)*
 
+### 🪖 Modern Military (现代军事)
+- 🛵 **F15 Down: Azure Peninsula War** - Fictional Middle East conflict, dual-path strategy/frontline combat, Command & Conquer aesthetic ✅ **NEW**
+  - Play as **Defense Minister** (strategic decisions) or **14 frontline roles** (F-15 pilot, B-2 bomber, flying moped operator, drone operator, special forces...)
+  - 30+ decision nodes, 8 unique endings, NPC memory system
+  - Art style: Command & Conquer Generals RTS aesthetic
+
 ---
 
 ## 🚀 Quick Start
