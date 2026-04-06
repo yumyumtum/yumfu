@@ -80,7 +80,7 @@
    ✅ Print button present
 ```
 
-**Real save test (user-1309815719):**
+**Real save test (user-YOUR_USER_ID):**
 ```
 ✅ V2 generator (notes-based): 315KB PDF
 ✅ V3 generator (session-based): 450KB PDF with full dialogue
@@ -97,7 +97,7 @@
 from scripts.session_logger import log_turn
 
 log_turn(
-    user_id="1309815719",
+    user_id="YOUR_USER_ID",
     universe="warrior-cats",
     player_input="/yumfu look",
     ai_response="You see the ThunderClan camp...",
@@ -112,7 +112,7 @@ log_turn(
 ```bash
 # 1. 生成HTML
 uv run scripts/generate_storybook_v3.py \
-  --user-id 1309815719 \
+  --user-id YOUR_USER_ID \
   --universe warrior-cats
 
 # 2. 转PDF（browser tool）

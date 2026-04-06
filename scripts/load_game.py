@@ -5,7 +5,7 @@ YumFu Game Load Script
 
 Usage:
     uv run ~/clawd/skills/yumfu/scripts/load_game.py \
-        --user-id 1309815719 \
+        --user-id YOUR_USER_ID \
         --universe xiaoao
 
 Output: JSON to stdout (可直接pipe到其他脚本)

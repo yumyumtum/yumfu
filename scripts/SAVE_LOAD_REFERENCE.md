@@ -13,7 +13,7 @@
 ### Check if user has a save
 ```bash
 uv run ~/clawd/skills/yumfu/scripts/load_game.py \
-  --user-id 1309815719 \
+  --user-id YOUR_USER_ID \
   --universe xiaoao \
   --quiet
 ```
@@ -33,15 +33,15 @@ uv run ~/clawd/skills/yumfu/scripts/load_game.py \
 ```json
 {
   "exists": false,
-  "error": "No save found for user 1309815719 in xiaoao",
-  "save_path": ".../user-1309815719.json"
+  "error": "No save found for user YOUR_USER_ID in xiaoao",
+  "save_path": ".../user-YOUR_USER_ID.json"
 }
 ```
 
 ### Check all worlds for a user
 ```bash
 uv run ~/clawd/skills/yumfu/scripts/load_game.py \
-  --user-id 1309815719 \
+  --user-id YOUR_USER_ID \
   --check-all \
   --quiet
 ```
@@ -49,7 +49,7 @@ uv run ~/clawd/skills/yumfu/scripts/load_game.py \
 **Output:**
 ```json
 {
-  "user_id": "1309815719",
+  "user_id": "YOUR_USER_ID",
   "worlds": {
     "xiaoao": {
       "exists": true,
@@ -75,7 +75,7 @@ uv run ~/clawd/skills/yumfu/scripts/load_game.py \
 ### From JSON string
 ```bash
 uv run ~/clawd/skills/yumfu/scripts/save_game.py \
-  --user-id 1309815719 \
+  --user-id YOUR_USER_ID \
   --universe xiaoao \
   --data '{"character": {"name": "小虾米", "level": 2}, "location": "华山派"}'
 ```
@@ -97,22 +97,22 @@ EOF
 
 cat /tmp/save.json | \
   uv run ~/clawd/skills/yumfu/scripts/save_game.py \
-    --user-id 1309815719 \
+    --user-id YOUR_USER_ID \
     --universe xiaoao
 ```
 
 **Output:**
 ```
 ✅ Game saved successfully!
-📁 Path: /Users/tommy/clawd/memory/yumfu/saves/xiaoao/user-1309815719.json
-💾 Backup: /Users/tommy/clawd/memory/yumfu/backups/user-1309815719-xiaoao-20260404-101234.json
+📁 Path: ~/clawd/memory/yumfu/saves/xiaoao/user-YOUR_USER_ID.json
+💾 Backup: ~/clawd/memory/yumfu/backups/user-YOUR_USER_ID-xiaoao-20260404-101234.json
 👤 Character: 小虾米 (Lv.2)
 ```
 
 ### Quiet mode (JSON output only)
 ```bash
 uv run ~/clawd/skills/yumfu/scripts/save_game.py \
-  --user-id 1309815719 \
+  --user-id YOUR_USER_ID \
   --universe xiaoao \
   --data '...' \
   --quiet
@@ -122,8 +122,8 @@ uv run ~/clawd/skills/yumfu/scripts/save_game.py \
 ```json
 {
   "success": true,
-  "save_path": ".../user-1309815719.json",
-  "backup_path": ".../user-1309815719-xiaoao-20260404-101234.json",
+  "save_path": ".../user-YOUR_USER_ID.json",
+  "backup_path": ".../user-YOUR_USER_ID-xiaoao-20260404-101234.json",
   "character_name": "小虾米",
   "level": 2
 }
@@ -167,7 +167,7 @@ def yumfu_save_game(user_id: str, universe: str, save_data: dict) -> bool:
     return output.get("success", False)
 
 # Usage
-save = yumfu_load_save("1309815719", "xiaoao")
+save = yumfu_load_save("YOUR_USER_ID", "xiaoao")
 if not save:
     # New user - guide to character creation
     return "Welcome! Use /yumfu start to create your character."
@@ -177,7 +177,7 @@ save["character"]["hp"] -= 15
 save["location"] = "华山派·练武场"
 
 # Save back
-if yumfu_save_game("1309815719", "xiaoao", save):
+if yumfu_save_game("YOUR_USER_ID", "xiaoao", save):
     return "⚔️ You arrive at Huashan training grounds..."
 else:
     return "❌ ERROR: Failed to save game! Please report this."
@@ -207,7 +207,7 @@ else:
 
 ```bash
 # Test load for existing user
-uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id 1309815719 --check-all
+uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id YOUR_USER_ID --check-all
 
 # Test load for non-existent user
 uv run ~/clawd/skills/yumfu/scripts/load_game.py --user-id 999999999 --universe xiaoao

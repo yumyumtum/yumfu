@@ -12,7 +12,7 @@ Usage:
     
     # Logging is automatically disabled if YUMFU_NO_LOGGING=1
     log_turn(
-        user_id="1309815719",
+        user_id="YOUR_USER_ID",
         universe="warrior-cats",
         player_input="/yumfu look",
         ai_response="You see the ThunderClan camp...",
@@ -175,7 +175,7 @@ def log_turn(user_id: str, universe: str, player_input: str, ai_response: str, i
     
     Example:
         log_turn(
-            user_id="1309815719",
+            user_id="YOUR_USER_ID",
             universe="warrior-cats",
             player_input="/yumfu look",
             ai_response="You see the ThunderClan camp bustling with activity...",
