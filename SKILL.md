@@ -194,11 +194,11 @@ Trigger one of: Encounter / Crisis / Discovery / Opportunity / Echo (delayed con
 - ⚔️ **Xiaoao Jianghu** (笑傲江湖) - Jin Yong wuxia classic
 - ⚡ **Harry Potter** - Hogwarts, magic, wizarding duels
 - 🐱 **Warrior Cats** - Clan life, forest territories, warrior code
+- 🛵 **F15 Down: Azure Peninsula War** - Modern military strategy, 14 frontline roles, C&C aesthetic
 
 ### 🚧 **Coming Soon (Roadmap):**
 - 🗡️ **Lord of the Rings** - Middle-earth, Fellowship
 - 🐉 **Game of Thrones** - Westeros, power struggles
-- 🐺 **The Witcher** - Monster hunting, Slavic folklore
 - 📚 **More Jin Yong Novels** - 倚天屠龙记, 射雕英雄传, 天龙八部
 
 ---
