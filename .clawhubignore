@@ -1,0 +1,21 @@
+# ClawHub publish ignore file
+# Large/unnecessary files for skill distribution
+
+# Git history
+.git/
+
+# Large showcase images (not needed for skill function)
+docs/showcase/
+docs/screenshots/
+
+# Backup files
+worlds/backups/
+
+# Dev/test files
+*.test.py
+test_*.py
+*.bak
+*.log
+
+# Old/archived versions
+worlds/*-old.json
