@@ -95,6 +95,28 @@ Plus 2-4 world-specific stats (e.g., 武功 for 笑傲江湖, magic power for HP
 - Story twist moments
 - All ending scenes
 
+**6b. Telegram Image+Text Delivery - CRITICAL:**
+
+⚠️ **NEVER send image and story text as two separate messages on Telegram.**
+This causes the text to appear AFTER the image and get ignored/folded.
+
+✅ **CORRECT pattern** — put ALL story text in the image `caption`:
+```
+message(action="send", media="path/to/image.jpg", message="[full story text here]", target=...)
+```
+
+❌ **WRONG pattern** — two separate messages:
+```
+message(action="send", message="story text")   # DON'T
+message(action="send", media="path/to/image.jpg")  # DON'T
+```
+
+Telegram caption limit is 1024 chars. If story text exceeds that:
+1. Put a short scene summary (~200 chars) as caption
+2. Send the full story text as a FOLLOW-UP message immediately after
+
+This ensures the image and story are always visually paired together.
+
 **7. World-Specific Art Styles**
 - 笑傲江湖: Chinese ink painting, classical wuxia illustration
 - Harry Potter: British fantasy illustration style
