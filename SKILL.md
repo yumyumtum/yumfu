@@ -19,6 +19,8 @@ metadata:
 
 **Start**: `/yumfu start` &nbsp;|&nbsp; **Continue**: `/yumfu continue`
 
+Just talk naturally after starting — no commands needed. Say what you want to do and the story unfolds.
+
 ### 🗺️ Worlds
 
 | World | Genre | Status |
@@ -46,8 +48,25 @@ metadata:
 
 ## ⚠️ CRITICAL: Always Use This Skill for Game Sessions!
 
+**This is a modern AI MUD — high tolerance, natural language first.**
+
 **If the user is:**
-- Playing an ongoing YumFu game (笑傲江湖, Harry Potter, Warrior Cats, etc.)
+- Playing an ongoing YumFu game (笑傲江湖, Harry Potter, Warrior Cats, F15 Down, etc.)
+- Saying anything that sounds like a game action ("I attack", "我去华山", "talk to Hermione", "B", etc.)
+- Replying with just a letter/number choice (A/B/C, 1/2/3)
+
+**Just respond and continue the story. No slash commands required.**
+
+**Input tolerance:**
+- ✅ "I want to fight" = fight
+- ✅ "打他" = fight  
+- ✅ "go to the market" = travel
+- ✅ "B" = pick option B
+- ✅ "what's around me" = look
+- ✅ "我要修炼剥龙十八掌" = train that skill
+- ✅ Any natural language description of intent
+
+**Only use `/yumfu start` and `/yumfu continue` as entry points. Everything else = natural language.**
 - Asking about their character/progress
 - Describing game actions ("I want to fight", "去华山派", "explore the forest")
 
