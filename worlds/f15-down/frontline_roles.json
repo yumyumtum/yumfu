@@ -449,9 +449,167 @@
       "risk_level": "very_high",
       "prestige": 80,
       "moral_weight": "Who lives? Who dies? You decide with limited supplies."
-    }
+    },
+
+  {
+    "id": "csar_pararescue",
+    "name": "CSAR Pararescueman (PJ)",
+    "name_zh": "战斗搜救跳伞救援员",
+    "category": "special_forces",
+    "description": "Combat Search and Rescue specialist. Jump into hostile territory to recover downed pilots. Every second counts.",
+    "description_zh": "战斗搜救专家，深入敌境营救坠机飞行员。每一秒都是生死之差。",
+    "faction": "western_alliance",
+
+    "background": "You are part of the 563rd Rescue Group, Western Alliance Air Force. Your motto: 'That Others May Live.' When an F-15 goes down over Mountain Republic territory, you are the last hope.",
+    "background_zh": "你属于西盟空军第563救援大队。座右铭：'为他人而生'。当一架F-15坠落在山岳共和国领土上，你是飞行员最后的希望。",
+
+    "starting_equipment": [
+      "HH-60G Pave Hawk rescue helicopter (primary insert)",
+      "MC-130J Commando II tanker/transport (standby)",
+      "A-10 Warthog escort flight x2 (suppression)",
+      "Personal: M4 rifle + medical kit + parachute",
+      "SERE kit (Survival, Evasion, Resistance, Escape)",
+      "Personnel Locator System (PLS) receiver",
+      "NVGs + infrared strobe"
+    ],
+
+    "special_abilities": [
+      "HAHO/HALO parachute insertion into denied areas",
+      "Combat trauma medicine (keep pilot alive under fire)",
+      "Call in A-10 / AC-130 fire support",
+      "Request MC-130J airdrop if helicopter is denied",
+      "Switch to small civilian aircraft if military assets compromised",
+      "Abandon aircraft and evade on foot if necessary"
+    ],
+
+    "missions": [
+      "Locate downed F-15 pilot via emergency beacon",
+      "Neutralize or evade enemy search teams",
+      "Stabilize and extract wounded pilot",
+      "Coordinate multi-asset rescue package",
+      "Survive if primary extraction fails"
+    ],
+
+    "rescue_package_options": {
+      "primary": {
+        "asset": "HH-60G Pave Hawk x2",
+        "escort": "A-10 Warthog x2",
+        "condition": "Low enemy air defense — standard CSAR",
+        "risk": "medium"
+      },
+      "elevated_threat": {
+        "asset": "HH-60G + MC-130J Combat Talon",
+        "escort": "F-15 SEAD flight + A-10 x2",
+        "condition": "Medium SAM threat — suppress and extract",
+        "risk": "high"
+      },
+      "denied_airspace": {
+        "asset": "MC-130J low-level airdrop",
+        "escort": "B-2 SEAD strike first",
+        "condition": "Heavy SAM/AAA — no helicopter survivable",
+        "risk": "very_high",
+        "note": "PJ parachutes in from MC-130. Helicopter cannot enter."
+      },
+      "extreme_fallback": {
+        "asset": "Civilian Cessna or light prop plane (unmarked)",
+        "escort": "None — stealth approach only",
+        "condition": "All military assets compromised or shot down",
+        "risk": "extreme",
+        "note": "Abandon uniform. Fly low under radar in civilian aircraft. If intercepted, abandon plane and evade on foot."
+      },
+      "abort": {
+        "condition": "Pilot captured or KIA confirmed / rescue package fully destroyed",
+        "outcome": "Mission abort. Pilot becomes POW storyline."
+      }
+    },
+
+    "scenario": {
+      "trigger": "F-15 pilot shot down over highland_fortress sector",
+      "pilot_status_options": [
+        "Alive, evading — beacon active",
+        "Alive, injured — needs immediate medevac",
+        "Alive, captured — POW scenario",
+        "KIA — body recovery mission"
+      ],
+      "enemy_response": [
+        "Mountain Republic scrambles search teams within 15 min",
+        "SAM batteries activated",
+        "Proxy militia on motorcycles sweeping the area",
+        "Possible hostage broadcast within 2 hours"
+      ],
+      "time_pressure": "Golden hour: 60 minutes before pilot is found or dies from injuries"
+    },
+
+    "moral_dilemmas": [
+      "A-10 must strafe militia trucks — civilian workers may be nearby",
+      "Helicopter is hit and going down — do you abort or press in?",
+      "Pilot is alive but enemy closing fast — leave now with partial injuries or wait for full stabilization?",
+      "Civilian aircraft option means flying unarmed into hostile territory — one burst from a gunboat ends everything",
+      "Pilot says abandon him — POW protocol vs your oath to bring everyone home"
+    ],
+
+    "risk_level": "extreme",
+    "prestige": 97,
+    "nickname": "That Others May Live",
+    "moral_weight": "You will risk five lives to save one. That is not a question. That is the job."
+  },
+
+  {
+    "id": "csar_hh60_pilot",
+    "name": "HH-60G Pave Hawk Rescue Pilot",
+    "name_zh": "HH-60G铺路鹰救援直升机飞行员",
+    "category": "air_force",
+    "description": "Rescue helicopter pilot flying into hostile fire to recover downed aircrew. If the zone is too hot, find another way in.",
+    "description_zh": "驾驶救援直升机冲入敌火，营救坠机机组。如果区域太热，就换条路。",
+    "faction": "western_alliance",
+
+    "starting_equipment": [
+      "HH-60G Pave Hawk helicopter",
+      "FLIR/NVG navigation suite",
+      "In-flight refueling probe",
+      "M134 Minigun door gunner x2",
+      "Rescue hoist (90ft cable)",
+      "Pararescueman team x2 onboard"
+    ],
+
+    "special_abilities": [
+      "Nap-of-earth flying to avoid radar",
+      "Night / bad weather operations",
+      "In-flight refueling from MC-130J",
+      "Aerial hoist rescue (no landing required)",
+      "Abort and reroute mid-mission",
+      "Declare emergency — abandon aircraft if hit"
+    ],
+
+    "missions": [
+      "Insert PJ team into rescue zone",
+      "Hold orbit under A-10 cover while PJ works",
+      "Extract pilot via hoist or landing",
+      "Return under fire with casualties aboard",
+      "Fly secondary route if primary is SAM-denied"
+    ],
+
+    "decision_tree": {
+      "zone_assessment": {
+        "cold": "Fly direct, land, extract. Standard.",
+        "warm": "Nap-of-earth approach, A-10 suppression, quick extract.",
+        "hot": "MC-130 airdrop PJ first. Orbit outside SAM ring. Enter only after SEAD.",
+        "denied": "Cannot enter. Switch to civilian aircraft option or abort."
+      },
+      "aircraft_damage": {
+        "minor": "Continue mission, reduce speed.",
+        "serious": "PJ decision: abort extract or press to completion.",
+        "catastrophic": "Autorotation. Crew evacuates. Destroy crypto before leaving aircraft."
+      }
+    },
+
+    "risk_level": "extreme",
+    "prestige": 93,
+    "nickname": "Dustoff"
+  }
+
   ],
-  
+
   "role_selection_system": {
     "categories": {
       "air_force": "Sky Warriors",
