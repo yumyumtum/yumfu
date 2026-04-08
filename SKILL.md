@@ -8,7 +8,7 @@ metadata:
       {
         "emoji": "🌍",
         "requires": { "bins": ["uv"] },
-        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国"]
+        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏"]
       }
   }
 ---
@@ -197,10 +197,10 @@ Trigger one of: Encounter / Crisis / Discovery / Opportunity / Echo (delayed con
 - 🛵 **F15 Down: Azure Peninsula War** - Modern military strategy, 14 frontline roles, C&C aesthetic
 - 🦞 **龙虾三国** - Three Kingdoms era, 5 roles, weapons/mounts/ultimate skills
 - 🗡️ **倚天屠龙记** - The Heaven Sword & Dragon Saber, 4 romance routes, 6 endings
+- 🐉 **Game of Thrones** - Seven Kingdoms, 7 houses, play as Jon/Dany/Tyrion/Arya/Cersei
 
 ### 🚧 **Coming Soon (Roadmap):**
 - 🧙 **Lord of the Rings** - Middle-earth, Fellowship
-- 🐉 **Game of Thrones** - Westeros, power struggles
 - 🏹 **射雕英雄传** - Legend of the Condor Heroes
 
 ---
