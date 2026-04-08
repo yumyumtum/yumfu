@@ -1,11 +1,37 @@
-# YumFu - Multi-World MUD 🌍⚔️🪄
+# YumFu - Multi-World MUD 🌍⚔️🧩
 
-**Choose Your Adventure** - Text-based RPG with AI-generated art across multiple fantasy universes
+**Play together in Telegram groups!** Text-based multiplayer RPG with AI-generated art.
+
+> 🎉 Add YumFu to your group chat and adventure with friends — fight, explore, and compete in a shared world!
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Security](https://img.shields.io/badge/security-audited-green.svg)](SECURITY.md)
 [![Safe Code](https://img.shields.io/badge/code-no%20eval-brightgreen.svg)](SECURITY.md)
 [![ClawHub](https://img.shields.io/badge/ClawHub-yumfu-purple)](https://clawhub.ai/skills/yumfu)
+[![Multiplayer](https://img.shields.io/badge/multiplayer-Telegram%20%26%20Discord-blue)](https://clawhub.ai/skills/yumfu)
+
+---
+
+## 👥 Multiplayer in Telegram Groups
+
+YumFu is built for **group play**. Add it to any Telegram group and everyone adventures in the same world:
+
+- 🤝 **Team up** — form parties, tackle quests together
+- ⚔️ **PvP duels** — challenge friends to fights
+- 🌍 **Shared world** — your actions affect everyone (kill a boss, it stays dead)
+- 🏆 **Leaderboards** — compete for top rank in your group
+- 💬 **Natural language** — no slash commands mid-game, just chat!
+
+### How to start in a group
+
+```
+1. Add your OpenClaw bot to a Telegram group
+2. Alice: /yumfu start  →  Bot: Choose your world... [AI art]
+3. Bob:  /yumfu start  →  Bot: Bob joins! Alice is in 洛阳城
+4. Alice: 我要与玩家切磋！  →  Bot: ⚔️ PvP 开始！[Epic battle scene]
+```
+
+**Works on**: Telegram groups · Discord · WhatsApp · Any OpenClaw platform
 
 ---
 

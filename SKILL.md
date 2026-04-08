@@ -1,6 +1,6 @@
 ---
 name: yumfu
-description: "Multi-World text adventure MUD game (Wuxia, Harry Potter, Warrior Cats, LOTR). Use when: user types /yumfu, /江湖, or asks to play a text adventure, MUD game, role-playing game, interactive story, wuxia game, 武侠游戏, 角色扮演, Harry Potter RP, warrior cats adventure. ALWAYS use this skill for ongoing game sessions (笑傲江湖, Harry Potter, Warrior Cats). NOT for: stock analysis, news, weather, real-world tasks."
+description: "Multiplayer text adventure RPG — play together in Telegram groups! 5 worlds: 笑傲江湖 (Wuxia), Harry Potter, Warrior Cats, F15 Down (military), 龙虾三国 (Three Kingdoms). Each player gets their own character in a shared world. PvP duels, team quests, leaderboards. AI-generated art every scene. Just chat naturally — no slash commands needed. Use when: user types /yumfu, asks to play together, wants a group RPG, text adventure, 武侠游戏, 角色扮演."
 homepage: https://github.com/yumyumtum/yumfu
 metadata:
   {
