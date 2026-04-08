@@ -12,6 +12,22 @@
 
 ---
 
+## 🌍 9 Worlds to Explore
+
+| World | Genre | Language | Status |
+|-------|-------|----------|--------|
+| ⚔️ **笑傲江湖** (Xiaoao Jianghu) | Wuxia martial arts | 中文 | ✅ Playable |
+| ⚡ **Harry Potter** | Magic school | English | ✅ Playable |
+| 🐱 **Warrior Cats** | Animal clan survival | English | ✅ Playable |
+| 🛵 **F15 Down: Azure Peninsula War** | Modern military | 中/EN | ✅ Playable |
+| 🦞 **龙虾三国** (Three Kingdoms) | Historical strategy | 中文 | ✅ Playable |
+| 🗡️ **倚天屠龙记** (Heaven Sword & Dragon Saber) | Wuxia romance | 中文 | ✅ Playable |
+| 🐉 **Game of Thrones** | Dark fantasy politics | English | ✅ Playable |
+| 🧙 **Lord of the Rings** | Epic fantasy quest | English | ✅ Playable |
+| 🏹 **射雕英雄传** (Legend of Condor Heroes) | Jin Yong wuxia | 中文 | 🚧 Coming |
+
+---
+
 ## 👥 Multiplayer in Telegram Groups
 
 YumFu is built for **group play**. Add it to any Telegram group and everyone adventures in the same world:

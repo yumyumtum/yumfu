@@ -1,6 +1,6 @@
 ---
 name: yumfu
-description: "Multiplayer text adventure RPG — play together in Telegram groups! 5 worlds: 笑傲江湖 (Wuxia), Harry Potter, Warrior Cats, F15 Down (military), 龙虾三国 (Three Kingdoms). Each player gets their own character in a shared world. PvP duels, team quests, leaderboards. AI-generated art every scene. Just chat naturally — no slash commands needed. Use when: user types /yumfu, asks to play together, wants a group RPG, text adventure, 武侠游戏, 角色扮演."
+description: "Multiplayer text RPG with 8 playable worlds — play together in Telegram groups! Worlds: 笑傲江湖, Harry Potter, Warrior Cats, F15 Down, 龙虾三国, 倚天屠龙记, Game of Thrones, Lord of the Rings. Each player gets their own character in a shared world with AI art every scene. PvP, team quests, natural language — no commands needed. Use when: /yumfu, group RPG, text adventure, 武侠, 권力의게임, LOTR, 指环王, 权力的游戏, 三国, 张无忌."
 homepage: https://github.com/yumyumtum/yumfu
 metadata:
   {
