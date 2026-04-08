@@ -8,7 +8,7 @@ metadata:
       {
         "emoji": "🌍",
         "requires": { "bins": ["uv"] },
-        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏"]
+        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏", "Lord of the Rings", "LOTR", "Fellowship", "Frodo", "Aragorn", "Gandalf", "指环王", "魔戒"]
       }
   }
 ---
@@ -29,7 +29,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 | ⚡ Harry Potter | Magic school | ✅ Ready |
 | 🐱 Warrior Cats | Animal clan | ✅ Ready |
 | 🛵 F15 Down | Modern military | ✅ NEW |
-| 🗡️ LOTR | Epic fantasy | 🚧 Soon |
+| 🧙 Lord of the Rings | Epic fantasy | ✅ Playable |
 | 🐉 Game of Thrones | Political | 🚧 Soon |
 | ⚔️ 倚天屠龙记 | Jin Yong wuxia | 🚧 Soon |
 
@@ -200,8 +200,8 @@ Trigger one of: Encounter / Crisis / Discovery / Opportunity / Echo (delayed con
 - 🐉 **Game of Thrones** - Seven Kingdoms, 7 houses, play as Jon/Dany/Tyrion/Arya/Cersei
 
 ### 🚧 **Coming Soon (Roadmap):**
-- 🧙 **Lord of the Rings** - Middle-earth, Fellowship
-- 🏹 **射雕英雄传** - Legend of the Condor Heroes
+- 🧙 **Lord of the Rings** - Middle-earth, 5 races, Ring corruption system, play as Frodo/Aragorn/Gandalf
+- 🏹 **射雕英雄传** - Legend of the Condor Heroes *(coming soon)*
 
 ---
 
