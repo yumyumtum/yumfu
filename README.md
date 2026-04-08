@@ -97,10 +97,10 @@ YumFu stores all game data **locally** on your machine:
 
 YumFu offers multiple fantasy universes to explore. Each world has unique gameplay mechanics, art styles, and storylines.
 
-### 🇨🇳 Chinese Wuxia (中文武侠)
-- ⚔️ **Swordsman Tales** - Martial arts sects, honor duels, legendary techniques
-- 🗡️ **Dragon & Sword Epic** - Ancient artifacts, mystical powers *(coming soon)*
-- 📖 **Hero Legends** - Classic wuxia adventures *(coming soon)*
+### 🇨🇳 Chinese Wuxia & Historical (中文武侠/历史)
+- ⚔️ **Swordsman Tales** (笑傲江湖) - Martial arts sects, honor duels, legendary techniques
+- 🦞 **Lobster Three Kingdoms** (龙虾三国) - Three Kingdoms era strategy, 5 roles, weapons/mounts/ultimate skills ✅ **NEW**
+- 🗡️ **Dragon & Sword Epic** (倚天屠龙记) - Ancient artifacts, mystical powers *(coming soon)*
 
 ### 🇬🇧 Western Fantasy
 - ⚡ **Wizard School** - Magic academy, four houses, spell duels
