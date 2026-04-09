@@ -24,6 +24,7 @@
 | 🗡️ **倚天屠龙记** (Heaven Sword & Dragon Saber) | Wuxia romance | 中文 | ✅ Playable |
 | 🐉 **Game of Thrones** | Dark fantasy politics | English | ✅ Playable |
 | 🧙 **Lord of the Rings** | Epic fantasy quest | English | ✅ Playable |
+| 🐒 **西游记** (Journey to the West) | Mythological RPG | 中文/EN | ✅ Playable |
 | 🏹 **射雕英雄传** (Legend of Condor Heroes) | Jin Yong wuxia | 中文 | 🚧 Coming |
 
 ---

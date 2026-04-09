@@ -201,6 +201,7 @@ Trigger one of: Encounter / Crisis / Discovery / Opportunity / Echo (delayed con
 
 ### 🚧 **Coming Soon (Roadmap):**
 - 🧙 **Lord of the Rings** - Middle-earth, 5 races, Ring corruption system, play as Frodo/Aragorn/Gandalf
+- 🐒 **西游记** - Journey to the West: 9 factions, play as gods/demons/pilgrims
 - 🏹 **射雕英雄传** - Legend of the Condor Heroes *(coming soon)*
 
 ---
