@@ -1,6 +1,6 @@
 ---
 name: yumfu
-description: "Multiplayer text RPG with 8 playable worlds — play together in Telegram groups! Worlds: 笑傲江湖, Harry Potter, Warrior Cats, F15 Down, 龙虾三国, 倚天屠龙记, Game of Thrones, Lord of the Rings. Each player gets their own character in a shared world with AI art every scene. PvP, team quests, natural language — no commands needed. Use when: /yumfu, group RPG, text adventure, 武侠, 권力의게임, LOTR, 指环王, 权力的游戏, 三国, 张无忌."
+description: "Multiplayer text RPG with 9 playable worlds — play together in Telegram groups! Worlds: 笑傲江湖, Harry Potter, Warrior Cats, F15 Down, 龙虾三国, 倚天屠龙记, Game of Thrones, Lord of the Rings, 西游记 (Journey to the West). Each player gets their own character in a shared world with AI art every scene. PvP, team quests, natural language — no commands needed. Use when: /yumfu, group RPG, text adventure, 武侠, 西游记, 孙悟空, LOTR, 指环王, 权力的游戏, 三国, 张无忌."
 homepage: https://github.com/yumyumtum/yumfu
 metadata:
   {
@@ -8,7 +8,7 @@ metadata:
       {
         "emoji": "🌍",
         "requires": { "bins": ["uv"] },
-        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏", "Lord of the Rings", "LOTR", "Fellowship", "Frodo", "Aragorn", "Gandalf", "指环王", "魔戒"]
+        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏", "Lord of the Rings", "LOTR", "Fellowship", "Frodo", "Aragorn", "Gandalf", "指环王", "魔戒", "西游记", "孙悟空", "唐僧", "猪八戒", "牛魔王", "取经", "Journey to the West"]
       }
   }
 ---
