@@ -8,7 +8,7 @@ metadata:
       {
         "emoji": "🌍",
         "requires": { "bins": ["uv"] },
-        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏", "Lord of the Rings", "LOTR", "Fellowship", "Frodo", "Aragorn", "Gandalf", "指环王", "魔戒", "西游记", "孙悟空", "唐僧", "猪八戒", "牛魔王", "取经", "Journey to the West"]
+        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏", "Lord of the Rings", "LOTR", "Fellowship", "Frodo", "Aragorn", "Gandalf", "指环王", "魔戒", "西游记", "孙悟空", "唐僧", "猪八戒", "牛魔王", "取经", "Journey to the West", "内裤超人", "Captain Underpants", "乔治", "哈罗德", "屎尿教授", "Professor Poopypants"]
       }
   }
 ---
@@ -202,6 +202,7 @@ Trigger one of: Encounter / Crisis / Discovery / Opportunity / Echo (delayed con
 ### 🚧 **Coming Soon (Roadmap):**
 - 🧙 **Lord of the Rings** - Middle-earth, 5 races, Ring corruption system, play as Frodo/Aragorn/Gandalf
 - 🐒 **西游记** - Journey to the West: 9 factions, play as gods/demons/pilgrims
+- 🩲 **内裤超人** - Captain Underpants: 搞怪漫画RPG，屁声震天
 - 🏹 **射雕英雄传** - Legend of the Condor Heroes *(coming soon)*
 
 ---
