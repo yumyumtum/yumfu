@@ -783,14 +783,18 @@ During `/yumfu start`, after world choice and initial character setup, ask:
 - Default should be **No** unless the player explicitly opts in
 
 If **Yes**:
-1. save `daily_evolution.enabled = true`
-2. create/store a daily cron or scheduled task id in `daily_evolution.cron_id`
+1. enable sidecar state via `~/clawd/skills/yumfu/scripts/set_daily_evolution.py`
+2. create a per-player daily cron via `~/clawd/skills/yumfu/scripts/create_daily_evolution_cron.py`
 3. deliver **one** daily update message with image
-4. update save with the new world state and summary
+4. persist the result to sidecar state (not main save)
 
 If **No**:
 - do not create a cron
 - world only advances during active play
+
+If the player later disables it:
+- use `~/clawd/skills/yumfu/scripts/disable_daily_evolution_cron.py`
+- keep old sidecar history unless the user explicitly asks to erase it
 
 ### Runtime input for each evolution tick
 Before generating the update, load and consider:
@@ -890,6 +894,15 @@ n- pressure
 ### Sidecar evolution state
 Store daily evolution context in a separate file such as:
 `~/clawd/memory/yumfu/evolution/{universe}/user-{id}.json`
+
+Supporting scripts:
+- `scripts/set_daily_evolution.py` — enable/disable sidecar state
+- `scripts/load_daily_evolution.py` — inspect sidecar state
+- `scripts/daily_evolution_prepare.py` — build dynamic runtime context
+- `scripts/run_daily_evolution_job.py` — generate a daily evolution update
+- `scripts/run_daily_evolution.py` — persist generated result into sidecar
+- `scripts/create_daily_evolution_cron.py` — create per-player daily cron
+- `scripts/disable_daily_evolution_cron.py` — disable per-player daily cron
 
 This sidecar can track:
 - last daily summary
