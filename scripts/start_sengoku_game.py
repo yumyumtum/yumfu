@@ -7,6 +7,7 @@ from pathlib import Path
 
 INIT_SAVE = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'init_sengoku_save.py'
 HANDLE_DE = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'handle_daily_evolution_choice.py'
+RENDER_OPENING = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'render_sengoku_opening.py'
 WORLD_PATH = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'worlds' / 'sengoku.json'
 
 
@@ -102,6 +103,9 @@ def main():
         ])
 
     opening = build_opening(world, args.name, role, faction, scenario)
+    rendered_opening = run([
+        'python3', str(RENDER_OPENING), '--user-id', args.user_id
+    ])
 
     print(json.dumps({
         'success': True,
@@ -109,6 +113,7 @@ def main():
         'save_result': save_result,
         'daily_evolution': de_result,
         'opening': opening,
+        'rendered_opening': rendered_opening,
         'daily_evolution_pitch_zh': world.get('daily_evolution_pitch_zh')
     }, ensure_ascii=False, indent=2))
 
