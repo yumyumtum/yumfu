@@ -9,6 +9,7 @@ from pathlib import Path
 
 SET_SCRIPT = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'set_daily_evolution.py'
 RUNNER = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'run_daily_evolution_job.py'
+APPLY_RUNNER = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'run_daily_evolution.py'
 
 
 def shell_quote_single(s: str) -> str:
@@ -45,7 +46,7 @@ Steps:
 4. Send exactly one in-world message to {args.channel} target {args.target} with the generated image and story text.
 5. Write the generated JSON result to ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
 6. Persist sidecar only using:
-   python3 {RUNNER} --user-id {args.user_id} --universe {args.universe} --apply-from-json ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
+   python3 {APPLY_RUNNER} --user-id {args.user_id} --universe {args.universe} --apply-from-json ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
 
 Rules:
 - Never mutate the main save directly
