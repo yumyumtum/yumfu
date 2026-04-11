@@ -231,6 +231,9 @@ Then choose your world / 然后选择世界:
 
 **After world + character setup, ask one more onboarding question (MANDATORY):**
 
+**This is a unified YumFu rule across worlds, not a one-off reminder.**
+Daily evolution is always optional, but the system should proactively ask during `/yumfu start` so the player does not need to remember to enable it later.
+
 ```text
 Do you want this world to evolve automatically every day, even when you're offline?
 
@@ -941,6 +944,7 @@ Supporting scripts:
 - `scripts/build_reentry_context.py` — merge save + sidecar for continue flow
 - `scripts/render_continue_reentry.py` — render a concise continue-time re-entry prompt
 - `scripts/init_sengoku_save.py` — initialize a 战国乱世 / Sengoku Chaos starting save
+- `scripts/start_sengoku_game.py` — initialize Sengoku save + daily evolution choice + opening scene payload
 
 This sidecar can track:
 - last daily summary
