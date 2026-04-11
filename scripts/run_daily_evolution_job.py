@@ -125,6 +125,60 @@ def got_update(save: dict, world: dict, sidecar: dict) -> dict:
     return chosen
 
 
+def sengoku_update(save: dict, world: dict, sidecar: dict) -> dict:
+    character = save.get('character', {})
+    name = clean_name(character.get('name'), '无名之辈')
+    location = clean_name(save.get('location'), '城下町')
+    role = clean_name(character.get('role'), '乱世之人')
+    faction = clean_name(character.get('house'), '无主之势')
+    history = sidecar.get('history', [])
+    severity = pick_severity(f"sengoku:{name}:{location}:{role}:{len(history)}:{datetime.now().date().isoformat()}")
+
+    seeds = [
+        {
+            'summary': '城里先传开的不是命令，而是风声。',
+            'story_text': f"夜还没彻底退，{location}里先传开的不是官样命令，而是一阵更值钱的风声：昨夜有人悄悄问价，要买下一批新到港的火绳枪，却不肯留下主家名号。茶屋、仓场、花街和码头之间都有人在压着声量打听，像谁都知道要出事，却都想比别人晚一步露面。你现在的身份是{role}，站在{faction}这一边，可乱世里真正保命的从来不是名头，而是谁先抓住这阵风往哪边吹。只要你今晚抢先找到第一个放风的人，你就不只是听消息的人，而是能决定谁先拿到枪、谁先丢掉脑袋的人。你是先查火枪的去向，还是先查是谁故意放出这阵风？",
+            'hooks': ['先追火枪去向。', '先查放风的人。'],
+            'meta': {
+                'rumor_threads': ['火绳枪暗中问价'],
+                'faction_movements': ['多方势力同时试探军火流向'],
+                'npc_watchlist': ['放风的茶屋耳目', '匿名军火买主']
+            },
+            'image_prompt': 'Torchlit Sengoku castle town before dawn, whispers spreading through tea houses and alleys, hidden gun deal rumors, banners, ash, lacquer armor, cinematic samurai war painting'
+        },
+        {
+            'summary': '花街里先有人开口，城门外才会死人。',
+            'story_text': f"今夜{location}最先热起来的不是城门，而是花街。有人带着比银子更重的口风进了包间，说某位将领已经在私下募人，不是为了守城，是为了在下一场会盟之前先把不该活的人做掉。真正可怕的不是这句风声本身，而是说这句话的人明显不怕被听见——这说明放话的人不是傻，就是背后有人兜着。你这种{role}若只把它当闲话，就会错过把手伸进真正权力缝里的机会。若你先找对人，今夜你能收的就不只是消息，还可能是一条债、一把刀、或一个将来要为你卖命的人。你是先盯那个最会传话的女人，还是先查她背后的金主？",
+            'hooks': ['先盯最会传话的人。', '先查出谁在背后付钱。'],
+            'meta': {
+                'rumor_threads': ['花街放出暗杀风声'],
+                'faction_movements': ['有人在会盟前秘密募人'],
+                'npc_watchlist': ['最会传话的花街女人', '出钱的幕后金主']
+            },
+            'image_prompt': 'Sengoku pleasure quarter at night, ambitious courtesan whispering fatal secrets behind lantern screens, armed retainers outside, cinematic samurai oil painting'
+        },
+        {
+            'summary': '粮、枪和人情，今夜至少有一样要先断。',
+            'story_text': f"{location}今夜的表面还算平静，可真正懂行的人都看得出来：粮、枪和人情三样东西里，至少有一样很快要先断。仓里的人突然开始惜米，带枪的人开始惜火药，原本逢人都点头的中间商也突然话少了一半。这种静不是平安，是有人已经提前闻到了血。你现在身在{faction}，又顶着{role}的身份，如果还等别人把局势讲明白，往往就只能替别人收残局。可若你趁现在先拿住一个关节，不管是仓、枪、还是人脉，等明天城里真正乱起来时，你就不是被卷进去的人，而是能收价的人。你先掐哪一处？",
+            'hooks': ['先控制粮。', '先控制枪。', '先控制中间人。'],
+            'meta': {
+                'rumor_threads': ['仓、枪、人情同时收紧'],
+                'faction_movements': ['多方为即将到来的乱局做准备'],
+                'npc_watchlist': ['惜米的仓吏', '惜火药的枪头', '突然沉默的中间商']
+            },
+            'image_prompt': 'Sengoku storehouses and gun racks under lantern light, tense merchants and ashigaru sensing coming bloodshed, cinematic samurai war painting, smoke and red-black-gold palette'
+        }
+    ]
+
+    idx = int(hashlib.md5(f"{name}:{location}:{role}:{faction}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
+    chosen = seeds[idx]
+    chosen['severity'] = severity
+    chosen['world_id'] = world.get('id', 'sengoku')
+    chosen['character_name'] = name
+    chosen['location_context'] = location
+    return chosen
+
+
 def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
     character = save.get('character', {})
     name = clean_name(character.get('name'), 'the player')
@@ -161,6 +215,8 @@ def main():
 
     if args.universe == 'game-of-thrones':
         result = got_update(save, world, sidecar)
+    elif args.universe == 'sengoku':
+        result = sengoku_update(save, world, sidecar)
     else:
         result = generic_update(save, world, sidecar)
 
