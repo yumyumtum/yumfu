@@ -804,24 +804,23 @@ During `/yumfu start`, after world choice and initial character setup, ask:
 - Do you want daily world evolution updates? Yes / No
 - Default should be **No** unless the player explicitly opts in
 
-**Exact enable flow:**
-1. Ask the player the Yes/No question
-2. If Yes, run:
+**Exact onboarding flow for any world:**
+1. Ask the player the Yes/No question after character setup
+2. Pass the result into:
 ```bash
-python3 ~/clawd/skills/yumfu/scripts/enable_daily_evolution.py \
+python3 ~/clawd/skills/yumfu/scripts/handle_daily_evolution_choice.py \
   --user-id {user_id} \
   --universe {selected_world} \
   --target {chat_id} \
+  --choice yes|no \
   --channel telegram \
   --time 10:00 \
   --tz America/Los_Angeles
 ```
-3. Confirm briefly in chat: daily evolution is enabled
+3. Use the returned `message_zh` / `message_en` as the short confirmation to the player
 4. Do **not** send a separate technical report
 
-If **No**:
-- do not create a cron
-- world only advances during active play
+This is world-agnostic. Any YumFu world should use the same post-start activation flow.
 
 If the player later disables it:
 - use `~/clawd/skills/yumfu/scripts/disable_daily_evolution_cron.py`
@@ -930,6 +929,7 @@ Supporting scripts:
 - `scripts/set_daily_evolution.py` — enable/disable sidecar state
 - `scripts/load_daily_evolution.py` — inspect sidecar state
 - `scripts/detect_recent_language.py` — infer preferred recent player language
+- `scripts/handle_daily_evolution_choice.py` — world-agnostic post-start yes/no activation handler
 - `scripts/daily_evolution_prepare.py` — build dynamic runtime context
 - `scripts/run_daily_evolution_job.py` — generate a daily evolution update
 - `scripts/run_daily_evolution.py` — persist generated result into sidecar
