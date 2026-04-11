@@ -46,7 +46,8 @@
     "option_c": "忍者/密探 - 深入城下町、寺社、花街，靠情报改命",
     "option_d": "火枪火炮技师 - 经营南蛮火器与攻城器械，技术就是权力",
     "option_e": "名妓/花魁势力主 - 用枕边风、债券、秘密与人情撬动城国",
-    "option_f": "异乡白人技师/商人 - 带着火绳枪、炮术、海贸、宗教与野心入场"
+    "option_f": "异乡白人技师/商人 - 带着火绳枪、炮术、海贸、宗教与野心入场",
+    "option_g": "海商头目 - 靠船、盐、火器、走私、账本和码头人脉起家"
   },
   "character_creation": {
     "fixed_protagonist": false,
@@ -55,7 +56,8 @@
       "足轻头",
       "浪人头目",
       "火器技师",
-      "花魁/名妓势力主"
+      "花魁/名妓势力主",
+      "海商头目"
     ],
     "name_style": "允许日本名、汉名、南蛮名、艺名、诨号",
     "background_axes": [
@@ -221,6 +223,12 @@
       "name_zh": "南蛮异乡客",
       "name_en": "Foreign Adventurer",
       "focus": "海贸、宗教、火器、跨文化联络"
+    },
+    {
+      "id": "sea-merchant-boss",
+      "name_zh": "海商头目",
+      "name_en": "Maritime Merchant Boss",
+      "focus": "海贸、走私、军火套利、码头势力、账本与债务链"
     }
   ],
   "starting_scenarios": [
@@ -360,14 +368,18 @@
     "firearms": "火绳枪/火炮体系，改写阵战与攻城",
     "courtesan_network": "花街与茶屋能提供枕边风、债务链与把柄",
     "spy_network": "忍者、密使、商旅、艺妓、教士都可成为眼线",
-    "cross_sea_politics": "明朝、朝鲜与南蛮势力会影响战争资源与声望"
+    "cross_sea_politics": "明朝、朝鲜与南蛮势力会影响战争资源与声望",
+    "trade_network": "港口、船队、盐铁、米价、火器与账期共同决定你能不能靠赚钱崛起",
+    "black_market": "走私、假关文、军火转手、私盐、赎人和封港令是另一条权力链",
+    "merchant_credit": "钱不是一次拿完，而是靠账本、债、欠条和未来交货控制人"
   },
   "starting_location": "京都近郊的乱兵集市与军营边缘",
   "victory_conditions": [
     "成为实际上的天下人",
     "建立横跨海贸与军火的影子霸权",
     "扶持明主并成为幕后执政者",
-    "以情报、火器与金流改写战国格局"
+    "以情报、火器与金流改写战国格局",
+    "不称王却控制几条最赚钱的海路与港口，做乱世真正的财主"
   ],
   "failure_conditions": [
     "兵粮断绝导致全军崩散",
@@ -381,12 +393,14 @@
       "影主路线",
       "火器革新路线",
       "花街权谋路线",
-      "跨海经略路线"
+      "跨海经略路线",
+      "海商暴富路线"
     ],
     "special_hooks": [
       "可扶植织田/丰臣/德川其中一方，也可暗中拆他们台",
       "可招募明军顾问、朝鲜海战人才、南蛮炮匠",
-      "可把名妓、浪人、僧兵、海商都编进势力网络"
+      "可把名妓、浪人、僧兵、海商都编进势力网络",
+      "可先不争天下，先靠船队、盐、火器和账本把所有人变成你的债主或债奴"
     ]
   },
   "copyright_notice": "Historical and fictional crossover / alt-history setting for roleplay. Includes mixed-era and legendary figures for dramatic sandbox play rather than strict chronology."
