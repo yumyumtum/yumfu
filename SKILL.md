@@ -263,7 +263,7 @@ python3 ~/clawd/skills/yumfu/scripts/start_sengoku_game.py \
 ```
 Then:
 1. generate exactly one opening image from `rendered_opening.image_prompt`
-2. send the first playable opening scene with that image
+2. send `rendered_opening.player_opening_message` with that image as the first playable opening scene
 3. let the player answer with one of the rendered first-turn choices
 
 **English (Available Now):**
