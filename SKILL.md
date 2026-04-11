@@ -1079,11 +1079,17 @@ shuf -i 1-20 -n 1
 
 ### ⚡ Image Generation Policy (UPDATED 2026-04-05)
 
-**🔴 MANDATORY: Generate image for EVERY response**
+**🔴 MANDATORY: Generate image for EVERY game response**
 
 If the user's message is a **game action** (not `/yumfu status`, `/yumfu help`, or meta commands):
 
 ✅ **ALWAYS generate image FIRST, then narrate**
+✅ **Generate exactly ONE primary scene image per game turn**
+
+That means:
+- not zero images
+- not two or more competing images
+- one turn = one main image + one paired narrative response
 
 **Execution order (STRICT):**
 1. 🔍 Parse user action
@@ -1097,6 +1103,8 @@ If the user's message is a **game action** (not `/yumfu status`, `/yumfu help`, 
 - ❌ Send text first, image later
 - ❌ Skip images for "minor" scenes
 - ❌ Wait for user to ask "where's the picture?"
+- ❌ Send duplicate scene images for the same turn
+- ❌ Send one image and then a second "replacement" image unless the user explicitly asks for a redo
 
 **Why every turn needs an image:**
 - Maintains visual novel immersion
@@ -1112,9 +1120,9 @@ If the user's message is a **game action** (not `/yumfu status`, `/yumfu help`, 
 3. If NO (status/help) → Skip image, reply directly
 
 **When user takes ANY game action:**
-1. **FIRST**: Generate scene image (location, NPC, action, etc.)
-2. **SECOND**: Write 150-300 word narrative
-3. **THIRD**: Send image + narrative together via message tool
+1. **FIRST**: Generate exactly one scene image (location, NPC, action, etc.)
+2. **SECOND**: Write 150-300 word narrative for that same scene
+3. **THIRD**: Send exactly one image + that paired narrative together via message tool
 4. **FOURTH**: Update save file
 5. **FIFTH**: Log turn to session JSONL
 
@@ -1125,6 +1133,18 @@ If the user's message is a **game action** (not `/yumfu status`, `/yumfu help`, 
 - Meta questions ("what can I do?", "explain combat")
 
 **Everything else = Image required!**
+
+### Single-image-per-turn rule
+For active gameplay, the default contract is:
+- **1 turn = 1 image = 1 paired narrative reply**
+
+Only break this when the user explicitly asks for:
+- another angle
+- a redraw / redo
+- extra gallery images
+- a separate portrait after the main scene
+
+If none of those were asked for, do not send a second image for the same turn.
 
 
 **Example Flow:**
