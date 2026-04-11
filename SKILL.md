@@ -296,6 +296,20 @@ If the player says **No**, keep the default manual-only mode.
 
 #### 📋 `/yumfu continue` Workflow (详细流程)
 
+**Before resuming active play, also check whether a daily evolution sidecar exists:**
+```bash
+python3 ~/clawd/skills/yumfu/scripts/build_reentry_context.py \
+  --user-id {user_id} \
+  --universe {selected_world}
+```
+
+If a sidecar exists:
+- Use the latest daily evolution summary as a **short re-entry scene hook**
+- Surface only the most relevant pending hook(s)
+- Do **not** dump the whole evolution history
+- Make it easy for the player to continue with one short reply
+
+
 **When user says `/yumfu continue`:**
 
 **Step 1: Check for existing saves**
@@ -782,11 +796,20 @@ During `/yumfu start`, after world choice and initial character setup, ask:
 - Do you want daily world evolution updates? Yes / No
 - Default should be **No** unless the player explicitly opts in
 
-If **Yes**:
-1. enable sidecar state via `~/clawd/skills/yumfu/scripts/set_daily_evolution.py`
-2. create a per-player daily cron via `~/clawd/skills/yumfu/scripts/create_daily_evolution_cron.py`
-3. deliver **one** daily update message with image
-4. persist the result to sidecar state (not main save)
+**Exact enable flow:**
+1. Ask the player the Yes/No question
+2. If Yes, run:
+```bash
+python3 ~/clawd/skills/yumfu/scripts/enable_daily_evolution.py \
+  --user-id {user_id} \
+  --universe {selected_world} \
+  --target {chat_id} \
+  --channel telegram \
+  --time 10:00 \
+  --tz America/Los_Angeles
+```
+3. Confirm briefly in chat: daily evolution is enabled
+4. Do **not** send a separate technical report
 
 If **No**:
 - do not create a cron
