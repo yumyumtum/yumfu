@@ -20,8 +20,8 @@
   "description_zh": "以日本战国末期为主体的架空乱世：织田信长、丰臣秀吉、德川家康、武田信玄等群雄并起，朝鲜名将、明朝名臣、白人火枪火炮技师、野心名妓、浪人与新选组式强力治安组织也卷入其中。你可在火枪、城池、商路、谍报与美人之间经营自己的势力。",
   "description_en": "An alternate-history late Sengoku sandbox where Oda Nobunaga, Toyotomi Hideyoshi, Tokugawa Ieyasu, Takeda Shingen, Korean commanders, Ming statesmen, European gunners, ambitious courtesans, ronin, and even Shinsengumi-style enforcers collide in one great age of war.",
   "status": "playable",
-  "art_style": "Cinematic samurai war painting, smoky battlefields, lacquer armor, torchlit castles, muddy roads, dramatic banners, matchlocks and cannons, rich crimson-black-gold palette, Kurosawa-meets-epic-oil-painting",
-  "art_style_key": "sengoku-cinematic-war-painting",
+  "art_style": "Japanese ukiyo-e woodblock print style (浮世绘 / ukiyo-e) for Sengoku war drama, bold ink outlines, flat layered colors, textured washi paper, dramatic banners, lacquer armor, torchlit castles, smoky battlefields, matchlocks and cannons, crimson-black-indigo-gold palette",
+  "art_style_key": "sengoku-ukiyoe-war-drama",
   "gameplay_pacing": {
     "quest_structure": "开放式势力经营 + 主线政争 + 军事战役 + 谍报艳情支线",
     "total_chapters": 10,

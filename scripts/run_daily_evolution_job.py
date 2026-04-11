@@ -144,7 +144,7 @@ def sengoku_update(save: dict, world: dict, sidecar: dict) -> dict:
                 'faction_movements': ['多方势力同时试探军火流向'],
                 'npc_watchlist': ['放风的茶屋耳目', '匿名军火买主']
             },
-            'image_prompt': 'Torchlit Sengoku castle town before dawn, whispers spreading through tea houses and alleys, hidden gun deal rumors, banners, ash, lacquer armor, cinematic samurai war painting'
+            'image_prompt': 'Torchlit Sengoku castle town before dawn, whispers spreading through tea houses and alleys, hidden gun deal rumors, banners, ash, lacquer armor, Japanese ukiyo-e woodblock print style, bold ink outlines, textured washi paper, flat layered colors'
         },
         {
             'summary': '花街里先有人开口，城门外才会死人。',
@@ -155,7 +155,7 @@ def sengoku_update(save: dict, world: dict, sidecar: dict) -> dict:
                 'faction_movements': ['有人在会盟前秘密募人'],
                 'npc_watchlist': ['最会传话的花街女人', '出钱的幕后金主']
             },
-            'image_prompt': 'Sengoku pleasure quarter at night, ambitious courtesan whispering fatal secrets behind lantern screens, armed retainers outside, cinematic samurai oil painting'
+            'image_prompt': 'Sengoku pleasure quarter at night, ambitious courtesan whispering fatal secrets behind lantern screens, armed retainers outside, Japanese ukiyo-e woodblock print style, bold ink outlines, textured washi paper, elegant but dangerous composition'
         },
         {
             'summary': '粮、枪和人情，今夜至少有一样要先断。',
@@ -166,7 +166,7 @@ def sengoku_update(save: dict, world: dict, sidecar: dict) -> dict:
                 'faction_movements': ['多方为即将到来的乱局做准备'],
                 'npc_watchlist': ['惜米的仓吏', '惜火药的枪头', '突然沉默的中间商']
             },
-            'image_prompt': 'Sengoku storehouses and gun racks under lantern light, tense merchants and ashigaru sensing coming bloodshed, cinematic samurai war painting, smoke and red-black-gold palette'
+            'image_prompt': 'Sengoku storehouses and gun racks under lantern light, tense merchants and ashigaru sensing coming bloodshed, Japanese ukiyo-e woodblock print style, bold ink outlines, textured washi paper, smoke and red-black-indigo-gold palette'
         }
     ]
 

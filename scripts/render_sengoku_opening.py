@@ -168,7 +168,7 @@ def main():
         'scene_title': scenario,
         'role_flavor': role_openers.get(role),
         'player_opening_message': text + '\n\n## 你先怎么入局？\nA. ' + choices[0] + '\nB. ' + choices[1] + '\nC. ' + choices[2] + '\nD. ' + choices[3],
-        'image_prompt': f"Sengoku Chaos first playable scene, {scenario}, {hook}, protagonist {name}, role {role}, faction {faction}, three dangerous figures in one room, cinematic samurai war painting, torchlight, intrigue, lacquer armor, smoke and tension"
+        'image_prompt': f"Sengoku Chaos first playable scene, {scenario}, {hook}, protagonist {name}, role {role}, faction {faction}, three dangerous figures in one room, Japanese ukiyo-e woodblock print style, bold ink outlines, textured washi paper, flat layered colors, samurai intrigue, torchlight, lacquer armor, smoke and tension"
     }, ensure_ascii=False, indent=2))
 
 

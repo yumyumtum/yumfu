@@ -42,7 +42,7 @@ def build_opening(world, name, role, faction, scenario):
 
     image_prompt = (
         f"Sengoku Chaos opening scene, {scenario['name_zh']}, protagonist {name}, role {role['name_zh']}, faction {faction['name_zh']}, "
-        f"{scenario['hook']}, cinematic samurai war painting, smoky torchlit atmosphere, lacquer armor, muddy streets, banners, hidden intrigue, matchlocks and power struggle"
+        f"{scenario['hook']}, Japanese ukiyo-e woodblock print style, bold ink outlines, textured washi paper, flat layered colors, lacquer armor, muddy streets, banners, hidden intrigue, matchlocks and power struggle"
     )
 
     choices = [
