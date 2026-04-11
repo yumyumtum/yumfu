@@ -1143,7 +1143,8 @@ That means:
 **🔍 PRE-CHECK before EVERY response:**
 1. Is this a game action? (not just status/help/meta)
 2. If YES → **MUST generate image FIRST!**
-3. If NO (status/help) → Skip image, reply directly
+3. `/yumfu start` counts as a full game opening turn, so it also **MUST** generate an opening image before narration
+4. If NO (status/help) → Skip image, reply directly
 
 **When user takes ANY game action:**
 1. **FIRST**: Generate exactly one scene image (location, NPC, action, etc.)
@@ -1151,6 +1152,11 @@ That means:
 3. **THIRD**: Send exactly one image + that paired narrative together via message tool
 4. **FOURTH**: Update save file
 5. **FIFTH**: Log turn to session JSONL
+
+**`/yumfu start` special case:**
+- character creation / world onboarding culminates in a real playable opening scene
+- that opening scene is **not image-exempt**
+- after setup is complete, generate exactly one opening image and send the first playable scene with it
 
 **Image-exempt commands (only these!):**
 - `/yumfu status` / `/yumfu 状态` - Character sheet
