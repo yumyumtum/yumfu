@@ -73,7 +73,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 
 **Then you MUST:**
 1. ✅ Load their save file with `load_game.py`
-2. ✅ Generate images for significant moments (location/NPC/combat/etc.)
+2. ✅ Generate images for **every game turn** (mandatory), with especially strong prompts for location / NPC / combat / chapter moments
 3. ✅ Save their progress with `save_game.py`
 4. ✅ Use the world's art style and narrative tone
 
@@ -771,10 +771,10 @@ Use a **unified YumFu framework** for this feature, but make the **actual evolut
 
 **Fixed / shared across YumFu:**
 - onboarding question at character creation
-- opt-in/opt-out toggle stored in save
+- opt-in/opt-out toggle stored in sidecar state
 - daily cron / scheduled turn per player save
 - one daily Telegram update message with image
-- save-file update after each evolution tick
+- sidecar update after each evolution tick
 - anti-spam rule: max 1 evolution update per day per save
 - save mutation boundaries and safety rules
 
@@ -965,6 +965,14 @@ Only after the system is proven safe should limited main-save mutation be consid
 ### Messaging rule
 If the daily evolution message is already delivered to the intended player/channel, do **not** send a separate “report generated” notification.
 Only send the actual in-world update.
+
+### Compliance note
+Daily evolution adds new sidecar workflows, but it must **not** weaken older YumFu guarantees.
+The following original behaviors remain mandatory unless the user explicitly requests otherwise:
+- every game turn gets an image before narration
+- every game turn is logged for storybook/session replay
+- Telegram story text should stay paired with the image, preferably in the caption
+- active play saves should still persist through the normal save workflow after meaningful state changes
 
 ### World grounding rule
 Even though the content is dynamically generated, it must still stay grounded in each world’s canon/setting documents.
