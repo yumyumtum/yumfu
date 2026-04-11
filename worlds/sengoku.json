@@ -48,6 +48,31 @@
     "option_e": "名妓/花魁势力主 - 用枕边风、债券、秘密与人情撬动城国",
     "option_f": "异乡白人技师/商人 - 带着火绳枪、炮术、海贸、宗教与野心入场"
   },
+  "character_creation": {
+    "fixed_protagonist": false,
+    "starting_level": 1,
+    "recommended_starts": [
+      "足轻头",
+      "浪人头目",
+      "火器技师",
+      "花魁/名妓势力主"
+    ],
+    "name_style": "允许日本名、汉名、南蛮名、艺名、诨号",
+    "background_axes": [
+      "军功 or 门第",
+      "火器 or 刀术",
+      "忠义 or 野心",
+      "公开势力 or 暗线经营"
+    ],
+    "starting_stats": {
+      "统率": 35,
+      "武勇": 35,
+      "智略": 35,
+      "权谋": 35,
+      "魅力": 35,
+      "火器": 20
+    }
+  },
   "factions": [
     {
       "id": "oda",
@@ -94,6 +119,39 @@
       "rivals": ["织田家", "上杉系"]
     },
     {
+      "id": "uesugi",
+      "name_zh": "上杉系",
+      "name_en": "Uesugi Camp",
+      "alignment": "义战名门",
+      "leader": "上杉谦信",
+      "specialty": "名将威望、山地机动、正面硬战",
+      "starting_location": "越后",
+      "faction_perks": ["威望更容易转化为追随", "硬仗士气更高", "宿敌剧情更强"],
+      "rivals": ["武田家", "北陆敌对势力"]
+    },
+    {
+      "id": "mori",
+      "name_zh": "毛利家",
+      "name_en": "Mori Clan",
+      "alignment": "海陆并进",
+      "leader": "毛利元就（余威）/ 毛利系后继者",
+      "specialty": "水军、谋略、家族联合",
+      "starting_location": "中国地方",
+      "faction_perks": ["海路控制更强", "多支系协调成本更低", "远程补给更稳"],
+      "rivals": ["织田家", "海盗与地方豪强"]
+    },
+    {
+      "id": "shimazu",
+      "name_zh": "岛津家",
+      "name_en": "Shimazu Clan",
+      "alignment": "边地狼性",
+      "leader": "岛津系诸将",
+      "specialty": "九州、铁炮、突击、地方整合",
+      "starting_location": "萨摩 / 九州",
+      "faction_perks": ["远地开局成长快", "火枪手更凶", "地方征服效率高"],
+      "rivals": ["丰臣系", "九州地方豪族"]
+    },
+    {
       "id": "shinsengumi-like",
       "name_zh": "新选组式治安队",
       "name_en": "Shinsengumi-style Enforcers",
@@ -103,6 +161,17 @@
       "starting_location": "京都",
       "faction_perks": ["治安压制强", "擅长逮捕/清洗", "近身白刃战更强"],
       "rivals": ["浪人集团", "密探组织"]
+    },
+    {
+      "id": "ming-joseon-network",
+      "name_zh": "明朝-朝鲜联络网",
+      "name_en": "Ming-Joseon Network",
+      "alignment": "跨海现实主义",
+      "leader": "使节、海将、文臣联合体",
+      "specialty": "海战、火器、后勤、外交、文书正统性",
+      "starting_location": "对马 / 朝鲜航路",
+      "faction_perks": ["更容易获得火器与海贸支援", "跨海消息更快", "能引入东亚名将名臣"],
+      "rivals": ["倭寇残余", "封锁海路的军阀"]
     },
     {
       "id": "independent",
@@ -152,6 +221,84 @@
       "name_zh": "南蛮异乡客",
       "name_en": "Foreign Adventurer",
       "focus": "海贸、宗教、火器、跨文化联络"
+    }
+  ],
+  "starting_scenarios": [
+    {
+      "id": "kyoto-night-fire",
+      "name_zh": "京都夜火",
+      "hook": "京都街巷突起大火，一份写着几家大名名字的密信失踪了。"
+    },
+    {
+      "id": "azuchi-banquet",
+      "name_zh": "安土酒宴",
+      "hook": "你被请去一场带刀赴宴的庆功酒会，席间每个人都像在等谁先死。"
+    },
+    {
+      "id": "osaka-grain-crisis",
+      "name_zh": "大坂粮乱",
+      "hook": "兵粮船延期，仓场开始骚动，谁先控制米仓谁就先控制一城人心。"
+    },
+    {
+      "id": "sakai-gun-deal",
+      "name_zh": "堺港火枪交易",
+      "hook": "一批南蛮火枪今夜进港，买主不止一个，而卖主打算两头吃价。"
+    },
+    {
+      "id": "kai-rider-muster",
+      "name_zh": "甲斐骑阵点兵",
+      "hook": "晨雾未散，骑队已集结。有人要借点兵之机，把你推上去，也有人想借此把你踩死。"
+    },
+    {
+      "id": "tsushima-sea-letter",
+      "name_zh": "对马海书",
+      "hook": "一封来自朝鲜与明朝交错势力的海书刚靠岸，里面写的不只是贸易，还有开战与背叛。"
+    }
+  ],
+  "daily_evolution_hints": {
+    "should_generate": [
+      "谁在募兵",
+      "哪条商路断了",
+      "哪位名妓放出风声",
+      "哪位大名准备倒戈",
+      "哪批火枪或火炮到港",
+      "哪位明朝/朝鲜/南蛮来客改变平衡"
+    ],
+    "must_feel_like": [
+      "一条短而狠的乱世风声",
+      "一个会把玩家拉回现场的钩子",
+      "谍报、军粮、城防、花街、海贸之一的局势变化"
+    ],
+    "must_avoid": [
+      "替玩家自动统一天下",
+      "离线直接替玩家完成主线",
+      "无解释抹掉关键人脉或装备"
+    ]
+  },
+  "legendary_assets": [
+    {
+      "name_zh": "南蛮连发火绳枪样机",
+      "type": "火器",
+      "effect": "提高火枪队首轮压制力",
+      "rarity": "稀有"
+    },
+    {
+      "name_zh": "红漆军配团扇",
+      "type": "权威象征",
+      "effect": "提升战场统率与喝令效果",
+      "rarity": "稀有"
+    },
+    {
+      "name_zh": "花街账簿与密客簿",
+      "type": "情报资产",
+      "effect": "揭露大名、商人、僧侣的弱点与债务链",
+      "rarity": "传说"
+    },
+    {
+      "name_zh": "海图与炮位尺",
+      "type": "工匠道具",
+      "effect": "改良沿岸炮位与海贸封锁",
+      "rarity": "稀有"
     }
   ],
   "major_figures": {
