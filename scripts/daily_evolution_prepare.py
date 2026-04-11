@@ -7,6 +7,7 @@ from datetime import datetime
 from pathlib import Path
 
 LOAD_GAME = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'load_game.py'
+DETECT_LANGUAGE = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'detect_recent_language.py'
 WORLD_DIR = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'worlds'
 
 
@@ -62,6 +63,18 @@ def main():
     ]
 
     preferred_language = save.get('language') or world.get('language') or 'en'
+    language_confidence = 0.0
+    try:
+        lang_proc = subprocess.run(
+            ['python3', str(DETECT_LANGUAGE), '--user-id', args.user_id, '--universe', args.universe],
+            capture_output=True, text=True
+        )
+        if lang_proc.returncode == 0 and lang_proc.stdout.strip():
+            lang_payload = json.loads(lang_proc.stdout)
+            preferred_language = lang_payload.get('preferred_language') or preferred_language
+            language_confidence = lang_payload.get('confidence') or 0.0
+    except Exception:
+        pass
 
     prompt = {
         'goal': system_goal,
@@ -98,6 +111,7 @@ def main():
                 'system fallback'
             ],
             'preferred_language_hint': preferred_language,
+            'confidence': language_confidence,
             'instruction': 'Write the daily evolution in the same language the player has been naturally using most recently, unless there is a strong world-specific reason not to.'
         },
         'sidecar_policy': {

@@ -303,9 +303,17 @@ python3 ~/clawd/skills/yumfu/scripts/build_reentry_context.py \
   --universe {selected_world}
 ```
 
+Then render the actual continue-time hook:
+```bash
+python3 ~/clawd/skills/yumfu/scripts/render_continue_reentry.py \
+  --user-id {user_id} \
+  --universe {selected_world}
+```
+
 If a sidecar exists:
 - Use the latest daily evolution summary as a **short re-entry scene hook**
 - Surface only the most relevant pending hook(s)
+- Respect the detected preferred language
 - Do **not** dump the whole evolution history
 - Make it easy for the player to continue with one short reply
 
@@ -921,11 +929,14 @@ Store daily evolution context in a separate file such as:
 Supporting scripts:
 - `scripts/set_daily_evolution.py` — enable/disable sidecar state
 - `scripts/load_daily_evolution.py` — inspect sidecar state
+- `scripts/detect_recent_language.py` — infer preferred recent player language
 - `scripts/daily_evolution_prepare.py` — build dynamic runtime context
 - `scripts/run_daily_evolution_job.py` — generate a daily evolution update
 - `scripts/run_daily_evolution.py` — persist generated result into sidecar
 - `scripts/create_daily_evolution_cron.py` — create per-player daily cron
 - `scripts/disable_daily_evolution_cron.py` — disable per-player daily cron
+- `scripts/build_reentry_context.py` — merge save + sidecar for continue flow
+- `scripts/render_continue_reentry.py` — render a concise continue-time re-entry prompt
 
 This sidecar can track:
 - last daily summary
