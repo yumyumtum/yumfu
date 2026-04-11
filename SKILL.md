@@ -248,6 +248,24 @@ If the player says **No**, keep the default manual-only mode.
 - **笑傲江湖** (Xiaoao Jianghu) - 华山派、武当、少林、江湖恩怨
 - **战国乱世** (Sengoku Chaos) - 日本战国架空乱世、火枪火炮、名将名臣、花街权谋
 
+**战国乱世专用 start 路径（MANDATORY when selected）**
+If the player chooses `战国乱世` / `Sengoku Chaos` during `/yumfu start`, route the setup through:
+```bash
+python3 ~/clawd/skills/yumfu/scripts/start_sengoku_game.py \
+  --user-id {user_id} \
+  --name {player_name} \
+  --role {selected_role_id} \
+  --faction {selected_faction_id} \
+  --scenario {selected_scenario_id} \
+  --language {zh|en} \
+  --daily-evolution {yes|no} \
+  --target {chat_id}
+```
+Then:
+1. generate exactly one opening image from `rendered_opening.image_prompt`
+2. send the first playable opening scene with that image
+3. let the player answer with one of the rendered first-turn choices
+
 **English (Available Now):**
 - **Harry Potter** - Hogwarts houses, magic, wizarding adventures
 - **Warrior Cats** - ThunderClan, RiverClan, forest territories
