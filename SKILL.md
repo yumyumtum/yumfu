@@ -940,6 +940,7 @@ Supporting scripts:
 - `scripts/disable_daily_evolution_cron.py` — disable per-player daily cron
 - `scripts/build_reentry_context.py` — merge save + sidecar for continue flow
 - `scripts/render_continue_reentry.py` — render a concise continue-time re-entry prompt
+- `scripts/init_sengoku_save.py` — initialize a 战国乱世 / Sengoku Chaos starting save
 
 This sidecar can track:
 - last daily summary
