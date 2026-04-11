@@ -35,6 +35,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 
 ### ✨ Features
 - 🎨 AI-generated art every scene (world-specific style)
+- 🗓️ Optional daily world evolution updates (opt-in per player)
 - 📖 30+ story branches, 6-8 unique endings per world
 - 🧠 NPCs remember your choices
 - 💾 Persistent saves across sessions
@@ -225,6 +226,18 @@ Reply: /yumfu lang <1|2>
 ```
 
 Then choose your world / 然后选择世界:
+
+**After world + character setup, ask one more onboarding question (MANDATORY):**
+
+```text
+Do you want this world to evolve automatically every day, even when you're offline?
+
+1. Yes — send me one daily world update with art
+2. No — only progress when I play
+```
+
+If the player says **Yes**, enable **Daily Evolution Mode** for that save.
+If the player says **No**, keep the default manual-only mode.
 
 **中文 (Available Now):**
 - **笑傲江湖** (Xiaoao Jianghu) - 华山派、武当、少林、江湖恩怨
@@ -545,7 +558,16 @@ memory/yumfu/
   "skills": [...],
   "quests": [...],
   "team_id": null,
-  "in_combat_with": null
+  "in_combat_with": null,
+  "daily_evolution": {
+    "enabled": false,
+    "cadence": "daily",
+    "channel": "telegram",
+    "last_tick_at": null,
+    "next_tick_at": null,
+    "cron_id": null,
+    "last_summary": null
+  }
 }
 ```
 
@@ -557,11 +579,13 @@ memory/yumfu/
 
 #### When to Save:
 1. **Character creation** - 🚨 **IMMEDIATE save after name/faction selection** (HIGHEST PRIORITY)
-2. **Training completion** - New skill learned
-3. **Combat end** - HP/stats changed
-4. **Quest milestone** - Progress updated
-5. **Location change** - Player moved
-6. **Inventory change** - Item gained/used
+2. **Daily evolution preference** - Save immediately after player answers Yes/No
+3. **Training completion** - New skill learned
+4. **Combat end** - HP/stats changed
+5. **Quest milestone** - Progress updated
+6. **Location change** - Player moved
+7. **Inventory change** - Item gained/used
+8. **Daily evolution tick** - After each offline world update is generated and delivered
 
 **🚨 CRITICAL: Character creation MUST save immediately before any other actions!**
 
@@ -715,6 +739,198 @@ Available worlds:
 7. **记录事件** - 写入今日事件日志
 8. **生成配图** - 水墨风场景图
 9. **保存状态** - 更新玩家存档和世界状态
+
+#### 🗓️ Daily Evolution Mode (NEW)
+
+**Purpose:** keep the world moving even when the player is offline, so they receive one short daily update with fresh context, image, and meaningful pressure to come back.
+
+### Product decision
+Use a **unified YumFu framework** for this feature, but make the **actual evolution content dynamic at runtime**.
+
+**Fixed / shared across YumFu:**
+- onboarding question at character creation
+- opt-in/opt-out toggle stored in save
+- daily cron / scheduled turn per player save
+- one daily Telegram update message with image
+- save-file update after each evolution tick
+- anti-spam rule: max 1 evolution update per day per save
+- save mutation boundaries and safety rules
+
+**Dynamic at runtime (NOT hardcoded event scripts):**
+- read the player's current save first
+- read their chosen world, role, faction, current quest state, location, known NPCs, recent flags, and inventory
+- infer what the surrounding world would plausibly do next
+- generate one in-world update using AI reasoning grounded in that save + world background
+- optionally mutate relevant save fields to reflect the consequences
+
+### Core design principle
+**Do not hardcode daily story content unless absolutely necessary.**
+
+This feature should feel like a living world, not a rotating calendar of canned events.
+The best approach is:
+- **hardcode the engine and guardrails**
+- **generate the content dynamically from the save + world lore**
+
+### Why this is better
+- Different players in the same world may have different roles, alliances, enemies, and unfinished quests
+- A static event table would quickly feel fake or contradictory
+- Dynamic generation lets the world react to the player’s actual position in the story
+- This is especially important for worlds like **Game of Thrones**, where faction alignment and covert relationships matter
+
+### Daily Evolution onboarding rule
+During `/yumfu start`, after world choice and initial character setup, ask:
+- Do you want daily world evolution updates? Yes / No
+- Default should be **No** unless the player explicitly opts in
+
+If **Yes**:
+1. save `daily_evolution.enabled = true`
+2. create/store a daily cron or scheduled task id in `daily_evolution.cron_id`
+3. deliver **one** daily update message with image
+4. update save with the new world state and summary
+
+If **No**:
+- do not create a cron
+- world only advances during active play
+
+### Runtime input for each evolution tick
+Before generating the update, load and consider:
+- current save JSON
+- selected world / universe
+- player role, faction, loyalty, reputation, party/team
+- active quests and unresolved hooks
+- current location and nearby regions
+- known NPCs and relationship values
+- recent flags, injuries, resources, inventory, travel state
+- any previous daily evolution summaries
+
+### Daily Evolution output requirements
+Each daily evolution update should include:
+1. **1 short story update** (100-220 words)
+2. **1 generated image** showing the new situation
+3. **1 meaningful state change** (rumor, faction shift, patrol increase, resource loss, NPC movement, political signal, etc.)
+4. **1 hook** that invites the player back into active play
+
+### Re-entry design principle (VERY IMPORTANT)
+The core goal is **not** to generate a long lore report.
+The core goal is to **pull the player back into the current scene naturally and easily**.
+
+Daily evolution should feel like:
+- “while you were away, something moved”
+- “here is the new pressure/context”
+- “here is the easiest natural next move if you want to continue now”
+
+It should **not** feel like:
+- a long news bulletin
+- a disconnected worldbuilding dump
+- a giant state report the player has to study before playing
+
+### Practical writing rule
+Every daily evolution update should end with a **simple re-entry hook** the player can answer naturally.
+Good examples:
+- “A rider is already waiting at the inn. Do you speak to him?”
+- “The red-sealed note is now in another pair of hands. Do you follow?”
+- “Your rival sect moved first. Do you intercept or stay hidden?”
+
+Bad examples:
+- “Here are 8 things that changed in the world today...”
+- “System update: faction matrix +3/-2...”
+- anything that makes the player do homework before playing
+
+### Continuation UX rule
+The update should make it easy for the player to resume with a short natural reply.
+Ideally the player should be able to continue by replying with:
+- one short sentence
+- one choice
+- one action verb
+- or even just a letter option
+
+This feature exists to increase re-engagement, not to increase reading burden.
+
+### Language continuity rule (MANDATORY)
+Daily evolution updates should respect the player's established language, instead of switching arbitrarily.
+
+Use this priority order:
+1. **The player's recent actual conversation language** (highest priority)
+2. `save.language` if present
+3. the world's default language
+4. channel/system default only as a last fallback
+
+Examples:
+- If a player is in an English world but has been actively replying in Chinese recently, prefer Chinese unless the game flow clearly depends on staying in-world in English.
+- If the player has consistently been playing the world in English, keep daily evolution in English.
+- Do not randomly alternate between Chinese and English from day to day.
+
+The daily update should feel like a natural continuation of how the player has already been playing.
+### Daily Evolution severity model
+Most days should be **light but meaningful**:
+- 60% minor movement (rumor, patrols, sightings, small supply shift)
+- 30% medium movement (faction pressure, new NPC action, failed delivery, local conflict)
+- 10% major movement (death, betrayal, breakthrough, exposed route, stolen relic, siege step, etc.)
+
+Major movement should be rare, but possible, so the world feels alive.
+
+### Save safety rule (IMPORTANT)
+If there is meaningful risk of corrupting or derailing the player's real save, **do not mutate the main player save at all**.
+
+Preferred design for MVP:
+- keep the player's main save as the canonical active-play state
+- store daily evolution results in a **separate sidecar state file**
+- daily updates must remain **compatible** with the player's save, not overwrite it
+
+This means the daily evolution system should generate:
+- rumor
+n- pressure
+- faction movement
+- off-screen developments
+- investigation hooks
+- regional tension
+
+...without force-changing the player's core location, inventory, quest completion, or irreversible main-story state.
+
+### Sidecar evolution state
+Store daily evolution context in a separate file such as:
+`~/clawd/memory/yumfu/evolution/{universe}/user-{id}.json`
+
+This sidecar can track:
+- last daily summary
+- recent evolution history
+- soft world pressure
+- rumor threads
+- pending hooks for the next active session
+- cron metadata / tick timestamps
+
+### What the next active play session should do
+When the player returns, the game engine may **read both**:
+1. the main save
+2. the evolution sidecar
+
+Then merge them narratively:
+- surface the most relevant daily evolution updates
+- convert compatible hooks into active scene context
+- avoid contradictions with the canonical save
+
+### Main-save mutation policy
+For now, default to:
+- **main save = read-only for daily evolution**
+- **sidecar file = writable**
+
+Only after the system is proven safe should limited main-save mutation be considered.
+### Messaging rule
+If the daily evolution message is already delivered to the intended player/channel, do **not** send a separate “report generated” notification.
+Only send the actual in-world update.
+
+### World grounding rule
+Even though the content is dynamically generated, it must still stay grounded in each world’s canon/setting documents.
+
+Examples of what the AI should infer dynamically:
+- **Game of Thrones**: if the player serves House Martell and has touched covert supply lines, daily changes should involve spies, shipping, banners, captains, watchers, coded messages, political pressure
+- **Xiaoao Jianghu**: sect rumors, stolen manuals, ambushes, disciples disappearing, changing loyalties
+- **Harry Potter**: patrols, prefect scrutiny, forbidden corridor rumors, House tensions, teacher intervention
+- **Warrior Cats**: prey movement, scent changes, border pressure, patrol injuries, rival clan signs
+
+### Important constraint
+Daily evolution should **nudge** the player, not replace the game.
+It must create pressure, intrigue, and hooks — but should not auto-finish the main story without player participation.
 
 ### 叙述风格
 
