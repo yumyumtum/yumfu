@@ -1,6 +1,6 @@
 ---
 name: yumfu
-description: "Multiplayer text RPG with 9 playable worlds — play together in Telegram groups! Worlds: 笑傲江湖, Harry Potter, Warrior Cats, F15 Down, 龙虾三国, 倚天屠龙记, Game of Thrones, Lord of the Rings, 西游记 (Journey to the West). Each player gets their own character in a shared world with AI art every scene. PvP, team quests, natural language — no commands needed. Use when: /yumfu, group RPG, text adventure, 武侠, 西游记, 孙悟空, LOTR, 指环王, 权力的游戏, 三国, 张无忌."
+description: "Multiplayer text RPG with 10 playable worlds — play together in Telegram groups! Worlds: 笑傲江湖, Harry Potter, Warrior Cats, F15 Down, 龙虾三国, 倚天屠龙记, Game of Thrones, Lord of the Rings, 西游记 (Journey to the West), 战国乱世 (Sengoku Chaos). Each player gets their own character in a shared world with AI art every scene. PvP, team quests, natural language — no commands needed. Use when: /yumfu, group RPG, text adventure, 武侠, 西游记, 孙悟空, LOTR, 指环王, 权力的游戏, 三国, 张无忌, 战国, 织田信长, 丰臣秀吉, 德川家康, 武田信玄."
 homepage: https://github.com/yumyumtum/yumfu
 metadata:
   {
@@ -8,14 +8,14 @@ metadata:
       {
         "emoji": "🌍",
         "requires": { "bins": ["uv"] },
-        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏", "Lord of the Rings", "LOTR", "Fellowship", "Frodo", "Aragorn", "Gandalf", "指环王", "魔戒", "西游记", "孙悟空", "唐僧", "猪八戒", "牛魔王", "取经", "Journey to the West", "内裤超人", "Captain Underpants", "乔治", "哈罗德", "屎尿教授", "Professor Poopypants"]
+        "triggers": ["/yumfu", "/江湖", "笑傲江湖", "华山派", "武当", "Harry Potter", "Hogwarts", "warrior cats", "ThunderClan", "倚天屠龙记", "张无忌", "赵敏", "九阳神功", "明教", "龙虾三国", "三国", "Game of Thrones", "Westeros", "Iron Throne", "Stark", "Lannister", "Targaryen", "权力的游戏", "Lord of the Rings", "LOTR", "Fellowship", "Frodo", "Aragorn", "Gandalf", "指环王", "魔戒", "西游记", "孙悟空", "唐僧", "猪八戒", "牛魔王", "取经", "Journey to the West", "内裤超人", "Captain Underpants", "乔治", "哈罗德", "屎尿教授", "Professor Poopypants", "战国乱世", "战国", "织田信长", "丰臣秀吉", "德川家康", "武田信玄", "新选组", "绯村剑心"]
       }
   }
 ---
 
 # YumFu 🌍
 
-**Multi-world text adventure RPG with AI art.** Play solo or with friends across 7 universes.
+**Multi-world text adventure RPG with AI art.** Play solo or with friends across 10 universes.
 
 **Start**: `/yumfu start` &nbsp;|&nbsp; **Continue**: `/yumfu continue`
 
@@ -32,6 +32,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 | 🧙 Lord of the Rings | Epic fantasy | ✅ Playable |
 | 🐉 Game of Thrones | Political | 🚧 Soon |
 | ⚔️ 倚天屠龙记 | Jin Yong wuxia | 🚧 Soon |
+| 🏯 战国乱世 | Sengoku alt-history | ✅ NEW |
 
 ### ✨ Features
 - 🎨 AI-generated art every scene (world-specific style)
@@ -199,6 +200,7 @@ Trigger one of: Encounter / Crisis / Discovery / Opportunity / Echo (delayed con
 - 🦞 **龙虾三国** - Three Kingdoms era, 5 roles, weapons/mounts/ultimate skills
 - 🗡️ **倚天屠龙记** - The Heaven Sword & Dragon Saber, 4 romance routes, 6 endings
 - 🐉 **Game of Thrones** - Seven Kingdoms, 7 houses, play as Jon/Dany/Tyrion/Arya/Cersei
+- 🏯 **战国乱世** - 日本战国架空沙盒，含信长/秀吉/家康/武田、朝鲜名将、明朝名臣、南蛮火器技师、名妓与密探
 
 ### 🚧 **Coming Soon (Roadmap):**
 - 🧙 **Lord of the Rings** - Middle-earth, 5 races, Ring corruption system, play as Frodo/Aragorn/Gandalf
@@ -241,6 +243,7 @@ If the player says **No**, keep the default manual-only mode.
 
 **中文 (Available Now):**
 - **笑傲江湖** (Xiaoao Jianghu) - 华山派、武当、少林、江湖恩怨
+- **战国乱世** (Sengoku Chaos) - 日本战国架空乱世、火枪火炮、名将名臣、花街权谋
 
 **English (Available Now):**
 - **Harry Potter** - Hogwarts houses, magic, wizarding adventures

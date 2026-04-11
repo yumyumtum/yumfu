@@ -1,0 +1,245 @@
+{
+  "id": "sengoku",
+  "name_zh": "战国乱世",
+  "name_en": "Sengoku Chaos",
+  "language": "zh",
+  "default_language": "zh",
+  "supported_languages": ["zh", "en"],
+  "genre": "historical-war-drama-alt-history",
+  "era": "日本战国末期架空乱世（混合战国、安土桃山、幕末与跨海强者）",
+  "age_rating": "成人向（18+）",
+  "themes": [
+    "权谋",
+    "军略",
+    "火器革命",
+    "间谍暗战",
+    "跨国博弈",
+    "欲望与野心",
+    "乱世崛起"
+  ],
+  "description_zh": "以日本战国末期为主体的架空乱世：织田信长、丰臣秀吉、德川家康、武田信玄等群雄并起，朝鲜名将、明朝名臣、白人火枪火炮技师、野心名妓、浪人与新选组式强力治安组织也卷入其中。你可在火枪、城池、商路、谍报与美人之间经营自己的势力。",
+  "description_en": "An alternate-history late Sengoku sandbox where Oda Nobunaga, Toyotomi Hideyoshi, Tokugawa Ieyasu, Takeda Shingen, Korean commanders, Ming statesmen, European gunners, ambitious courtesans, ronin, and even Shinsengumi-style enforcers collide in one great age of war.",
+  "status": "playable",
+  "art_style": "Cinematic samurai war painting, smoky battlefields, lacquer armor, torchlit castles, muddy roads, dramatic banners, matchlocks and cannons, rich crimson-black-gold palette, Kurosawa-meets-epic-oil-painting",
+  "art_style_key": "sengoku-cinematic-war-painting",
+  "gameplay_pacing": {
+    "quest_structure": "开放式势力经营 + 主线政争 + 军事战役 + 谍报艳情支线",
+    "total_chapters": 10,
+    "chapter_duration": "每章 3-6 小时",
+    "cannot_skip_chapters": false,
+    "chapter_milestones": [
+      "第一章：乱世入局 - 选主君/身份/初始地盘",
+      "第二章：第一桶兵粮与火器 - 建立最小可用势力",
+      "第三章：城下町与商路 - 控制人、钱、刀、米",
+      "第四章：忍者与密使 - 谍报网络成形",
+      "第五章：火绳枪初成规模 - 步卒战法改写",
+      "第六章：联姻、名妓、叛徒 - 权力关系大洗牌",
+      "第七章：跨海使节 - 朝鲜/明朝/南蛮势力介入",
+      "第八章：大名会战 - 夺城、守城、烧城",
+      "第九章：天下人之争 - 织田/丰臣/德川/群雄重排",
+      "第十章：你的终局 - 成为天下人、军阀、影主或被吞没"
+    ]
+  },
+  "start_options": {
+    "option_a": "下级武士 - 从小姓/足轻头做起，靠军功上位",
+    "option_b": "浪人首领 - 率一撮亡命徒吃佣兵饭，谁给钱替谁卖命",
+    "option_c": "忍者/密探 - 深入城下町、寺社、花街，靠情报改命",
+    "option_d": "火枪火炮技师 - 经营南蛮火器与攻城器械，技术就是权力",
+    "option_e": "名妓/花魁势力主 - 用枕边风、债券、秘密与人情撬动城国",
+    "option_f": "异乡白人技师/商人 - 带着火绳枪、炮术、海贸、宗教与野心入场"
+  },
+  "factions": [
+    {
+      "id": "oda",
+      "name_zh": "织田家",
+      "name_en": "Oda Clan",
+      "alignment": "革新霸道",
+      "leader": "织田信长",
+      "specialty": "铁炮、革新、破格用人、雷霆决断",
+      "starting_location": "尾张 / 岐阜",
+      "faction_perks": ["火枪部队成长更快", "更容易提拔出身低微者", "军令执行效率高"],
+      "rivals": ["武田家", "本愿寺", "旧贵族势力"]
+    },
+    {
+      "id": "toyotomi",
+      "name_zh": "丰臣系",
+      "name_en": "Toyotomi Camp",
+      "alignment": "上升型权谋",
+      "leader": "丰臣秀吉",
+      "specialty": "后勤、招抚、工程、政治整合",
+      "starting_location": "近畿 / 大坂",
+      "faction_perks": ["筑城与补给更强", "更容易吸收降将", "外交转圜能力高"],
+      "rivals": ["德川家", "部分旧织田家臣"]
+    },
+    {
+      "id": "tokugawa",
+      "name_zh": "德川家",
+      "name_en": "Tokugawa Clan",
+      "alignment": "隐忍秩序",
+      "leader": "德川家康",
+      "specialty": "忍耐、保守扩张、稳健统治、长期布局",
+      "starting_location": "三河 / 远江",
+      "faction_perks": ["忠诚衰减更慢", "内政更稳", "守城与反扑能力强"],
+      "rivals": ["丰臣系", "急进军阀"]
+    },
+    {
+      "id": "takeda",
+      "name_zh": "武田家",
+      "name_en": "Takeda Clan",
+      "alignment": "兵法强袭",
+      "leader": "武田信玄",
+      "specialty": "骑兵、军略、山地作战、老练宿将",
+      "starting_location": "甲斐 / 信浓",
+      "faction_perks": ["野战爆发力强", "宿将上限高", "威望传播更快"],
+      "rivals": ["织田家", "上杉系"]
+    },
+    {
+      "id": "shinsengumi-like",
+      "name_zh": "新选组式治安队",
+      "name_en": "Shinsengumi-style Enforcers",
+      "alignment": "铁血执法",
+      "leader": "土方岁三（架空提前入场）",
+      "specialty": "肃反、斩奸、街巷控制、对内镇压",
+      "starting_location": "京都",
+      "faction_perks": ["治安压制强", "擅长逮捕/清洗", "近身白刃战更强"],
+      "rivals": ["浪人集团", "密探组织"]
+    },
+    {
+      "id": "independent",
+      "name_zh": "独立势力",
+      "name_en": "Independent Power",
+      "alignment": "中立野心",
+      "leader": "玩家自定",
+      "specialty": "联姻、佣兵、商路、谍报混合发展",
+      "starting_location": "任意城下町",
+      "faction_perks": ["自由组合路线", "可同时吃多边资源", "背叛与转投限制少"],
+      "rivals": ["所有大名都可能既是金主也是敌人"]
+    }
+  ],
+  "playable_roles": [
+    {
+      "id": "ashigaru-captain",
+      "name_zh": "足轻头",
+      "name_en": "Ashigaru Captain",
+      "focus": "带兵、阵战、军功上位"
+    },
+    {
+      "id": "ronin-boss",
+      "name_zh": "浪人头目",
+      "name_en": "Ronin Boss",
+      "focus": "佣兵、敲诈、临阵倒戈、黑市生存"
+    },
+    {
+      "id": "shinobi-master",
+      "name_zh": "忍者头领",
+      "name_en": "Shinobi Master",
+      "focus": "潜入、刺杀、情报、破坏"
+    },
+    {
+      "id": "gunner-engineer",
+      "name_zh": "火器技师",
+      "name_en": "Gunsmith & Artillery Engineer",
+      "focus": "火绳枪、火炮、城防与攻城器具"
+    },
+    {
+      "id": "courtesan-broker",
+      "name_zh": "花魁/名妓势力主",
+      "name_en": "Courtesan Power Broker",
+      "focus": "情报、金流、床帷政治、秘密交易"
+    },
+    {
+      "id": "foreign-adventurer",
+      "name_zh": "南蛮异乡客",
+      "name_en": "Foreign Adventurer",
+      "focus": "海贸、宗教、火器、跨文化联络"
+    }
+  ],
+  "major_figures": {
+    "japan": [
+      "织田信长",
+      "丰臣秀吉",
+      "德川家康",
+      "武田信玄",
+      "上杉谦信",
+      "明智光秀",
+      "真田昌幸",
+      "真田幸村",
+      "服部半藏",
+      "土方岁三（架空提前入局）",
+      "冲田总司（架空提前入局）",
+      "绯村剑心（浪客式传奇人物，架空混入）"
+    ],
+    "joseon": [
+      "李舜臣",
+      "柳成龙",
+      "权栗",
+      "申砬"
+    ],
+    "ming": [
+      "戚继光",
+      "李如松",
+      "张居正",
+      "俞大猷"
+    ],
+    "foreigners": [
+      "葡萄牙火枪商人",
+      "西班牙炮术顾问",
+      "英吉利海上亡命徒",
+      "荷兰军火中间人",
+      "耶稣会传教士兼地图师"
+    ],
+    "power-women": [
+      "野心名妓",
+      "城下町大商家寡妇",
+      "忍者首领之妹",
+      "豪姬系政治婚配人物"
+    ]
+  },
+  "locations": [
+    {"id": "kyoto", "name_zh": "京都", "name_en": "Kyoto", "type": "权力中枢", "danger": "高"},
+    {"id": "azuchi", "name_zh": "安土", "name_en": "Azuchi", "type": "新秩序象征", "danger": "高"},
+    {"id": "edo", "name_zh": "江户", "name_en": "Edo", "type": "新兴统治中心", "danger": "中"},
+    {"id": "osaka", "name_zh": "大坂", "name_en": "Osaka", "type": "商贸与兵站", "danger": "高"},
+    {"id": "kai", "name_zh": "甲斐", "name_en": "Kai", "type": "山地军国", "danger": "高"},
+    {"id": "sakai", "name_zh": "堺港", "name_en": "Sakai", "type": "海贸与火器流通", "danger": "中"},
+    {"id": "tsushima", "name_zh": "对马", "name_en": "Tsushima", "type": "跨海外交与走私", "danger": "中"},
+    {"id": "busan-route", "name_zh": "朝鲜航路", "name_en": "Joseon Sea Route", "type": "跨海战线", "danger": "极高"}
+  ],
+  "core_systems": {
+    "ambition": "0-100，决定你是否会压过主君、背叛盟友或自立称霸",
+    "fear": "0-100，决定部下服从与民怨",
+    "legitimacy": "0-100，决定你发号施令时别人把你当将领、暴徒还是天下人",
+    "firearms": "火绳枪/火炮体系，改写阵战与攻城",
+    "courtesan_network": "花街与茶屋能提供枕边风、债务链与把柄",
+    "spy_network": "忍者、密使、商旅、艺妓、教士都可成为眼线",
+    "cross_sea_politics": "明朝、朝鲜与南蛮势力会影响战争资源与声望"
+  },
+  "starting_location": "京都近郊的乱兵集市与军营边缘",
+  "victory_conditions": [
+    "成为实际上的天下人",
+    "建立横跨海贸与军火的影子霸权",
+    "扶持明主并成为幕后执政者",
+    "以情报、火器与金流改写战国格局"
+  ],
+  "failure_conditions": [
+    "兵粮断绝导致全军崩散",
+    "被三方以上势力同时通缉清算",
+    "恐惧失控引发全面叛乱",
+    "野心过高而合法性崩盘，被群起而攻之"
+  ],
+  "replayability": {
+    "routes": [
+      "霸王路线",
+      "影主路线",
+      "火器革新路线",
+      "花街权谋路线",
+      "跨海经略路线"
+    ],
+    "special_hooks": [
+      "可扶植织田/丰臣/德川其中一方，也可暗中拆他们台",
+      "可招募明军顾问、朝鲜海战人才、南蛮炮匠",
+      "可把名妓、浪人、僧兵、海商都编进势力网络"
+    ]
+  },
+  "copyright_notice": "Historical and fictional crossover / alt-history setting for roleplay. Includes mixed-era and legendary figures for dramatic sandbox play rather than strict chronology."
+}
