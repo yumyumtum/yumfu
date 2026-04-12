@@ -156,6 +156,12 @@ This causes the text to appear AFTER the image and get ignored/folded.
 message(action="send", media="path/to/image.jpg", message="[full story text here]", target=...)
 ```
 
+✅ **CRITICAL tool rule for YumFu gameplay**:
+Use an image generation path that writes a **local file only** and does **not** auto-send media to the chat by itself.
+For official YumFu turns, prefer local-file generators such as `scripts/generate_image.py` or an equivalent wrapper that returns only a saved path.
+
+❌ Do **not** use any image tool/path that auto-inserts or auto-delivers the generated image into the current chat before the turn delivery logic runs.
+
 ❌ **WRONG pattern** — two separate messages:
 ```
 message(action="send", message="story text")   # DON'T
@@ -1519,6 +1525,7 @@ python3 ~/clawd/skills/yumfu/scripts/generate_turn_tts.py \
 ```
 7. Send gameplay TTS as a **voice bubble** whenever the channel supports it (`message(..., asVoice=true)`)
 8. Never send a standalone image first if the same turn may still send image+caption later
+9. For official YumFu turns, do **not** use auto-media-return image generation paths; generate to a local file first, then let turn delivery decide how to send it
 
 #### Example Flow
 
