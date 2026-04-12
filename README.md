@@ -9,6 +9,13 @@
 [![Safe Code](https://img.shields.io/badge/code-no%20eval-brightgreen.svg)](SECURITY.md)
 [![ClawHub](https://img.shields.io/badge/ClawHub-yumfu-purple)](https://clawhub.ai/skills/yumfu)
 [![Multiplayer](https://img.shields.io/badge/multiplayer-Telegram%20%26%20Discord-blue)](https://clawhub.ai/skills/yumfu)
+[![Support via Stripe](https://img.shields.io/badge/Support-Stripe-635BFF?style=flat&logo=stripe&logoColor=white)](https://buy.stripe.com/8x26oHc329ha6GvaiggjC00)
+
+## 💖 Support YumFu
+
+If YumFu helped you or made you smile, you can support future development here:
+
+[Donate via Stripe](https://buy.stripe.com/8x26oHc329ha6GvaiggjC00)
 
 ---
 

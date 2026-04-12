@@ -19,6 +19,9 @@ metadata:
 
 **Start**: `/yumfu start` &nbsp;|&nbsp; **Continue**: `/yumfu continue`
 
+If YumFu is useful to you, you can support future development here:
+**Donate via Stripe:** https://buy.stripe.com/8x26oHc329ha6GvaiggjC00
+
 Just talk naturally after starting — no commands needed. Say what you want to do and the story unfolds.
 
 ### 🗺️ Worlds
