@@ -39,6 +39,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 
 ### ✨ Features
 - 🎨 AI-generated art every scene (world-specific style)
+- 🔊 Default per-turn voice narration (can be turned off per save)
 - 🗓️ Optional daily world evolution updates (opt-in per player)
 - 📖 30+ story branches, 6-8 unique endings per world
 - 🧠 NPCs remember your choices
@@ -78,8 +79,9 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 **Then you MUST:**
 1. ✅ Load their save file with `load_game.py`
 2. ✅ Generate images for **every game turn** (mandatory), with especially strong prompts for location / NPC / combat / chapter moments
-3. ✅ Save their progress with `save_game.py`
-4. ✅ Use the world's art style and narrative tone
+3. ✅ Generate **TTS by default for every gameplay turn** unless the player has explicitly turned TTS off for that save
+4. ✅ Save their progress with `save_game.py`
+5. ✅ Use the world's art style and narrative tone
 
 **DO NOT:**
 - ❌ Manually roleplay without checking save files
@@ -608,6 +610,18 @@ memory/yumfu/
   "quests": [...],
   "team_id": null,
   "in_combat_with": null,
+  "tts": {
+    "enabled": true,
+    "provider": "edge-tts",
+    "delivery": "voice-bubble",
+    "language_voices": {
+      "zh": "zh-CN-XiaoxiaoNeural",
+      "en": "en-GB-SoniaNeural"
+    },
+    "current_voice": "zh-CN-XiaoxiaoNeural",
+    "last_language": "zh",
+    "switch_policy": "keep same voice for same language within one save unless user explicitly asks to change"
+  },
   "daily_evolution": {
     "enabled": false,
     "cadence": "daily",
@@ -629,12 +643,13 @@ memory/yumfu/
 #### When to Save:
 1. **Character creation** - 🚨 **IMMEDIATE save after name/faction selection** (HIGHEST PRIORITY)
 2. **Daily evolution preference** - Save immediately after player answers Yes/No
-3. **Training completion** - New skill learned
-4. **Combat end** - HP/stats changed
-5. **Quest milestone** - Progress updated
-6. **Location change** - Player moved
-7. **Inventory change** - Item gained/used
-8. **Daily evolution tick** - After each offline world update is generated and delivered
+3. **TTS preference or voice change** - Save immediately after player turns TTS on/off or explicitly changes voice
+4. **Training completion** - New skill learned
+5. **Combat end** - HP/stats changed
+6. **Quest milestone** - Progress updated
+7. **Location change** - Player moved
+8. **Inventory change** - Item gained/used
+9. **Daily evolution tick** - After each offline world update is generated and delivered
 
 **🚨 CRITICAL: Character creation MUST save immediately before any other actions!**
 
@@ -909,6 +924,23 @@ This feature exists to increase re-engagement, not to increase reading burden.
 
 ### Language continuity rule (MANDATORY)
 Daily evolution updates should respect the player's established language, instead of switching arbitrarily.
+
+### TTS continuity rule (MANDATORY)
+Gameplay TTS is **enabled by default** for each save unless the player explicitly turns it off.
+
+TTS rules:
+1. Use **voice-bubble delivery** when the channel supports it.
+2. Choose a voice that matches the active gameplay language:
+   - Chinese gameplay → use a fitting Chinese voice
+   - English gameplay → use a fitting English voice
+3. Keep the **same voice for the same language within the same save**.
+4. If the player switches gameplay language, it is acceptable to switch to the corresponding language voice.
+5. Do **not** randomly change voices mid-campaign for the same language.
+6. Only change voice within the same language if the player explicitly asks to change it.
+7. Persist this state in `save.tts`.
+
+Supporting script:
+- `scripts/resolve_tts_voice.py` — resolve stable per-save TTS settings and language-matched voices
 
 Use this priority order:
 1. **The player's recent actual conversation language** (highest priority)
