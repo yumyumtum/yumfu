@@ -162,11 +162,33 @@ message(action="send", message="story text")   # DON'T
 message(action="send", media="path/to/image.jpg")  # DON'T
 ```
 
+❌ **ALSO WRONG** — send image first, then send image+caption again:
+```
+message(action="send", media="path/to/image.jpg")
+message(action="send", media="path/to/image.jpg", message="story text")
+```
+This causes the same turn to feel like a duplicate image send.
+
 Telegram caption limit is 1024 chars. If story text exceeds that:
 1. Put a short scene summary (~200 chars) as caption
 2. Send the full story text as a FOLLOW-UP message immediately after
 
 This ensures the image and story are always visually paired together.
+
+### 6c. Turn Delivery Rule - CRITICAL
+For each gameplay turn, enforce a single `turn_id` and delivery state.
+
+Hard limits per turn:
+- **main_text_sent**: at most once
+- **image_sent**: at most once
+- **tts_sent**: at most once
+- **Never send a standalone image first if you still intend to send image+caption for the same turn later**
+
+Preferred delivery order:
+1. Try image+caption as the main message
+2. If image generation times out, send text-only once
+3. If the delayed image later arrives, send image-only once as a fallback visual add-on
+4. TTS always follows the main message; never jumps ahead of the story
 
 **7. World-Specific Art Styles**
 - 笑傲江湖: Chinese ink painting, classical wuxia illustration
@@ -1480,7 +1502,14 @@ log_turn(
 2. **Generate narrative** → Store `ai_response`
 3. **Generate image (if triggered)** → Store `image` filename
 4. **Before sending reply** → Call `log_turn()` with all 3 components
-5. **If `save.tts.enabled != false`** → Generate turn TTS with:
+5. Create a unique `turn_id` and initialize delivery state with:
+```bash
+python3 ~/clawd/skills/yumfu/scripts/turn_delivery_state.py \
+  --user-id {user_id} \
+  --universe {universe} \
+  --turn-id {turn_id}
+```
+6. **If `save.tts.enabled != false`** → Generate turn TTS with:
 ```bash
 python3 ~/clawd/skills/yumfu/scripts/generate_turn_tts.py \
   --user-id {user_id} \
@@ -1488,7 +1517,8 @@ python3 ~/clawd/skills/yumfu/scripts/generate_turn_tts.py \
   --language {active_language} \
   --text "{final_story_text}"
 ```
-6. Send gameplay TTS as a **voice bubble** whenever the channel supports it (`message(..., asVoice=true)`)
+7. Send gameplay TTS as a **voice bubble** whenever the channel supports it (`message(..., asVoice=true)`)
+8. Never send a standalone image first if the same turn may still send image+caption later
 
 #### Example Flow
 
