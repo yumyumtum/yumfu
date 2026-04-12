@@ -939,8 +939,9 @@ TTS rules:
 6. Only change voice within the same language if the player explicitly asks to change it.
 7. Persist this state in `save.tts`.
 
-Supporting script:
+Supporting scripts:
 - `scripts/resolve_tts_voice.py` — resolve stable per-save TTS settings and language-matched voices
+- `scripts/generate_turn_tts.py` — generate one gameplay-turn TTS file using the save's stable current voice
 
 Use this priority order:
 1. **The player's recent actual conversation language** (highest priority)
@@ -1479,6 +1480,15 @@ log_turn(
 2. **Generate narrative** → Store `ai_response`
 3. **Generate image (if triggered)** → Store `image` filename
 4. **Before sending reply** → Call `log_turn()` with all 3 components
+5. **If `save.tts.enabled != false`** → Generate turn TTS with:
+```bash
+python3 ~/clawd/skills/yumfu/scripts/generate_turn_tts.py \
+  --user-id {user_id} \
+  --universe {universe} \
+  --language {active_language} \
+  --text "{final_story_text}"
+```
+6. Send gameplay TTS as a **voice bubble** whenever the channel supports it (`message(..., asVoice=true)`)
 
 #### Example Flow
 
