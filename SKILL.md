@@ -192,9 +192,16 @@ Hard limits per turn:
 
 Preferred delivery order:
 1. Try image+caption as the main message
-2. If image generation times out, send text-only once
+2. If image generation times out, send text-only once as the main story message
 3. If the delayed image later arrives, send image-only once as a fallback visual add-on
-4. TTS always follows the main message; never jumps ahead of the story
+4. TTS follows the main story message; never jumps ahead of the story
+
+Fallback sequencing rule:
+- If a turn needs two sends because image generation was slow, the order must be:
+  **text first → delayed image later**
+- Never do:
+  **image first → image+caption later**
+- If text has already been sent for a turn, the delayed image must stay image-only (or ultra-short visual note), not a second full story delivery.
 
 **7. World-Specific Art Styles**
 - 笑傲江湖: Chinese ink painting, classical wuxia illustration
