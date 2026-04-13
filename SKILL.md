@@ -1290,6 +1290,11 @@ Hogwarts watercolor illustration style, magical atmosphere, warm candlelight and
 Semi-realistic warrior cats art style, forest atmosphere with dappled sunlight, detailed cat anatomy and expressions, natural woodland setting, dramatic lighting through trees, storybook illustration quality,
 ```
 
+#### 🐒 Journey to the West（西游记）
+```
+Bright classic Journey to the West fairytale illustration style, colorful and simple mythic Chinese storybook aesthetic, cloud-edged shapes and auspicious 祥云 motifs, clean outlines, vivid but gentle colors, playful heavenly atmosphere, classic children's mythology illustration feeling, not wuxia, not xianxia, not dark realism,
+```
+
 ### 场景类型与提示词模板
 
 #### 🏞️ 探索 / 到达新地点
