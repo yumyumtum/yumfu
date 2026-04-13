@@ -173,9 +173,16 @@ class StorybookV3:
         .player-input {{
             color: #2980b9;
             font-weight: bold;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.35em;
             font-family: 'Courier New', monospace;
-            font-size: 1.1em;
+            font-size: 1em;
+        }}
+
+        .player-storybook {{
+            color: #5d6d7e;
+            font-style: italic;
+            margin-bottom: 0.8em;
+            font-size: 1em;
         }}
         
         .ai-response {{
@@ -326,12 +333,14 @@ class StorybookV3:
             if event_type == "turn":
                 # Complete turn (player + AI)
                 player_input = event.get("player", "")
-                ai_response = event.get("ai", "")
+                player_storybook = event.get("player_storybook") or player_input
+                ai_response = event.get("ai_storybook") or event.get("ai", "")
                 img = event.get("image")
-                
+
                 html += f"""
                 <div class="turn">
                     <div class="player-input">▶️ {player_input}</div>
+                    <div class="player-storybook">{player_storybook}</div>
                     <div class="ai-response">{ai_response}</div>
 """
                 

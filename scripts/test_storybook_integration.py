@@ -34,28 +34,36 @@ def create_mock_session(user_id: str, universe: str) -> Path:
             "timestamp": "2026-04-03T00:13:49",
             "type": "turn",
             "player": "/yumfu start",
+            "player_storybook": "You stepped into the world of ThunderClan for the first time.",
             "ai": "Welcome to ThunderClan! You are born as a tiny kit in the warm nursery.",
+            "ai_storybook": "ThunderClan opened around you in warmth and moss-scent, and your story began in the nursery.",
             "image": None
         },
         {
             "timestamp": "2026-04-03T00:15:23",
             "type": "turn",
             "player": "Tumpaw",
+            "player_storybook": "You chose the name Tumpaw and claimed it as your own.",
             "ai": "A fine name! Tumpaw it is. You grow quickly, and today is your apprentice ceremony!",
+            "ai_storybook": "The name Tumpaw settled over you, and with it came the bright, trembling promise of apprenticeship.",
             "image": "tumpaw-ceremony-20260403.png"
         },
         {
             "timestamp": "2026-04-03T00:18:45",
             "type": "turn",
             "player": "/yumfu look",
+            "player_storybook": "You lifted your gaze and took in the whole camp around you.",
             "ai": "You stand in ThunderClan camp. Firestar makes announcements from Highrock.",
+            "ai_storybook": "ThunderClan camp stretched before you, with Firestar already commanding the attention of every cat from Highrock.",
             "image": "tumpaw-camp-20260403.png"
         },
         {
             "timestamp": "2026-04-03T00:22:10",
             "type": "turn",
             "player": "/yumfu train swimming",
+            "player_storybook": "You asked to train in the skill that already called to you most strongly: swimming.",
             "ai": "Willowpelt leads you to the river border. Swimming is unusual for ThunderClan.",
+            "ai_storybook": "Willowpelt guided you toward the river border, where an unusual ThunderClan lesson waited in the glittering current.",
             "image": None
         },
         {
@@ -123,7 +131,8 @@ def test_storybook_generation(user_id: str, universe: str):
     checks = [
         ("Title present", "Tumpaw" in content),
         ("Player input present", "/yumfu start" in content),
-        ("AI response present", "Welcome to ThunderClan" in content),
+        ("AI/storybook response present", "ThunderClan opened around you" in content),
+        ("Player storybook prose present", "You stepped into the world of ThunderClan for the first time." in content),
         ("Achievement present", "Achievement Unlocked" in content),
         ("Print button present", "Print to PDF" in content)
     ]
