@@ -1718,6 +1718,30 @@ You pad down to the river. The water flows swiftly, sunlight glinting off the su
 - Player explicitly requests (`/yumfu storybook` or asks for PDF)
 - Session ends (character dies, quest completed)
 - Player hasn't played in 24+ hours (auto-archive)
+- **Player explicitly ends / retires / abandons / terminates a save or story run**
+
+### End-of-Journey Offer Rule (NEW)
+
+When a run reaches a meaningful ending **or** the player explicitly says they want to stop / end / archive / retire that game record:
+
+1. **Ask once** whether they want a storybook of the journey.
+2. Offer it as an **art-rich illustrated storybook** containing:
+   - their journey summary
+   - key player choices
+   - major AI responses / scene narration
+   - generated images from the run
+   - final stats / relationships / achievements when available
+3. Preferred formats:
+   - **HTML first** (canonical, richly styled, easy to preserve)
+   - **PDF if conversion succeeds**
+4. Delivery rule:
+   - If generated, **send it back into chat** as a file/message whenever possible
+   - Also keep the generated file(s) on disk under the YumFu storybook output directory
+5. Do **not** silently generate a storybook every time; ask the player first unless they already requested it.
+
+Suggested prompt to player:
+- Chinese: `这段旅程要不要我给你做成一本带配图的 Storybook？我可以整理成艺术化图文版，发到聊天里给你，也会保存在本地。`
+- English: `Want me to turn this run into an illustrated storybook? I can make an art-rich HTML/PDF version, send it here in chat, and also save it locally.`
 
 ### Agent Instructions for Storybook Generation
 
