@@ -1497,6 +1497,17 @@ YumFu works across multiple AI platforms with varying feature sets:
 
 **Every single game turn MUST be logged for storybook generation.**
 
+### Storybook Tracking Default Rule (NEW)
+
+- **Default behavior: storybook tracking ON**
+- At the start of a new game / new save, the player may change this preference
+- If the player opts out, disable storybook/session logging for that save
+- If the player does not opt out, keep appending the journey as an evolving illustrated storybook source
+
+Suggested onboarding wording:
+- Chinese: `这局默认会自动记录并整理成可生成 Storybook 的旅程档案；如果你不想记录，我也可以关掉。`
+- English: `This run will be auto-recorded for an illustrated storybook by default; if you don't want that, I can turn it off.`
+
 #### When to Log
 
 **After EVERY player action**, immediately run:
@@ -1572,10 +1583,20 @@ if image_filename:
 
 #### What Gets Logged
 
-- ✅ **Player input** - Exact command typed
-- ✅ **AI response** - Complete narrative text
+- ✅ **Player input (raw)** - Exact command / reply typed by player
+- ✅ **Player input (storybook-ready)** - A lightly normalized narrative version of the player's action, suitable for book-style retelling
+- ✅ **AI response (raw)** - Complete narrative text actually delivered
+- ✅ **AI response (storybook-ready)** - A cleaner book-style scene paragraph when needed for later compilation
 - ✅ **Images** - Filename if generated
 - ✅ **Timestamp** - Auto-added by logger
+
+#### Storybook Writing Intent
+
+The storybook should not read like a raw terminal log forever. During logging and later compilation:
+- preserve the **true player action**
+- but also keep / derive a **more literary retelling** for the storybook layer
+- convert ultra-short player replies like `A`, `1`, `go`, `attack him`, `跟上` into clearer narrative intent inside the book version
+- keep major dialogue, choices, and scene transitions readable like an illustrated novella
 
 #### Where Logs Are Stored
 
@@ -1737,11 +1758,23 @@ When a run reaches a meaningful ending **or** the player explicitly says they wa
 4. Delivery rule:
    - If generated, **send it back into chat** as a file/message whenever possible
    - Also keep the generated file(s) on disk under the YumFu storybook output directory
-5. Do **not** silently generate a storybook every time; ask the player first unless they already requested it.
+5. Do **not** silently generate a final exported storybook every time; ask the player first unless they already requested it.
+6. However, if storybook tracking is enabled, keep the **underlying rolling storybook source** updated by default throughout play.
 
 Suggested prompt to player:
 - Chinese: `这段旅程要不要我给你做成一本带配图的 Storybook？我可以整理成艺术化图文版，发到聊天里给你，也会保存在本地。`
 - English: `Want me to turn this run into an illustrated storybook? I can make an art-rich HTML/PDF version, send it here in chat, and also save it locally.`
+
+### Daily Evolution + Storybook Entry Rule
+
+If daily evolution is enabled and a storybook source already exists for that save:
+- daily evolution **may** mention that the journey archive/storybook has been updated
+- if there is a real user-openable destination, send that entry point
+- if there is **no real public/clickable URL**, do **not** send a fake `file://` or local-path link as if it were usable on chat surfaces
+- instead, prefer one of:
+  - send the HTML file directly
+  - send the PDF directly
+  - send a short message saying the latest storybook can be generated/refreshed on request
 
 ### Agent Instructions for Storybook Generation
 

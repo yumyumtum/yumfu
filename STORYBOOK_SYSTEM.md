@@ -6,8 +6,9 @@ The YumFu storybook system automatically records every game turn and generates b
 
 ## 🎯 Key Features
 
-- ✅ **Auto-logging** - Every turn automatically saved
+- ✅ **Auto-logging by default** - Every turn automatically saved unless player disables storybook tracking
 - ✅ **Complete conversation** - Full player input + AI response
+- ✅ **Storybook-ready prose layer** - Short/raw player actions can be normalized into cleaner literary retelling for the book version
 - ✅ **Image integration** - All generated art at correct positions
 - ✅ **Beautiful PDF** - Professional layout via HTML → PDF
 - ✅ **Session management** - Auto-creates new sessions after 2h inactivity
