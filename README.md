@@ -19,6 +19,18 @@ If YumFu helped you or made you smile, you can support future development here:
 
 ---
 
+## 💬 Join the YumFu Fun Discord
+
+Come play, test new worlds, share screenshots, and hang out with other players:
+
+- **Invite:** <https://discord.gg/g6zBMHpP8>
+
+### Discord QR Code
+
+![YumFu Fun Discord QR](docs/community/yumfu-fun-discord-qr.jpg)
+
+---
+
 ## 🌍 9 Worlds to Explore
 
 | World | Genre | Language | Status |

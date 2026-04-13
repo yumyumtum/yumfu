@@ -30,6 +30,18 @@
 
 ---
 
+## 💬 加入 YumFu Fun Discord 游玩群
+
+欢迎来群里一起玩、测试新世界、晒截图、交流点子：
+
+- **邀请链接：** <https://discord.gg/g6zBMHpP8>
+
+### Discord 二维码
+
+![YumFu Fun Discord QR](docs/community/yumfu-fun-discord-qr.jpg)
+
+---
+
 ## 🚀 快速开始
 
 ```bash
