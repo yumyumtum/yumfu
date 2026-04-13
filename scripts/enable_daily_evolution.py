@@ -14,7 +14,7 @@ def main():
     parser.add_argument('--universe', required=True)
     parser.add_argument('--target', required=True)
     parser.add_argument('--channel', default='telegram')
-    parser.add_argument('--time', default='10:00')
+    parser.add_argument('--time', default='20:00')
     parser.add_argument('--tz', default='America/Los_Angeles')
     args = parser.parse_args()
 

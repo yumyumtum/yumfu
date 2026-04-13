@@ -22,7 +22,7 @@ def main():
     parser.add_argument('--universe', required=True)
     parser.add_argument('--target', required=True, help='Telegram/chat target id')
     parser.add_argument('--channel', default='telegram')
-    parser.add_argument('--time', default='10:00', help='Local delivery time HH:MM')
+    parser.add_argument('--time', default='20:00', help='Local delivery time HH:MM')
     parser.add_argument('--tz', default='America/Los_Angeles')
     parser.add_argument('--agent', default='main')
     args = parser.parse_args()
