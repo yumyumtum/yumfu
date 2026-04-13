@@ -20,6 +20,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Optional
 import shutil
+import os
 
 
 class StorybookV3:
@@ -85,25 +86,64 @@ class StorybookV3:
                     events.append(json.loads(line))
         return events
     
+    def _resolve_image_path(self, image_ref: str) -> Optional[Path]:
+        """Resolve historical image refs across basename/absolute-path/mismatched-name cases."""
+        if not image_ref:
+            return None
+
+        candidates = []
+        ref_path = Path(image_ref)
+        if ref_path.exists():
+            candidates.append(ref_path)
+
+        basename = ref_path.name
+        search_roots = [
+            Path.home() / ".openclaw/media/outbound/yumfu",
+            Path.home() / ".openclaw/media/outbound",
+            Path.home() / ".openclaw/media/tool-image-generation",
+            Path.home() / "clawd/output",
+        ]
+
+        for root in search_roots:
+            if not root.exists():
+                continue
+            exact = root / basename
+            if exact.exists():
+                return exact
+
+        stem = Path(basename).stem.lower()
+        stem_tokens = [tok for tok in stem.replace('_', '-').split('-') if tok]
+        for root in search_roots:
+            if not root.exists():
+                continue
+            for p in root.rglob('*'):
+                if not p.is_file():
+                    continue
+                name = p.name.lower()
+                if basename.lower() == name:
+                    return p
+                p_stem = p.stem.lower()
+                # relaxed heuristic for older/renamed assets
+                if stem and (stem in p_stem or p_stem in stem):
+                    return p
+                if stem_tokens and sum(1 for tok in stem_tokens if tok in p_stem) >= max(2, min(4, len(stem_tokens))):
+                    return p
+        return candidates[0] if candidates else None
+
     def collect_images(self, events: List[Dict]) -> Dict[str, Path]:
         """Collect and copy all images referenced in events"""
-        outbound = Path.home() / ".openclaw/media/outbound/yumfu"
         image_map = {}
-        
-        if not outbound.exists():
-            return image_map
-        
-        # Extract all image filenames from events
+
         for event in events:
             img_filename = event.get("image") or event.get("filename")
             if img_filename:
-                img_path = outbound / img_filename
-                if img_path.exists():
+                img_path = self._resolve_image_path(img_filename)
+                if img_path and img_path.exists():
                     dest = self.images_dir / img_path.name
                     if not dest.exists():
                         shutil.copy2(img_path, dest)
                     image_map[img_filename] = dest
-        
+
         return image_map
     
     def generate_html(self, events: List[Dict], images: Dict[str, Path]) -> str:
