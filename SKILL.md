@@ -162,6 +162,14 @@ message(action="send", media="path/to/image.jpg", message="[full story text here
 Use an image generation path that writes a **local file only** and does **not** auto-send media to the chat by itself.
 For official YumFu turns, prefer local-file generators such as `scripts/generate_image.py` or an equivalent wrapper that returns only a saved path.
 
+✅ **Image backend fallback order — REQUIRED**:
+1. First try local-file generation via `uv run ~/clawd/skills/yumfu/scripts/generate_image.py ...` (always use `uv run`, not plain `python3`, so inline dependencies load correctly)
+2. If that fails because `GEMINI_API_KEY` / `GOOGLE_API_KEY` is missing, provider auth is unavailable, the local script errors, or the local runtime/import path is broken, immediately fall back to OpenClaw `image_generate` and then deliver the resulting local media path through the normal YumFu turn-delivery flow
+3. In group chats, if either image path succeeds, send that image back into the same group automatically for the current turn
+4. If both image paths fail, send the turn as text-only once, explicitly noting that image generation is temporarily unavailable
+
+⚠️ Never silently skip the image step. Either deliver the image, or clearly state that the turn is temporarily running without image support.
+
 ❌ Do **not** use any image tool/path that auto-inserts or auto-delivers the generated image into the current chat before the turn delivery logic runs.
 
 ❌ **WRONG pattern** — two separate messages:
@@ -1269,7 +1277,9 @@ uv run ~/clawd/skills/yumfu/scripts/generate_image.py \
   --resolution 2K
 ```
 
-**Note**: Script does NOT auto-send. Use `message` tool with `media` parameter to send.
+**Do not use** `python3 ~/clawd/skills/yumfu/scripts/generate_image.py ...` directly unless the equivalent dependencies are already installed in that exact interpreter; the supported/default path is `uv run`.
+
+**Note**: Script does NOT auto-send. After generation, send the image through the normal YumFu turn delivery flow. In Telegram group chats, this means the image must be delivered back into that same group for the turn.
 
 ---
 

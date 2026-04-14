@@ -47,7 +47,7 @@ def get_api_key(provided_key: str | None) -> str | None:
     """Get API key from argument first, then environment."""
     if provided_key:
         return provided_key
-    return os.environ.get("GEMINI_API_KEY")
+    return os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
 
 
 def auto_detect_resolution(max_input_dim: int) -> str:
@@ -112,7 +112,7 @@ def main():
     )
     parser.add_argument(
         "--api-key", "-k",
-        help="Gemini API key (overrides GEMINI_API_KEY env var)"
+        help="Gemini API key (overrides GEMINI_API_KEY / GOOGLE_API_KEY env var)"
     )
 
     args = parser.parse_args()
@@ -123,13 +123,21 @@ def main():
         print("Error: No API key provided.", file=sys.stderr)
         print("Please either:", file=sys.stderr)
         print("  1. Provide --api-key argument", file=sys.stderr)
-        print("  2. Set GEMINI_API_KEY environment variable", file=sys.stderr)
+        print("  2. Set GEMINI_API_KEY or GOOGLE_API_KEY environment variable", file=sys.stderr)
         sys.exit(1)
 
     # Import here after checking API key to avoid slow import on error
-    from google import genai
-    from google.genai import types
-    from PIL import Image as PILImage
+    # IMPORTANT: this script is intended to be run via `uv run .../generate_image.py`
+    # so the inline dependencies declared in the script header are available.
+    try:
+        from google import genai
+        from google.genai import types
+        from PIL import Image as PILImage
+    except ImportError as e:
+        print("Error: required image-generation dependencies are not available in this Python runtime.", file=sys.stderr)
+        print("Run this script with `uv run ~/clawd/skills/yumfu/scripts/generate_image.py ...` so inline dependencies are installed automatically.", file=sys.stderr)
+        print(f"Import detail: {e}", file=sys.stderr)
+        sys.exit(1)
 
     # Initialise client
     client = genai.Client(api_key=api_key)
