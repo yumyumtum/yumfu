@@ -79,13 +79,15 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 **Then you MUST:**
 1. ✅ Load their save file with `load_game.py`
 2. ✅ Generate images for **every game turn** (mandatory), with especially strong prompts for location / NPC / combat / chapter moments
-3. ✅ Generate **TTS by default for every gameplay turn** unless the player has explicitly turned TTS off for that save
-4. ✅ Save their progress with `save_game.py`
-5. ✅ Use the world's art style and narrative tone
+3. ✅ In group chats, do **not** downgrade YumFu to text-only mode by default — if the turn generates an image, the image must also be delivered into that same group chat unless the user explicitly disables images
+4. ✅ Generate **TTS by default for every gameplay turn** unless the player has explicitly turned TTS off for that save
+5. ✅ Save their progress with `save_game.py`
+6. ✅ Use the world's art style and narrative tone
 
 **DO NOT:**
 - ❌ Manually roleplay without checking save files
 - ❌ Skip image generation for key scenes
+- ❌ In group chats, generate the image but fail to actually send it to the group
 - ❌ Forget to save progress
 - ❌ End a story branch with a simple choice (every choice opens a new path)
 - ❌ Design "dead end" options (B is never "game over", it's a different road)
