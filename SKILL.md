@@ -194,6 +194,17 @@ This ensures the image and story are always visually paired together.
 ### 6c. Turn Delivery Rule - CRITICAL
 For each gameplay turn, enforce a single `turn_id` and delivery state.
 
+**Default implementation path (MANDATORY):**
+Use `uv run ~/clawd/skills/yumfu/scripts/deliver_yumfu_turn.py ...` as the default per-turn delivery preparation helper.
+This helper is now the standard YumFu path for:
+- preparing caption/follow-up text split
+- generating local turn image first
+- preparing TTS voice bubble output
+- carrying per-turn delivery state
+- deciding whether OpenClaw image fallback is needed
+
+For Telegram/group gameplay, do not hand-roll turn delivery if this helper can be used.
+
 Hard limits per turn:
 - **main_text_sent**: at most once
 - **image_sent**: at most once
@@ -201,10 +212,12 @@ Hard limits per turn:
 - **Never send a standalone image first if you still intend to send image+caption for the same turn later**
 
 Preferred delivery order:
-1. Try image+caption as the main message
-2. If image generation times out, send text-only once as the main story message
-3. If the delayed image later arrives, send image-only once as a fallback visual add-on
-4. TTS follows the main story message; never jumps ahead of the story
+1. Run `deliver_yumfu_turn.py` to prepare assets/state for the turn
+2. Try image+caption as the main message
+3. If local image generation fails and the helper marks fallback required, use OpenClaw `image_generate` and continue the same turn delivery flow
+4. If image generation times out or both image paths fail, send text-only once as the main story message
+5. If the delayed image later arrives, send image-only once as a fallback visual add-on
+6. TTS follows the main story message; never jumps ahead of the story
 
 Fallback sequencing rule:
 - If a turn needs two sends because image generation was slow, the order must be:
