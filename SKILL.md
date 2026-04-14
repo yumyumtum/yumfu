@@ -1287,6 +1287,11 @@ uv run ~/clawd/skills/yumfu/scripts/generate_image.py \
 
 **Each world has its own signature art style. ALWAYS include the style prefix in prompts.**
 
+**Global anti-text rule (MANDATORY for every YumFu image prompt):**
+Append an explicit negative constraint such as:
+`No text, no words, no letters, no captions, no signs, no speech bubbles, no book pages, no paragraph blocks, no watermark, no logo, image-only illustration.`
+If the model still renders text-like artifacts, strengthen the next prompt further instead of accepting the bad output as final turn art.
+
 #### 🇨🇳 Xiaoao Jianghu (笑傲江湖)
 ```
 Chinese wuxia ink wash painting style (水墨武侠风), dramatic cinematic composition, muted earth tones with selective vivid accents (red, gold), atmospheric fog and light rays, textured rice paper background,

@@ -77,6 +77,21 @@ def choose_output_resolution(
     return "1K", False
 
 
+TEXT_AVOIDANCE_SUFFIX = (
+    " No text, no words, no letters, no captions, no signs, no speech bubbles, "
+    "no book pages, no paragraph blocks, no watermark, no logo, no typographic elements, "
+    "image-only illustration."
+)
+
+
+def normalize_prompt(prompt: str) -> str:
+    prompt = prompt.strip()
+    lower = prompt.lower()
+    if "no text" in lower or "no words" in lower or "no letters" in lower:
+        return prompt
+    return prompt + TEXT_AVOIDANCE_SUFFIX
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Generate images using Nano Banana Pro (Gemini 3 Pro Image)"
@@ -179,13 +194,15 @@ def main():
             f"(from max input dimension {max_input_dim})"
         )
 
+    normalized_prompt = normalize_prompt(args.prompt)
+
     # Build contents (images first if editing, prompt only if generating)
     if input_images:
-        contents = [*input_images, args.prompt]
+        contents = [*input_images, normalized_prompt]
         img_count = len(input_images)
         print(f"Processing {img_count} image{'s' if img_count > 1 else ''} with resolution {output_resolution}...")
     else:
-        contents = args.prompt
+        contents = normalized_prompt
         print(f"Generating image with resolution {output_resolution}...")
 
     try:
