@@ -1756,8 +1756,14 @@ When a run reaches a meaningful ending **or** the player explicitly says they wa
    - final stats / relationships / achievements when available
 3. Preferred formats:
    - **HTML first** (canonical, richly styled, easy to preserve)
-   - **PDF if conversion succeeds**
-4. Delivery rule:
+   - **PDF if conversion succeeds and the layout is visually acceptable**
+4. **Scene-binding rule (MANDATORY)**:
+   - storybook pages must be organized as **scene blocks**
+   - each scene block should contain: **one image + the exact matching scene/dialogue text directly below or beside it**
+   - do **not** put images into a detached gallery while moving all text to separate long prose sections
+   - do **not** separate a scene's picture from its corresponding dialogue/narration across distant sections unless the user explicitly asks for a gallery-style export
+   - for chat-delivered HTML storybooks, prefer a readable comic/illustrated-book flow over a print-first PDF layout
+5. Delivery rule:
    - If generated, **send it back into chat** as a file/message whenever possible
    - Also keep the generated file(s) on disk under the YumFu storybook output directory
 5. Do **not** silently generate a final exported storybook every time; ask the player first unless they already requested it.
@@ -1783,40 +1789,43 @@ If daily evolution is enabled and a storybook source already exists for that sav
 When player requests storybook or reaches milestone:
 
 ```python
-# 1. Generate HTML storybook using exec tool
+# 1. Generate HTML storybook first
 result = exec({
     "command": "uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v3.py --user-id 1309815719 --universe warrior-cats"
 })
 
-# 2. Find the generated HTML file
-# Output will show: "HTML: /path/to/storybook.html"
+# 2. Confirm the HTML uses scene-bound layout
+# Each major scene should read as:
+#   image
+#   matching scene/dialogue text
+# not: detached image gallery + separate prose dump
 
-# 3. Convert to PDF using browser tool
+# 3. Send HTML as the canonical deliverable
+message({
+    "action": "send",
+    "channel": "telegram",
+    "target": "1309815719",
+    "media": html_file_path,
+    "message": "📖 Your illustrated storybook is ready in HTML. This version keeps each image paired with its matching scene text."
+})
+
+# 4. Only generate/send PDF if the layout is visually confirmed good
 pdf_path = browser({
     "action": "pdf",
     "url": f"file://{html_file_path}",
     "path": "~/.openclaw/media/outbound/tumpaw-adventure.pdf"
 })
-
-# 4. Send to user
-message({
-    "action": "send",
-    "channel": "telegram",
-    "target": "1309815719",
-    "media": pdf_path,
-    "message": "📖 Your adventure storybook is complete! This PDF contains your complete journey with all images."
-})
 ```
 
-**Or use the simpler OpenClaw workflow:**
+**Preferred OpenClaw workflow:**
 
 ```bash
-# Generate HTML
+# Generate HTML first
 cd ~/clawd/skills/yumfu
 uv run scripts/generate_storybook_v3.py --user-id 1309815719 --universe warrior-cats
 
-# Convert to PDF (browser tool handles this)
-# Send via message tool
+# Ship HTML first if it reads well in-chat
+# Only convert to PDF after verifying the HTML layout preserves scene binding
 ```
 
 ---
