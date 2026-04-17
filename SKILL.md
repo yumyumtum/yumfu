@@ -1069,6 +1069,7 @@ Supporting scripts:
 - `scripts/run_daily_evolution_job.py` — generate a daily evolution update
 - `scripts/run_daily_evolution.py` — persist generated result into sidecar
 - `scripts/prepare_daily_evolution_delivery.py` — prepare image/text/TTS delivery plan for one daily evolution tick
+- `scripts/execute_daily_evolution_delivery.py` — emit exact send/mark/apply steps for one daily evolution tick with low freedom
 - `scripts/create_daily_evolution_cron.py` — create per-player daily cron
 - `scripts/disable_daily_evolution_cron.py` — disable per-player daily cron
 - `scripts/build_reentry_context.py` — merge save + sidecar for continue flow

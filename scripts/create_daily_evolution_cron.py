@@ -44,14 +44,13 @@ Steps:
 2. Read the JSON payload and generate one concise daily evolution update in the player's preferred language.
 3. Generate one image matching image_prompt.
 4. Write the generated JSON result to ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
-5. Run delivery preparation helper:
-   python3 ~/clawd/skills/yumfu/scripts/prepare_daily_evolution_delivery.py --user-id {args.user_id} --universe {args.universe} --target {args.target} --json ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
-6. Follow the returned delivery plan:
-   - send image+caption first
-   - send follow-up text only if needed
-   - send TTS as voice bubble when `send_tts_voice=true`
-   - mark delivery state after successful sends
-7. Persist sidecar only using:
+5. Run execution helper:
+   python3 ~/clawd/skills/yumfu/scripts/execute_daily_evolution_delivery.py --user-id {args.user_id} --universe {args.universe} --target {args.target} --json ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
+6. Follow the returned execution plan exactly:
+   - send listed `sends` items in order
+   - after each successful send, run the matching `mark_commands`
+   - run `apply_command` after delivery steps complete
+7. Persist sidecar only using the returned `apply_command` (do not invent an alternate persistence path):
    python3 {APPLY_RUNNER} --user-id {args.user_id} --universe {args.universe} --apply-from-json ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
 
 Rules:
@@ -60,7 +59,7 @@ Rules:
 - Keep the update short, scene-forward, and easy to reply to
 - End with a natural re-entry hook
 - Daily evolution should deliver image/text first, then TTS voice bubble by default unless the save explicitly turned TTS off
-- Use `prepare_daily_evolution_delivery.py` as the default bridge for daily evolution asset prep instead of hand-rolling image/TTS steps ad hoc
+- Use `execute_daily_evolution_delivery.py` as the default low-freedom bridge for daily evolution delivery instead of hand-rolling image/TTS/state steps ad hoc
 - If TTS generation fails, still send the main in-world update and report the gap honestly instead of pretending voice was delivered'''
 
     cmd = [
