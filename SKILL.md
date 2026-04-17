@@ -943,6 +943,23 @@ Each daily evolution update should include:
 2. **1 generated image** showing the new situation
 3. **1 meaningful state change** (rumor, faction shift, patrol increase, resource loss, NPC movement, political signal, etc.)
 4. **1 hook** that invites the player back into active play
+5. **1 TTS voice-bubble delivery by default** unless that save has explicitly disabled TTS
+
+### Daily Evolution delivery rule (MANDATORY)
+Daily evolution is not text-only. If a daily evolution update is delivered to the player, the default delivery bundle is:
+1. image + main story text
+2. follow-up TTS voice bubble for the same update
+
+Rules:
+- If `save.tts.enabled != false`, generate and send TTS for daily evolution too.
+- Use the same stable per-save language/voice continuity rules as normal gameplay turns.
+- On channels that support it, send TTS as a **voice bubble** (`message(..., asVoice=true)`).
+- The TTS must follow the main image/text update, not precede it.
+- Do not silently drop TTS just because this is an offline daily evolution tick.
+- Only skip TTS when:
+  - the save explicitly disabled TTS, or
+  - TTS generation failed after an honest attempt.
+- If TTS fails, still send the image/text update, but treat the missing TTS as a delivery gap to be fixed rather than intended behavior.
 
 ### Re-entry design principle (VERY IMPORTANT)
 The core goal is **not** to generate a long lore report.
@@ -1051,6 +1068,7 @@ Supporting scripts:
 - `scripts/daily_evolution_prepare.py` — build dynamic runtime context
 - `scripts/run_daily_evolution_job.py` — generate a daily evolution update
 - `scripts/run_daily_evolution.py` — persist generated result into sidecar
+- `scripts/prepare_daily_evolution_delivery.py` — prepare image/text/TTS delivery plan for one daily evolution tick
 - `scripts/create_daily_evolution_cron.py` — create per-player daily cron
 - `scripts/disable_daily_evolution_cron.py` — disable per-player daily cron
 - `scripts/build_reentry_context.py` — merge save + sidecar for continue flow

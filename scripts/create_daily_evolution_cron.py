@@ -43,16 +43,25 @@ Steps:
 1. Run: python3 {RUNNER} --user-id {args.user_id} --universe {args.universe}
 2. Read the JSON payload and generate one concise daily evolution update in the player's preferred language.
 3. Generate one image matching image_prompt.
-4. Send exactly one in-world message to {args.channel} target {args.target} with the generated image and story text.
-5. Write the generated JSON result to ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
-6. Persist sidecar only using:
+4. Write the generated JSON result to ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
+5. Run delivery preparation helper:
+   python3 ~/clawd/skills/yumfu/scripts/prepare_daily_evolution_delivery.py --user-id {args.user_id} --universe {args.universe} --target {args.target} --json ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
+6. Follow the returned delivery plan:
+   - send image+caption first
+   - send follow-up text only if needed
+   - send TTS as voice bubble when `send_tts_voice=true`
+   - mark delivery state after successful sends
+7. Persist sidecar only using:
    python3 {APPLY_RUNNER} --user-id {args.user_id} --universe {args.universe} --apply-from-json ~/clawd/tmp/yumfu-daily-{args.universe}-{args.user_id}.json
 
 Rules:
 - Never mutate the main save directly
 - No separate report-generated notification
 - Keep the update short, scene-forward, and easy to reply to
-- End with a natural re-entry hook'''
+- End with a natural re-entry hook
+- Daily evolution should deliver image/text first, then TTS voice bubble by default unless the save explicitly turned TTS off
+- Use `prepare_daily_evolution_delivery.py` as the default bridge for daily evolution asset prep instead of hand-rolling image/TTS steps ad hoc
+- If TTS generation fails, still send the main in-world update and report the gap honestly instead of pretending voice was delivered'''
 
     cmd = [
         'openclaw', 'cron', 'add',
