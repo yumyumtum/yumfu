@@ -81,6 +81,8 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 2. ✅ Generate images for **every game turn** (mandatory), with especially strong prompts for location / NPC / combat / chapter moments
 3. ✅ In group chats, do **not** downgrade YumFu to text-only mode by default — if the turn generates an image, the image must also be delivered into that same group chat unless the user explicitly disables images
 4. ✅ Generate **TTS by default for every gameplay turn** unless the player has explicitly turned TTS off for that save
+   - TTS content must be the **player-facing story/narration text only**
+   - Do **not** send meta execution chatter, progress updates, or internal action announcements as TTS
 5. ✅ Save their progress with `save_game.py`
 6. ✅ Use the world's art style and narrative tone
 
@@ -238,6 +240,7 @@ Preferred delivery order:
 4. If image generation times out or both image paths fail, send text-only once as the main story message
 5. If the delayed image later arrives, send image-only once as a fallback visual add-on
 6. TTS follows the main story message; never jumps ahead of the story
+7. Never generate/send TTS for assistant-side execution chatter such as “我来继续这回合”, “我现在发图文和语音”, “我把存档补上” — these are meta updates, not gameplay content
 
 Fallback sequencing rule:
 - If a turn needs two sends because image generation was slow, the order must be:
