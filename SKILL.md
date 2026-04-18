@@ -85,6 +85,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
    - Do **not** send meta execution chatter, progress updates, or internal action announcements as TTS
 5. ✅ Save their progress with `save_game.py`
 6. ✅ Use the world's art style and narrative tone
+7. ✅ Default to **silent execution** for YumFu operations — do the work, then deliver the finished turn; avoid AI process chatter unless the player explicitly asks for it or something failed
 
 **DO NOT:**
 - ❌ Manually roleplay without checking save files
@@ -94,6 +95,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 - ❌ End a story branch with a simple choice (every choice opens a new path)
 - ❌ Design "dead end" options (B is never "game over", it's a different road)
 - ❌ Hide the actionable choices inside one long block of prose without a clearly separated options list
+- ❌ Fill YumFu turns with AI process chatter, self-narration, or “I am now doing X” filler that weakens the game feel
 
 **This ensures:**
 - Consistent character progression
