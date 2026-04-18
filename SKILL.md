@@ -112,16 +112,23 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 - Option A/B/C all lead to rich story branches
 
 **1b. Choice presentation must be visually clear**
+- This rule applies to **all YumFu worlds by default**
 - Whenever a turn offers player choices, render them as a separate, easy-to-scan choice block
 - Prefer `1 / 2 / 3` for Chinese gameplay and `A / B / C` or `1 / 2 / 3` for English gameplay
 - Do **not** bury the choices inside a dense paragraph and expect the player to fish them out
 - Keep each option to one short line when possible
+- Default output structure for gameplay turns:
+  1. short story scene / consequence
+  2. one blank line
+  3. `你现在可以：` / `Choose your next move:`
+  4. separate numbered or lettered options on their own lines
 - Default pattern:
   - `1. ...`
   - `2. ...`
   - `3. ...`
 - The story paragraph should lead into the decision, then the options should appear on their own lines below it
 - The player may still answer naturally in free text; the numbered/lettered options are for readability, not command restriction
+- If a turn has an especially obvious next move, still render the options block; do not rely on prose-only implied choices
 
 **2. Three-Arc Story Structure**
 ```
