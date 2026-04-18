@@ -86,6 +86,16 @@ def detect_language(payload: dict[str, Any], explicit: str | None) -> str:
     return "en"
 
 
+def compose_delivery_text(payload: dict[str, Any], language: str) -> str:
+    recap = (payload.get("recap_text") or "").strip()
+    story = (payload.get("delivered_text") or payload.get("story_text") or "").strip()
+    if recap:
+        if language == "zh":
+            return f"前情：{recap}\n\n今日推进：{story}".strip()
+        return f"Previously: {recap}\n\nToday: {story}".strip()
+    return story
+
+
 def plan_caption(story_text: str) -> tuple[str, str | None, str]:
     clean = " ".join(story_text.split())
     if len(clean) <= 900:
@@ -201,7 +211,7 @@ def main() -> None:
 
     payload = json.loads(Path(args.json_path).read_text(encoding="utf-8"))
     language = detect_language(payload, args.language)
-    story_text = (payload.get("delivered_text") or payload.get("story_text") or "").strip()
+    story_text = compose_delivery_text(payload, language)
     turn_id = args.turn_id or f"daily-evolution-{payload.get('world_id', args.universe)}-{Path(args.json_path).stem}"
 
     state = load_state(args.user_id, args.universe, turn_id)
@@ -241,6 +251,7 @@ def main() -> None:
             "mode": text_mode,
             "full_text": story_text,
             "summary": payload.get("summary"),
+            "recap_text": payload.get("recap_text"),
             "hooks": payload.get("hooks") or [],
         },
         "image": image,

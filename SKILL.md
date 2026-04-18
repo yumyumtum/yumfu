@@ -939,16 +939,24 @@ Before generating the update, load and consider:
 
 ### Daily Evolution output requirements
 Each daily evolution update should include:
-1. **1 short story update** (100-220 words)
-2. **1 generated image** showing the new situation
-3. **1 meaningful state change** (rumor, faction shift, patrol increase, resource loss, NPC movement, political signal, etc.)
-4. **1 hook** that invites the player back into active play
-5. **1 TTS voice-bubble delivery by default** unless that save has explicitly disabled TTS
+1. **1 short front-context recap** (1-3 sentences) reminding the player why they are here, what line/faction/quest they are already tied to, and why today's scene matters
+2. **1 short story update** (100-220 words)
+3. **1 generated image** showing the new situation, with prompt continuity from the current arc instead of a context-free fresh scene
+4. **1 meaningful state change** (rumor, faction shift, patrol increase, resource loss, NPC movement, political signal, etc.)
+5. **1 hook** that invites the player back into active play
+6. **1 TTS voice-bubble delivery by default** unless that save has explicitly disabled TTS
+
+The recap is mandatory. Do not assume the player remembers yesterday's update, the hidden faction line, or why the current image matters.
 
 ### Daily Evolution delivery rule (MANDATORY)
 Daily evolution is not text-only. If a daily evolution update is delivered to the player, the default delivery bundle is:
-1. image + main story text
-2. follow-up TTS voice bubble for the same update
+1. image + recap-aware main story text
+2. follow-up TTS voice bubble for the same update using that same recap-aware text
+
+The player-facing text should normally read like:
+- short recap / 前情
+- today's world movement
+- one easy re-entry hook
 
 Rules:
 - If `save.tts.enabled != false`, generate and send TTS for daily evolution too.
@@ -964,6 +972,8 @@ Rules:
 ### Re-entry design principle (VERY IMPORTANT)
 The core goal is **not** to generate a long lore report.
 The core goal is to **pull the player back into the current scene naturally and easily**.
+
+For daily evolution pushes, that re-entry starts immediately with a short recap. If the update opens cold, the player forgets the plot and the image loses meaning.
 
 Daily evolution should feel like:
 - “while you were away, something moved”

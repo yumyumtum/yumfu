@@ -122,6 +122,8 @@ def got_update(save: dict, world: dict, sidecar: dict) -> dict:
     chosen['world_id'] = world.get('id', 'game-of-thrones')
     chosen['character_name'] = name
     chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    chosen['image_prompt'] = chosen['image_prompt'] + ', visual continuity from the player\'s existing Doran/Martell covert route investigation, same ongoing arc, not a disconnected new scene'
     return chosen
 
 
@@ -176,7 +178,42 @@ def sengoku_update(save: dict, world: dict, sidecar: dict) -> dict:
     chosen['world_id'] = world.get('id', 'sengoku')
     chosen['character_name'] = name
     chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    chosen['image_prompt'] = chosen['image_prompt'] + ' , visual continuity from the player\'s current Sengoku campaign arc, not a cold standalone vignette'
     return chosen
+
+
+def build_recap(save: dict, world: dict, sidecar: dict) -> str:
+    character = save.get('character', {}) or {}
+    quests = save.get('quests') or []
+    first_quest = quests[0] if quests else {}
+    name = clean_name(character.get('name'), 'you')
+    world_name = clean_name(world.get('name_en') or world.get('name') or world.get('name_zh'), 'this world')
+    location = clean_name(save.get('location'), 'the road ahead')
+    house = clean_name(character.get('house'), '')
+    role = clean_name(character.get('role'), '')
+    last_summary = (sidecar.get('last_summary') or '').strip()
+    quest_name = clean_name(first_quest.get('name'), '')
+
+    parts = []
+    if house and role:
+        parts.append(f"You are {name}, moving through {world_name} as {role} aligned with {house}.")
+    elif house:
+        parts.append(f"You are {name}, moving through {world_name} under the banner of {house}.")
+    elif role:
+        parts.append(f"You are {name}, moving through {world_name} as {role}.")
+    else:
+        parts.append(f"You are {name}, already deep in the current thread at {location}.")
+
+    if quest_name:
+        parts.append(f"Your current line is still '{quest_name}', and the pressure around it has not gone still.")
+    else:
+        parts.append(f"You came here because the thread around {location} already mattered before today.")
+
+    if last_summary:
+        parts.append(f"Last time, the world shifted like this: {last_summary}")
+
+    return ' '.join(p.strip() for p in parts if p.strip())
 
 
 def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
@@ -186,8 +223,10 @@ def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
     location = clean_name(save.get('location'), 'the road ahead')
     history = sidecar.get('history', [])
     severity = pick_severity(f"{world.get('id')}:{name}:{location}:{len(history)}")
+    recap = build_recap(save, world, sidecar)
     return {
         'summary': 'Something in the world shifted while you were away.',
+        'recap_text': recap,
         'story_text': f"While you were away, the balance around {location} shifted just enough to matter. Rumors moved faster than people, small loyalties bent under pressure, and whatever was quiet yesterday is a little less quiet today. In {world_name}, that is how danger announces itself: not with a trumpet, but with one detail out of place. Something has changed near the thread you were already following, and if you step back in now, you can catch the world before the new shape hardens around you. Do you move toward the disturbance, question the nearest witness, or stay hidden long enough to see who reacts first?",
         'hooks': ['Step toward the disturbance before the trail cools.'],
         'meta': {
@@ -195,7 +234,7 @@ def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
             'faction_movements': ['local balance shifted while the player was away'],
             'npc_watchlist': ['whoever reacts first to the disturbance']
         },
-        'image_prompt': f'{world_name}, evolving tension near {location}, one subtle but meaningful world shift, cinematic fantasy illustration',
+        "image_prompt": f"{world_name}, continuity-aware evolving tension near {location}, visual callback to the player's current arc, one subtle but meaningful world shift, cinematic fantasy illustration",
         'severity': severity,
         'world_id': world.get('id'),
         'character_name': name,
