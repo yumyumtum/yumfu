@@ -188,12 +188,43 @@ def build_recap(save: dict, world: dict, sidecar: dict) -> str:
     quests = save.get('quests') or []
     first_quest = quests[0] if quests else {}
     name = clean_name(character.get('name'), 'you')
+    world_id = clean_name(world.get('id'), '')
     world_name = clean_name(world.get('name_en') or world.get('name') or world.get('name_zh'), 'this world')
     location = clean_name(save.get('location'), 'the road ahead')
     house = clean_name(character.get('house'), '')
     role = clean_name(character.get('role'), '')
     last_summary = (sidecar.get('last_summary') or '').strip()
     quest_name = clean_name(first_quest.get('name'), '')
+
+    if world_id == 'game-of-thrones':
+        first_destination = clean_name((first_quest.get('intel') or {}).get('first_destination'), 'the southern coast')
+        parts = [
+            f"You are {name}, already deep in a covert southern line tied to House {house or 'Martell'}.",
+            f"You came this far to verify whether the hidden route through {first_destination} was real, not just whispered intrigue.",
+        ]
+        if last_summary:
+            parts.append(f"Last time, the pressure showed itself like this: {last_summary}")
+        return ' '.join(p.strip() for p in parts if p.strip())
+
+    if world_id == 'lotr':
+        parts = [
+            f"You are {name}, still moving inside the same Middle-earth thread rather than starting a fresh adventure.",
+            f"What matters now is the road around {location}: the company, the danger, and the burden you were already carrying have not gone away.",
+        ]
+        if quest_name:
+            parts.append(f"The current line remains '{quest_name}', and today\'s sign matters because it presses on that same path.")
+        if last_summary:
+            parts.append(f"Last time, the world shifted like this: {last_summary}")
+        return ' '.join(p.strip() for p in parts if p.strip())
+
+    if world_id == 'sengoku':
+        parts = [
+            f"你不是刚踏进这座城的人，你已经在这条{faction_or_default(house)}的乱世线里站住了脚。",
+            f"你现在以{role or '乱世之人'}的身份卡在 {location} 这一局里，今天的风声不是新故事，而是旧局势继续发酵。",
+        ]
+        if last_summary:
+            parts.append(f"上一次局势是这样拧起来的：{last_summary}")
+        return ''.join(p.strip() for p in parts if p.strip())
 
     parts = []
     if house and role:
@@ -214,6 +245,10 @@ def build_recap(save: dict, world: dict, sidecar: dict) -> str:
         parts.append(f"Last time, the world shifted like this: {last_summary}")
 
     return ' '.join(p.strip() for p in parts if p.strip())
+
+
+def faction_or_default(value: str) -> str:
+    return value or '势力'
 
 
 def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
