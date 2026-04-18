@@ -91,6 +91,7 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 - ❌ Forget to save progress
 - ❌ End a story branch with a simple choice (every choice opens a new path)
 - ❌ Design "dead end" options (B is never "game over", it's a different road)
+- ❌ Hide the actionable choices inside one long block of prose without a clearly separated options list
 
 **This ensures:**
 - Consistent character progression
@@ -109,6 +110,18 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 - Minimum 30 decision nodes per character arc
 - Minimum 6 different endings per world
 - Option A/B/C all lead to rich story branches
+
+**1b. Choice presentation must be visually clear**
+- Whenever a turn offers player choices, render them as a separate, easy-to-scan choice block
+- Prefer `1 / 2 / 3` for Chinese gameplay and `A / B / C` or `1 / 2 / 3` for English gameplay
+- Do **not** bury the choices inside a dense paragraph and expect the player to fish them out
+- Keep each option to one short line when possible
+- Default pattern:
+  - `1. ...`
+  - `2. ...`
+  - `3. ...`
+- The story paragraph should lead into the decision, then the options should appear on their own lines below it
+- The player may still answer naturally in free text; the numbered/lettered options are for readability, not command restriction
 
 **2. Three-Arc Story Structure**
 ```
