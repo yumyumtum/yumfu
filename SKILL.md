@@ -972,6 +972,7 @@ Each daily evolution update should include:
 1. **1 short front-context recap** (1-3 sentences) reminding the player why they are here, what line/faction/quest they are already tied to, and why today's scene matters
 2. **1 short story update** (100-220 words)
 3. **1 generated image** showing the new situation, with prompt continuity from the current arc instead of a context-free fresh scene
+   - YumFu-generated images should include the **YumFu logo stamped in a corner** after generation (do not rely on the model to hallucinate the logo)
 4. **1 meaningful state change** (rumor, faction shift, patrol increase, resource loss, NPC movement, political signal, etc.)
 5. **1 hook** that invites the player back into active play
 6. **1 TTS voice-bubble delivery by default** unless that save has explicitly disabled TTS
@@ -1115,6 +1116,7 @@ Supporting scripts:
 - `scripts/disable_daily_evolution_cron.py` — disable per-player daily cron
 - `scripts/build_reentry_context.py` — merge save + sidecar for continue flow
 - `scripts/render_continue_reentry.py` — render a concise continue-time re-entry prompt
+- `assets/yumfu-logo.png` — corner logo stamped onto YumFu-generated images
 - `scripts/init_sengoku_save.py` — initialize a 战国乱世 / Sengoku Chaos starting save
 - `scripts/start_sengoku_game.py` — initialize Sengoku save + daily evolution choice + opening scene payload
 
