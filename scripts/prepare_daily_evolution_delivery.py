@@ -35,6 +35,23 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 GENERATE_IMAGE = SCRIPT_DIR / "generate_image.py"
 GENERATE_TTS = SCRIPT_DIR / "generate_turn_tts.py"
 OUTBOUND_YUMFU = Path.home() / ".openclaw" / "media" / "outbound" / "yumfu"
+SAVE_DIR = Path.home() / 'clawd' / 'memory' / 'yumfu' / 'saves'
+
+
+def load_save_language(user_id: str, universe: str) -> str | None:
+    path = SAVE_DIR / universe / f'user-{user_id}.json'
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+    except Exception:
+        return None
+    lang = str(data.get('language') or '').strip().lower()
+    if lang.startswith('zh') or lang in {'cn', 'chinese', '中文'}:
+        return 'zh'
+    if lang.startswith('en') or lang == 'english':
+        return 'en'
+    return None
 
 
 def slugify(value: str) -> str:
@@ -76,9 +93,11 @@ def run_proc(cmd: list[str]) -> dict[str, Any]:
     }
 
 
-def detect_language(payload: dict[str, Any], explicit: str | None) -> str:
+def detect_language(payload: dict[str, Any], explicit: str | None, save_language: str | None) -> str:
     if explicit:
         return explicit
+    if save_language:
+        return save_language
     delivered = (payload.get("delivered_text") or "").strip()
     text = delivered or (payload.get("story_text") or "")
     if any("\u4e00" <= ch <= "\u9fff" for ch in text):
@@ -210,7 +229,8 @@ def main() -> None:
     args = parser.parse_args()
 
     payload = json.loads(Path(args.json_path).read_text(encoding="utf-8"))
-    language = detect_language(payload, args.language)
+    save_language = load_save_language(args.user_id, args.universe)
+    language = detect_language(payload, args.language, save_language)
     story_text = compose_delivery_text(payload, language)
     turn_id = args.turn_id or f"daily-evolution-{payload.get('world_id', args.universe)}-{Path(args.json_path).stem}"
 
@@ -243,6 +263,7 @@ def main() -> None:
         "universe": args.universe,
         "target": args.target,
         "language": language,
+        "save_language": save_language,
         "delivery_state": state,
         "source_payload": payload,
         "story": {

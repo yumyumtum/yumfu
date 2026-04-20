@@ -425,7 +425,8 @@ python3 ~/clawd/skills/yumfu/scripts/render_continue_reentry.py \
 If a sidecar exists:
 - Use the latest daily evolution summary as a **short re-entry scene hook**
 - Surface only the most relevant pending hook(s)
-- Respect the detected preferred language
+- Respect the save's canonical language first; do **not** let old sidecar English/Chinese drift override `save.language` unless the player explicitly switched play language
+- If a recent save-matched image exists, include it with the continue-time reminder instead of sending text alone
 - Do **not** dump the whole evolution history
 - Make it easy for the player to continue with one short reply
 
@@ -1054,15 +1055,16 @@ Supporting scripts:
 - `scripts/generate_turn_tts.py` — generate one gameplay-turn TTS file using the save's stable current voice
 
 Use this priority order:
-1. **The player's recent actual conversation language** (highest priority)
-2. `save.language` if present
+1. `save.language` if present (**canonical per save**)
+2. **The player's recent actual conversation language** only as an advisory / explicit-switch signal
 3. the world's default language
 4. channel/system default only as a last fallback
 
 Examples:
-- If a player is in an English world but has been actively replying in Chinese recently, prefer Chinese unless the game flow clearly depends on staying in-world in English.
-- If the player has consistently been playing the world in English, keep daily evolution in English.
+- If a player created or has been preserving a save in Chinese, keep continue reminders / daily evolution in Chinese unless the player clearly asks or consistently switches active play into English.
+- If a player has consistently been playing the world in English, keep daily evolution in English.
 - Do not randomly alternate between Chinese and English from day to day.
+- Do not let old sidecar text silently drag the save into another language.
 
 The daily update should feel like a natural continuation of how the player has already been playing.
 ### Daily Evolution severity model
