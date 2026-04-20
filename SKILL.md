@@ -415,18 +415,22 @@ python3 ~/clawd/skills/yumfu/scripts/build_reentry_context.py \
   --universe {selected_world}
 ```
 
-Then render the actual continue-time hook:
+Then prepare the actual continue-time delivery bundle:
 ```bash
-python3 ~/clawd/skills/yumfu/scripts/render_continue_reentry.py \
+python3 ~/clawd/skills/yumfu/scripts/prepare_continue_reentry_delivery.py \
   --user-id {user_id} \
-  --universe {selected_world}
+  --universe {selected_world} \
+  --target {chat_id}
 ```
 
 If a sidecar exists:
 - Use the latest daily evolution summary as a **short re-entry scene hook**
 - Surface only the most relevant pending hook(s)
 - Respect the save's canonical language first; do **not** let old sidecar English/Chinese drift override `save.language` unless the player explicitly switched play language
-- If a recent save-matched image exists, include it with the continue-time reminder instead of sending text alone
+- **Continue/reentry is image-first and mandatory image+text**
+- If a recent save-matched image exists, reuse it
+- If no recent save-matched image exists, **generate a fresh image before sending**
+- Do **not** send continue reminders as text-only unless image generation failed and there is absolutely no recovery path
 - Do **not** dump the whole evolution history
 - Make it easy for the player to continue with one short reply
 
