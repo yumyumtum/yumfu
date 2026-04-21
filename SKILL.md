@@ -1914,12 +1914,43 @@ pdf_path = browser({
 })
 ```
 
+### Agent Instructions for Ending / Retire / Archive Branches (DEFAULT)
+
+When the run has clearly reached an ending, death, finale, retirement, archive, or explicit stop:
+
+1. **Do not ask again whether to make a storybook** if storybook tracking is enabled.
+2. Treat the final storybook HTML as part of the default ending delivery.
+3. Use the standard delivery helper with `--ending-storybook` so the normal turn package and the ending storybook are prepared together.
+4. If `next_actions.send_end_storybook_html == true`, send the generated HTML file back into chat.
+5. After successful delivery, mark `storybook_sent` so the same ending storybook is not re-sent repeatedly.
+
+**Default ending-branch workflow:**
+
+```bash
+uv run ~/clawd/skills/yumfu/scripts/deliver_yumfu_turn.py \
+  --user-id <id> \
+  --universe <world> \
+  --language <zh|en> \
+  --turn-id <stable-ending-turn-id> \
+  --story-text "<final in-world ending text>" \
+  --ending-storybook \
+  [--session-id <session-id>]
+```
+
+Then, from the returned JSON:
+- send the normal text / image / TTS as usual
+- if present, send `end_storybook.html` back into chat as the canonical final storybook deliverable
+- keep PDF optional, never primary
+
 **Preferred OpenClaw workflow:**
 
 ```bash
-# Generate HTML first
+# For normal manual storybook export
 cd ~/clawd/skills/yumfu
 uv run scripts/generate_storybook_v3.py --user-id 1309815719 --universe warrior-cats
+
+# For ending / retire / archive branches, prefer the delivery helper
+uv run scripts/deliver_yumfu_turn.py ... --ending-storybook [--session-id ...]
 
 # Ship HTML first if it reads well in-chat
 # Only convert to PDF after verifying the HTML layout preserves scene binding
