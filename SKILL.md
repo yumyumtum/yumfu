@@ -1866,6 +1866,9 @@ When a run reaches a meaningful ending **or** the player explicitly says they wa
 Recommended helper:
 - `uv run ~/clawd/skills/yumfu/scripts/prepare_end_storybook.py --user-id <id> --universe <world> [--session-id ...]`
 - This refreshes/generates the latest HTML storybook and returns JSON for chat delivery.
+- The standard delivery helper now also supports this path directly:
+  - `uv run ~/clawd/skills/yumfu/scripts/deliver_yumfu_turn.py ... --ending-storybook [--session-id ...]`
+  - when enabled, it will prepare TTS and the end-storybook together in one structured payload.
 
 ### Daily Evolution + Storybook Entry Rule
 
