@@ -1755,7 +1755,7 @@ Logging is **NOT optional**. Every turn must be logged or storybook generation w
 
 **2. Generate Storybook:**
 ```bash
-# V3 - Full conversation flow (RECOMMENDED)
+# V3 - Full conversation flow (canonical)
 uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v3.py \
   --user-id 1309815719 \
   --universe warrior-cats
@@ -1766,17 +1766,22 @@ uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v3.py \
   --universe warrior-cats \
   --session-id 20260403-001349
 
-# V2 - Simple (from save notes only, no full dialogue)
-uv run ~/clawd/skills/yumfu/scripts/generate_storybook_v2.py \
+# Ending / retire / archive branch (preferred for final delivery)
+uv run ~/clawd/skills/yumfu/scripts/deliver_yumfu_turn.py \
   --user-id 1309815719 \
-  --universe warrior-cats
+  --universe warrior-cats \
+  --language en \
+  --turn-id warrior-cats-final-001 \
+  --story-text "<final in-world ending text>" \
+  --ending-storybook \
+  --session-id 20260403-001349
 ```
 
 **3. Output:**
 ```
 ~/clawd/memory/yumfu/storybooks/warrior-cats/user-1309815719-20260403-075523/
-├── storybook.html        # Open in browser, click "Print to PDF"
-└── images/               # All session images
+├── storybook.html        # canonical shareable artifact (HTML first)
+└── images/               # copied source images for local reference
     ├── tumpaw-ceremony-20260403.png
     ├── tumpaw-firestar-20260403.png
     └── tumpaw-fishing-20260403.png
