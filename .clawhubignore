@@ -8,6 +8,10 @@
 docs/showcase/
 docs/screenshots/
 
+# GitHub Pages storybook demos are for web showcase, not marketplace package
+# The exported single-file HTML can exceed ClawHub file size limits.
+docs/storybooks/
+
 # Backup files
 worlds/backups/
 
