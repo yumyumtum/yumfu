@@ -1833,35 +1833,39 @@ You pad down to the river. The water flows swiftly, sunlight glinting off the su
 - Player hasn't played in 24+ hours (auto-archive)
 - **Player explicitly ends / retires / abandons / terminates a save or story run**
 
-### End-of-Journey Offer Rule (NEW)
+### End-of-Journey Storybook Rule (UPDATED)
 
 When a run reaches a meaningful ending **or** the player explicitly says they want to stop / end / archive / retire that game record:
 
-1. **Ask once** whether they want a storybook of the journey.
-2. Offer it as an **art-rich illustrated storybook** containing:
-   - their journey summary
+1. **If storybook tracking is enabled, auto-generate the final HTML storybook immediately.**
+2. The ending storybook must be an **art-rich illustrated HTML storybook** containing:
+   - the journey summary
    - key player choices
    - major AI responses / scene narration
    - generated images from the run
    - final stats / relationships / achievements when available
 3. Preferred formats:
-   - **HTML first** (canonical, richly styled, easy to preserve)
-   - **PDF if conversion succeeds and the layout is visually acceptable**
+   - **HTML first** (canonical, richly styled, easy to preserve, image-embedded single file)
+   - **PDF only as an optional secondary export** if conversion succeeds and layout is visually acceptable
 4. **Scene-binding rule (MANDATORY)**:
    - storybook pages must be organized as **scene blocks**
    - each scene block should contain: **one image + the exact matching scene/dialogue text directly below or beside it**
    - do **not** put images into a detached gallery while moving all text to separate long prose sections
    - do **not** separate a scene's picture from its corresponding dialogue/narration across distant sections unless the user explicitly asks for a gallery-style export
-   - for chat-delivered HTML storybooks, prefer a readable comic/illustrated-book flow over a print-first PDF layout
-5. Delivery rule:
+5. **Quality rule (MANDATORY)**:
+   - decode accidental unicode-escaped strings (for example `\u9aa8\u602a\u7cbe\u7075`) before rendering titles / prose
+   - final stats section must not be left empty when the save contains HP / stamina / level / inventory / relationships / attributes / skills / achievements
+   - image captions must be derived from scene meaning, not lazy filename fragments like `Watch` / `Thread`
+   - visual style should read like a **formal illustrated storybook**, not a raw terminal transcript dump
+6. Delivery rule:
    - If generated, **send it back into chat** as a file/message whenever possible
    - Also keep the generated file(s) on disk under the YumFu storybook output directory
-5. Do **not** silently generate a final exported storybook every time; ask the player first unless they already requested it.
-6. However, if storybook tracking is enabled, keep the **underlying rolling storybook source** updated by default throughout play.
+7. If the player has explicitly disabled storybook tracking for that save, skip the auto-generation.
+8. During normal play, keep the **underlying rolling storybook source** updated by default.
 
-Suggested prompt to player:
-- Chinese: `这段旅程要不要我给你做成一本带配图的 Storybook？我可以整理成艺术化图文版，发到聊天里给你，也会保存在本地。`
-- English: `Want me to turn this run into an illustrated storybook? I can make an art-rich HTML/PDF version, send it here in chat, and also save it locally.`
+Recommended helper:
+- `uv run ~/clawd/skills/yumfu/scripts/prepare_end_storybook.py --user-id <id> --universe <world> [--session-id ...]`
+- This refreshes/generates the latest HTML storybook and returns JSON for chat delivery.
 
 ### Daily Evolution + Storybook Entry Rule
 
