@@ -25,6 +25,7 @@ import argparse
 import json
 import re
 import subprocess
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -218,6 +219,43 @@ def prepare_tts(user_id: str, universe: str, language: str, story_text: str, sta
     ])
 
 
+def extract_turn_stamp(payload: dict[str, Any], json_path: Path) -> str:
+    for key in ("generated_at", "timestamp"):
+        value = str(payload.get(key) or "").strip()
+        if not value:
+            continue
+        try:
+            normalized = value.replace("Z", "+00:00")
+            dt = datetime.fromisoformat(normalized)
+            return dt.strftime("%Y%m%d")
+        except ValueError:
+            pass
+
+    value = str(payload.get("date") or "").strip()
+    if value:
+        match = re.search(r"(\d{4})-(\d{2})-(\d{2})", value)
+        if match:
+            return "".join(match.groups())
+        match = re.search(r"(\d{8})", value)
+        if match:
+            return match.group(1)
+
+    try:
+        return datetime.fromtimestamp(json_path.stat().st_mtime).strftime("%Y%m%d")
+    except OSError:
+        return datetime.now().strftime("%Y%m%d")
+
+
+
+def derive_turn_id(payload: dict[str, Any], json_path: Path, explicit_turn_id: str | None, universe: str) -> str:
+    if explicit_turn_id:
+        return explicit_turn_id
+    world_id = payload.get("world_id", universe)
+    stamp = extract_turn_stamp(payload, json_path)
+    return f"daily-evolution-{world_id}-{json_path.stem}-{stamp}"
+
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Prepare YumFu daily evolution delivery assets")
     parser.add_argument("--user-id", required=True)
@@ -228,11 +266,12 @@ def main() -> None:
     parser.add_argument("--language")
     args = parser.parse_args()
 
-    payload = json.loads(Path(args.json_path).read_text(encoding="utf-8"))
+    json_path = Path(args.json_path)
+    payload = json.loads(json_path.read_text(encoding="utf-8"))
     save_language = load_save_language(args.user_id, args.universe)
     language = detect_language(payload, args.language, save_language)
     story_text = compose_delivery_text(payload, language)
-    turn_id = args.turn_id or f"daily-evolution-{payload.get('world_id', args.universe)}-{Path(args.json_path).stem}"
+    turn_id = derive_turn_id(payload, json_path, args.turn_id, args.universe)
 
     state = load_state(args.user_id, args.universe, turn_id)
     state["chat_id"] = args.target
