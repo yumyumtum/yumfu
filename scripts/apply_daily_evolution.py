@@ -21,6 +21,8 @@ def main():
     parser.add_argument('--meta-json', default='{}')
     parser.add_argument('--routes-json', default='[]')
     parser.add_argument('--default-route-json', default='{}')
+    parser.add_argument('--advancement-level', default='normal')
+    parser.add_argument('--advancement-at', default='')
     args = parser.parse_args()
 
     path = evolution_path(args.user_id, args.universe)
@@ -39,6 +41,8 @@ def main():
     routes = json.loads(args.routes_json)
     default_route = json.loads(args.default_route_json)
 
+    advancement_at = args.advancement_at or now.isoformat()
+
     history = existing.get('history', [])
     history.append({
         'at': now.isoformat(),
@@ -49,6 +53,8 @@ def main():
         'hooks': hooks,
         'routes': routes,
         'default_route': default_route,
+        'advancement_level': args.advancement_level,
+        'advancement_at': advancement_at,
         'meta': meta,
     })
 
@@ -64,6 +70,9 @@ def main():
         'pending_hooks': hooks,
         'suggested_routes': routes,
         'default_route': default_route,
+        'last_advancement_level': args.advancement_level,
+        'last_advancement_at': advancement_at,
+        'last_major_advancement_at': advancement_at if args.advancement_level == 'major' else existing.get('last_major_advancement_at'),
         'meta': meta,
         'history': history[-30:]
     }

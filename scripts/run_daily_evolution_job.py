@@ -67,6 +67,48 @@ def normalize_lang(value: str | None) -> str | None:
     return None
 
 
+def weekly_major_due(sidecar: dict) -> bool:
+    last = str(sidecar.get('last_major_advancement_at') or '').strip()
+    if not last:
+        return True
+    try:
+        dt = datetime.fromisoformat(last.replace('Z', '+00:00'))
+        return (datetime.now() - dt).days >= 7
+    except Exception:
+        return True
+
+
+def apply_major_advancement(result: dict, lang: str, sidecar: dict) -> dict:
+    if not weekly_major_due(sidecar):
+        result['advancement_level'] = 'normal'
+        result['advancement_at'] = datetime.now().isoformat()
+        return result
+
+    meta = result.setdefault('meta', {})
+    meta.setdefault('rumor_threads', [])
+    meta.setdefault('faction_movements', [])
+    meta.setdefault('npc_watchlist', [])
+    meta.setdefault('item_threads', [])
+    meta.setdefault('world_detail_notes', [])
+
+    if lang == 'zh':
+        result['summary'] = '这一周的局势不再只是风声，它终于往前真正推了一格。'
+        result['story_text'] = result.get('story_text', '').rstrip() + ' ' + '更重要的是，这不再只是试探性的风声或轻微位移。过去几天里，一条更清晰的线已经浮出水面：有人、某件东西、或某条路线，已经从“可能”变成了“该处理”。如果你现在回来，不会只是接一段气氛，而是能直接接上一格真正往前走的主线。'
+        result['hooks'] = (result.get('hooks') or [])[:2] + ['先接住这次已经成形的主线推进。']
+        meta['faction_movements'] = (meta.get('faction_movements') or []) + ['一条周推进级别的主线已经成形']
+        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + ['本次为每周一次的实质推进，不只是氛围提醒']
+    else:
+        result['summary'] = 'This week the pressure has moved beyond atmosphere and into real advancement.'
+        result['story_text'] = result.get('story_text', '').rstrip() + ' ' + 'More importantly, this is no longer just a light nudge. Over the last several days, one line has become clearer: a person, object, or route has crossed from possible to actionable. If the player returns now, they should be able to pick up a genuinely advanced main thread rather than just another mood update.'
+        result['hooks'] = (result.get('hooks') or [])[:2] + ['Pick up the newly-solidified main line now.']
+        meta['faction_movements'] = (meta.get('faction_movements') or []) + ['a weekly substantive advancement has crystallized']
+        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + ['This update is the weekly substantive push, not just an atmospheric nudge']
+
+    result['advancement_level'] = 'major'
+    result['advancement_at'] = datetime.now().isoformat()
+    return result
+
+
 def build_route_payload(lang: str, hooks: list[str], meta: dict, location: str, fallback_target: str) -> tuple[list[dict], dict]:
     rumor_threads = meta.get('rumor_threads') or []
     npc_watchlist = meta.get('npc_watchlist') or []
@@ -602,15 +644,21 @@ def main():
 
     if args.universe == 'game-of-thrones':
         result = got_update(save, world, sidecar)
+        lang = normalize_lang(save.get('language')) or 'en'
     elif args.universe == 'sengoku':
         result = sengoku_update(save, world, sidecar)
+        lang = 'zh'
     elif args.universe == 'lotr':
         result = lotr_update(save, world, sidecar)
+        lang = 'en'
     elif args.universe == 'journey-to-west':
         result = journey_to_west_update(save, world, sidecar)
+        lang = 'zh'
     else:
         result = generic_update(save, world, sidecar)
+        lang = normalize_lang(save.get('language')) or 'en'
 
+    result = apply_major_advancement(result, lang, sidecar)
     print(json.dumps({'success': True, 'result': result}, ensure_ascii=False, indent=2))
 
 

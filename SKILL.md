@@ -1093,6 +1093,11 @@ That weekly advancement should usually include at least one of:
 - a route becoming newly viable or newly dangerous
 - a stronger recommendation about which line the player should pick up next
 
+Implementation expectation:
+- track `last_major_advancement_at` in the evolution sidecar
+- if ~7 days pass without a substantive push, generate the next update in `advancement_level=major`
+- major weekly advancement should remain compatible with the save, but must feel more playable and more legible than a normal atmospheric nudge
+
 The goal is to avoid the feeling that the game only emits atmospheric nudges forever. Even when the player is absent, the world should occasionally become more legible and more playable.
 
 ### Save safety rule (IMPORTANT)

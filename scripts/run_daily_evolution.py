@@ -29,6 +29,8 @@ def main():
         meta = payload.get('sidecar_meta', {})
         routes = payload.get('suggested_routes', [])
         default_route = payload.get('default_route', {})
+        advancement_level = payload.get('advancement_level', 'normal')
+        advancement_at = payload.get('advancement_at', '')
         proc = subprocess.run([
             'python3', str(APPLY),
             '--user-id', args.user_id,
@@ -41,6 +43,8 @@ def main():
             '--meta-json', json.dumps(meta, ensure_ascii=False),
             '--routes-json', json.dumps(routes, ensure_ascii=False),
             '--default-route-json', json.dumps(default_route, ensure_ascii=False),
+            '--advancement-level', advancement_level,
+            '--advancement-at', advancement_at,
         ], capture_output=True, text=True)
         if proc.returncode != 0:
             print(proc.stderr.strip() or proc.stdout.strip(), file=sys.stderr)
@@ -84,6 +88,8 @@ def main():
                     'why_now': 'why this is the easiest natural continuation',
                     'target': 'person/place/object/faction line'
                 },
+                'advancement_level': 'normal|major',
+                'advancement_at': 'ISO timestamp for this advancement tick',
                 'sidecar_meta': {
                     'rumor_threads': ['soft rumors'],
                     'faction_movements': ['soft world changes'],
