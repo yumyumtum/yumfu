@@ -127,6 +127,12 @@ def enrich_with_active_route(result: dict, sidecar: dict, lang: str) -> dict:
     return result
 
 
+def active_route_bias(sidecar: dict) -> str:
+    route = sidecar.get('active_route') or sidecar.get('default_route') or {}
+    text = ' '.join(str(route.get(k) or '') for k in ['label', 'why_now', 'target']).strip().lower()
+    return text
+
+
 def build_route_payload(lang: str, hooks: list[str], meta: dict, location: str, fallback_target: str) -> tuple[list[dict], dict]:
     rumor_threads = meta.get('rumor_threads') or []
     npc_watchlist = meta.get('npc_watchlist') or []
@@ -371,7 +377,15 @@ def lotr_update(save: dict, world: dict, sidecar: dict) -> dict:
         },
     ]
 
-    idx = int(hashlib.md5(f"lotr:{name}:{location}:{role}:{house}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
+    bias = active_route_bias(sidecar)
+    if 'signal' in bias or 'gate' in bias or 'captain' in bias:
+        idx = 1
+    elif 'road' in bias or 'march' in bias:
+        idx = 2
+    elif 'fragment' in bias or 'collector' in bias:
+        idx = 0
+    else:
+        idx = int(hashlib.md5(f"lotr:{name}:{location}:{role}:{house}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
     chosen = seeds[idx]
     chosen['severity'] = severity
     chosen['world_id'] = world.get('id', 'lotr')
@@ -457,7 +471,13 @@ def journey_to_west_update(save: dict, world: dict, sidecar: dict) -> dict:
             },
         ]
 
-    idx = int(hashlib.md5(f"jtw:{name}:{location}:{quest_name}:{len(history)}:{pending_creation}".encode()).hexdigest(), 16) % len(seeds)
+    bias = active_route_bias(sidecar)
+    if '五行山' in bias or 'golden glow' in bias or '身份' in bias:
+        idx = 0
+    elif '妖' in bias or '果香' in bias or '山精' in bias:
+        idx = min(1, len(seeds)-1)
+    else:
+        idx = int(hashlib.md5(f"jtw:{name}:{location}:{quest_name}:{len(history)}:{pending_creation}".encode()).hexdigest(), 16) % len(seeds)
     chosen = seeds[idx]
     chosen['severity'] = severity
     chosen['world_id'] = world.get('id', 'journey-to-west')
@@ -473,6 +493,187 @@ def journey_to_west_update(save: dict, world: dict, sidecar: dict) -> dict:
         f'当前主线：{quest_name}',
         '当前世界会先通过立场、因果与来历来定义危险，而不只是战力',
     ])
+    return chosen
+
+
+def xiaoao_update(save: dict, world: dict, sidecar: dict) -> dict:
+    character = save.get('character', {})
+    name = clean_name(character.get('name'), '无名弟子')
+    location = clean_name(save.get('location'), '江湖路口')
+    faction = clean_name(character.get('faction') or character.get('house'), '江湖势力')
+    inventory = save.get('inventory', []) or []
+    relationships = save.get('relationships', {}) or {}
+    hints = save.get('quest_hints', []) or []
+    quest = (save.get('quests') or [{}])[0]
+    quest_name = clean_name(quest.get('name'), '当前主线')
+    history = sidecar.get('history', [])
+    severity = pick_severity(f"xiaoao:{name}:{location}:{faction}:{len(history)}:{datetime.now().date().isoformat()}")
+    items = [i.get('name') for i in inventory[:4] if i.get('name')]
+    dangerous_npc = next((k for k,v in relationships.items() if '危险' in str(v)), '劳德诺')
+    clue = hints[0] if hints else '华山内变的风声'
+    seeds = [
+        {
+            'summary': '洛阳这条线已经不只是逃命，而是在逼近华山真正的裂口。',
+            'story_text': f"你人在 {location}，可华山派的影子并没有被你甩掉。最近传到耳边的风声越来越像一件事：{quest_name} 已经从门派内忧，慢慢变成了谁先拿到证据、谁先说破名字的问题。{dangerous_npc} 这种人最可怕的地方，从来不是明着出剑，而是让别人替他把路封死。如今洛阳这边的人、楼里的脚步、还有你手里那点线索，都不像单纯巧合。你若现在回身去接，不是回去听故事，而是去抓住哪一条线能先把内奸、剑宗、外援这三件事串起来。",
+            'hooks': ['先追查最像内奸留下的线索。', '先找能替华山说真话的外援。'],
+            'meta': {
+                'rumor_threads': [clue],
+                'faction_movements': ['华山内斗正在向洛阳外线蔓延'],
+                'npc_watchlist': [dangerous_npc, '令狐冲'],
+                'item_threads': items[:2] or ['嵩山情报'],
+                'world_detail_notes': [f'当前门派：{faction}', f'当前主线：{quest_name}']
+            },
+            'image_prompt': 'Chinese wuxia illustration, Luoyang stair corner under lamplight, Huashan intrigue, hidden traitor pressure, swordswomen and sect shadows, classic ink-and-color jianghu art'
+        },
+        {
+            'summary': '真正值得盯的，不是喊得最大声的人，而是还没急着出手的人。',
+            'story_text': f"江湖里最危险的时候，往往不是刀已经出鞘，而是大家都知道要出事，却还在互相装作没看见。{location} 附近这股气，就是这种味道。有人在压消息，有人在等别人先露名字，而你手上的 {items[0] if items else '那点情报'} 已经足够让这局不再只是猜。若你继续沿这条线走，下一步不会是随便打听几句，而是要决定先碰哪一边：先拆穿人，还是先护住线。",
+            'hooks': ['先拆穿最像埋伏着不动的那个人。', '先护住已经到手的关键线索。'],
+            'meta': {
+                'rumor_threads': ['有人在故意压住消息'],
+                'faction_movements': ['华山相关各方都在等别人先露手'],
+                'npc_watchlist': [dangerous_npc, '宁中则'],
+                'item_threads': items[:2] or ['嵩山情报'],
+                'world_detail_notes': [f'当前地点：{location}', '当前局势更像证据战而不是单纯拼刀']
+            },
+            'image_prompt': 'Classic wuxia art, tense Luoyang pavilion stair, hidden sect intrigue, evidence and betrayal, elegant swords and lantern shadow, Chinese ink painting with color accents'
+        },
+    ]
+    bias = active_route_bias(sidecar)
+    if '外援' in bias or 'ally' in bias:
+        idx = 0
+    elif '线索' in bias or 'evidence' in bias or '内奸' in bias:
+        idx = 1
+    else:
+        idx = int(hashlib.md5(f"xiaoao:{name}:{location}:{faction}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
+    chosen = seeds[idx]
+    chosen['severity'] = severity
+    chosen['world_id'] = world.get('id', 'xiaoao')
+    chosen['character_name'] = name
+    chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    routes, default_route = build_route_payload('zh', chosen.get('hooks', []), chosen.get('meta', {}), location, quest_name)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
+    return chosen
+
+
+def harry_potter_update(save: dict, world: dict, sidecar: dict) -> dict:
+    character = save.get('character', {})
+    name = clean_name(character.get('name'), 'the student')
+    location = clean_name(save.get('location'), 'Hogwarts corridor')
+    house = clean_name(character.get('house'), 'hogwarts')
+    spells = save.get('spells_known', []) or []
+    relationships = save.get('relationships', {}) or {}
+    quest = (save.get('quests') or [{}])[0]
+    quest_name = clean_name(quest.get('name'), 'school year')
+    history = sidecar.get('history', [])
+    severity = pick_severity(f"hp:{name}:{location}:{house}:{len(history)}:{datetime.now().date().isoformat()}")
+    ally = next(iter(relationships.keys()), 'Draco Malfoy')
+    spell = spells[0] if spells else 'Lumos'
+    seeds = [
+        {
+            'summary': 'The first school-day lines are already sorting themselves into influence, not just classes.',
+            'story_text': f"Around {location}, the first-year mood has already started changing shape. What looked like a simple morning of classes now feels more like the beginning of house politics, reputation, and selective attention. Someone noticed your early spell display. Someone else is deciding whether you are useful, threatening, or worth claiming first. At Hogwarts, that matters as much as homework. The next move is no longer just showing up to class; it is deciding whether to build a circle around {house}, follow the teacher who matters most, or test how far one spell like {spell} can carry your name before breakfast turns into alliances.",
+            'hooks': ['Lean into house influence before class begins.', 'Follow the teacher line that will define your first real advantage.'],
+            'meta': {
+                'rumor_threads': ['your early spell display is being quietly discussed'],
+                'faction_movements': ['house influence is forming before the day properly starts'],
+                'npc_watchlist': [ally, 'Severus Snape'],
+                'item_threads': [spell, 'seat plan'],
+                'world_detail_notes': [f'Current house: {house}', f'Current school line: {quest_name}']
+            },
+            'image_prompt': 'Hogwarts Slytherin common room morning intrigue, students whispering after impressive spell practice, green-silver light, British fantasy illustration'
+        },
+        {
+            'summary': 'What happens next at Hogwarts is not just academic; it is social positioning under watchful eyes.',
+            'story_text': f"A Hogwarts day rarely stays simple for long. By the time the castle fully wakes, small details are already turning into pressure: who sits beside you, who repeats your name, who expects you to perform, and which professor decides you are worth remembering. In {house}, the wrong kind of attention can become a trap; the right kind becomes protection. Your known spells and your first impressions are enough to start a path, but not enough yet to control it. If you step back in now, the cleanest continuation is not random exploration — it is choosing which relationship or classroom line becomes your first true foothold.",
+            'hooks': ['Secure the most useful ally before the corridor politics shift.', 'Turn your first class into a reputation advantage, not just attendance.'],
+            'meta': {
+                'rumor_threads': ['your name is beginning to circulate in-house'],
+                'faction_movements': ['classroom seating and house networks are becoming leverage'],
+                'npc_watchlist': [ally, 'the classmate watching too quietly'],
+                'item_threads': [spell, 'house tie'],
+                'world_detail_notes': [f'Current location: {location}', 'Hogwarts pressure is social as much as magical']
+            },
+            'image_prompt': 'Hogwarts corridor politics before first class, slytherin first-year influence game, wandlight and green banners, storybook fantasy style'
+        },
+    ]
+    bias = active_route_bias(sidecar)
+    if 'teacher' in bias or 'class' in bias:
+        idx = 0
+    elif 'ally' in bias or 'relationship' in bias or 'house' in bias:
+        idx = 1
+    else:
+        idx = int(hashlib.md5(f"hp:{name}:{location}:{house}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
+    chosen = seeds[idx]
+    chosen['severity'] = severity
+    chosen['world_id'] = world.get('id', 'harry-potter')
+    chosen['character_name'] = name
+    chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    routes, default_route = build_route_payload('en', chosen.get('hooks', []), chosen.get('meta', {}), location, quest_name)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
+    return chosen
+
+
+def warrior_cats_update(save: dict, world: dict, sidecar: dict) -> dict:
+    character = save.get('character', {})
+    name = clean_name(character.get('name'), 'the young warrior')
+    location = clean_name(save.get('location'), 'the branch above camp')
+    faction = clean_name(character.get('faction'), 'the Clan')
+    rank = clean_name(character.get('rank'), 'warrior')
+    relationships = save.get('relationships', {}) or {}
+    quest = (save.get('quests') or [{}])[-1]
+    quest_name = clean_name(quest.get('name'), 'Life in the Clan')
+    history = sidecar.get('history', [])
+    severity = pick_severity(f"wc:{name}:{location}:{faction}:{len(history)}:{datetime.now().date().isoformat()}")
+    npc = next(iter(relationships.keys()), 'Cherrytail')
+    seeds = [
+        {
+            'summary': 'Your first full-warrior quiet is already starting to become obligation.',
+            'story_text': f"From {location}, the camp below no longer looks like something you are merely training to join. It is yours now, which means the quiet feels different. A young warrior's first vigil never stays ceremonial for long; by the next turn of light, every watch, scent thread, and half-heard conversation starts becoming duty. In {faction}, that is how belonging hardens into weight. Someone below is already deciding whether to trust you with a real task, and someone else is measuring what kind of warrior {name} will be now that apprenticeship is gone. If you return now, you are not picking up where an apprentice left off. You are stepping into the first true shape of your warrior life.",
+            'hooks': ['Climb down ready for your first true warrior task.', 'Follow the first scent-thread that proves this vigil means more than ceremony.'],
+            'meta': {
+                'rumor_threads': ['your vigil is already being read as the beginning of your real warrior reputation'],
+                'faction_movements': ['camp expectations are quietly settling around your new rank'],
+                'npc_watchlist': [npc, 'the first cat to bring a dawn task'],
+                'item_threads': ['high branch vigil perch', 'fresh dawn assignment'],
+                'world_detail_notes': [f'Current Clan: {faction}', f'Current rank: {rank}']
+            },
+            'image_prompt': 'Warrior Cats illustration, SkyClan high branch vigil at dusk turning toward dawn duty, young ginger warrior above camp, gentle but meaningful clan tension'
+        },
+        {
+            'summary': 'The next step is no longer training; it is what kind of warrior the Clan will see when something real happens.',
+            'story_text': f"A Clan does not truly know a new warrior from the ceremony alone. It knows them from the first real need that follows. Around {location}, everything still smells of greenleaf, bark, prey, and camp-warm certainty — but that certainty is thin. A dawn patrol, a shared meal, a border sign, a small injury, a tense glance from another young cat: any one of these can become the moment when {name} stops being newly named and starts being known. The path ahead is not abstract. It is rooted in which cat calls you first, what trail you answer, and whether you meet duty as pride, tenderness, or steel.",
+            'hooks': ['Take the first patrol line that turns your name into standing.', 'Answer the cat or scent-sign that asks what sort of warrior you are.'],
+            'meta': {
+                'rumor_threads': ['the Clan is waiting to see what your new name really means'],
+                'faction_movements': ['small camp duties are becoming reputation tests'],
+                'npc_watchlist': [npc, 'the first patrol leader to choose you'],
+                'item_threads': ['warrior name', 'first patrol'],
+                'world_detail_notes': [f'Current location: {location}', 'The next meaningful test is social and clan-rooted, not ceremonial']
+            },
+            'image_prompt': 'Warrior Cats storybook art, young warrior after ceremony, dawn patrol tension in a forest clan camp, warm but serious animal fantasy illustration'
+        },
+    ]
+    bias = active_route_bias(sidecar)
+    if 'patrol' in bias or 'task' in bias:
+        idx = 0
+    elif 'rank' in bias or 'warrior' in bias or 'name' in bias:
+        idx = 1
+    else:
+        idx = int(hashlib.md5(f"wc:{name}:{location}:{faction}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
+    chosen = seeds[idx]
+    chosen['severity'] = severity
+    chosen['world_id'] = world.get('id', 'warrior-cats')
+    chosen['character_name'] = name
+    chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    routes, default_route = build_route_payload('en', chosen.get('hooks', []), chosen.get('meta', {}), location, quest_name)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
     return chosen
 
 
@@ -593,6 +794,27 @@ def build_recap(save: dict, world: dict, sidecar: dict) -> str:
             parts.append(f"上一次局势是这样拧起来的：{last_summary}")
         return ''.join(p.strip() for p in parts if p.strip())
 
+    lang = normalize_lang(save.get('language')) or normalize_lang(world.get('language')) or 'en'
+    if lang == 'zh':
+        parts = []
+        if house and role:
+            parts.append(f"你现在是{name}，以{role}的身份卷在{house}这条线里。")
+        elif house:
+            parts.append(f"你现在是{name}，已经站在{house}这条线上。")
+        elif role:
+            parts.append(f"你现在是{name}，以{role}的身份卡在这局里。")
+        else:
+            parts.append(f"你现在仍是{name}，而且人还在{location}这条线里。")
+
+        if quest_name:
+            parts.append(f"你手上的主线仍是「{quest_name}」，今天的动静和它直接有关。")
+        else:
+            parts.append(f"你来到{location}，本来就不是为了看热闹。")
+
+        if last_summary and any('\u4e00' <= ch <= '\u9fff' for ch in last_summary):
+            parts.append(f"上一次局势是这样动起来的：{last_summary}")
+        return ''.join(p.strip() for p in parts if p.strip())
+
     parts = []
     if house and role:
         parts.append(f"You are {name}, moving through {world_name} as {role} aligned with {house}.")
@@ -672,6 +894,15 @@ def main():
     elif args.universe == 'journey-to-west':
         result = journey_to_west_update(save, world, sidecar)
         lang = 'zh'
+    elif args.universe == 'xiaoao':
+        result = xiaoao_update(save, world, sidecar)
+        lang = 'zh'
+    elif args.universe == 'harry-potter':
+        result = harry_potter_update(save, world, sidecar)
+        lang = 'en'
+    elif args.universe == 'warrior-cats':
+        result = warrior_cats_update(save, world, sidecar)
+        lang = 'en'
     else:
         result = generic_update(save, world, sidecar)
         lang = normalize_lang(save.get('language')) or 'en'
