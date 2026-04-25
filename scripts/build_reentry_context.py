@@ -10,6 +10,7 @@ LOAD_GAME = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'load_game.
 LOAD_EVOLUTION = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'load_daily_evolution.py'
 DETECT_LANGUAGE = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'scripts' / 'detect_recent_language.py'
 OUTBOUND_YUMFU = Path.home() / '.openclaw' / 'media' / 'outbound' / 'yumfu'
+WORLD_DIR = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'worlds'
 
 
 def looks_zh(text: str | None) -> bool:
@@ -29,6 +30,19 @@ def looks_generic_target(text: str | None) -> bool:
         '当前关键目标', 'current key target', 'the current scene', 'the road ahead', 'the current line', '当前主线', 'location'
     }
     return value in {g.lower() for g in generic}
+
+
+def load_world_language(universe: str) -> str | None:
+    direct = WORLD_DIR / f'{universe}.json'
+    nested = WORLD_DIR / universe / 'world.json'
+    path = direct if direct.exists() else nested
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+        return normalize_lang(data.get('language'))
+    except Exception:
+        return None
 
 
 def fallback_image_prompt(save: dict, evo: dict, preferred_language: str) -> str:
@@ -107,7 +121,17 @@ def main():
     }
 
     canonical_language = normalize_lang(save.get('language'))
-    preferred_language = canonical_language or lang_payload.get('preferred_language') or (save.get('language') or 'en')
+    world_language = load_world_language(args.universe)
+    preferred_language = (
+        lang_payload.get('preferred_language')
+        or canonical_language
+        or world_language
+        or (save.get('language') or 'en')
+    )
+    if canonical_language and not lang_payload.get('suspect_save_language'):
+        preferred_language = canonical_language
+    elif world_language and lang_payload.get('suspect_save_language'):
+        preferred_language = world_language
     raw_summary = evo.get('last_summary')
     if preferred_language == 'zh' and raw_summary and not looks_zh(raw_summary):
         summary_for_reentry = None

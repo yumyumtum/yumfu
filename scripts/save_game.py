@@ -20,6 +20,32 @@ import argparse
 from pathlib import Path
 from datetime import datetime
 
+WORLD_DIR = Path.home() / "clawd" / "skills" / "yumfu" / "worlds"
+
+
+def normalize_lang(value: str | None) -> str | None:
+    if not value:
+        return None
+    v = str(value).strip().lower()
+    if v in {'zh', 'zh-cn', 'zh-hans', 'zh-tw', 'zh-hant', 'cn', 'chinese', '中文'}:
+        return 'zh'
+    if v in {'en', 'en-us', 'en-gb', 'english'}:
+        return 'en'
+    return None
+
+
+def load_world_language(universe: str) -> str | None:
+    direct = WORLD_DIR / f"{universe}.json"
+    nested = WORLD_DIR / universe / 'world.json'
+    path = direct if direct.exists() else nested
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+        return normalize_lang(data.get('language'))
+    except Exception:
+        return None
+
 
 def save_game(user_id: str, universe: str, data: dict, backup: bool = True) -> dict:
     """
@@ -57,6 +83,13 @@ def save_game(user_id: str, universe: str, data: dict, backup: bool = True) -> d
         data["universe"] = universe
     if "version" not in data:
         data["version"] = 2  # Current save format version
+
+    existing_lang = normalize_lang(data.get("language"))
+    world_lang = load_world_language(universe)
+    if not existing_lang and world_lang:
+        data["language"] = world_lang
+    elif existing_lang:
+        data["language"] = existing_lang
     
     data["last_saved"] = datetime.now().isoformat()
     

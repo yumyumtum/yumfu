@@ -6,6 +6,7 @@ from pathlib import Path
 
 SAVE_DIR = Path.home() / 'clawd' / 'memory' / 'yumfu' / 'saves'
 EVOLUTION_DIR = Path.home() / 'clawd' / 'memory' / 'yumfu' / 'evolution'
+WORLD_DIR = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'worlds'
 
 
 def load_json(path: Path):
@@ -26,6 +27,19 @@ def normalize_lang(value):
     if v in {'en', 'en-us', 'en-gb', 'english'}:
         return 'en'
     return None
+
+
+def load_world_language(universe: str):
+    direct = WORLD_DIR / f'{universe}.json'
+    nested = WORLD_DIR / universe / 'world.json'
+    path = direct if direct.exists() else nested
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+        return normalize_lang(data.get('language'))
+    except Exception:
+        return None
 
 
 def classify_text(text: str):
@@ -61,6 +75,7 @@ def main():
 
     evidences = []
     score = {'zh': 0.0, 'en': 0.0}
+    sidecar_votes = {'zh': 0.0, 'en': 0.0}
 
     recent_texts = list(args.recent_text)
     if args.recent_texts_json:
@@ -79,7 +94,7 @@ def main():
             evidences.append({'source': 'recent_text', 'lang': lang, 'confidence': round(conf, 3), 'sample': text[:120]})
 
     save_lang = normalize_lang(save.get('language'))
-    world_lang = normalize_lang((save.get('world') or {}).get('language'))
+    world_lang = load_world_language(args.universe)
 
     if save_lang:
         score[save_lang] += 7.5
@@ -93,18 +108,25 @@ def main():
         val = evo.get(field)
         lang, conf = classify_text(val or '')
         if lang:
-            score[lang] += 0.45 * conf
+            weight = 0.45 * conf
+            score[lang] += weight
+            sidecar_votes[lang] += weight
             evidences.append({'source': f'sidecar.{field}', 'lang': lang, 'confidence': round(conf, 3)})
 
     history = evo.get('history', [])[-3:]
     for item in history:
         lang, conf = classify_text((item or {}).get('story_text', ''))
         if lang:
-            score[lang] += 0.18 * conf
+            weight = 0.18 * conf
+            score[lang] += weight
+            sidecar_votes[lang] += weight
             evidences.append({'source': 'sidecar.history', 'lang': lang, 'confidence': round(conf, 3)})
 
     locked_to_save = bool(save_lang)
     override_candidate = None
+    suspect_save_language = None
+    canonical_language_source = 'save.language' if save_lang else ('world.language' if world_lang else 'detected')
+
     if save_lang:
         opposite = 'en' if save_lang == 'zh' else 'zh'
         if recent_votes[opposite] >= 8.5 and recent_votes[opposite] > recent_votes[save_lang] * 1.6:
@@ -116,9 +138,25 @@ def main():
                 'note': 'strong recent evidence exists, but save.language remains canonical until explicitly changed'
             })
 
+        if world_lang and world_lang != save_lang:
+            world_evidence = sidecar_votes[world_lang] + recent_votes[world_lang]
+            save_evidence = sidecar_votes[save_lang] + recent_votes[save_lang]
+            if world_evidence >= 0.95 and world_evidence > save_evidence * 1.6:
+                suspect_save_language = save_lang
+                canonical_language_source = 'world.language_repair_candidate'
+                locked_to_save = False
+                evidences.append({
+                    'source': 'save_language_repair_candidate',
+                    'lang': world_lang,
+                    'confidence': 0.86,
+                    'note': f'save.language={save_lang} conflicts with world default and recent sidecar history strongly supports {world_lang}'
+                })
+
     preferred = 'en'
-    if save_lang:
+    if save_lang and not suspect_save_language:
         preferred = save_lang
+    elif world_lang and (suspect_save_language or score['en'] == score['zh'] == 0):
+        preferred = world_lang
     elif score['zh'] > score['en']:
         preferred = 'zh'
     elif score['en'] == score['zh'] == 0:
@@ -134,14 +172,18 @@ def main():
         'preferred_language': preferred,
         'confidence': round(confidence, 3),
         'scores': {k: round(v, 3) for k, v in score.items()},
+        'sidecar_scores': {k: round(v, 3) for k, v in sidecar_votes.items()},
         'locked_to_save_language': locked_to_save,
         'save_language': save_lang,
+        'world_language': world_lang,
+        'suspect_save_language': suspect_save_language,
+        'canonical_language_source': canonical_language_source,
         'override_candidate': override_candidate,
         'evidence': evidences[:12],
         'fallback_order': [
-            'save.language (canonical per save)',
-            'recent actual player text as advisory / explicit-switch signal',
+            'save.language (canonical per save unless repair candidate is detected)',
             'world language',
+            'recent actual player text as advisory / explicit-switch signal',
             'old sidecar text (weak only)',
             'system fallback'
         ]
