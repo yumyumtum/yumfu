@@ -98,7 +98,8 @@ def main():
         'preferred_language': (save.get('language') or 'en'), 'confidence': 0.0
     }
 
-    preferred_language = lang_payload.get('preferred_language') or (save.get('language') or 'en')
+    canonical_language = normalize_lang(save.get('language'))
+    preferred_language = canonical_language or lang_payload.get('preferred_language') or (save.get('language') or 'en')
     raw_summary = evo.get('last_summary')
     if preferred_language == 'zh' and raw_summary and not looks_zh(raw_summary):
         summary_for_reentry = None
@@ -106,6 +107,30 @@ def main():
         summary_for_reentry = None
     else:
         summary_for_reentry = raw_summary
+
+    def localize_route(route: dict | None, is_active: bool = False) -> dict:
+        if not route:
+            return {}
+        route = dict(route)
+        label = str(route.get('label') or '').strip()
+        why = str(route.get('why_now') or '').strip()
+        target = str(route.get('target') or '').strip()
+        if preferred_language == 'zh' and label.startswith('Default to '):
+            route['label'] = '当前主线' if is_active else '默认推进'
+        elif preferred_language == 'en' and label.startswith('默认沿'):
+            route['label'] = 'Current main line' if is_active else 'Default continuation'
+        if preferred_language == 'zh' and why.startswith('if the player does nothing'):
+            route['why_now'] = '这是当前最自然、最不容易断档的继续方式'
+        elif preferred_language == 'en' and why.startswith('就算玩家暂时不选'):
+            route['why_now'] = 'this is the easiest natural continuation right now'
+        if preferred_language == 'zh' and target.startswith('the '):
+            route['target'] = '当前关键目标'
+        elif preferred_language == 'en' and any('\u4e00' <= ch <= '\u9fff' for ch in target):
+            route['target'] = 'current key target'
+        return route
+
+    active_route = localize_route(active_route, is_active=True)
+    default_route = localize_route(default_route, is_active=False)
 
     result = {
         'success': True,
