@@ -62,8 +62,9 @@ def main():
         'Return structured save mutations that are bounded and plausible.'
     ]
 
-    preferred_language = save.get('language') or world.get('language') or 'en'
-    language_confidence = 0.0
+    canonical_language = save.get('language') or world.get('language') or 'en'
+    preferred_language = canonical_language
+    language_confidence = 1.0 if save.get('language') else 0.0
     try:
         lang_proc = subprocess.run(
             ['python3', str(DETECT_LANGUAGE), '--user-id', args.user_id, '--universe', args.universe],
@@ -71,25 +72,15 @@ def main():
         )
         if lang_proc.returncode == 0 and lang_proc.stdout.strip():
             lang_payload = json.loads(lang_proc.stdout)
-            preferred_language = lang_payload.get('preferred_language') or preferred_language
-            language_confidence = lang_payload.get('confidence') or 0.0
+            detected_language = lang_payload.get('preferred_language')
+            detected_confidence = lang_payload.get('confidence') or 0.0
+            if not save.get('language') and detected_language:
+                preferred_language = detected_language
+                language_confidence = detected_confidence
+            elif save.get('language'):
+                language_confidence = max(language_confidence, detected_confidence)
     except Exception:
         pass
-@@
-         'language_policy': {
-             'priority': [
--                'recent actual player conversation language',
--                'save.language',
-+                'save.language (canonical per save)',
-+                'recent actual player conversation language (advisory unless explicit switch)',
-                 'world default language',
-                 'system fallback'
-             ],
-             'preferred_language_hint': preferred_language,
-             'confidence': language_confidence,
--            'instruction': 'Write the daily evolution in the same language the player has been naturally using most recently, unless there is a strong world-specific reason not to.'
-+            'instruction': 'Write the daily evolution in the save\'s canonical language first. Do not drift languages just because old sidecar text or weak recent evidence points elsewhere. Only switch languages when the player clearly and explicitly changes play language.'
-         },
 
     prompt = {
         'goal': system_goal,
@@ -120,14 +111,15 @@ def main():
         },
         'language_policy': {
             'priority': [
-                'recent actual player conversation language',
-                'save.language',
+                'save.language (canonical per save)',
+                'recent actual player conversation language (advisory unless explicit switch)',
                 'world default language',
                 'system fallback'
             ],
             'preferred_language_hint': preferred_language,
+            'canonical_language': canonical_language,
             'confidence': language_confidence,
-            'instruction': 'Write the daily evolution in the same language the player has been naturally using most recently, unless there is a strong world-specific reason not to.'
+            'instruction': 'Write the daily evolution in the save\'s canonical language first. Do not drift languages just because old sidecar text or weak recent evidence points elsewhere. Only switch languages when the player clearly and explicitly changes play language.'
         },
         'sidecar_policy': {
             'main_save_mutation': 'forbidden in MVP',

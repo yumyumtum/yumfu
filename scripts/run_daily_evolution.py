@@ -21,12 +21,14 @@ def main():
 
     if args.apply_from_json:
         payload = json.loads(Path(args.apply_from_json).read_text(encoding='utf-8'))
+        if isinstance(payload, dict) and 'result' in payload and isinstance(payload.get('result'), dict):
+            payload = payload['result']
         summary = payload['summary']
         story_text = payload['story_text']
         severity = payload.get('severity', 'minor')
         image_prompt = payload.get('image_prompt', '')
-        hooks = payload.get('pending_hooks', [])
-        meta = payload.get('sidecar_meta', {})
+        hooks = payload.get('pending_hooks') or payload.get('hooks', [])
+        meta = payload.get('sidecar_meta') or payload.get('meta', {})
         routes = payload.get('suggested_routes', [])
         default_route = payload.get('default_route', {})
         advancement_level = payload.get('advancement_level', 'normal')

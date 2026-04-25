@@ -113,17 +113,43 @@ def enrich_with_active_route(result: dict, sidecar: dict, lang: str) -> dict:
     active_route = sidecar.get('active_route') or sidecar.get('default_route') or {}
     if not active_route:
         return result
+
     label = str(active_route.get('label') or '').strip()
     target = str(active_route.get('target') or '').strip()
     why = str(active_route.get('why_now') or '').strip()
+    world_id = str(result.get('world_id') or '').strip()
     meta = result.setdefault('meta', {})
     meta.setdefault('world_detail_notes', [])
+
     if lang == 'zh':
-        result['story_text'] = result.get('story_text', '').rstrip() + f" 这条局势没有散开，而是继续沿着你之前已经被推到面前的那条线发酵：{label or '当前主线'}。{('眼下最该盯的是' + target + '。') if target else ''}{('因为' + why) if why else ''}"
-        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + [f"当前 active route：{label or '当前主线'}"]
+        if world_id in {'journey-to-west', 'xiaoao', 'yitian', 'sengoku'}:
+            tail = f" 这一阵风也没有另起炉灶，而是顺着你手边那条已经成形的线继续往深处走：{label or '当前主线'}。"
+            if target:
+                tail += f" 真正该先盯住的，还是 {target}。"
+            if why:
+                tail += f" 毕竟 {why}"
+                if not tail.endswith('。'):
+                    tail += '。'
+        else:
+            tail = f" 这条局势没有散开，反而继续压在你先前已经摸到的那条线上：{label or '当前主线'}。"
+            if target:
+                tail += f" 眼下最该盯的还是 {target}。"
+            if why:
+                tail += f" 因为 {why}"
+                if not tail.endswith('。'):
+                    tail += '。'
+        result['story_text'] = result.get('story_text', '').rstrip() + tail
+        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + [f"当前延续路线：{label or '当前主线'}"]
     else:
-        result['story_text'] = result.get('story_text', '').rstrip() + f" This pressure has not scattered into random noise; it is still developing along the same line already in front of the player: {label or 'the current main line'}." + (f" The clearest target remains {target}." if target else '') + (f" {why}" if why else '')
-        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + [f"Current active route: {label or 'the current main line'}"]
+        tail = f" This pressure has not scattered into random noise; it is still deepening along the line already in front of the player: {label or 'the current main line'}."
+        if target:
+            tail += f" The clearest point to keep hold of is still {target}."
+        if why:
+            tail += f" {why}"
+            if not tail.endswith('.'):
+                tail += '.'
+        result['story_text'] = result.get('story_text', '').rstrip() + tail
+        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + [f"Current continuing route: {label or 'the current main line'}"]
     return result
 
 
@@ -558,6 +584,92 @@ def xiaoao_update(save: dict, world: dict, sidecar: dict) -> dict:
     return chosen
 
 
+def yitian_update(save: dict, world: dict, sidecar: dict) -> dict:
+    character = save.get('character', {}) or {}
+    name = clean_name(character.get('name'), '张无忌')
+    location = clean_name(save.get('location'), '江湖路口')
+    faction = clean_name(character.get('faction') or character.get('house'), '明教')
+    inventory = save.get('inventory', []) or []
+    relationships = save.get('relationships', {}) or {}
+    hints = save.get('quest_hints', []) or []
+    secrets = save.get('secrets_known', []) or []
+    notes = save.get('notes', []) or []
+    quest = (save.get('quests') or [{}])[0]
+    quest_name = clean_name(quest.get('name'), '屠龙刀与倚天剑之谜')
+    history = sidecar.get('history', [])
+    severity = pick_severity(f"yitian:{name}:{location}:{faction}:{len(history)}:{datetime.now().date().isoformat()}")
+
+    items = [i.get('name') for i in inventory[:4] if isinstance(i, dict) and i.get('name')]
+    ally = next((k for k, v in relationships.items() if '信' in str(v) or '护' in str(v) or '愿意' in str(v)), '赵敏')
+    dangerous_npc = next((k for k, v in relationships.items() if '危险' in str(v) or '敌' in str(v) or '恨' in str(v)), '成昆')
+    clue = hints[0] if hints else (secrets[0] if secrets else '屠龙刀与倚天剑的旧谜')
+    note = notes[0] if notes else '江湖各派都像在等一个先露出来的人'
+
+    seeds = [
+        {
+            'summary': '这条线已经不只是争名夺宝，而是在逼近谁先把旧账翻到台面上。',
+            'story_text': f"{location} 这一带的风声忽然变得很像旧仇要结账前的静。{quest_name} 本来就牵着刀剑、门派和人情，可这两日最不对劲的不是谁喊得凶，而是谁忽然开始不肯把名字说透。{clue} 被反复提起，说明已经有人在试着把这团旧线重新拧紧；而像 {dangerous_npc} 这样的人，最可怕的从来不是立刻跳出来，而是让别人先替他把场面搅浑。你若现在回来，接到的不是单纯一段江湖热闹，而是一个快要逼出真名字的口子。你是先追查谁在放风，还是先护住那个最可能先出事的人？",
+            'hooks': ['先追是谁把旧线重新挑起来。', '先护住最容易被拿来祭旗的人。'],
+            'meta': {
+                'rumor_threads': [clue],
+                'faction_movements': ['几路人马都在试着把旧账重新翻到明面上'],
+                'npc_watchlist': [dangerous_npc, ally],
+                'item_threads': items[:2] or ['屠龙刀的线索', '倚天剑旧闻'],
+                'world_detail_notes': [f'当前阵营：{faction}', f'当前主线：{quest_name}']
+            },
+            'image_prompt': 'Chinese wuxia illustration, tense late-Yuan jianghu stronghold under lamplight, Heaven Sword and Dragon Saber intrigue, hidden betrayal and sect pressure, classic ink-and-color martial arts art'
+        },
+        {
+            'summary': '现在最该防的，不是刀先出鞘，而是谁先把“真相”讲成了对自己有利的样子。',
+            'story_text': f"江湖真要乱起来之前，往往不是先见血，而是先见说法。{location} 附近这股气，就是这种快要翻脸前的气。{note} 这说明大家并不是没有准备，而是都在等别人先把那层纸捅破。你手上的 {items[0] if items else '那点旧线索'} 和你已经知道的事，已经足够让这局不再只是捕风捉影。问题只在于，你要先拆谁的说法，还是先抓住能落到手里的实证。若你现在回身去接，接到的会是一条真正能往前走的线，而不是重复听人讲旧恩怨。",
+            'hooks': ['先拆穿最像借势编故事的人。', '先抓一件能压住众人口风的实证。'],
+            'meta': {
+                'rumor_threads': ['各派都在替即将摊开的真相预备说辞'],
+                'faction_movements': ['表面平静，暗里都在等第一句明话'],
+                'npc_watchlist': [dangerous_npc, '最先改口的人'],
+                'item_threads': items[:2] or ['密信', '旧账证据'],
+                'world_detail_notes': [f'当前地点：{location}', '当前局势更像口风战与证据战，而不只是拼武功']
+            },
+            'image_prompt': 'Classic Jin Yong wuxia art, quiet inn or stronghold corridor before faction confrontation, hidden evidence, sect rivalry, elegant blades and suppressed tension, Chinese ink painting with color accents'
+        },
+        {
+            'summary': '真正往前推这条线的，也许不是神兵，而是谁先站到你这边。',
+            'story_text': f"到了这一步，{quest_name} 已经不只是宝物和名头的问题。{location} 附近的人心忽然开始有了轻重：有人愿意多说半句，有人反而退得更快，这种细小的偏向，往往比刀光更先决定局势。像 {ally} 这样的人若还站在场里，就说明这条线还有机会先收住，再往深处摸；可若被别人抢先一步说动或逼退，后面很多本该查得清的事，就都会被推成混战。你若现在回来，最自然的下一步不是乱闯，而是先把人稳住，再决定往哪一边下重手。",
+            'hooks': ['先稳住还肯站出来的人。', '先顺着人情线摸出下一层布局。'],
+            'meta': {
+                'rumor_threads': ['人心开始比兵刃先表态'],
+                'faction_movements': ['各派都在争谁先拉住关键人物'],
+                'npc_watchlist': [ally, dangerous_npc],
+                'item_threads': items[:2] or ['盟约', '旧日信物'],
+                'world_detail_notes': [f'当前关键人物：{ally}', '这一线的推进越来越取决于人心与站位']
+            },
+            'image_prompt': 'Romantic tense Jin Yong wuxia illustration, key allies under torchlight in a late-Yuan martial world, emotional faction pressure, hidden loyalties around legendary weapons, elegant cinematic ink-and-color art'
+        },
+    ]
+
+    bias = active_route_bias(sidecar)
+    if '人' in bias or '盟' in bias or '站位' in bias or 'ally' in bias:
+        idx = 2
+    elif '证据' in bias or '真相' in bias or '密信' in bias or '旧账' in bias:
+        idx = 1
+    elif '明教' in bias or '屠龙刀' in bias or '倚天剑' in bias or '成昆' in bias:
+        idx = 0
+    else:
+        idx = int(hashlib.md5(f"yitian:{name}:{location}:{faction}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
+
+    chosen = seeds[idx]
+    chosen['severity'] = severity
+    chosen['world_id'] = world.get('id', 'yitian')
+    chosen['character_name'] = name
+    chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    chosen['image_prompt'] = chosen['image_prompt'] + ' , visual continuity from the player\'s current Heaven Sword and Dragon Saber arc, not a disconnected standalone scene'
+    routes, default_route = build_route_payload('zh', chosen.get('hooks', []), chosen.get('meta', {}), location, quest_name)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
+    return chosen
+
+
 def harry_potter_update(save: dict, world: dict, sidecar: dict) -> dict:
     character = save.get('character', {})
     name = clean_name(character.get('name'), 'the student')
@@ -896,6 +1008,9 @@ def main():
         lang = 'zh'
     elif args.universe == 'xiaoao':
         result = xiaoao_update(save, world, sidecar)
+        lang = 'zh'
+    elif args.universe == 'yitian':
+        result = yitian_update(save, world, sidecar)
         lang = 'zh'
     elif args.universe == 'harry-potter':
         result = harry_potter_update(save, world, sidecar)
