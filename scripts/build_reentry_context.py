@@ -23,6 +23,14 @@ def normalize_lang(value: str | None) -> str:
     return 'en'
 
 
+def looks_generic_target(text: str | None) -> bool:
+    value = str(text or '').strip().lower()
+    generic = {
+        '当前关键目标', 'current key target', 'the current scene', 'the road ahead', 'the current line', '当前主线', 'location'
+    }
+    return value in {g.lower() for g in generic}
+
+
 def fallback_image_prompt(save: dict, evo: dict, preferred_language: str) -> str:
     character = ((save.get('character') or {}).get('name') or 'the player').strip()
     location = (save.get('location') or 'the current scene').strip()
@@ -123,10 +131,13 @@ def main():
             route['why_now'] = '这是当前最自然、最不容易断档的继续方式'
         elif preferred_language == 'en' and why.startswith('就算玩家暂时不选'):
             route['why_now'] = 'this is the easiest natural continuation right now'
-        if preferred_language == 'zh' and target.startswith('the '):
-            route['target'] = '当前关键目标'
-        elif preferred_language == 'en' and any('\u4e00' <= ch <= '\u9fff' for ch in target):
-            route['target'] = 'current key target'
+
+        if preferred_language == 'zh':
+            if target.startswith('the ') and looks_generic_target(target):
+                route['target'] = '当前关键目标'
+        elif preferred_language == 'en':
+            if any('\u4e00' <= ch <= '\u9fff' for ch in target) and looks_generic_target(target):
+                route['target'] = 'current key target'
         return route
 
     active_route = localize_route(active_route, is_active=True)
