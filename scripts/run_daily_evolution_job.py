@@ -159,6 +159,137 @@ def active_route_bias(sidecar: dict) -> str:
     return text
 
 
+def extract_route_focus(sidecar: dict) -> tuple[list[str], str, str, str]:
+    route = sidecar.get('active_route') or sidecar.get('default_route') or {}
+    label = str(route.get('label') or '').strip()
+    why = str(route.get('why_now') or '').strip()
+    target = str(route.get('target') or '').strip()
+
+    raw_parts = [label, target, why]
+    phrases: list[str] = []
+    for part in raw_parts:
+        part = str(part or '').strip()
+        if not part:
+            continue
+        phrases.append(part)
+        for chunk in [x.strip() for x in part.replace('，', ' ').replace('。', ' ').replace('/', ' ').replace('-', ' ').split() if x.strip()]:
+            if len(chunk) >= 2:
+                phrases.append(chunk)
+
+    deduped: list[str] = []
+    seen = set()
+    for phrase in phrases:
+        key = phrase.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(phrase)
+    return deduped, target, label, why
+
+
+def focus_score(text: str | None, phrases: list[str]) -> int:
+    hay = str(text or '').strip().lower()
+    if not hay:
+        return 0
+    score = 0
+    for phrase in phrases:
+        needle = str(phrase or '').strip().lower()
+        if len(needle) < 2:
+            continue
+        if needle in hay:
+            score += max(2, min(len(needle), 8))
+    return score
+
+
+def prioritize_entries(entries: list[str], phrases: list[str]) -> list[str]:
+    scored = []
+    for idx, entry in enumerate(entries or []):
+        scored.append((focus_score(str(entry), phrases), idx, entry))
+    scored.sort(key=lambda row: (-row[0], row[1]))
+    return [entry for _, _, entry in scored]
+
+
+def looks_item_target(text: str) -> bool:
+    s = str(text or '').lower()
+    keywords = [
+        '刀', '剑', '令', '信', '书', '经', '图', '账', '印', '符', '匣', '卷', '名单', '法宝', '脚印',
+        'sword', 'blade', 'letter', 'note', 'manifest', 'ledger', 'map', 'seal', 'artifact', 'book', 'ring', 'horn'
+    ]
+    return any(k in s for k in keywords)
+
+
+def route_is_generic(route: dict | None) -> bool:
+    if not route:
+        return True
+    target = str(route.get('target') or '').strip().lower()
+    if not target:
+        return True
+    generic_targets = {
+        '当前关键目标', 'current key target', 'the current scene', 'the road ahead', 'the current line', '当前主线', 'location'
+    }
+    return target in {g.lower() for g in generic_targets}
+
+
+def apply_active_route_weighting(result: dict, sidecar: dict, lang: str) -> dict:
+    phrases, target, label, why = extract_route_focus(sidecar)
+    if not phrases:
+        return result
+
+    meta = result.setdefault('meta', {})
+    meta.setdefault('npc_watchlist', [])
+    meta.setdefault('item_threads', [])
+    meta.setdefault('faction_movements', [])
+    meta.setdefault('rumor_threads', [])
+    meta.setdefault('world_detail_notes', [])
+
+    for key in ['npc_watchlist', 'item_threads', 'faction_movements', 'rumor_threads']:
+        meta[key] = prioritize_entries(list(meta.get(key) or []), phrases)
+
+    if target:
+        if looks_item_target(target):
+            if target not in meta['item_threads']:
+                meta['item_threads'] = [target] + list(meta.get('item_threads') or [])
+        else:
+            if target not in meta['npc_watchlist']:
+                meta['npc_watchlist'] = [target] + list(meta.get('npc_watchlist') or [])
+
+    routes = list(result.get('suggested_routes') or [])
+    if routes:
+        scored_routes = sorted(
+            enumerate(routes),
+            key=lambda row: (
+                -focus_score(' '.join(str(row[1].get(k) or '') for k in ['label', 'target', 'why_now']), phrases),
+                row[0],
+            )
+        )
+        routes = [route for _, route in scored_routes]
+        if target and all(focus_score(' '.join(str(route.get(k) or '') for k in ['label', 'target', 'why_now']), [target]) == 0 for route in routes):
+            routes[0] = {
+                **routes[0],
+                'target': target,
+                'why_now': why or routes[0].get('why_now', ''),
+            }
+        result['suggested_routes'] = routes
+
+    default_route = dict(result.get('default_route') or {})
+    if default_route and (route_is_generic(default_route) or focus_score(' '.join(str(default_route.get(k) or '') for k in ['label', 'target', 'why_now']), phrases) == 0):
+        if target:
+            default_route['target'] = target
+        if why:
+            default_route['why_now'] = why
+        if label and default_route.get('label') in {'默认沿主线继续试探', 'Default to the main pressure line'}:
+            default_route['label'] = label if len(label) <= 18 else default_route['label']
+        result['default_route'] = default_route
+
+    note = (
+        f"active route weight → {target or label or 'current line'}"
+        if lang != 'zh' else f"active route 权重已压到：{target or label or '当前主线'}"
+    )
+    if note not in meta['world_detail_notes']:
+        meta['world_detail_notes'] = list(meta.get('world_detail_notes') or []) + [note]
+    return result
+
+
 def build_route_payload(lang: str, hooks: list[str], meta: dict, location: str, fallback_target: str) -> tuple[list[dict], dict]:
     rumor_threads = meta.get('rumor_threads') or []
     npc_watchlist = meta.get('npc_watchlist') or []
@@ -1022,6 +1153,7 @@ def main():
         result = generic_update(save, world, sidecar)
         lang = normalize_lang(save.get('language')) or 'en'
 
+    result = apply_active_route_weighting(result, sidecar, lang)
     result = enrich_with_active_route(result, sidecar, lang)
     result = apply_major_advancement(result, lang, sidecar)
     print(json.dumps({'success': True, 'result': result}, ensure_ascii=False, indent=2))
