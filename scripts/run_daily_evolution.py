@@ -27,6 +27,8 @@ def main():
         image_prompt = payload.get('image_prompt', '')
         hooks = payload.get('pending_hooks', [])
         meta = payload.get('sidecar_meta', {})
+        routes = payload.get('suggested_routes', [])
+        default_route = payload.get('default_route', {})
         proc = subprocess.run([
             'python3', str(APPLY),
             '--user-id', args.user_id,
@@ -37,6 +39,8 @@ def main():
             '--image-prompt', image_prompt,
             '--hooks-json', json.dumps(hooks, ensure_ascii=False),
             '--meta-json', json.dumps(meta, ensure_ascii=False),
+            '--routes-json', json.dumps(routes, ensure_ascii=False),
+            '--default-route-json', json.dumps(default_route, ensure_ascii=False),
         ], capture_output=True, text=True)
         if proc.returncode != 0:
             print(proc.stderr.strip() or proc.stdout.strip(), file=sys.stderr)
@@ -67,10 +71,25 @@ def main():
                 'severity': 'minor|medium|major',
                 'image_prompt': 'one strong scene prompt matched to the update',
                 'pending_hooks': ['1-3 short hooks for next active play'],
+                'suggested_routes': [
+                    {
+                        'label': 'short route label',
+                        'why_now': 'why this route matters now',
+                        'target': 'person/place/object/faction line',
+                        'urgency': 'low|medium|high'
+                    }
+                ],
+                'default_route': {
+                    'label': 'the route the story will naturally assume if the player does nothing',
+                    'why_now': 'why this is the easiest natural continuation',
+                    'target': 'person/place/object/faction line'
+                },
                 'sidecar_meta': {
                     'rumor_threads': ['soft rumors'],
                     'faction_movements': ['soft world changes'],
-                    'npc_watchlist': ['watch targets']
+                    'npc_watchlist': ['watch targets'],
+                    'item_threads': ['letters, relics, cargo, maps, seals, weapons, etc.'],
+                    'world_detail_notes': ['concrete details worth resurfacing on continue']
                 }
             },
             'must_not_do': [

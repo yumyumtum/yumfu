@@ -31,6 +31,8 @@ def main():
     lang = data.get('preferred_language') or 'en'
     summary = data.get('summary_for_reentry')
     hooks = data.get('pending_hooks') or []
+    routes = data.get('suggested_routes') or []
+    default_route = data.get('default_route') or {}
     character = data.get('character_name') or 'the player'
     location = data.get('location') or 'the current scene'
     quest = data.get('active_quest') or 'the active quest'
@@ -42,16 +44,52 @@ def main():
             f"{summary or '你离开的这段时间，暗线还在往前推，只是风声比之前更紧。'}\n\n"
             f"{quest_line}先别做功课，直接接回现场。"
         )
-        if hooks:
+        if routes:
+            lines = []
+            for r in routes[:2]:
+                label = (r.get('label') or '').strip()
+                why = (r.get('why_now') or '').strip()
+                target = (r.get('target') or '').strip()
+                parts = [p for p in [label, target, why] if p]
+                if parts:
+                    lines.append(' - '.join(parts))
+            if lines:
+                text += "\n\n现在最值得接的路线：\n" + "\n".join(f"- {line}" for line in lines)
+        elif hooks:
             text += "\n\n最自然的下一步：\n" + "\n".join(f"- {h}" for h in hooks[:2])
+        if default_route:
+            label = (default_route.get('label') or '默认推进').strip()
+            why = (default_route.get('why_now') or '').strip()
+            target = (default_route.get('target') or '').strip()
+            default_line = ' / '.join([p for p in [label, target, why] if p])
+            if default_line:
+                text += "\n\n如果你现在不选，我会默认沿这条线把主剧情往前推：\n- " + default_line
     else:
         text = (
             f"When {character} returns to {location}, the scene has shifted slightly: "
             f"{summary or 'something nearby changed while you were away.'}\n\n"
             f"You are still in the middle of '{quest}'. Do not dump lore; pull the player straight back into the scene."
         )
-        if hooks:
+        if routes:
+            lines = []
+            for r in routes[:2]:
+                label = (r.get('label') or '').strip()
+                why = (r.get('why_now') or '').strip()
+                target = (r.get('target') or '').strip()
+                parts = [p for p in [label, target, why] if p]
+                if parts:
+                    lines.append(' - '.join(parts))
+            if lines:
+                text += "\n\nBest routes to pick up now:\n" + "\n".join(f"- {line}" for line in lines)
+        elif hooks:
             text += "\n\nMost natural next moves:\n" + "\n".join(f"- {h}" for h in hooks[:2])
+        if default_route:
+            label = (default_route.get('label') or 'Default continuation').strip()
+            why = (default_route.get('why_now') or '').strip()
+            target = (default_route.get('target') or '').strip()
+            default_line = ' / '.join([p for p in [label, target, why] if p])
+            if default_line:
+                text += "\n\nIf you do nothing, this is the route the story will naturally take next:\n- " + default_line
 
     print(json.dumps({
         'success': True,

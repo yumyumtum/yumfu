@@ -19,6 +19,8 @@ def main():
     parser.add_argument('--image-prompt', default='')
     parser.add_argument('--hooks-json', default='[]')
     parser.add_argument('--meta-json', default='{}')
+    parser.add_argument('--routes-json', default='[]')
+    parser.add_argument('--default-route-json', default='{}')
     args = parser.parse_args()
 
     path = evolution_path(args.user_id, args.universe)
@@ -34,6 +36,8 @@ def main():
     now = datetime.now()
     hooks = json.loads(args.hooks_json)
     meta = json.loads(args.meta_json)
+    routes = json.loads(args.routes_json)
+    default_route = json.loads(args.default_route_json)
 
     history = existing.get('history', [])
     history.append({
@@ -43,6 +47,8 @@ def main():
         'story_text': args.story_text[:2000],
         'image_prompt': args.image_prompt,
         'hooks': hooks,
+        'routes': routes,
+        'default_route': default_route,
         'meta': meta,
     })
 
@@ -56,6 +62,8 @@ def main():
         'last_severity': args.severity,
         'last_image_prompt': args.image_prompt,
         'pending_hooks': hooks,
+        'suggested_routes': routes,
+        'default_route': default_route,
         'meta': meta,
         'history': history[-30:]
     }

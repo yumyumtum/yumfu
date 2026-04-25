@@ -81,6 +81,8 @@ def main():
     save = save_payload.get('data') or {}
     evo = evo_payload.get('data') or {}
     hooks = evo.get('pending_hooks', [])[:3]
+    suggested_routes = evo.get('suggested_routes', [])[:3]
+    default_route = evo.get('default_route') or {}
 
     lang_cmd = [
         'python3', str(DETECT_LANGUAGE), '--user-id', args.user_id, '--universe', args.universe
@@ -112,6 +114,8 @@ def main():
         'last_daily_summary': raw_summary,
         'summary_for_reentry': summary_for_reentry,
         'pending_hooks': hooks,
+        'suggested_routes': suggested_routes,
+        'default_route': default_route,
         'preferred_language': preferred_language,
         'language_confidence': lang_payload.get('confidence'),
         'locked_to_save_language': lang_payload.get('locked_to_save_language', False),
@@ -120,6 +124,8 @@ def main():
         'reentry_instruction': (
             'When the player returns, briefly pull them back into the scene using the latest daily evolution summary, '
             'then offer one easy natural next move in the player\'s preferred language. '
+            'Prefer one concrete suggested route over vague lore recap. '
+            'If a stored default route exists, surface it as the easiest path back in when the player seems cold or has been away. '
             'If the save has a canonical language, do not drift away from it automatically. '
             'Continue-time delivery is image-first: reuse the latest save-matched image when available; otherwise generate a fresh image and send it with the re-entry hook. '
             'Do not dump lore or system bulletins.'

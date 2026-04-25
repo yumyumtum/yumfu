@@ -67,6 +67,60 @@ def normalize_lang(value: str | None) -> str | None:
     return None
 
 
+def build_route_payload(lang: str, hooks: list[str], meta: dict, location: str, fallback_target: str) -> tuple[list[dict], dict]:
+    rumor_threads = meta.get('rumor_threads') or []
+    npc_watchlist = meta.get('npc_watchlist') or []
+    faction_movements = meta.get('faction_movements') or []
+    item_threads = meta.get('item_threads') or []
+
+    target_a = npc_watchlist[0] if npc_watchlist else fallback_target
+    target_b = item_threads[0] if item_threads else (rumor_threads[0] if rumor_threads else fallback_target)
+    pressure = faction_movements[0] if faction_movements else (rumor_threads[0] if rumor_threads else '')
+
+    if lang == 'zh':
+        routes = [
+            {
+                'label': '追当前最热的线',
+                'why_now': pressure or '局势刚变，最早的痕迹还没冷掉',
+                'target': target_a or location,
+                'urgency': 'high',
+            },
+            {
+                'label': '先摸实物/证据',
+                'why_now': '先抓住能落到手里的东西，比继续听风声更稳',
+                'target': target_b or fallback_target or location,
+                'urgency': 'medium',
+            },
+        ]
+        default_route = {
+            'label': '默认沿主线继续试探',
+            'why_now': '就算玩家暂时不选，这也是最自然、最不容易断档的推进方式',
+            'target': target_a or fallback_target or location,
+        }
+    else:
+        routes = [
+            {
+                'label': 'Pick up the hottest live thread',
+                'why_now': pressure or 'the freshest traces are still available now',
+                'target': target_a or location,
+                'urgency': 'high',
+            },
+            {
+                'label': 'Grab the concrete evidence first',
+                'why_now': 'a tangible lead is easier to re-enter than more rumor alone',
+                'target': target_b or fallback_target or location,
+                'urgency': 'medium',
+            },
+        ]
+        default_route = {
+            'label': 'Default to the main pressure line',
+            'why_now': 'if the player does nothing, this is the easiest natural continuation instead of a cold restart',
+            'target': target_a or fallback_target or location,
+        }
+
+    return routes, default_route
+
+
 def got_update(save: dict, world: dict, sidecar: dict) -> dict:
     character = save.get('character', {})
     name = clean_name(character.get('name'), 'the Dornish knight')
@@ -182,6 +236,14 @@ def got_update(save: dict, world: dict, sidecar: dict) -> dict:
     chosen['location_context'] = location
     chosen['recap_text'] = build_recap(save, world, sidecar)
     chosen['image_prompt'] = chosen['image_prompt'] + ', visual continuity from the player\'s existing Doran/Martell covert route investigation, same ongoing arc, not a disconnected new scene'
+    routes, default_route = build_route_payload(lang, chosen.get('hooks', []), chosen.get('meta', {}), location, first_destination)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
+    chosen['meta'].setdefault('world_detail_notes', [
+        f'当前关键地点：{first_destination}' if lang == 'zh' else f'Current key place: {first_destination}',
+        f'当前关键势力：{house}' if lang == 'zh' else f'Current key faction: {house}',
+    ])
+    chosen['meta'].setdefault('item_threads', ['红蜡信', '假账货单'] if lang == 'zh' else ['red-sealed note', 'false manifest'])
     return chosen
 
 
@@ -238,6 +300,14 @@ def sengoku_update(save: dict, world: dict, sidecar: dict) -> dict:
     chosen['location_context'] = location
     chosen['recap_text'] = build_recap(save, world, sidecar)
     chosen['image_prompt'] = chosen['image_prompt'] + ' , visual continuity from the player\'s current Sengoku campaign arc, not a cold standalone vignette'
+    routes, default_route = build_route_payload('zh', chosen.get('hooks', []), chosen.get('meta', {}), location, faction)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
+    chosen['meta'].setdefault('world_detail_notes', [
+        f'当前关键身份：{role}',
+        f'当前关键势力：{faction}',
+    ])
+    chosen['meta'].setdefault('item_threads', ['火绳枪', '账册', '买主名单'])
     return chosen
 
 
@@ -327,7 +397,7 @@ def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
     history = sidecar.get('history', [])
     severity = pick_severity(f"{world.get('id')}:{name}:{location}:{len(history)}")
     recap = build_recap(save, world, sidecar)
-    return {
+    result = {
         'summary': 'Something in the world shifted while you were away.',
         'recap_text': recap,
         'story_text': f"While you were away, the balance around {location} shifted just enough to matter. Rumors moved faster than people, small loyalties bent under pressure, and whatever was quiet yesterday is a little less quiet today. In {world_name}, that is how danger announces itself: not with a trumpet, but with one detail out of place. Something has changed near the thread you were already following, and if you step back in now, you can catch the world before the new shape hardens around you. Do you move toward the disturbance, question the nearest witness, or stay hidden long enough to see who reacts first?",
@@ -335,7 +405,9 @@ def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
         'meta': {
             'rumor_threads': ['a subtle change has spread through the area'],
             'faction_movements': ['local balance shifted while the player was away'],
-            'npc_watchlist': ['whoever reacts first to the disturbance']
+            'npc_watchlist': ['whoever reacts first to the disturbance'],
+            'item_threads': ['the detail that now feels out of place'],
+            'world_detail_notes': [f'Current pressure point: {location}']
         },
         "image_prompt": f"{world_name}, continuity-aware evolving tension near {location}, visual callback to the player's current arc, one subtle but meaningful world shift, cinematic fantasy illustration",
         'severity': severity,
@@ -343,6 +415,10 @@ def generic_update(save: dict, world: dict, sidecar: dict) -> dict:
         'character_name': name,
         'location_context': location,
     }
+    routes, default_route = build_route_payload('en', result.get('hooks', []), result.get('meta', {}), location, location)
+    result['suggested_routes'] = routes
+    result['default_route'] = default_route
+    return result
 
 
 def main():

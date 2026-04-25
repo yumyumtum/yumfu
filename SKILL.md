@@ -976,6 +976,8 @@ Each daily evolution update should include:
 4. **1 meaningful state change** (rumor, faction shift, patrol increase, resource loss, NPC movement, political signal, etc.)
 5. **1 hook** that invites the player back into active play
 6. **1 TTS voice-bubble delivery by default** unless that save has explicitly disabled TTS
+7. **1 practical route suggestion block** grounded in the save, not generic advice. This should name the most relevant scene / person / faction / object / danger line to follow next.
+8. **1 default route** that the story will assume if the player does nothing for a while, so the plot still advances instead of freezing.
 
 The recap is mandatory. Do not assume the player remembers yesterday's update, the hidden faction line, or why the current image matters.
 
@@ -1010,6 +1012,7 @@ Daily evolution should feel like:
 - “while you were away, something moved”
 - “here is the new pressure/context”
 - “here is the easiest natural next move if you want to continue now”
+- “if you do nothing, here is the road the story is most likely to take next”
 
 It should **not** feel like:
 - a long news bulletin
@@ -1080,6 +1083,18 @@ Most days should be **light but meaningful**:
 
 Major movement should be rare, but possible, so the world feels alive.
 
+### Weekly advancement rule (NEW)
+Daily evolution may stay light on many days, but **at least once per 7 days of real time** the player should receive a more substantive advancement signal tied to the current arc.
+
+That weekly advancement should usually include at least one of:
+- a named NPC making a move
+- a faction line becoming clearer
+- a concrete item / document / resource / clue entering play
+- a route becoming newly viable or newly dangerous
+- a stronger recommendation about which line the player should pick up next
+
+The goal is to avoid the feeling that the game only emits atmospheric nudges forever. Even when the player is absent, the world should occasionally become more legible and more playable.
+
 ### Save safety rule (IMPORTANT)
 If there is meaningful risk of corrupting or derailing the player's real save, **do not mutate the main player save at all**.
 
@@ -1126,6 +1141,9 @@ This sidecar can track:
 - soft world pressure
 - rumor threads
 - pending hooks for the next active session
+- suggested routes for next active play
+- one default route if the player does not respond
+- npc / faction / item threads worth resurfacing on continue
 - cron metadata / tick timestamps
 
 ### What the next active play session should do
@@ -1136,6 +1154,8 @@ When the player returns, the game engine may **read both**:
 Then merge them narratively:
 - surface the most relevant daily evolution updates
 - convert compatible hooks into active scene context
+- prefer one concrete route suggestion over a vague lore recap
+- if the player has been away a long time, surface the stored default route as the easiest way back in
 - avoid contradictions with the canonical save
 
 ### Main-save mutation policy
@@ -1158,6 +1178,17 @@ The following original behaviors remain mandatory unless the user explicitly req
 
 ### World grounding rule
 Even though the content is dynamically generated, it must still stay grounded in each world’s canon/setting documents.
+
+### Rich world-detail rule (NEW)
+Do not let YumFu worlds flatten into generic atmosphere.
+Whenever active play, daily evolution, or continue/re-entry is generated, actively look for chances to surface concrete detail from the save/world state such as:
+- named NPCs and how the player currently stands with them
+- faction interests, rivalries, and leverage
+- objects, letters, ledgers, relics, weapons, beasts, cargo, maps, seals, or other tangible things in play
+- why the current location matters strategically or emotionally
+- what route is currently blocked, risky, tempting, or newly open
+
+The player should feel there is a world with people, loyalties, and usable leads — not just tone.
 
 Examples of what the AI should infer dynamically:
 - **Game of Thrones**: if the player serves House Martell and has touched covert supply lines, daily changes should involve spies, shipping, banners, captains, watchers, coded messages, political pressure
