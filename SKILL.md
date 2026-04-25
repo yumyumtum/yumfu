@@ -1148,6 +1148,7 @@ This sidecar can track:
 - pending hooks for the next active session
 - suggested routes for next active play
 - one default route if the player does not respond
+- one active route representing the current narrative inertia when the player keeps not choosing
 - npc / faction / item threads worth resurfacing on continue
 - cron metadata / tick timestamps
 
@@ -1167,6 +1168,11 @@ Then merge them narratively:
 For now, default to:
 - **main save = read-only for daily evolution**
 - **sidecar file = writable**
+
+Default-route behavior:
+- when a daily evolution tick has a clear `default_route`, treat it as the current `active_route` unless a newer active route replaces it
+- later daily evolution ticks should preferentially continue from that active route instead of scattering into unrelated atmospheric nudges
+- continue/reentry should surface the active route first, because that is the easiest way for a cold player to resume
 
 Only after the system is proven safe should limited main-save mutation be considered.
 ### Messaging rule

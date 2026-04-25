@@ -33,6 +33,7 @@ def main():
     hooks = data.get('pending_hooks') or []
     routes = data.get('suggested_routes') or []
     default_route = data.get('default_route') or {}
+    active_route = data.get('active_route') or default_route or {}
     character = data.get('character_name') or 'the player'
     location = data.get('location') or 'the current scene'
     quest = data.get('active_quest') or 'the active quest'
@@ -44,7 +45,14 @@ def main():
             f"{summary or '你离开的这段时间，暗线还在往前推，只是风声比之前更紧。'}\n\n"
             f"{quest_line}先别做功课，直接接回现场。"
         )
-        if routes:
+        if active_route:
+            label = (active_route.get('label') or '当前主线').strip()
+            why = (active_route.get('why_now') or '').strip()
+            target = (active_route.get('target') or '').strip()
+            active_line = ' / '.join([p for p in [label, target, why] if p])
+            if active_line:
+                text += "\n\n当前最该接回的线：\n- " + active_line
+        elif routes:
             lines = []
             for r in routes[:2]:
                 label = (r.get('label') or '').strip()
@@ -57,7 +65,7 @@ def main():
                 text += "\n\n现在最值得接的路线：\n" + "\n".join(f"- {line}" for line in lines)
         elif hooks:
             text += "\n\n最自然的下一步：\n" + "\n".join(f"- {h}" for h in hooks[:2])
-        if default_route:
+        if default_route and default_route != active_route:
             label = (default_route.get('label') or '默认推进').strip()
             why = (default_route.get('why_now') or '').strip()
             target = (default_route.get('target') or '').strip()
@@ -70,7 +78,14 @@ def main():
             f"{summary or 'something nearby changed while you were away.'}\n\n"
             f"You are still in the middle of '{quest}'. Do not dump lore; pull the player straight back into the scene."
         )
-        if routes:
+        if active_route:
+            label = (active_route.get('label') or 'Active line').strip()
+            why = (active_route.get('why_now') or '').strip()
+            target = (active_route.get('target') or '').strip()
+            active_line = ' / '.join([p for p in [label, target, why] if p])
+            if active_line:
+                text += "\n\nCurrent best line to pick back up:\n- " + active_line
+        elif routes:
             lines = []
             for r in routes[:2]:
                 label = (r.get('label') or '').strip()
@@ -83,7 +98,7 @@ def main():
                 text += "\n\nBest routes to pick up now:\n" + "\n".join(f"- {line}" for line in lines)
         elif hooks:
             text += "\n\nMost natural next moves:\n" + "\n".join(f"- {h}" for h in hooks[:2])
-        if default_route:
+        if default_route and default_route != active_route:
             label = (default_route.get('label') or 'Default continuation').strip()
             why = (default_route.get('why_now') or '').strip()
             target = (default_route.get('target') or '').strip()

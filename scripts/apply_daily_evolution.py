@@ -58,6 +58,8 @@ def main():
         'meta': meta,
     })
 
+    active_route = default_route or existing.get('active_route') or {}
+
     state = {
         'user_id': args.user_id,
         'universe': args.universe,
@@ -70,6 +72,7 @@ def main():
         'pending_hooks': hooks,
         'suggested_routes': routes,
         'default_route': default_route,
+        'active_route': active_route,
         'last_advancement_level': args.advancement_level,
         'last_advancement_at': advancement_at,
         'last_major_advancement_at': advancement_at if args.advancement_level == 'major' else existing.get('last_major_advancement_at'),

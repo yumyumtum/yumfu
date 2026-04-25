@@ -109,6 +109,24 @@ def apply_major_advancement(result: dict, lang: str, sidecar: dict) -> dict:
     return result
 
 
+def enrich_with_active_route(result: dict, sidecar: dict, lang: str) -> dict:
+    active_route = sidecar.get('active_route') or sidecar.get('default_route') or {}
+    if not active_route:
+        return result
+    label = str(active_route.get('label') or '').strip()
+    target = str(active_route.get('target') or '').strip()
+    why = str(active_route.get('why_now') or '').strip()
+    meta = result.setdefault('meta', {})
+    meta.setdefault('world_detail_notes', [])
+    if lang == 'zh':
+        result['story_text'] = result.get('story_text', '').rstrip() + f" 这条局势没有散开，而是继续沿着你之前已经被推到面前的那条线发酵：{label or '当前主线'}。{('眼下最该盯的是' + target + '。') if target else ''}{('因为' + why) if why else ''}"
+        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + [f"当前 active route：{label or '当前主线'}"]
+    else:
+        result['story_text'] = result.get('story_text', '').rstrip() + f" This pressure has not scattered into random noise; it is still developing along the same line already in front of the player: {label or 'the current main line'}." + (f" The clearest target remains {target}." if target else '') + (f" {why}" if why else '')
+        meta['world_detail_notes'] = (meta.get('world_detail_notes') or []) + [f"Current active route: {label or 'the current main line'}"]
+    return result
+
+
 def build_route_payload(lang: str, hooks: list[str], meta: dict, location: str, fallback_target: str) -> tuple[list[dict], dict]:
     rumor_threads = meta.get('rumor_threads') or []
     npc_watchlist = meta.get('npc_watchlist') or []
@@ -658,6 +676,7 @@ def main():
         result = generic_update(save, world, sidecar)
         lang = normalize_lang(save.get('language')) or 'en'
 
+    result = enrich_with_active_route(result, sidecar, lang)
     result = apply_major_advancement(result, lang, sidecar)
     print(json.dumps({'success': True, 'result': result}, ensure_ascii=False, indent=2))
 
