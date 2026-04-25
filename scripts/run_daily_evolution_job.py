@@ -247,6 +247,175 @@ def got_update(save: dict, world: dict, sidecar: dict) -> dict:
     return chosen
 
 
+def lotr_update(save: dict, world: dict, sidecar: dict) -> dict:
+    character = save.get('character', {})
+    name = clean_name(character.get('name'), 'the wanderer')
+    location = clean_name(save.get('location'), 'the wild road')
+    role = clean_name(character.get('role'), 'traveler')
+    house = clean_name(character.get('house'), 'the Shadow')
+    inventory = save.get('inventory', []) or []
+    quest = (save.get('quests') or [{}])[0]
+    history = sidecar.get('history', [])
+    severity = pick_severity(f"lotr:{name}:{location}:{role}:{len(history)}:{datetime.now().date().isoformat()}")
+
+    notable_items = [item.get('name') for item in inventory[:4] if item.get('name')]
+    item_a = notable_items[0] if notable_items else 'the broken stone under your boots'
+    item_b = notable_items[1] if len(notable_items) > 1 else 'the sign that someone already tested this ground before you'
+    quest_name = clean_name(quest.get('name'), 'the current line')
+
+    seeds = [
+        {
+            'summary': 'The stone remembers the struggle, and someone else has begun reading it too.',
+            'story_text': f"The pressure around {location} has changed from brute force to reading signs. What was broken in the last clash has not simply lain there: blood on iron, cracked white stone, and splintered staff-work have already started to sort the field into clues. Someone nearby now understands that this place is not merely a kill ground, but a hinge point in {quest_name}. A scavenger, watcher, or hidden servant has begun gathering what should have remained scattered. In Middle-earth, that matters. Whoever gathers the fragments first does not just learn what happened — they decide what story the next force believes. If you step back in now, you are not returning to a frozen battlefield. You are returning to a contested memory. Do you seize the fragments, follow the collector, or set a second trap and wait to see who comes for them?",
+            'hooks': [
+                'Gather the surviving fragments before another hand carries them off.',
+                'Track whoever has started reading the battlefield for meaning.'
+            ],
+            'meta': {
+                'rumor_threads': ['the battleground is already being quietly searched'],
+                'faction_movements': ['a second layer of control is forming around the broken stair edge'],
+                'npc_watchlist': ['the unseen collector', 'whoever responds to missing fragments'],
+                'item_threads': [item_a, item_b],
+            },
+            'image_prompt': 'Broken white stair edge in Middle-earth, scattered war relics, black iron and pale shattered stone, unseen scavenger presence, tension after Gandalf clash, epic Tolkien oil painting style'
+        },
+        {
+            'summary': 'The ring of pressure is no longer only steel; command itself is shifting.',
+            'story_text': f"While you were away, the danger near {location} became more organized. What had been a vicious crush is beginning to harden into a command question: who owns the ground, who controls the next signal, and who gets to turn this wound in the stone into future authority? That matters more than one more corpse. In a place like this, fear is useful only until someone learns how to arrange it. Your rivals, allies, and watchers all understand that if {house} can turn this edge into a real base rather than a moment of blood, the whole line south changes. But that also means everyone with ambition now has reason to test your grip. Do you lock down the gate-keys and signal points, question the captains who grew quieter, or move first toward the next approach before another will claims the initiative?",
+            'hooks': [
+                'Lock down the signal points before command slips sideways.',
+                'Question the suddenly disciplined captains before they regroup in private.'
+            ],
+            'meta': {
+                'rumor_threads': ['the stone victory is turning into a command struggle'],
+                'faction_movements': ['control of signals and gate authority is being quietly contested'],
+                'npc_watchlist': ['the captain who grows too careful', 'the hand seeking the keys'],
+                'item_threads': ['Signal Horn', item_a],
+            },
+            'image_prompt': 'Orc-held fortress edge in Middle-earth, signal horn, gate chains, captains under torchlight, command tension after siege victory, dark epic fantasy oil painting'
+        },
+        {
+            'summary': 'A usable road is opening, but only if you read the burden correctly.',
+            'story_text': f"Something important has changed in the road beyond {location}: what looked like a trapped edge is starting to become a route. That is dangerous in a different way. Once a battlefield turns into a road, every surviving object matters more — the horn that rallied, the shard that broke under pressure, the blood proof that a greater foe can be cut, the stores that keep a warband moving. In Middle-earth, roads do not merely connect places; they connect burdens. And right now, the burden around you is deciding whether this line becomes terror, logistics, or invitation. If you move too slowly, others will define the road for you. If you move too quickly, you may march your strength onto ground that has already been measured by unseen eyes. Do you scout the next road, fortify the current hold, or turn one captured proof into a threat the next enemy cannot ignore?",
+            'hooks': [
+                'Scout the next road before watchers turn it against you.',
+                'Choose one captured proof and make it the center of the next threat.'
+            ],
+            'meta': {
+                'rumor_threads': ['the battlefield is becoming a route rather than a ruin'],
+                'faction_movements': ['the next march line is beginning to take shape'],
+                'npc_watchlist': ['the first scout to return', 'the watcher measuring the road'],
+                'item_threads': notable_items[:3] or [item_a],
+            },
+            'image_prompt': 'Harsh Middle-earth war road opening from shattered fortress edge, torches, black standards, relics of battle repurposed for the next march, Tolkien-style oil painting'
+        },
+    ]
+
+    idx = int(hashlib.md5(f"lotr:{name}:{location}:{role}:{house}:{len(history)}".encode()).hexdigest(), 16) % len(seeds)
+    chosen = seeds[idx]
+    chosen['severity'] = severity
+    chosen['world_id'] = world.get('id', 'lotr')
+    chosen['character_name'] = name
+    chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    chosen['image_prompt'] = chosen['image_prompt'] + ' , visual continuity from the player\'s current LOTR campaign arc, not a disconnected new scene'
+    routes, default_route = build_route_payload('en', chosen.get('hooks', []), chosen.get('meta', {}), location, quest_name)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
+    chosen['meta'].setdefault('world_detail_notes', [
+        f'Current role: {role}',
+        f'Current faction: {house}',
+        f'Current quest line: {quest_name}',
+    ])
+    return chosen
+
+
+def journey_to_west_update(save: dict, world: dict, sidecar: dict) -> dict:
+    character = save.get('character', {})
+    name = clean_name(character.get('name'), '未定名')
+    location = clean_name(save.get('location'), '西行古道')
+    quest = (save.get('quests') or [{}])[0]
+    quest_name = clean_name(quest.get('name'), '西行第一步')
+    flags = save.get('flags', {}) or {}
+    history = sidecar.get('history', [])
+    severity = pick_severity(f"jtw:{name}:{location}:{quest_name}:{len(history)}:{datetime.now().date().isoformat()}")
+
+    pending_creation = bool(flags.get('character_creation_pending'))
+
+    if pending_creation:
+        seeds = [
+            {
+                'summary': '你还没选身份，可这片天地已经先朝你递来了第一张牌。',
+                'story_text': f"{location} 的风这两天变得不一样了。古道上不只是一队行脚僧和驮盐的毛驴来回经过，连本该各守天命的几股势力，也像是在等谁先开口。道旁茶摊有人低声谈起五行山下又有金光浮起，路过的香客却说西梁方向最近夜里常有妖气逆风而上；更怪的是，一个挑担老者明明只是擦肩而过，却把“别急着选边，先看谁最先来试你”这句话留在了你耳边。你还未真正入局，但西游世界已经在试探你更像护经人、成妖者、天庭棋子，还是会把三界都搅浑的那类人。你若现在踏进去，第一步就不是空白，而是立场。",
+                'hooks': ['先顺着五行山那道金光去看。', '先查是谁在古道上故意试你的口风。'],
+                'meta': {
+                    'rumor_threads': ['五行山下又有金光浮起', '西梁方向夜里妖气逆风而上'],
+                    'faction_movements': ['各方势力都在等新入局者先表态'],
+                    'npc_watchlist': ['挑担老者', '古道茶摊说书人'],
+                    'item_threads': ['未曾启封的身份', '第一张立场牌'],
+                },
+                'image_prompt': 'Classic Journey to the West fairy-tale illustration, bright ancient road west of Tang border, distant golden glow near Five-Finger Mountain, mythic travelers and hidden destiny, no dark realism'
+            },
+            {
+                'summary': '身份未定时，最先靠近你的往往不是朋友，而是机会。',
+                'story_text': f"你还没有把自己的名字和身份钉在这条路上，这恰恰让机会先来了。{location} 附近今天多了两种完全不同的气息：一边是带着檀香与经卷味的清净路数，像是佛门护经线在悄悄试探；另一边却是妖风里夹着甜腻果香，像哪处山精已经把你也当成了可拉拢、可利用、也可吞掉的新棋子。西游世界从来不是等人准备好再开门，它只会在你犹豫时，把门一扇扇推到你面前。你若拖得太久，别人就会替你定义第一步。",
+                'hooks': ['先接近佛门那条清净线。', '先摸清妖风背后是哪一路山精。'],
+                'meta': {
+                    'rumor_threads': ['佛门护经线在边界探路', '妖风携果香，像在招新棋子'],
+                    'faction_movements': ['佛门与妖线都在边界轻轻试探'],
+                    'npc_watchlist': ['边路僧人', '藏在果香后的山精'],
+                    'item_threads': ['经卷气息', '果香妖风'],
+                },
+                'image_prompt': 'Bright classic Journey to the West illustration, Tang border ancient road, one side Buddhist incense scroll glow, another side sweet demon mist from hills, colorful mythic fork in destiny'
+            },
+        ]
+    else:
+        seeds = [
+            {
+                'summary': '路上的妖气不是乱起的，它像是在等某件东西露面。',
+                'story_text': f"{location} 这一带的动静已经不再只是普通风声。近两日传出来的怪话都指向同一个意思：有人，或有妖，正在等一件能把{quest_name}往前推的东西露面。可能是一封法旨、一件法宝、一位护经人的名号，也可能只是某个不该出现在这里的脚印。西游里的局，最怕的不是妖怪明着拦路，而是它们先把‘该由谁出手’这件事算清了。若你现在回身接这条线，接到的就不只是下一段路，而是这条路背后谁在布局。",
+                'hooks': ['先查最近被反复提到的那件“该露面的东西”。', '先盯最像提前埋伏的人或妖。'],
+                'meta': {
+                    'rumor_threads': ['有人在等关键物件或名号露面'],
+                    'faction_movements': ['拦路一方开始提前布局，不再只是临时起意'],
+                    'npc_watchlist': ['提前埋伏的探子', '最先提起关键物件的人'],
+                    'item_threads': ['法旨', '法宝', '不该出现的脚印'],
+                },
+                'image_prompt': 'Classic colorful Journey to the West myth illustration, roadside shrine and demon signs, hidden artifact expectation, bright fairy-tale atmosphere, classic Chinese children\'s myth art'
+            },
+            {
+                'summary': '真正往前推这条路的，也许不是法力，而是谁先看懂因果。',
+                'story_text': f"你离开的这段时间，{location} 一带多了些看似不吓人的变化：求签的人忽然变多，路边小庙的香灰也厚得不正常，连讨水喝的行脚人都开始问起同一个方向。这种热闹，在西游里从来不只是热闹。它说明因果线正在往这里聚，说明接下来出现的人、妖、神、怪，未必最强，却一定最有来历。若你只是回来看一眼风景，就会错过谁才是这一难里真正该盯的核心。若你顺着这股因果去摸，下一步就不会只是‘继续赶路’，而是先挑哪一根线开刀。",
+                'hooks': ['先查同一个方向为什么被反复问起。', '先摸清这股因果线最先会引来谁。'],
+                'meta': {
+                    'rumor_threads': ['同一方向被反复问起', '小庙香灰厚得异常'],
+                    'faction_movements': ['新的因果线正在把不同势力往这里拉'],
+                    'npc_watchlist': ['问路最多的人', '庙里最沉默的看香人'],
+                    'item_threads': ['签筒', '香灰', '问路方向'],
+                },
+                'image_prompt': 'Journey to the West classic fairy-tale illustration, roadside shrine with thick incense ash, pilgrims and hidden immortals, colorful mythic causality gathering around a travel path'
+            },
+        ]
+
+    idx = int(hashlib.md5(f"jtw:{name}:{location}:{quest_name}:{len(history)}:{pending_creation}".encode()).hexdigest(), 16) % len(seeds)
+    chosen = seeds[idx]
+    chosen['severity'] = severity
+    chosen['world_id'] = world.get('id', 'journey-to-west')
+    chosen['character_name'] = name
+    chosen['location_context'] = location
+    chosen['recap_text'] = build_recap(save, world, sidecar)
+    chosen['image_prompt'] = chosen['image_prompt'] + ' , visual continuity from the player\'s current Journey to the West arc, not a disconnected standalone tableau'
+    routes, default_route = build_route_payload('zh', chosen.get('hooks', []), chosen.get('meta', {}), location, quest_name)
+    chosen['suggested_routes'] = routes
+    chosen['default_route'] = default_route
+    chosen['meta'].setdefault('world_detail_notes', [
+        f'当前地点：{location}',
+        f'当前主线：{quest_name}',
+        '当前世界会先通过立场、因果与来历来定义危险，而不只是战力',
+    ])
+    return chosen
+
+
 def sengoku_update(save: dict, world: dict, sidecar: dict) -> dict:
     character = save.get('character', {})
     name = clean_name(character.get('name'), '无名之辈')
@@ -435,6 +604,10 @@ def main():
         result = got_update(save, world, sidecar)
     elif args.universe == 'sengoku':
         result = sengoku_update(save, world, sidecar)
+    elif args.universe == 'lotr':
+        result = lotr_update(save, world, sidecar)
+    elif args.universe == 'journey-to-west':
+        result = journey_to_west_update(save, world, sidecar)
     else:
         result = generic_update(save, world, sidecar)
 
