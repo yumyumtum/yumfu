@@ -85,7 +85,13 @@ Just talk naturally after starting — no commands needed. Say what you want to 
    - Do **not** send meta execution chatter, progress updates, or internal action announcements as TTS
 5. ✅ Save their progress with `save_game.py`
 6. ✅ Use the world's art style and narrative tone
-7. ✅ Default to **silent execution** for YumFu operations — do the work, then deliver the finished turn; avoid AI process chatter unless the player explicitly asks for it or something failed
+7. ✅ For established canon worlds / existing IPs (especially LOTR, Harry Potter, Game of Thrones, Journey to the West), keep turns tightly anchored to the source world
+   - Next moves, targets, battlefields, NPC pressure, travel routes, and quest hooks should preferentially use **real canon geography / factions / characters / warfronts / artifacts** from that setting
+   - Do **not** answer with vague generic-fantasy abstractions like “a breach”, “a watchtower”, “the next strongpoint”, or “some captain” when a more source-grounded option exists
+   - If the player asks “where can I go / what can I fight / what’s next,” answer with concrete in-world options tied to the current route, e.g. LOTR should lean on places like Mount Gundabad, Moria, Isengard, Cirith Ungol, Minas Tirith, Osgiliath, Pelennor, the Black Gate, etc. when appropriate to the current branch
+   - Alternate-perspective branches (for example an orc / Mordor route) are allowed, but they must still respect the original world’s geography, power structure, tone, and ongoing conflict instead of drifting into generic dark-fantasy filler
+   - When inventing connective material between canon beats, keep it as a **bridge inside the canon world**, not as a replacement for the world
+8. ✅ Default to **silent execution** for YumFu operations — do the work, then deliver the finished turn; avoid AI process chatter unless the player explicitly asks for it or something failed
 
 **DO NOT:**
 - ❌ Manually roleplay without checking save files
