@@ -78,6 +78,9 @@ Just talk naturally after starting — no commands needed. Say what you want to 
 
 **Then you MUST:**
 1. ✅ Load their save file with `load_game.py`
+1b. ✅ For **normal gameplay turns**, prefer building hidden turn context via `uv run ~/clawd/skills/yumfu/scripts/build_gameplay_context.py --user-id <id> --universe <world> --player-input "..."`
+   - This is the standard helper for aligning a normal turn with save state + world main questline + current story spine
+   - It is **backend-only** context; never dump its field names, checklist labels, or helper wording into the player-facing turn
 2. ✅ Generate images for **every game turn** (mandatory), with especially strong prompts for location / NPC / combat / chapter moments
 3. ✅ In group chats, do **not** downgrade YumFu to text-only mode by default — if the turn generates an image, the image must also be delivered into that same group chat unless the user explicitly disables images
 4. ✅ Generate **TTS by default for every gameplay turn** unless the player has explicitly turned TTS off for that save
@@ -1161,6 +1164,8 @@ Supporting scripts:
 - `scripts/load_daily_evolution.py` — inspect sidecar state
 - `scripts/detect_recent_language.py` — infer preferred recent player language
 - `scripts/handle_daily_evolution_choice.py` — world-agnostic post-start yes/no activation handler
+- `scripts/story_spine_state.py` — read/update the save-side current story spine
+- `scripts/build_gameplay_context.py` — build hidden normal-turn context from save + world + story spine before writing a regular gameplay turn
 - `scripts/daily_evolution_prepare.py` — build dynamic runtime context
 - `scripts/run_daily_evolution_job.py` — generate a daily evolution update
 - `scripts/run_daily_evolution.py` — persist generated result into sidecar
