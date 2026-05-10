@@ -16,6 +16,23 @@
   ],
   "description_zh": "维斯特洛大陆，七大王国争夺铁王座。血与火的征服，权力与背叛的游戏，凛冬将至的预言。龙、异鬼、三眼乌鸦，谁将坐上铁王座？",
   "description_en": "The Seven Kingdoms of Westeros torn by civil war. Dragons, White Walkers, and the Three-Eyed Raven. Play the game of thrones - you win or you die. Winter is coming.",
+  "main_questline": {
+    "main_objective": "Survive the struggle for power long enough to decide both who rules Westeros and whether the realm survives the Long Night.",
+    "current_major_tasks": [
+      "build and protect your house power base",
+      "navigate alliances, betrayals, and court intrigue",
+      "prepare for the White Walker threat before southern politics consumes everything",
+      "choose whether to pursue the Iron Throne, regional survival, or a realm-saving coalition"
+    ],
+    "major_story_threads": [
+      "the Iron Throne succession war",
+      "the rise of dragons and Daenerys in Essos",
+      "the hidden truth of Jon Snow and northern legitimacy",
+      "the White Walker invasion and the need to unify the realm",
+      "the final settlement of rule after the last war"
+    ],
+    "default_route_logic": "Even when the player detours into house drama or local intrigue, the story should keep pointing back to the linked pressures of succession war, alliance survival, and the coming Long Night."
+  },
   "content_warnings": [
     "Violence and gore",
     "Political executions",

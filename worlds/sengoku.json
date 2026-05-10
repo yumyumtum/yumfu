@@ -19,6 +19,22 @@
   ],
   "description_zh": "以日本战国末期为主体的架空乱世：织田信长、丰臣秀吉、德川家康、武田信玄等群雄并起，朝鲜名将、明朝名臣、白人火枪火炮技师、野心名妓、浪人与新选组式强力治安组织也卷入其中。你可在火枪、城池、商路、谍报与美人之间经营自己的势力。",
   "description_en": "An alternate-history late Sengoku sandbox where Oda Nobunaga, Toyotomi Hideyoshi, Tokugawa Ieyasu, Takeda Shingen, Korean commanders, Ming statesmen, European gunners, ambitious courtesans, ronin, and even Shinsengumi-style enforcers collide in one great age of war.",
+  "main_questline": {
+    "main_objective": "在乱世中把自己的势力从一线人物或隐秘网络推到足以左右天下格局的位置，并决定你是成就天下、操控天下，还是被天下吞没。",
+    "current_major_tasks": [
+      "建立最小可用势力：兵粮、火器、地盘、人脉",
+      "在大名争霸与跨海势力介入之间选边或骑墙获利",
+      "通过联姻、密探、花街、商路与战役同时扩张影响力",
+      "在最终天下人之争前决定你是军阀、影主、海商霸主还是秩序缔造者"
+    ],
+    "major_story_threads": [
+      "织田、丰臣、德川、武田等主线势力重排天下",
+      "火绳枪、火炮、攻城术改变战争规则",
+      "忍者、密探、名妓、叛徒共同改写政局",
+      "明朝、朝鲜、南蛮势力跨海介入，放大战局"
+    ],
+    "default_route_logic": "无论玩家当前在打仗、经商、谍报、联姻还是花街经营，剧情都应持续提醒：这些动作最终都在服务于势力扩张与天下格局重排这条主线。"
+  },
   "status": "playable",
   "art_style": "Japanese ukiyo-e woodblock print style (浮世绘 / ukiyo-e) for Sengoku war drama, bold ink outlines, flat layered colors, textured washi paper, dramatic banners, lacquer armor, torchlit castles, smoky battlefields, matchlocks and cannons, crimson-black-indigo-gold palette",
   "art_style_key": "sengoku-ukiyoe-war-drama",

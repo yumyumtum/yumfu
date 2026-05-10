@@ -11,6 +11,22 @@
 
   "description": "东汉末年，天下大乱。魏、蜀、吴三分天下。你将在这个乱世中书写自己的故事——是忠义两全的英雄，还是乱世枭雄，亦或是运筹帷幄的谋士？龙虾三国，乱世由你主宰。",
   "description_en": "The Han Dynasty crumbles. Three kingdoms rise: Wei, Shu, and Wu. Will you forge your legend as a loyal general, cunning strategist, or ruthless warlord? The Three Realms await.",
+  "main_questline": {
+    "main_objective": "在群雄割据到三国鼎立的乱世中，为自己选定忠义、野心或生存之道，并最终决定你是辅佐一国成霸业，还是亲手改写三国格局。",
+    "current_major_tasks": [
+      "先在乱世中站稳脚跟：军功、谋略、钱粮、人脉至少占住一头",
+      "在魏蜀吴与地方军阀之间选边、骑墙或背叛求生",
+      "围绕关键大战、名将招募与地盘控制持续积累威望",
+      "把个人成长线推入国运线：你到底是在成全一国，还是成全自己"
+    ],
+    "major_story_threads": [
+      "汉室崩坏与群雄争霸",
+      "官渡、赤壁、入蜀、北伐等大战决定时代走势",
+      "忠义值、野心值、威望共同改变你的立场与结局",
+      "名将、谋士、商路、细作都会把你推向更大的权力漩涡"
+    ],
+    "default_route_logic": "即使玩家暂时沉迷单挑、经商、刺探或招募，也要持续把剧情拉回到阵营归属、时代大战与最终三国格局这条主线上。"
+  },
 
   "lore": {
     "era": "东汉末年 / 三国时代 (184-280 CE)",

@@ -9,6 +9,22 @@
   "description": "A realistic modern military strategy game set in a fictionalized Middle East. Choose your faction and navigate the complex web of alliances, proxy wars, and moral dilemmas in a region on the brink of total war.",
   
   "description_zh": "设定在虚构中东的现代军事策略游戏。选择你的阵营，在这个濒临全面战争的地区中，应对复杂的联盟关系、代理人战争和道德困境。",
+  "main_questline": {
+    "main_objective": "在90天战役窗口内，让自己的阵营在军事、外交、资源与舆论四条线上活下来，并决定这场半岛战争会走向停火、霸权还是全面失控。",
+    "current_major_tasks": [
+      "稳住前线、空域、补给线与政治后方",
+      "在特种行动、代理人冲突与公开战役之间做取舍",
+      "控制升级节奏，避免被国际孤立或内部政变反噬",
+      "围绕最终停火条件、区域霸权或全面战争升级做主线抉择"
+    ],
+    "major_story_threads": [
+      "刺杀事件引爆地区连锁反应",
+      "各阵营的联盟、代理人与能源路线重组",
+      "火线战果与国际舆论同时决定战局",
+      "战争终局取决于军力、谈判与社会承受力的平衡"
+    ],
+    "default_route_logic": "即使玩家在单次行动、局部反击或特殊作战里打得很投入，也要持续提醒：所有行动都服务于整场90天战役的胜负与升级控制。"
+  },
   
   "playable_factions": [
     "western_alliance",

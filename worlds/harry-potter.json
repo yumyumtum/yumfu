@@ -9,6 +9,22 @@
   "themes": ["friendship", "coming-of-age", "good-vs-evil", "school-life"],
   "description_zh": "霍格沃茨魔法学校，四大学院竞争，黑魔王的阴影笼罩巫师界。7年学习之旅，友谊与成长。",
   "description_en": "Hogwarts School of Witchcraft and Wizardry - a 7-year magical education journey. Four houses compete, friendships form, and the Dark Lord's shadow looms. Grow from first-year to powerful wizard.",
+  "main_questline": {
+    "main_objective": "从霍格沃茨新生一路成长为能左右魔法世界命运的巫师，并在学业、友谊与黑魔王阴影之间决定自己最终站在哪一边。",
+    "current_major_tasks": [
+      "完成当前学年课程、考试与学院竞争",
+      "调查校园与魔法界背后的黑暗线索",
+      "经营友谊、师生关系与禁忌知识带来的机会和代价",
+      "随着伏地魔势力回归，逐步把个人校园线推进为整个魔法世界的战争线"
+    ],
+    "major_story_threads": [
+      "七学年成长线与逐年升级的校园危机",
+      "学院、课程、考试与关系共同塑造角色道路",
+      "伏地魔阴影从传闻逐渐变成公开战争",
+      "最终抉择是做纯粹学生、战斗者、研究者还是时代关键人物"
+    ],
+    "default_route_logic": "即使玩家在日常上课、恋爱、社交或支线探索里打转，也要持续提醒：他仍在自己的学年主线里，并且整个世界正在朝黑暗战争推进。"
+  },
   
   "gameplay_pacing": {
     "school_year_system": true,

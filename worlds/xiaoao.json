@@ -9,6 +9,22 @@
   "themes": ["权谋", "情感", "正邪", "背叛"],
   "description_zh": "华山派内部气剑之争，正邪两道恩怨纠葛，剑宗复仇计划暗流涌动。江湖险恶，人心难测。",
   "description_en": "Internal conflict between sword and qi schools of Mt. Hua Sect, clash between orthodox and unorthodox martial artists",
+  "main_questline": {
+    "main_objective": "在华山内斗、正邪纷争与个人情感纠葛之间活下来，并决定自己最终站在哪一边。",
+    "current_major_tasks": [
+      "在门派与江湖之间建立立足之地",
+      "看清华山气剑之争背后的权力与复仇线",
+      "在正派、魔教、独行路之间做出立场选择",
+      "追逐高阶武学传承，同时承担由此带来的江湖代价"
+    ],
+    "major_story_threads": [
+      "华山派内部气宗与剑宗旧怨复燃",
+      "日月神教与正派之间的全面冲突",
+      "风清扬、独孤九剑、绝世传承的出现",
+      "感情、师门、名声与善恶值共同推动终局"
+    ],
+    "default_route_logic": "即使玩家在游历、比武、修炼或支线艳情里绕开主战场，也要持续把他拉回到门派站队、江湖立场与终极对决这条主线上。"
+  },
   
   "gameplay_pacing": {
     "min_hours_to_master_skill": 3,

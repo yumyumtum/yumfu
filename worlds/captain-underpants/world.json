@@ -13,6 +13,22 @@
 
   "description": "杰罗德小学，全世界最无聊的地方——直到乔治和哈罗德把校长本杰明·克兰普被催眠成了内裤超人。从此，这所学校再也不得安宁。巨型马桶、会走路的内裤、放屁教授、用鼻涕打架的外星人……这里的每一天都是一场屁声震天的冒险！",
   "description_en": "Jerome Horwitz Elementary School — the most boring place on Earth, until George and Harold hypnotized Principal Krupp into Captain Underpants. Giant toilets, sentient underpants, Professor Poopypants, snot-flinging aliens... every day is a tra-la-laaaa-mendous adventure!",
+  "main_questline": {
+    "main_objective": "在杰罗德小学不断升级的荒唐危机里，一边保住乔治、哈罗德与内裤超人的搞怪正义联盟，一边决定这座学校会沦为无聊暴政还是成为屁声震天的英雄乐园。",
+    "current_major_tasks": [
+      "处理校长、老师、告密者与超级反派不断升级的威胁",
+      "保护幽默感、想象力与伙伴关系不被坏蛋消灭",
+      "在恶作剧、校园秩序和真正的超级危机之间找平衡",
+      "把单次闹剧逐步推向全校级、全城级甚至世界级搞怪大战"
+    ],
+    "major_story_threads": [
+      "乔治与哈罗德持续制造混乱又必须收拾残局",
+      "克鲁普与内裤超人双重身份不断引发新危机",
+      "屎尿教授、纸尿裤博士、内裤奶奶等反派轮番升级",
+      "保卫幽默感与想象力是整条游戏的长期主线"
+    ],
+    "default_route_logic": "即使玩家沉迷单次笑话、某个道具或校园事故，也要持续把故事拉回到‘保住搞怪正义联盟，对抗无聊与邪恶升级’这条主线上。"
+  },
 
   "factions": [
     {

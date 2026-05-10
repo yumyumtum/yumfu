@@ -9,6 +9,22 @@
   "themes": ["friendship", "loyalty", "nature", "coming-of-age", "animal-adventure"],
   "description_zh": "野猫部落的传奇故事，四大部落为领地和猎物而战，遵循星族指引和武士守则。从幼猫成长为伟大族长的旅程。",
   "description_en": "Epic tales of feral cat clans living wild in the forest. Four clans battle for territory and honor, guided by StarClan ancestors and the sacred Warrior Code. Journey from tiny kit to legendary leader.",
+  "main_questline": {
+    "main_objective": "从幼猫一路成长为能左右部落命运的武士、族长或传奇守护者，同时决定你要如何守住族群、领地与武士守则。",
+    "current_major_tasks": [
+      "在成长仪式中完成从幼猫到学徒再到武士的晋阶",
+      "在狩猎、巡逻、边界冲突和星族征兆之间建立自己的名声",
+      "处理部落忠诚、禁忌关系、权力更替与外敌威胁",
+      "决定是把部落带向稳定、复仇、统一还是灾变"
+    ],
+    "major_story_threads": [
+      "四大部落的领地与猎物冲突",
+      "星族预言与祖灵警告不断推动主线",
+      "战士守则、忠诚、爱情与野心互相冲突",
+      "从个人成长线逐步进入部落级生存与领导线"
+    ],
+    "default_route_logic": "即使玩家沉浸在日常训练、狩猎或关系戏里，也要持续把故事拉回到成长晋阶、部落责任与即将到来的大冲突。"
+  },
   
   "gameplay_pacing": {
     "rank_based_progression": true,
