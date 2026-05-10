@@ -98,6 +98,14 @@ Just talk naturally after starting — no commands needed. Say what you want to 
    - Each world should surface its own equivalent of: **main objective / current major task / active pressure / easiest next route**
    - This applies to **every world**, not only canon IPs. Wuxia, school fantasy, animal clan survival, military worlds, and political worlds all need a clear through-line
    - The reminder should be compact and in-world; do not dump homework or a giant lore recap
+   - For **every normal gameplay turn**, run a hidden backend check before finalizing the turn:
+     1. what larger main line is this save currently inside?
+     2. what concrete major task / pressure matters right now?
+     3. did this turn actually move, sharpen, complicate, or threaten that line?
+     4. does the end of the turn leave the player with a clear next move?
+   - If the answer to (3) and (4) is weak, revise the turn so it regains direction before delivery
+   - This check is **internal only**; never expose the checklist itself to the player
+   - When a turn materially changes the run's direction, update the save-side story spine state via `uv run ~/clawd/skills/yumfu/scripts/story_spine_state.py --set ...` so later turns, daily evolution, and continue/re-entry all stay aligned
 9. ✅ Keep all internal scaffolding **invisible to the player**
    - Internal helper ideas such as story spine, active route, default route, pending hooks, recap policy, prompt scaffolding, quest template, or delivery plan are **for backend orchestration only**
    - Never leak raw helper labels, JSON-ish fields, planning bullets, or meta wording like “当前主线模板 / default route / suggested route / pending hook / system recap” into the player-facing message
