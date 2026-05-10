@@ -69,10 +69,17 @@ def extract_story_spine(world: dict, save: dict) -> dict:
         'chapter_milestones': chapter_lines[:8],
         'major_plot_gates': gate_lines[:6],
         'progression_blockers': blocker_lines[:6],
+        'key_figures': (world.get('key_figures') or [])[:5],
+        'city_hubs': (world.get('city_and_region_hubs') or [])[:4],
+        'relationship_webs': (world.get('relationship_webs') or [])[:4],
+        'story_pressure_tracks': (world.get('story_pressure_tracks') or [])[:4],
+        'quest_hubs': (world.get('quest_hubs') or [])[:4],
+        'item_threads': (world.get('item_threads') or [])[:4],
         'instruction': (
             'Keep the player oriented toward the world\'s main story spine. '
             'Every daily evolution update should remind them what larger line they are already inside, '
             'what current major task / pressure matters most, and what concrete route naturally follows next. '
+            'Use the world\'s richer structure when useful: key figures, hubs, relationship webs, pressure tracks, and item threads should give the update specific named texture instead of generic filler. '
             'Do not let the world drift into generic atmosphere with no recognizable main objective.'
         )
     }
@@ -151,6 +158,16 @@ def main():
             'description_en': world.get('description_en'),
             'description_zh': world.get('description_zh'),
             'world_path': world_path,
+            'key_figures': (world.get('key_figures') or [])[:5],
+            'city_and_region_hubs': (world.get('city_and_region_hubs') or [])[:4],
+            'relationship_webs': (world.get('relationship_webs') or [])[:4],
+            'major_items_and_artifacts': (world.get('major_items_and_artifacts') or [])[:5],
+            'mainline_stages': (world.get('mainline_stages') or [])[:5],
+            'subfaction_networks': (world.get('subfaction_networks') or [])[:4],
+            'quest_hubs': (world.get('quest_hubs') or [])[:4],
+            'city_subzones': (world.get('city_subzones') or [])[:4],
+            'story_pressure_tracks': (world.get('story_pressure_tracks') or [])[:4],
+            'item_threads': (world.get('item_threads') or [])[:4],
         },
         'player': {
             'user_id': args.user_id,

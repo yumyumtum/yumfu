@@ -39,14 +39,29 @@ def main():
     location = data.get('location') or 'the current scene'
     quest = data.get('active_quest') or story_spine.get('current_main_task') or 'the active quest'
     main_objective = story_spine.get('main_objective') or ''
+    pressure_tracks = story_spine.get('story_pressure_tracks') or []
+    key_figures = story_spine.get('key_figures') or []
+    hubs = story_spine.get('city_hubs') or []
     quest_line = f"你现在仍在推进「{quest}」。" if lang != 'zh' or any('\u4e00' <= ch <= '\u9fff' for ch in quest) else "你现在还在推进当前主线。"
 
     if lang == 'zh':
         objective_line = f"这条世界主线眼下压在你身上的事，是「{main_objective}」。" if main_objective else ''
+        pressure_line = ''
+        if pressure_tracks:
+            p = pressure_tracks[0]
+            pressure_line = f" 眼下最压人的，是「{p.get('name', '局势压力')}」：{p.get('pressure', '')}".rstrip()
+        figure_line = ''
+        if key_figures:
+            f0 = key_figures[0]
+            figure_line = f" {f0.get('name', '某个关键人物')}这条线还没从局里退下。"
+        hub_line = ''
+        if hubs:
+            h0 = hubs[0]
+            hub_line = f" {h0.get('name', '关键地点')}仍会是你接下来绕不开的地方。"
         text = (
             f"你回来时，{location} 的局势已经轻轻变了。"
             f"{summary or '你离开的这段时间，暗线还在往前推，只是风声比之前更紧。'}\n\n"
-            f"{quest_line}{objective_line}先别做功课，直接接回现场。"
+            f"{quest_line}{objective_line}{pressure_line}{figure_line}{hub_line}先别做功课，直接接回现场。"
         )
         if active_route:
             label = (active_route.get('label') or '当前主线').strip()
@@ -77,10 +92,22 @@ def main():
                 text += "\n\n如果你现在不选，我会默认沿这条线把主剧情往前推：\n- " + default_line
     else:
         objective_line = f" The larger main line still hanging over this run is: '{main_objective}'." if main_objective else ''
+        pressure_line = ''
+        if pressure_tracks:
+            p = pressure_tracks[0]
+            pressure_line = f" The sharpest pressure right now is '{p.get('name', 'current pressure')}': {p.get('pressure', '')}."
+        figure_line = ''
+        if key_figures:
+            f0 = key_figures[0]
+            figure_line = f" {f0.get('name', 'A key figure')} is still part of the line you cannot ignore."
+        hub_line = ''
+        if hubs:
+            h0 = hubs[0]
+            hub_line = f" {h0.get('name', 'A key hub')} is still where the story naturally pulls next."
         text = (
             f"When {character} returns to {location}, the scene has shifted slightly: "
             f"{summary or 'something nearby changed while you were away.'}\n\n"
-            f"You are still in the middle of '{quest}'.{objective_line} Do not dump lore; pull the player straight back into the scene."
+            f"You are still in the middle of '{quest}'.{objective_line}{pressure_line}{figure_line}{hub_line} Do not dump lore; pull the player straight back into the scene."
         )
         if active_route:
             label = (active_route.get('label') or 'Active line').strip()

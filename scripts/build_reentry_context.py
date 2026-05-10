@@ -65,6 +65,12 @@ def build_story_spine(universe: str, save: dict) -> dict:
         'mainline_beats': mainline_beats,
         'chapter_milestones': chapter_milestones,
         'major_plot_gates': major_plot_gates,
+        'key_figures': (world.get('key_figures') or [])[:5],
+        'city_hubs': (world.get('city_and_region_hubs') or [])[:4],
+        'relationship_webs': (world.get('relationship_webs') or [])[:4],
+        'story_pressure_tracks': (world.get('story_pressure_tracks') or [])[:4],
+        'item_threads': (world.get('item_threads') or [])[:4],
+        'quest_hubs': (world.get('quest_hubs') or [])[:4],
     }
 
 
@@ -244,6 +250,7 @@ def main():
             'When the player returns, briefly pull them back into the scene using the latest daily evolution summary and the world\'s current main story spine, '
             'then offer one easy natural next move in the player\'s preferred language. '
             'Always restate the current main task / main line in a compact way so the player does not forget what they are actually doing in this world. '
+            'Use enriched world context when useful: named figures, hubs, pressure tracks, and item threads should help the re-entry feel specific instead of generic. '
             'Prefer one concrete active route over vague lore recap. '
             'If a stored active/default route exists, surface it as the easiest path back in when the player seems cold or has been away. '
             'If the save has a canonical language, do not drift away from it automatically. '

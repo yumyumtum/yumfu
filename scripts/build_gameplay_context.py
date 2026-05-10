@@ -46,6 +46,28 @@ def summarize_recent_flags(flags: dict[str, Any]) -> list[str]:
     return lines
 
 
+def _pick_list(value: Any, limit: int = 5) -> list[Any]:
+    if not isinstance(value, list):
+        return []
+    return value[:limit]
+
+
+def enrich_world_runtime(world: dict[str, Any]) -> dict[str, Any]:
+    return {
+        'main_questline': world.get('main_questline') or {},
+        'key_figures': _pick_list(world.get('key_figures')),
+        'city_and_region_hubs': _pick_list(world.get('city_and_region_hubs')),
+        'relationship_webs': _pick_list(world.get('relationship_webs')),
+        'major_items_and_artifacts': _pick_list(world.get('major_items_and_artifacts')),
+        'mainline_stages': _pick_list(world.get('mainline_stages')),
+        'subfaction_networks': _pick_list(world.get('subfaction_networks')),
+        'quest_hubs': _pick_list(world.get('quest_hubs')),
+        'city_subzones': _pick_list(world.get('city_subzones'), limit=4),
+        'story_pressure_tracks': _pick_list(world.get('story_pressure_tracks')),
+        'item_threads': _pick_list(world.get('item_threads')),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description='Build a normal-turn YumFu gameplay context with hidden story spine guidance')
     parser.add_argument('--user-id', required=True)
@@ -93,7 +115,7 @@ def main() -> None:
             'genre': world.get('genre'),
             'description_zh': world.get('description_zh') or world.get('description'),
             'description_en': world.get('description_en') or world.get('description'),
-            'main_questline': world.get('main_questline') or {},
+            **enrich_world_runtime(world),
         },
         'story_spine': spine,
         'player_input': args.player_input,
@@ -118,6 +140,7 @@ def main() -> None:
         'agent_instruction': (
             'Use this context to write the next normal gameplay turn. Keep it in-world. '
             'Respect the current story spine, but never expose the spine/checklist directly. '
+            'Use the enriched world structure when helpful: key figures for stronger NPC pressure, relationship webs for conflict framing, quest hubs/city subzones for specific scene placement, story pressure tracks for long tension, and item threads for recurring object-driven stakes. '
             'If the player action is a detour, connect the detour back to the main line through consequences, pressure, discoveries, obligations, or opportunities. '
             'End with clear natural next moves or choices.'
         )
