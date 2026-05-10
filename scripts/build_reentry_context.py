@@ -54,12 +54,18 @@ def build_story_spine(universe: str, save: dict) -> dict:
     quests = save.get('quests') or []
     active_quests = [q for q in quests if q.get('status') == 'active']
     active_names = [str(q.get('name') or q.get('title') or '').strip() for q in active_quests if str(q.get('name') or q.get('title') or '').strip()]
-    mainline_beats = _flatten_lines(world.get('main_questline'))[:6]
+    mq = world.get('main_questline') or {}
+    if isinstance(mq, dict):
+        main_objective = str(mq.get('main_objective') or '').strip()
+        mainline_beats = [str(x).strip() for x in (mq.get('major_story_threads') or []) if str(x).strip()][:6]
+    else:
+        main_objective = ''
+        mainline_beats = _flatten_lines(mq)[:6]
     chapter_milestones = _flatten_lines((world.get('gameplay_pacing') or {}).get('chapter_milestones'))[:8]
     major_plot_gates = _flatten_lines((world.get('gameplay_pacing') or {}).get('major_plot_gates'))[:6]
-    current_main_task = active_names[0] if active_names else (chapter_milestones[0] if chapter_milestones else (mainline_beats[0] if mainline_beats else 'current main line'))
+    current_main_task = active_names[0] if active_names else (chapter_milestones[0] if chapter_milestones else (mainline_beats[0] if mainline_beats else (main_objective or 'current main line')))
     return {
-        'main_objective': mainline_beats[0] if mainline_beats else str(world.get('description_en') or world.get('description_zh') or '').strip(),
+        'main_objective': main_objective or (mainline_beats[0] if mainline_beats else str(world.get('description_en') or world.get('description_zh') or '').strip()),
         'current_main_task': current_main_task,
         'active_player_quests': active_names[:3],
         'mainline_beats': mainline_beats,

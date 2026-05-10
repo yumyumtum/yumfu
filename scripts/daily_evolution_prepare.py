@@ -51,15 +51,21 @@ def extract_story_spine(world: dict, save: dict) -> dict:
     active_names = [str(q.get('name') or q.get('title') or '').strip() for q in active_quests]
     active_names = [name for name in active_names if name]
 
-    mainline_lines = _flatten_lines(world.get('main_questline'))
+    mq = world.get('main_questline') or {}
+    if isinstance(mq, dict):
+        main_objective = str(mq.get('main_objective') or '').strip()
+        mainline_lines = [str(x).strip() for x in (mq.get('major_story_threads') or []) if str(x).strip()]
+    else:
+        mainline_lines = _flatten_lines(mq)
+        main_objective = mainline_lines[0] if mainline_lines else ''
     chapter_lines = _flatten_lines((world.get('gameplay_pacing') or {}).get('chapter_milestones'))
     gate_lines = _flatten_lines((world.get('gameplay_pacing') or {}).get('major_plot_gates'))
     blocker_lines = _flatten_lines((world.get('gameplay_pacing') or {}).get('progression_blockers'))
 
-    main_objective = mainline_lines[0] if mainline_lines else (
+    main_objective = main_objective or (
         str(world.get('description_en') or world.get('description_zh') or '').strip()
     )
-    current_drive = active_names[0] if active_names else (chapter_lines[0] if chapter_lines else main_objective)
+    current_drive = active_names[0] if active_names else (chapter_lines[0] if chapter_lines else (mainline_lines[0] if mainline_lines else main_objective))
 
     return {
         'main_objective': main_objective,
