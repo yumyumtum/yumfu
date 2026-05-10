@@ -173,6 +173,145 @@
     "把局部成功升级成地区格局重排",
     "在天下人之争中决定你是正面称霸、幕后操盘，还是被更大的秩序吞掉"
   ],
+  "subfaction_networks": [
+    {
+      "name": "Oda reform machine",
+      "core_members": [
+        "low-born talent",
+        "gun captains",
+        "administrators",
+        "ruthless enforcers"
+      ],
+      "internal_tension": "speed, brutality, loyalty, resentment from old elites"
+    },
+    {
+      "name": "Toyotomi integrators",
+      "core_members": [
+        "engineers",
+        "quartermasters",
+        "converted rivals",
+        "court brokers"
+      ],
+      "internal_tension": "upstart legitimacy versus practical effectiveness"
+    },
+    {
+      "name": "Tokugawa patience bloc",
+      "core_members": [
+        "conservative retainers",
+        "castle stewards",
+        "eastern road allies"
+      ],
+      "internal_tension": "slow consolidation versus the danger of waiting too long"
+    },
+    {
+      "name": "Market–brothel–spy triad",
+      "core_members": [
+        "merchant houses",
+        "courtesan brokers",
+        "shinobi cells",
+        "debt collectors"
+      ],
+      "internal_tension": "profit, intimacy, betrayal, political leverage"
+    },
+    {
+      "name": "Cross-sea intervention web",
+      "core_members": [
+        "Ming envoys",
+        "Joseon commanders",
+        "Nanban traders",
+        "port fixers"
+      ],
+      "internal_tension": "trade gain versus sovereignty loss"
+    }
+  ],
+  "quest_hubs": [
+    {
+      "name": "Kyoto court-and-street circuit",
+      "function": "prestige, assassinations, decrees, surveillance and rumor wars"
+    },
+    {
+      "name": "Sakai merchant-firearms complex",
+      "function": "weapons access, black-market deals, maritime finance"
+    },
+    {
+      "name": "Castle towns and granaries",
+      "function": "real power measurement through men, rice, walls, and ledgers"
+    },
+    {
+      "name": "Port and sea-road chain",
+      "function": "foreign leverage, smuggling, logistics, naval pressure"
+    },
+    {
+      "name": "Battlefield fronts and siege corridors",
+      "function": "status leaps, succession crises, betrayal opportunities"
+    }
+  ],
+  "city_subzones": [
+    {
+      "hub": "京都",
+      "subzones": [
+        "御所周边",
+        "花街",
+        "治安队驻点",
+        "寺社势力圈",
+        "密使暗路"
+      ]
+    },
+    {
+      "hub": "堺港",
+      "subzones": [
+        "火器货栈",
+        "商会账房",
+        "码头黑市",
+        "南蛮交易区"
+      ]
+    },
+    {
+      "hub": "大坂",
+      "subzones": [
+        "粮仓区",
+        "筑城工地",
+        "军需通路",
+        "会客大座敷"
+      ]
+    }
+  ],
+  "story_pressure_tracks": [
+    {
+      "name": "粮与兵的现实主义",
+      "pressure": "理想和野心都必须先喂饱军队和城池"
+    },
+    {
+      "name": "火器革命",
+      "pressure": "旧武勇秩序被新技术与工匠网络不断撕裂"
+    },
+    {
+      "name": "情报与花街政治",
+      "pressure": "许多政局不是在战场定，而是在床边和账本里定"
+    },
+    {
+      "name": "天下人竞逐",
+      "pressure": "每次局部成功都可能把你推向更高层的吞并战"
+    }
+  ],
+  "item_threads": [
+    {
+      "item": "朱印状与密信",
+      "thread": "纸面合法性经常比一时刀口更能改写局势"
+    },
+    {
+      "item": "火绳枪批量配装",
+      "thread": "从单件奇货变成改写军阵的制度能力"
+    },
+    {
+      "item": "船契与盐铁账本",
+      "thread": "海商路线逐步变成独立势力的脊梁"
+    },
+    {
+      "item": "名刀与家纹信物",
+      "thread": "在忠义、继承、叛变之间不断变换象征意义"
+    }
+  ],
   "status": "playable",
   "art_style": "Japanese ukiyo-e woodblock print style (浮世绘 / ukiyo-e) for Sengoku war drama, bold ink outlines, flat layered colors, textured washi paper, dramatic banners, lacquer armor, torchlit castles, smoky battlefields, matchlocks and cannons, crimson-black-indigo-gold palette",
   "art_style_key": "sengoku-ukiyoe-war-drama",

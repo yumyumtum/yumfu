@@ -159,6 +159,143 @@
     "Choose loyalties under repression, propaganda, and loss",
     "Turn mastery, friendship, and sacrifice into the final anti-Voldemort campaign"
   ],
+  "subfaction_networks": [
+    {
+      "name": "Student friendship circles",
+      "core_members": [
+        "house friends",
+        "study rivals",
+        "secret crushes",
+        "future allies"
+      ],
+      "internal_tension": "loyalty, jealousy, competition, reputation"
+    },
+    {
+      "name": "Faculty and hidden protectors",
+      "core_members": [
+        "Dumbledore",
+        "McGonagall",
+        "Snape",
+        "Order links"
+      ],
+      "internal_tension": "protection through secrecy, divided methods, institutional limits"
+    },
+    {
+      "name": "Ministry and school bureaucracy",
+      "core_members": [
+        "Ministry officials",
+        "Umbridge-style enforcers",
+        "prefects",
+        "school authority"
+      ],
+      "internal_tension": "control, censorship, status, fear of scandal"
+    },
+    {
+      "name": "Death Eater and dark legacy web",
+      "core_members": [
+        "Voldemort",
+        "Death Eaters",
+        "pure-blood houses",
+        "sympathizers"
+      ],
+      "internal_tension": "terror, opportunism, inherited ideology"
+    },
+    {
+      "name": "D.A. / student resistance",
+      "core_members": [
+        "trusted classmates",
+        "hidden mentors",
+        "lookouts"
+      ],
+      "internal_tension": "risk, courage, secrecy, uneven commitment"
+    }
+  ],
+  "quest_hubs": [
+    {
+      "name": "Common rooms and dorms",
+      "function": "friendship scenes, rumors, emotional fallout, faction sorting"
+    },
+    {
+      "name": "Library / Restricted Section",
+      "function": "research gates, puzzle solving, forbidden lore, stealth scenes"
+    },
+    {
+      "name": "Classroom circuit",
+      "function": "skill progression, teacher relations, school-year pacing, exam stakes"
+    },
+    {
+      "name": "Hogsmeade and hidden passages",
+      "function": "freedom, side quests, spying, social secrets"
+    },
+    {
+      "name": "Ministry / Horcrux hunt routes",
+      "function": "late-game war, infiltration, truth exposure, regime conflict"
+    }
+  ],
+  "city_subzones": [
+    {
+      "hub": "Hogwarts",
+      "subzones": [
+        "Great Hall",
+        "House common rooms",
+        "Library",
+        "Forbidden Forest edge",
+        "Dungeons",
+        "Astronomy Tower",
+        "Room of Requirement"
+      ]
+    },
+    {
+      "hub": "Diagon Alley",
+      "subzones": [
+        "Ollivanders",
+        "Flourish and Blotts",
+        "Gringotts",
+        "Knockturn-facing edges"
+      ]
+    },
+    {
+      "hub": "Ministry of Magic",
+      "subzones": [
+        "Atrium",
+        "Department corridors",
+        "court chambers",
+        "records and prophecy spaces"
+      ]
+    }
+  ],
+  "story_pressure_tracks": [
+    {
+      "name": "School success versus hidden danger",
+      "pressure": "students must keep up with classes while the world darkens"
+    },
+    {
+      "name": "Trust and secrecy",
+      "pressure": "friends, teachers, and institutions all withhold something"
+    },
+    {
+      "name": "Blood politics and prejudice",
+      "pressure": "lineage ideology reshapes friendships and opportunities"
+    },
+    {
+      "name": "Voldemort escalation",
+      "pressure": "campus mysteries eventually become open war"
+    }
+  ],
+  "item_threads": [
+    {
+      "item": "Marauder’s Map",
+      "thread": "turns movement, surveillance, and school mischief into strategic advantage"
+    },
+    {
+      "item": "Horcruxes",
+      "thread": "shift the story from school mystery to soul-hunt war objective"
+    },
+    {
+      "item": "Wands and wand allegiance",
+      "thread": "dueling identity, mastery, and ownership stakes intensify late game"
+    }
+  ],
   "gameplay_pacing": {
     "school_year_system": true,
     "total_years": 7,

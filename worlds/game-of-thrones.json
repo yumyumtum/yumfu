@@ -168,6 +168,143 @@
     "Force political rivals to confront the Long Night or exploit their denial",
     "Resolve who rules after the dead are faced and the last war burns through the realm"
   ],
+  "subfaction_networks": [
+    {
+      "name": "King’s Landing court",
+      "core_members": [
+        "crown loyalists",
+        "small council remnants",
+        "spymasters",
+        "city watch"
+      ],
+      "internal_tension": "who controls information, succession, and fear"
+    },
+    {
+      "name": "Northern coalition",
+      "core_members": [
+        "Starks",
+        "banner houses",
+        "Night’s Watch remnants",
+        "wildling allies"
+      ],
+      "internal_tension": "independence versus wider realm necessity"
+    },
+    {
+      "name": "Daenerys war camp",
+      "core_members": [
+        "dragons",
+        "foreign advisers",
+        "freed armies",
+        "Westerosi converts"
+      ],
+      "internal_tension": "liberator ideals versus conquest logic"
+    },
+    {
+      "name": "Lannister survival bloc",
+      "core_members": [
+        "Cersei loyalists",
+        "gold network",
+        "remaining western leverage"
+      ],
+      "internal_tension": "prestige, vengeance, shrinking legitimacy"
+    },
+    {
+      "name": "Mystic north web",
+      "core_members": [
+        "Bran",
+        "green-seers",
+        "old gods believers",
+        "anti-White Walker knowledge holders"
+      ],
+      "internal_tension": "fate, knowledge burden, political uselessness until crisis"
+    }
+  ],
+  "quest_hubs": [
+    {
+      "name": "Winterfell war rooms",
+      "function": "northern defense, alliance strain, Long Night preparation"
+    },
+    {
+      "name": "King’s Landing court maze",
+      "function": "marriage bargains, trials, betrayals, wildfire stakes"
+    },
+    {
+      "name": "Dragonstone command center",
+      "function": "invasion planning, legitimacy claims, dragon deployment"
+    },
+    {
+      "name": "Riverlands / roads of war",
+      "function": "ambushes, house survival, atrocities, loyalty shifts"
+    },
+    {
+      "name": "Beyond-the-Wall / Wall frontier",
+      "function": "existential truth, scouting, horror survival, prophecy proof"
+    }
+  ],
+  "city_subzones": [
+    {
+      "hub": "King’s Landing",
+      "subzones": [
+        "Red Keep",
+        "Small Council chambers",
+        "Flea Bottom",
+        "city walls",
+        "Great Sept ruins",
+        "Blackwater approaches"
+      ]
+    },
+    {
+      "hub": "Winterfell",
+      "subzones": [
+        "Great Hall",
+        "crypts",
+        "godswood",
+        "courtyard training grounds",
+        "outer defenses"
+      ]
+    },
+    {
+      "hub": "Dragonstone",
+      "subzones": [
+        "war chamber",
+        "stone beaches",
+        "dragon approach points",
+        "Targaryen audience halls"
+      ]
+    }
+  ],
+  "story_pressure_tracks": [
+    {
+      "name": "Succession and legitimacy",
+      "pressure": "claims multiply faster than stable rule can be built"
+    },
+    {
+      "name": "House survival",
+      "pressure": "every alliance may save or erase a family line"
+    },
+    {
+      "name": "Long Night denial",
+      "pressure": "southern politics wastes time the dead are using"
+    },
+    {
+      "name": "Dragon power and civilian terror",
+      "pressure": "victory tools may destroy the future they are supposed to secure"
+    }
+  ],
+  "item_threads": [
+    {
+      "item": "Iron Throne",
+      "thread": "an object of desire that turns every alliance unstable"
+    },
+    {
+      "item": "Valyrian steel",
+      "thread": "family heritage becomes literal anti-apocalypse survival value"
+    },
+    {
+      "item": "Wildfire",
+      "thread": "the city always contains a buried doomsday option"
+    }
+  ],
   "content_warnings": [
     "Violence and gore",
     "Political executions",

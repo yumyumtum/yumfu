@@ -1047,6 +1047,146 @@
     "Turn regional wars into a united struggle against Sauron",
     "Carry the Ring into the heart of the enemy and resolve its final temptation"
   ],
+  "subfaction_networks": [
+    {
+      "name": "The Fellowship",
+      "core_members": [
+        "Frodo",
+        "Sam",
+        "Aragorn",
+        "Gandalf",
+        "Legolas",
+        "Gimli"
+      ],
+      "internal_tension": "duty, burden-sharing, broken trust after Boromir, differing priorities"
+    },
+    {
+      "name": "Gondor war command",
+      "core_members": [
+        "Denethor",
+        "Faramir",
+        "Aragorn claimants",
+        "Gandalf influence"
+      ],
+      "internal_tension": "stewardship versus kingship, despair versus hope"
+    },
+    {
+      "name": "Rohan court and riders",
+      "core_members": [
+        "Théoden",
+        "Éomer",
+        "Éowyn",
+        "Gríma shadow"
+      ],
+      "internal_tension": "renewal after paralysis, honor, cavalry commitment"
+    },
+    {
+      "name": "Mordor command chain",
+      "core_members": [
+        "Sauron",
+        "Nazgûl",
+        "Mouth of Sauron",
+        "orc captains"
+      ],
+      "internal_tension": "fear hierarchy, competition, disposable armies"
+    },
+    {
+      "name": "White Council / elder powers",
+      "core_members": [
+        "Gandalf",
+        "Elrond",
+        "Galadriel",
+        "Saruman (fallen)"
+      ],
+      "internal_tension": "wisdom, restraint, secrecy, delayed intervention"
+    }
+  ],
+  "quest_hubs": [
+    {
+      "name": "Rivendell councils",
+      "function": "alliance decisions, lore exposition, route commitment, lineage reveals"
+    },
+    {
+      "name": "Paths through Moria and Anduin",
+      "function": "travel attrition, ambushes, trust tests, ancient memory"
+    },
+    {
+      "name": "Edoras / Helm’s Deep chain",
+      "function": "military regroup, loyalty oaths, cavalry defense, siege pressure"
+    },
+    {
+      "name": "Osgiliath / Minas Tirith front",
+      "function": "late-war urban defense, beacon calls, command conflict"
+    },
+    {
+      "name": "Cirith Ungol / Mount Doom corridor",
+      "function": "endgame infiltration, corruption climax, betrayal and exhaustion"
+    }
+  ],
+  "city_subzones": [
+    {
+      "hub": "Minas Tirith",
+      "subzones": [
+        "First Circle streets",
+        "Citadel",
+        "Houses of Healing",
+        "Great Gate",
+        "Beacon command lines"
+      ]
+    },
+    {
+      "hub": "Rivendell",
+      "subzones": [
+        "Council Hall",
+        "Guest chambers",
+        "Forge spaces",
+        "Archives",
+        "River approach"
+      ]
+    },
+    {
+      "hub": "Mordor",
+      "subzones": [
+        "Black Gate approaches",
+        "Gorgoroth plain",
+        "Cirith Ungol tower",
+        "orchestrating camps",
+        "Sammath Naur slopes"
+      ]
+    }
+  ],
+  "story_pressure_tracks": [
+    {
+      "name": "Ring corruption",
+      "pressure": "temptation, secrecy, paranoia, bodily decline"
+    },
+    {
+      "name": "Alliance cohesion",
+      "pressure": "whether free peoples can coordinate before defeat"
+    },
+    {
+      "name": "Stewardship versus kingship",
+      "pressure": "who has the moral right to command the West"
+    },
+    {
+      "name": "Time against Sauron",
+      "pressure": "the enemy gathers faster than the heroes heal or regroup"
+    }
+  ],
+  "item_threads": [
+    {
+      "item": "The One Ring",
+      "thread": "moves from stealth tool to spiritual catastrophe to final moral test"
+    },
+    {
+      "item": "Palantír",
+      "thread": "tempts players with knowledge but constantly risks enemy manipulation"
+    },
+    {
+      "item": "Andúril and banners of the king",
+      "thread": "transform hidden heirship into open legitimacy and morale"
+    }
+  ],
   "moral_system": {
     "corruption_meter": true,
     "range": [
