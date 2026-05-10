@@ -138,6 +138,128 @@
     "部落危机",
     "领袖或传奇终局"
   ],
+  "subfaction_networks": [
+    {
+      "name": "ThunderClan leadership core",
+      "core_members": [
+        "leader",
+        "deputy",
+        "medicine cat",
+        "senior warriors"
+      ],
+      "internal_tension": "war decisions, prophecy burden, succession balance"
+    },
+    {
+      "name": "Clan apprentices and mentors",
+      "core_members": [
+        "young apprentices",
+        "mentors",
+        "future rivals"
+      ],
+      "internal_tension": "training success, favoritism, maturity, reckless ambition"
+    },
+    {
+      "name": "StarClan guidance web",
+      "core_members": [
+        "ancestors",
+        "medicine cats",
+        "leaders"
+      ],
+      "internal_tension": "cryptic warnings versus practical survival"
+    },
+    {
+      "name": "Dark Forest influence line",
+      "core_members": [
+        "tempted warriors",
+        "ambitious outsiders",
+        "shadow mentors"
+      ],
+      "internal_tension": "power promises versus clan loyalty"
+    }
+  ],
+  "quest_hubs": [
+    {
+      "name": "Clan camp routine",
+      "function": "training, ceremonies, disputes, role progression"
+    },
+    {
+      "name": "Border patrol routes",
+      "function": "territory claims, skirmishes, scent trails, diplomacy"
+    },
+    {
+      "name": "Medicine den / sacred sites",
+      "function": "healing, prophecy, spiritual turning points"
+    },
+    {
+      "name": "Gatherings at Fourtrees",
+      "function": "public politics, rumor exchange, alliance and insult scenes"
+    },
+    {
+      "name": "Hunting grounds in leaf-bare or greenleaf",
+      "function": "resource stress, survival, clan comparison"
+    }
+  ],
+  "city_subzones": [
+    {
+      "hub": "Clan camp",
+      "subzones": [
+        "leader’s den",
+        "apprentice den",
+        "warriors’ den",
+        "medicine den",
+        "fresh-kill pile",
+        "camp entrance"
+      ]
+    },
+    {
+      "hub": "Fourtrees",
+      "subzones": [
+        "gathering roots",
+        "branch vantage points",
+        "neutral scent borders"
+      ]
+    },
+    {
+      "hub": "Moonpool / Moonstone",
+      "subzones": [
+        "approach path",
+        "vision site",
+        "waiting hollow"
+      ]
+    }
+  ],
+  "story_pressure_tracks": [
+    {
+      "name": "rank progression",
+      "pressure": "you must earn status, not merely survive scenes"
+    },
+    {
+      "name": "clan survival",
+      "pressure": "weather, prey and borders keep forcing hard collective choices"
+    },
+    {
+      "name": "warrior code versus heart",
+      "pressure": "loyalty and forbidden bonds constantly collide"
+    },
+    {
+      "name": "prophecy burden",
+      "pressure": "mystic warnings keep turning private choices into clan consequences"
+    }
+  ],
+  "item_threads": [
+    {
+      "item": "Herb caches",
+      "thread": "small healing stores become strategic power in illness or winter"
+    },
+    {
+      "item": "Scent markers and border signs",
+      "thread": "tiny territorial traces can trigger full political crises"
+    },
+    {
+      "item": "Ceremony names and status marks",
+      "thread": "identity changes become social power and expectation"
+    }
+  ],
   "gameplay_pacing": {
     "rank_based_progression": true,
     "cannot_skip_ranks": true,

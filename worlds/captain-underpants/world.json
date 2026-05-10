@@ -146,6 +146,125 @@
     "全校级混乱",
     "保住幽默感终局"
   ],
+  "subfaction_networks": [
+    {
+      "name": "prankster alliance",
+      "core_members": [
+        "George",
+        "Harold",
+        "imagination sidekicks",
+        "accidental student helpers"
+      ],
+      "internal_tension": "fun versus consequences, panic versus bravery"
+    },
+    {
+      "name": "school authority chain",
+      "core_members": [
+        "Krupp",
+        "teachers",
+        "hall monitors",
+        "snitches"
+      ],
+      "internal_tension": "discipline obsession versus constant humiliation"
+    },
+    {
+      "name": "villain absurdity league",
+      "core_members": [
+        "Professor Poopypants",
+        "Dr. Diaper",
+        "Wedgie Woman",
+        "other gag enemies"
+      ],
+      "internal_tension": "ego clashes even among anti-humor villains"
+    },
+    {
+      "name": "ordinary students caught in chaos",
+      "core_members": [
+        "classmates",
+        "victims",
+        "cheerleaders of chaos"
+      ],
+      "internal_tension": "fear, awe, tattling, accidental participation"
+    }
+  ],
+  "quest_hubs": [
+    {
+      "name": "school-day routine",
+      "function": "set up pranks, authority retaliation, comic accidents"
+    },
+    {
+      "name": "villain attack set-piece",
+      "function": "boss fights, absurd physics, improvised heroics"
+    },
+    {
+      "name": "treehouse planning scenes",
+      "function": "cartoon invention, strategy, friendship beats"
+    },
+    {
+      "name": "principal-office crisis loop",
+      "function": "punishment threats, hypnosis, identity reversal"
+    }
+  ],
+  "city_subzones": [
+    {
+      "hub": "Jerome Horwitz Elementary",
+      "subzones": [
+        "hallways",
+        "cafeteria",
+        "classrooms",
+        "playground",
+        "principal office"
+      ]
+    },
+    {
+      "hub": "treehouse HQ",
+      "subzones": [
+        "comic desk",
+        "idea wall",
+        "escape ladder"
+      ]
+    },
+    {
+      "hub": "villain lairs",
+      "subzones": [
+        "machine room",
+        "trap zone",
+        "ridiculous final button"
+      ]
+    }
+  ],
+  "story_pressure_tracks": [
+    {
+      "name": "humor survival",
+      "pressure": "each villain wants to erase laughter or weaponize embarrassment"
+    },
+    {
+      "name": "identity instability",
+      "pressure": "the hero can vanish with one splash or snap reversal"
+    },
+    {
+      "name": "school order backlash",
+      "pressure": "every win creates a new crackdown from adults"
+    },
+    {
+      "name": "escalating absurdity",
+      "pressure": "simple pranks snowball into city-scale nonsense threats"
+    }
+  ],
+  "item_threads": [
+    {
+      "item": "Hypno-Ring",
+      "thread": "from prank tool to unstable source of heroism and chaos"
+    },
+    {
+      "item": "comic pages",
+      "thread": "the boys’ creativity keeps becoming literal world-changing force"
+    },
+    {
+      "item": "water trigger",
+      "thread": "tiny practical weakness constantly threatens total heroic collapse"
+    }
+  ],
   "factions": [
     {
       "id": "good_guys",
