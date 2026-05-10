@@ -98,7 +98,12 @@ Just talk naturally after starting — no commands needed. Say what you want to 
    - Each world should surface its own equivalent of: **main objective / current major task / active pressure / easiest next route**
    - This applies to **every world**, not only canon IPs. Wuxia, school fantasy, animal clan survival, military worlds, and political worlds all need a clear through-line
    - The reminder should be compact and in-world; do not dump homework or a giant lore recap
-9. ✅ Default to **silent execution** for YumFu operations — do the work, then deliver the finished turn; avoid AI process chatter unless the player explicitly asks for it or something failed
+9. ✅ Keep all internal scaffolding **invisible to the player**
+   - Internal helper ideas such as story spine, active route, default route, pending hooks, recap policy, prompt scaffolding, quest template, or delivery plan are **for backend orchestration only**
+   - Never leak raw helper labels, JSON-ish fields, planning bullets, or meta wording like “当前主线模板 / default route / suggested route / pending hook / system recap” into the player-facing message
+   - Convert all such internal structure into **natural in-world narration, pressure, dialogue, mission framing, and choices**
+   - The player should feel they are inside a living game world, not looking at how the skill is organized
+10. ✅ Default to **silent execution** for YumFu operations — do the work, then deliver the finished turn; avoid AI process chatter unless the player explicitly asks for it or something failed
 
 **DO NOT:**
 - ❌ Manually roleplay without checking save files
@@ -1026,6 +1031,8 @@ That recap should usually answer 3 things in compact form:
 2. **What major task / pressure is on the player right now?**
 3. **What is the easiest concrete next route back into play?**
 
+But those answers must be rendered as **story**, not as backend labels. The player should feel scene pressure and purpose, not see the scaffolding behind it.
+
 Daily evolution should feel like:
 - “while you were away, something moved”
 - “here is the new pressure/context”
@@ -1214,6 +1221,8 @@ Do not let YumFu worlds flatten into generic atmosphere.
 Whenever active play, daily evolution, or continue/re-entry is generated, actively look for chances to surface concrete detail from the save/world state such as:
 
 Also make sure those details are not random garnish — they should help the player re-understand the **main story line** and the **current major task** of this run.
+
+If you use hidden route logic internally, translate it into natural stakes, rumors, orders, temptations, battlefield pressure, travel needs, or NPC requests before showing anything to the player.
 - named NPCs and how the player currently stands with them
 - faction interests, rivalries, and leverage
 - objects, letters, ledgers, relics, weapons, beasts, cargo, maps, seals, or other tangible things in play
