@@ -912,6 +912,141 @@
     "act_5": "Gondor & Pelennor - Minas Tirith siege, Witch-king falls",
     "act_6": "Mordor & Mount Doom - Sneak into Mordor, destroy Ring"
   },
+  "key_figures": [
+    {
+      "name": "Frodo Baggins",
+      "role": "Ring-bearer",
+      "drive": "destroy the One Ring before it destroys him",
+      "ties": [
+        "Sam",
+        "Gandalf",
+        "Aragorn"
+      ]
+    },
+    {
+      "name": "Aragorn",
+      "role": "Heir of Isildur",
+      "drive": "reclaim Gondor and unite the Free Peoples",
+      "ties": [
+        "Arwen",
+        "Gandalf",
+        "Boromir"
+      ]
+    },
+    {
+      "name": "Gandalf",
+      "role": "Guide of the West",
+      "drive": "oppose Sauron without seizing power",
+      "ties": [
+        "Fellowship",
+        "Théoden",
+        "Denethor"
+      ]
+    },
+    {
+      "name": "Sauron",
+      "role": "Dark Lord",
+      "drive": "recover the Ring and enslave Middle-earth",
+      "ties": [
+        "Nazgûl",
+        "Saruman",
+        "Mordor"
+      ]
+    },
+    {
+      "name": "Gollum",
+      "role": "Broken guide and threat",
+      "drive": "recover “his precious” at any cost",
+      "ties": [
+        "Frodo",
+        "Sam",
+        "Shelob path"
+      ]
+    }
+  ],
+  "city_and_region_hubs": [
+    {
+      "name": "The Shire",
+      "type": "homeland",
+      "importance": "origin, innocence, memory of what must be protected"
+    },
+    {
+      "name": "Rivendell",
+      "type": "elven refuge",
+      "importance": "council, lore, alliance building, healing"
+    },
+    {
+      "name": "Moria",
+      "type": "fallen dwarven kingdom",
+      "importance": "depths, loss, Balrog, greed and memory"
+    },
+    {
+      "name": "Minas Tirith",
+      "type": "capital fortress",
+      "importance": "seat of Gondor, siege center, late-war pivot"
+    },
+    {
+      "name": "Mordor / Mount Doom",
+      "type": "enemy heartland",
+      "importance": "final destination, corruption pressure, endgame"
+    }
+  ],
+  "relationship_webs": [
+    {
+      "thread": "Frodo / Sam / Gollum",
+      "tension": "mercy, distrust, dependency, corruption"
+    },
+    {
+      "thread": "Aragorn / Boromir / Gondor",
+      "tension": "rightful kingship versus desperate stewardship"
+    },
+    {
+      "thread": "Gandalf / Saruman",
+      "tension": "wisdom versus domination, two answers to power"
+    },
+    {
+      "thread": "Rohan / Gondor / Isengard",
+      "tension": "alliance, delayed aid, strategic survival"
+    },
+    {
+      "thread": "Elves / Dwarves / Men",
+      "tension": "old grievances slowly yielding to shared necessity"
+    }
+  ],
+  "major_items_and_artifacts": [
+    {
+      "name": "The One Ring",
+      "kind": "supreme artifact",
+      "story_use": "temptation, stealth, doom, corruption engine"
+    },
+    {
+      "name": "Andúril",
+      "kind": "royal blade",
+      "story_use": "Aragorn legitimacy, morale, kingship claims"
+    },
+    {
+      "name": "Palantír",
+      "kind": "seeing-stone",
+      "story_use": "knowledge, deception, strategic foresight, psychic risk"
+    },
+    {
+      "name": "Mithril",
+      "kind": "legendary armor material",
+      "story_use": "survival, dwarven legacy, prestige"
+    },
+    {
+      "name": "Lembas",
+      "kind": "elven waybread",
+      "story_use": "journey endurance, memory of grace, anti-despair symbol"
+    }
+  ],
+  "mainline_stages": [
+    "Leave safety behind and survive the first hunt",
+    "Bind the Fellowship and choose who bears the burden",
+    "Endure fracture, loss, and separation without losing purpose",
+    "Turn regional wars into a united struggle against Sauron",
+    "Carry the Ring into the heart of the enemy and resolve its final temptation"
+  ],
   "moral_system": {
     "corruption_meter": true,
     "range": [

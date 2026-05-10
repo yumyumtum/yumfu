@@ -33,6 +33,141 @@
     ],
     "default_route_logic": "Even when the player detours into house drama or local intrigue, the story should keep pointing back to the linked pressures of succession war, alliance survival, and the coming Long Night."
   },
+  "key_figures": [
+    {
+      "name": "Jon Snow",
+      "role": "northern war leader",
+      "drive": "protect the realm even when politics resists survival",
+      "ties": [
+        "Night’s Watch",
+        "Daenerys",
+        "Starks"
+      ]
+    },
+    {
+      "name": "Daenerys Targaryen",
+      "role": "exiled conqueror",
+      "drive": "reclaim rule and justify it through destiny and fire",
+      "ties": [
+        "Dragons",
+        "Essos followers",
+        "Iron Throne"
+      ]
+    },
+    {
+      "name": "Tyrion Lannister",
+      "role": "survivor-strategist",
+      "drive": "outthink stronger enemies and remain morally human",
+      "ties": [
+        "Lannisters",
+        "Daenerys",
+        "King’s Landing"
+      ]
+    },
+    {
+      "name": "Cersei Lannister",
+      "role": "queen of hard power",
+      "drive": "hold power at any human cost",
+      "ties": [
+        "Jaime",
+        "Children",
+        "the Crown"
+      ]
+    },
+    {
+      "name": "Bran Stark",
+      "role": "seer and memory-keeper",
+      "drive": "understand the deeper pattern behind history and winter",
+      "ties": [
+        "Three-Eyed Raven",
+        "Starks",
+        "White Walkers"
+      ]
+    }
+  ],
+  "city_and_region_hubs": [
+    {
+      "name": "King’s Landing",
+      "type": "capital",
+      "importance": "court intrigue, succession, spectacle, collapse"
+    },
+    {
+      "name": "Winterfell",
+      "type": "ancestral stronghold",
+      "importance": "northern identity, survival, Long Night defense"
+    },
+    {
+      "name": "Dragonstone",
+      "type": "Targaryen seat",
+      "importance": "legitimacy, dragons, invasion staging ground"
+    },
+    {
+      "name": "The Wall",
+      "type": "frontier defense",
+      "importance": "realm denial versus existential truth"
+    },
+    {
+      "name": "Meereen / Essos corridor",
+      "type": "eastern power base",
+      "importance": "Daenerys rise, liberation politics, army building"
+    }
+  ],
+  "relationship_webs": [
+    {
+      "thread": "Starks / Lannisters",
+      "tension": "honor versus manipulation, vengeance versus survival"
+    },
+    {
+      "thread": "Daenerys / Jon / the throne",
+      "tension": "love, legitimacy, prophecy, command"
+    },
+    {
+      "thread": "Cersei / Jaime / Tyrion",
+      "tension": "family loyalty twisted by power and resentment"
+    },
+    {
+      "thread": "North / South",
+      "tension": "regional identity versus crown authority"
+    },
+    {
+      "thread": "Great Houses / White Walkers",
+      "tension": "petty war versus extinction-scale threat"
+    }
+  ],
+  "major_items_and_artifacts": [
+    {
+      "name": "Iron Throne",
+      "kind": "seat of rule",
+      "story_use": "legitimacy, obsession, symbolic end-state"
+    },
+    {
+      "name": "Valyrian steel weapons",
+      "kind": "rare anti-White Walker arms",
+      "story_use": "status, lineage, survival tech"
+    },
+    {
+      "name": "Dragons",
+      "kind": "living super-weapons",
+      "story_use": "fear, conquest, unstable supremacy"
+    },
+    {
+      "name": "Wildfire caches",
+      "kind": "catastrophic city weapon",
+      "story_use": "scorched power, terror, final gambits"
+    },
+    {
+      "name": "Raven and weirwood visions",
+      "kind": "mystic knowledge network",
+      "story_use": "history truth, prophecy, counter-planning"
+    }
+  ],
+  "mainline_stages": [
+    "Survive the first court fractures and choose where loyalty begins",
+    "Turn house pressure into war, marriage, espionage, or rebellion",
+    "Recognize that dragons and winter are changing the scale of the game",
+    "Force political rivals to confront the Long Night or exploit their denial",
+    "Resolve who rules after the dead are faced and the last war burns through the realm"
+  ],
   "content_warnings": [
     "Violence and gore",
     "Political executions",

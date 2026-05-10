@@ -5,9 +5,7 @@
   "genre": "modern_military_strategy",
   "setting": "alternative_2026_middle_east",
   "theme": "geopolitical_conflict",
-  
   "description": "A realistic modern military strategy game set in a fictionalized Middle East. Choose your faction and navigate the complex web of alliances, proxy wars, and moral dilemmas in a region on the brink of total war.",
-  
   "description_zh": "设定在虚构中东的现代军事策略游戏。选择你的阵营，在这个濒临全面战争的地区中，应对复杂的联盟关系、代理人战争和道德困境。",
   "main_questline": {
     "main_objective": "在90天战役窗口内，让自己的阵营在军事、外交、资源与舆论四条线上活下来，并决定这场半岛战争会走向停火、霸权还是全面失控。",
@@ -25,7 +23,114 @@
     ],
     "default_route_logic": "即使玩家在单次行动、局部反击或特殊作战里打得很投入，也要持续提醒：所有行动都服务于整场90天战役的胜负与升级控制。"
   },
-  
+  "key_figures": [
+    {
+      "name": "Viper Strike planners",
+      "role": "war trigger bloc",
+      "drive": "use shock operations to seize initiative",
+      "ties": [
+        "initial_event",
+        "air campaign",
+        "proxy escalation"
+      ]
+    },
+    {
+      "name": "regional hardliners",
+      "role": "escalation faction",
+      "drive": "turn crisis into total strategic advantage",
+      "ties": [
+        "military prestige",
+        "domestic politics"
+      ]
+    },
+    {
+      "name": "ceasefire technocrats",
+      "role": "stability faction",
+      "drive": "stop collapse before economy and legitimacy fail",
+      "ties": [
+        "foreign pressure",
+        "resource management"
+      ]
+    },
+    {
+      "name": "special operations commanders",
+      "role": "shadow battlefield actors",
+      "drive": "win deniable gains without open-front disaster",
+      "ties": [
+        "fog of war",
+        "civilian risk"
+      ]
+    }
+  ],
+  "city_and_region_hubs": [
+    {
+      "name": "Azure Peninsula capital corridor",
+      "type": "political center",
+      "importance": "legitimacy, cabinet stability, coup risk"
+    },
+    {
+      "name": "frontline airbases",
+      "type": "military hubs",
+      "importance": "air superiority, strike tempo, prestige"
+    },
+    {
+      "name": "energy terminals and ports",
+      "type": "economic nodes",
+      "importance": "fuel, sanctions survival, war financing"
+    },
+    {
+      "name": "mountain border belts",
+      "type": "proxy war zone",
+      "importance": "insurgency, deniability, attrition"
+    }
+  ],
+  "relationship_webs": [
+    {
+      "thread": "military command / political cabinet",
+      "tension": "victory optics versus state survival"
+    },
+    {
+      "thread": "regional allies / proxy militias",
+      "tension": "useful escalation versus loss of control"
+    },
+    {
+      "thread": "domestic public / international pressure",
+      "tension": "security narrative versus legitimacy cost"
+    },
+    {
+      "thread": "special operations / conventional front",
+      "tension": "sharp covert wins versus wider strategic blowback"
+    }
+  ],
+  "major_items_and_artifacts": [
+    {
+      "name": "air-defense network",
+      "kind": "strategic system",
+      "story_use": "survival, deterrence, air campaign pacing"
+    },
+    {
+      "name": "satellite and ISR feeds",
+      "kind": "information asset",
+      "story_use": "fog-of-war reduction, target certainty, deception risk"
+    },
+    {
+      "name": "fuel and spare-parts reserves",
+      "kind": "war economy resource",
+      "story_use": "tempo, endurance, bargaining power"
+    },
+    {
+      "name": "ceasefire framework draft",
+      "kind": "political instrument",
+      "story_use": "late-game negotiated end or trap"
+    }
+  ],
+  "mainline_stages": [
+    "危机引爆",
+    "抢先手",
+    "前线与后方同步承压",
+    "升级或控火",
+    "战役结算"
+  ],
   "playable_factions": [
     "western_alliance",
     "phoenix_state",
@@ -34,11 +139,8 @@
     "eastern_coalition",
     "desert_kingdom"
   ],
-  
   "game_length": "90_days_campaign",
-  
   "difficulty": "hard",
-  
   "features": [
     "strategic_decision_making",
     "moral_dilemmas",
@@ -49,9 +151,7 @@
     "fog_of_war",
     "civilian_casualties"
   ],
-  
   "art_style": "command_and_conquer_game_style",
-  
   "art_direction": {
     "visual_style": "Command & Conquer RTS game aesthetic",
     "color_palette": "Saturated military colors, red/blue faction coding",
@@ -71,18 +171,14 @@
       "generic stock military photos"
     ]
   },
-  
   "start_date": "Day 1, 0600 Hours",
-  
   "initial_event": "viper_strike_assassination",
-  
   "win_conditions": [
     "achieve_ceasefire_with_favorable_terms",
     "eliminate_enemy_military_capability",
     "gain_regional_hegemony",
     "broker_lasting_peace_deal"
   ],
-  
   "lose_conditions": [
     "faction_collapse",
     "international_isolation",
@@ -90,21 +186,18 @@
     "domestic_coup",
     "total_war_escalation"
   ],
-  
   "content_warnings": [
     "war_violence",
     "civilian_casualties",
     "moral_dilemmas",
     "geopolitical_themes"
   ],
-  
   "inspirations": [
     "recent_middle_east_conflicts_2024_2026",
     "command_modern_operations",
     "this_war_of_mine",
     "papers_please"
   ],
-  
   "created": "2026-04-05",
   "status": "development",
   "local_only": true
