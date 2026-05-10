@@ -21,6 +21,63 @@ def load_world(universe: str):
         return json.load(f), str(path)
 
 
+def _flatten_lines(value):
+    if value is None:
+        return []
+    if isinstance(value, str):
+        text = value.strip()
+        return [text] if text else []
+    if isinstance(value, dict):
+        lines = []
+        for k, v in value.items():
+            if isinstance(v, str) and v.strip():
+                lines.append(f'{k}: {v.strip()}')
+            elif isinstance(v, (dict, list)):
+                nested = _flatten_lines(v)
+                if nested:
+                    lines.extend([f'{k}: {item}' for item in nested[:3]])
+        return lines
+    if isinstance(value, list):
+        lines = []
+        for item in value:
+            lines.extend(_flatten_lines(item))
+        return lines
+    return []
+
+
+def extract_story_spine(world: dict, save: dict) -> dict:
+    quests = save.get('quests', [])
+    active_quests = [q for q in quests if q.get('status') == 'active']
+    active_names = [str(q.get('name') or q.get('title') or '').strip() for q in active_quests]
+    active_names = [name for name in active_names if name]
+
+    mainline_lines = _flatten_lines(world.get('main_questline'))
+    chapter_lines = _flatten_lines((world.get('gameplay_pacing') or {}).get('chapter_milestones'))
+    gate_lines = _flatten_lines((world.get('gameplay_pacing') or {}).get('major_plot_gates'))
+    blocker_lines = _flatten_lines((world.get('gameplay_pacing') or {}).get('progression_blockers'))
+
+    main_objective = mainline_lines[0] if mainline_lines else (
+        str(world.get('description_en') or world.get('description_zh') or '').strip()
+    )
+    current_drive = active_names[0] if active_names else (chapter_lines[0] if chapter_lines else main_objective)
+
+    return {
+        'main_objective': main_objective,
+        'active_player_quests': active_names[:3],
+        'current_drive': current_drive,
+        'mainline_beats': mainline_lines[:6],
+        'chapter_milestones': chapter_lines[:8],
+        'major_plot_gates': gate_lines[:6],
+        'progression_blockers': blocker_lines[:6],
+        'instruction': (
+            'Keep the player oriented toward the world\'s main story spine. '
+            'Every daily evolution update should remind them what larger line they are already inside, '
+            'what current major task / pressure matters most, and what concrete route naturally follows next. '
+            'Do not let the world drift into generic atmosphere with no recognizable main objective.'
+        )
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description='Prepare dynamic YumFu daily evolution context')
     parser.add_argument('--user-id', required=True)
@@ -48,6 +105,7 @@ def main():
     quests = save.get('quests', [])
     active_quests = [q for q in quests if q.get('status') == 'active']
     de = save.get('daily_evolution', {})
+    story_spine = extract_story_spine(world, save)
 
     system_goal = (
         'Generate one plausible daily world-evolution update grounded in the player save and world setting. '
@@ -108,6 +166,7 @@ def main():
             'save_language': save.get('language'),
             'preferred_language_hint': preferred_language,
             'daily_evolution': de,
+            'story_spine': story_spine,
         },
         'language_policy': {
             'priority': [
@@ -129,21 +188,39 @@ def main():
         'output_requirements': {
             'story_words': '100-220 words',
             'must_include': [
+                'one short front-context recap (1-3 sentences) that reminds the player of the current main line / major task / why this scene matters now',
                 'one meaningful world development',
                 'one player-relevant consequence or pressure signal',
                 'one hook inviting the player back into active play',
+                'one practical route suggestion grounded in the main story spine',
+                'one default route the story will assume if the player does nothing',
                 'one image prompt matched to the update'
             ],
             'response_json_schema': {
                 'summary': 'short summary string',
+                'recap_text': '1-3 sentence recap that restates current main line and current pressure',
                 'story_text': 'daily evolution notification text',
                 'image_prompt': 'scene image prompt',
                 'severity': 'minor|medium|major',
                 'pending_hooks': ['list of non-destructive hooks to surface next time the player actively plays'],
+                'suggested_routes': [
+                    {
+                        'label': 'short route label tied to the current arc',
+                        'why_now': 'why the route matters right now',
+                        'target': 'person/place/object/faction/mission line',
+                        'urgency': 'low|medium|high'
+                    }
+                ],
+                'default_route': {
+                    'label': 'default continuation if player does nothing',
+                    'why_now': 'why this is the natural route',
+                    'target': 'person/place/object/faction/mission line'
+                },
                 'sidecar_meta': {
                     'rumor_threads': 'list of rumor/pressure threads',
                     'faction_movements': 'list of soft world changes',
-                    'npc_watchlist': 'list of names or unknown actors to watch'
+                    'npc_watchlist': 'list of names or unknown actors to watch',
+                    'world_detail_notes': 'named details that keep the world and main line concrete'
                 }
             }
         },

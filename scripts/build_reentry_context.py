@@ -13,6 +13,61 @@ OUTBOUND_YUMFU = Path.home() / '.openclaw' / 'media' / 'outbound' / 'yumfu'
 WORLD_DIR = Path.home() / 'clawd' / 'skills' / 'yumfu' / 'worlds'
 
 
+def _flatten_lines(value):
+    if value is None:
+        return []
+    if isinstance(value, str):
+        text = value.strip()
+        return [text] if text else []
+    if isinstance(value, dict):
+        lines = []
+        for k, v in value.items():
+            if isinstance(v, str) and v.strip():
+                lines.append(f'{k}: {v.strip()}')
+            elif isinstance(v, (dict, list)):
+                nested = _flatten_lines(v)
+                if nested:
+                    lines.extend([f'{k}: {item}' for item in nested[:3]])
+        return lines
+    if isinstance(value, list):
+        lines = []
+        for item in value:
+            lines.extend(_flatten_lines(item))
+        return lines
+    return []
+
+
+def load_world(universe: str) -> dict:
+    direct = WORLD_DIR / f'{universe}.json'
+    nested = WORLD_DIR / universe / 'world.json'
+    path = direct if direct.exists() else nested
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding='utf-8'))
+    except Exception:
+        return {}
+
+
+def build_story_spine(universe: str, save: dict) -> dict:
+    world = load_world(universe)
+    quests = save.get('quests') or []
+    active_quests = [q for q in quests if q.get('status') == 'active']
+    active_names = [str(q.get('name') or q.get('title') or '').strip() for q in active_quests if str(q.get('name') or q.get('title') or '').strip()]
+    mainline_beats = _flatten_lines(world.get('main_questline'))[:6]
+    chapter_milestones = _flatten_lines((world.get('gameplay_pacing') or {}).get('chapter_milestones'))[:8]
+    major_plot_gates = _flatten_lines((world.get('gameplay_pacing') or {}).get('major_plot_gates'))[:6]
+    current_main_task = active_names[0] if active_names else (chapter_milestones[0] if chapter_milestones else (mainline_beats[0] if mainline_beats else 'current main line'))
+    return {
+        'main_objective': mainline_beats[0] if mainline_beats else str(world.get('description_en') or world.get('description_zh') or '').strip(),
+        'current_main_task': current_main_task,
+        'active_player_quests': active_names[:3],
+        'mainline_beats': mainline_beats,
+        'chapter_milestones': chapter_milestones,
+        'major_plot_gates': major_plot_gates,
+    }
+
+
 def looks_zh(text: str | None) -> bool:
     return bool(text and re.search(r'[\u4e00-\u9fff]', text))
 
@@ -102,6 +157,7 @@ def main():
 
     save = save_payload.get('data') or {}
     evo = evo_payload.get('data') or {}
+    story_spine = build_story_spine(args.universe, save)
     hooks = evo.get('pending_hooks', [])[:3]
     suggested_routes = evo.get('suggested_routes', [])[:3]
     default_route = evo.get('default_route') or {}
@@ -172,6 +228,7 @@ def main():
         'character_name': (save.get('character') or {}).get('name'),
         'location': save.get('location'),
         'active_quest': ((save.get('quests') or [{}])[0]).get('name'),
+        'story_spine': story_spine,
         'last_daily_summary': raw_summary,
         'summary_for_reentry': summary_for_reentry,
         'pending_hooks': hooks,
@@ -184,8 +241,9 @@ def main():
         'latest_image_path': pick_latest_image(args.user_id, args.universe),
         'image_prompt': (evo.get('last_image_prompt') or '').strip() or fallback_image_prompt(save, evo, normalize_lang(preferred_language)),
         'reentry_instruction': (
-            'When the player returns, briefly pull them back into the scene using the latest daily evolution summary, '
+            'When the player returns, briefly pull them back into the scene using the latest daily evolution summary and the world\'s current main story spine, '
             'then offer one easy natural next move in the player\'s preferred language. '
+            'Always restate the current main task / main line in a compact way so the player does not forget what they are actually doing in this world. '
             'Prefer one concrete active route over vague lore recap. '
             'If a stored active/default route exists, surface it as the easiest path back in when the player seems cold or has been away. '
             'If the save has a canonical language, do not drift away from it automatically. '

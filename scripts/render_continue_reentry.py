@@ -34,16 +34,19 @@ def main():
     routes = data.get('suggested_routes') or []
     default_route = data.get('default_route') or {}
     active_route = data.get('active_route') or default_route or {}
+    story_spine = data.get('story_spine') or {}
     character = data.get('character_name') or 'the player'
     location = data.get('location') or 'the current scene'
-    quest = data.get('active_quest') or 'the active quest'
+    quest = data.get('active_quest') or story_spine.get('current_main_task') or 'the active quest'
+    main_objective = story_spine.get('main_objective') or ''
     quest_line = f"你现在仍在推进「{quest}」。" if lang != 'zh' or any('\u4e00' <= ch <= '\u9fff' for ch in quest) else "你现在还在推进当前主线。"
 
     if lang == 'zh':
+        objective_line = f"这条世界主线眼下压在你身上的事，是「{main_objective}」。" if main_objective else ''
         text = (
             f"你回来时，{location} 的局势已经轻轻变了。"
             f"{summary or '你离开的这段时间，暗线还在往前推，只是风声比之前更紧。'}\n\n"
-            f"{quest_line}先别做功课，直接接回现场。"
+            f"{quest_line}{objective_line}先别做功课，直接接回现场。"
         )
         if active_route:
             label = (active_route.get('label') or '当前主线').strip()
@@ -73,10 +76,11 @@ def main():
             if default_line:
                 text += "\n\n如果你现在不选，我会默认沿这条线把主剧情往前推：\n- " + default_line
     else:
+        objective_line = f" The larger main line still hanging over this run is: '{main_objective}'." if main_objective else ''
         text = (
             f"When {character} returns to {location}, the scene has shifted slightly: "
             f"{summary or 'something nearby changed while you were away.'}\n\n"
-            f"You are still in the middle of '{quest}'. Do not dump lore; pull the player straight back into the scene."
+            f"You are still in the middle of '{quest}'.{objective_line} Do not dump lore; pull the player straight back into the scene."
         )
         if active_route:
             label = (active_route.get('label') or 'Active line').strip()

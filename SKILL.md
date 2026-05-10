@@ -91,7 +91,14 @@ Just talk naturally after starting — no commands needed. Say what you want to 
    - If the player asks “where can I go / what can I fight / what’s next,” answer with concrete in-world options tied to the current route, e.g. LOTR should lean on places like Mount Gundabad, Moria, Isengard, Cirith Ungol, Minas Tirith, Osgiliath, Pelennor, the Black Gate, etc. when appropriate to the current branch
    - Alternate-perspective branches (for example an orc / Mordor route) are allowed, but they must still respect the original world’s geography, power structure, tone, and ongoing conflict instead of drifting into generic dark-fantasy filler
    - When inventing connective material between canon beats, keep it as a **bridge inside the canon world**, not as a replacement for the world
-8. ✅ Default to **silent execution** for YumFu operations — do the work, then deliver the finished turn; avoid AI process chatter unless the player explicitly asks for it or something failed
+8. ✅ Keep the **main story / major task / current line** visible during play
+   - Every YumFu world must have a recognizable **story spine**: what the larger plot is, what the player is currently trying to do inside it, and what concrete route naturally follows next
+   - Do **not** let turns drift into disconnected vibe scenes where the player slowly forgets what the game is about
+   - In normal turns, daily evolution, and `/yumfu continue` re-entry, briefly remind the player of the current main line when useful, especially after detours, battles, travel, or offline time
+   - Each world should surface its own equivalent of: **main objective / current major task / active pressure / easiest next route**
+   - This applies to **every world**, not only canon IPs. Wuxia, school fantasy, animal clan survival, military worlds, and political worlds all need a clear through-line
+   - The reminder should be compact and in-world; do not dump homework or a giant lore recap
+9. ✅ Default to **silent execution** for YumFu operations — do the work, then deliver the finished turn; avoid AI process chatter unless the player explicitly asks for it or something failed
 
 **DO NOT:**
 - ❌ Manually roleplay without checking save files
@@ -1014,6 +1021,11 @@ The core goal is to **pull the player back into the current scene naturally and 
 
 For daily evolution pushes, that re-entry starts immediately with a short recap. If the update opens cold, the player forgets the plot and the image loses meaning.
 
+That recap should usually answer 3 things in compact form:
+1. **What larger main line is this run inside?**
+2. **What major task / pressure is on the player right now?**
+3. **What is the easiest concrete next route back into play?**
+
 Daily evolution should feel like:
 - “while you were away, something moved”
 - “here is the new pressure/context”
@@ -1024,6 +1036,7 @@ It should **not** feel like:
 - a long news bulletin
 - a disconnected worldbuilding dump
 - a giant state report the player has to study before playing
+- a pretty atmospheric scene that forgot the actual plot
 
 ### Practical writing rule
 Every daily evolution update should end with a **simple re-entry hook** the player can answer naturally.
@@ -1199,6 +1212,8 @@ Even though the content is dynamically generated, it must still stay grounded in
 ### Rich world-detail rule (NEW)
 Do not let YumFu worlds flatten into generic atmosphere.
 Whenever active play, daily evolution, or continue/re-entry is generated, actively look for chances to surface concrete detail from the save/world state such as:
+
+Also make sure those details are not random garnish — they should help the player re-understand the **main story line** and the **current major task** of this run.
 - named NPCs and how the player currently stands with them
 - faction interests, rivalries, and leverage
 - objects, letters, ledgers, relics, weapons, beasts, cargo, maps, seals, or other tangible things in play
