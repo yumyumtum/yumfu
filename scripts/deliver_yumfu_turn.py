@@ -41,7 +41,9 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 GENERATE_IMAGE = SCRIPT_DIR / "generate_image.py"
 GENERATE_TTS = SCRIPT_DIR / "generate_turn_tts.py"
 PREPARE_END_STORYBOOK = SCRIPT_DIR / "prepare_end_storybook.py"
+LOAD_GAME = SCRIPT_DIR / "load_game.py"
 OUTBOUND_YUMFU = Path.home() / ".openclaw" / "media" / "outbound" / "yumfu"
+WORLD_DIR = Path.home() / "clawd" / "skills" / "yumfu" / "worlds"
 
 
 def slugify(value: str) -> str:
@@ -94,6 +96,89 @@ def plan_caption(story_text: str) -> tuple[str, str | None, str]:
     return short, story_text.strip(), "caption+followup"
 
 
+def load_world(universe: str) -> dict[str, Any]:
+    direct = WORLD_DIR / f"{universe}.json"
+    nested = WORLD_DIR / universe / "world.json"
+    path = direct if direct.exists() else nested
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def load_save(user_id: str, universe: str) -> dict[str, Any]:
+    result = run_json([
+        "python3",
+        str(LOAD_GAME),
+        "--user-id",
+        user_id,
+        "--universe",
+        universe,
+        "--quiet",
+    ])
+    return result.get("data") or {}
+
+
+def build_world_style_clause(world: dict[str, Any]) -> str:
+    art_style = world.get("art_style")
+    art_direction = world.get("art_direction") or {}
+    visual_style = art_direction.get("visual_style")
+    color_palette = art_direction.get("color_palette") or world.get("color_palette")
+    refs = art_direction.get("reference") or world.get("reference_artists") or []
+
+    bits: list[str] = []
+    for value in [art_style, visual_style]:
+        if isinstance(value, str) and value.strip():
+            bits.append(value.strip())
+    if isinstance(color_palette, str) and color_palette.strip():
+        bits.append(f"palette: {color_palette.strip()}")
+    elif isinstance(color_palette, list):
+        vals = [str(x).strip() for x in color_palette if str(x).strip()]
+        if vals:
+            bits.append("palette: " + ", ".join(vals[:6]))
+    if isinstance(refs, list):
+        vals = [str(x).strip() for x in refs if str(x).strip()]
+        if vals:
+            bits.append("reference look: " + ", ".join(vals[:4]))
+    return ", ".join(bits) if bits else "world-specific YumFu illustration style"
+
+
+def build_fallback_image_prompt(args: argparse.Namespace, save: dict[str, Any], world: dict[str, Any]) -> str:
+    character = ((save.get("character") or {}).get("name") or "the player").strip()
+    location = str(save.get("location") or "the current scene").strip()
+    role = str((save.get("character") or {}).get("role") or "").strip()
+    house = str((save.get("character") or {}).get("house") or "").strip()
+    style_clause = build_world_style_clause(world)
+    negative = (
+        "No text, no words, no letters, no captions, no signs, no speech bubbles, "
+        "no watermark, no logo, image-only illustration."
+    )
+    story_hint = " ".join(args.story_text.split())[:500]
+    subject_bits = [f"character {character}"]
+    if role:
+        subject_bits.append(f"role {role}")
+    if house:
+        subject_bits.append(f"house/faction {house}")
+    subject = ", ".join(subject_bits)
+    return (
+        f"YumFu gameplay scene, {subject}, location {location}, player turn scene based on: {story_hint}. "
+        f"World: {args.universe}. Art direction: {style_clause}. "
+        f"Visual continuity with the active save, not a disconnected poster. {negative}"
+    )
+
+
+def resolve_image_prompt(args: argparse.Namespace) -> str | None:
+    if args.image_prompt and args.image_prompt.strip():
+        return args.image_prompt.strip()
+    save = load_save(args.user_id, args.universe)
+    world = load_world(args.universe)
+    if not save and not world:
+        return None
+    return build_fallback_image_prompt(args, save, world)
+
+
 def prepare_image(args: argparse.Namespace, state: dict[str, Any]) -> dict[str, Any]:
     if state.get("image_sent"):
         return {
@@ -102,7 +187,8 @@ def prepare_image(args: argparse.Namespace, state: dict[str, Any]) -> dict[str, 
             "reason": "image_already_sent",
             "needs_fallback": False,
         }
-    if not args.image_prompt:
+    final_prompt = resolve_image_prompt(args)
+    if not final_prompt:
         return {
             "generated": False,
             "skipped": True,
@@ -117,7 +203,7 @@ def prepare_image(args: argparse.Namespace, state: dict[str, Any]) -> dict[str, 
         "run",
         str(GENERATE_IMAGE),
         "--prompt",
-        args.image_prompt,
+        final_prompt,
         "--filename",
         str(filename),
         "--resolution",
@@ -132,6 +218,8 @@ def prepare_image(args: argparse.Namespace, state: dict[str, Any]) -> dict[str, 
             "provider": "local-yumfu",
             "needs_fallback": False,
             "stdout": result["stdout"],
+            "used_prompt": final_prompt,
+            "prompt_source": "provided" if (args.image_prompt and args.image_prompt.strip()) else "auto-fallback",
         }
     return {
         "generated": False,
@@ -139,6 +227,8 @@ def prepare_image(args: argparse.Namespace, state: dict[str, Any]) -> dict[str, 
         "provider": "local-yumfu",
         "needs_fallback": True,
         "error": result["stderr"] or result["stdout"] or "local image generation failed",
+        "used_prompt": final_prompt,
+        "prompt_source": "provided" if (args.image_prompt and args.image_prompt.strip()) else "auto-fallback",
     }
 
 
