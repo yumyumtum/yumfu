@@ -52,6 +52,48 @@ def _pick_list(value: Any, limit: int = 5) -> list[Any]:
     return value[:limit]
 
 
+def build_image_style_contract(world: dict[str, Any]) -> dict[str, Any]:
+    art_style = world.get('art_style')
+    art_direction = world.get('art_direction') or {}
+    visual_style = art_direction.get('visual_style')
+    color_palette = art_direction.get('color_palette') or world.get('color_palette')
+    portrait_style = art_direction.get('character_portraits')
+    battle_style = art_direction.get('battle_scenes')
+    refs = art_direction.get('reference') or world.get('reference_artists') or []
+
+    style_bits: list[str] = []
+    for value in [art_style, visual_style, portrait_style, battle_style]:
+        if isinstance(value, str) and value.strip():
+            style_bits.append(value.strip())
+    if isinstance(color_palette, str) and color_palette.strip():
+        style_bits.append(f"palette: {color_palette.strip()}")
+    elif isinstance(color_palette, list):
+        palette_values = [str(x).strip() for x in color_palette if str(x).strip()]
+        if palette_values:
+            style_bits.append("palette: " + ", ".join(palette_values[:6]))
+    if isinstance(refs, list):
+        ref_values = [str(x).strip() for x in refs if str(x).strip()]
+        if ref_values:
+            style_bits.append("reference look: " + ", ".join(ref_values[:4]))
+
+    style_prefix = ", ".join(style_bits) if style_bits else "world-specific YumFu illustration style"
+    negative = (
+        "No text, no words, no letters, no captions, no signs, no speech bubbles, "
+        "no watermark, no logo, image-only illustration."
+    )
+    return {
+        'style_prefix': style_prefix,
+        'negative_prompt': negative,
+        'one_turn_one_image': True,
+        'must_generate_if_image_backend_available': True,
+        'use_world_style_instead_of_generic_fantasy': True,
+        'prompt_scaffold': (
+            f"{style_prefix}, [scene subject], [named location], [current action or pressure], "
+            f"[important character/NPC], visual continuity with the current save, not a disconnected poster. {negative}"
+        ),
+    }
+
+
 def enrich_world_runtime(world: dict[str, Any]) -> dict[str, Any]:
     return {
         'main_questline': world.get('main_questline') or {},
@@ -68,6 +110,7 @@ def enrich_world_runtime(world: dict[str, Any]) -> dict[str, Any]:
         'art_style': world.get('art_style'),
         'art_style_key': world.get('art_style_key'),
         'art_direction': world.get('art_direction') or {},
+        'image_style_contract': build_image_style_contract(world),
     }
 
 
@@ -144,8 +187,9 @@ def main() -> None:
             'Use this context to write the next normal gameplay turn. Keep it in-world. '
             'Respect the current story spine, but never expose the spine/checklist directly. '
             'Use the enriched world structure when helpful: key figures for stronger NPC pressure, relationship webs for conflict framing, quest hubs/city subzones for specific scene placement, story pressure tracks for long tension, and item threads for recurring object-driven stakes. '
-            'For image generation, always use the world-specific art style and art direction from this payload instead of falling back to a generic fantasy look. '
+            'For image generation, always use world.image_style_contract.style_prefix and world.image_style_contract.prompt_scaffold as the upstream visual prompt basis instead of falling back to a generic fantasy look. '
             'Normal gameplay turns should default to exactly one primary scene image before narration whenever image generation is available. '
+            'If no scene-specific image prompt has been drafted yet, derive it from world.image_style_contract + player location + current pressure + named figures in scene. '
             'If the player action is a detour, connect the detour back to the main line through consequences, pressure, discoveries, obligations, or opportunities. '
             'End with clear natural next moves or choices.'
         )
