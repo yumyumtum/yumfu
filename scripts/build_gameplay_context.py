@@ -65,6 +65,9 @@ def enrich_world_runtime(world: dict[str, Any]) -> dict[str, Any]:
         'city_subzones': _pick_list(world.get('city_subzones'), limit=4),
         'story_pressure_tracks': _pick_list(world.get('story_pressure_tracks')),
         'item_threads': _pick_list(world.get('item_threads')),
+        'art_style': world.get('art_style'),
+        'art_style_key': world.get('art_style_key'),
+        'art_direction': world.get('art_direction') or {},
     }
 
 
@@ -141,6 +144,8 @@ def main() -> None:
             'Use this context to write the next normal gameplay turn. Keep it in-world. '
             'Respect the current story spine, but never expose the spine/checklist directly. '
             'Use the enriched world structure when helpful: key figures for stronger NPC pressure, relationship webs for conflict framing, quest hubs/city subzones for specific scene placement, story pressure tracks for long tension, and item threads for recurring object-driven stakes. '
+            'For image generation, always use the world-specific art style and art direction from this payload instead of falling back to a generic fantasy look. '
+            'Normal gameplay turns should default to exactly one primary scene image before narration whenever image generation is available. '
             'If the player action is a detour, connect the detour back to the main line through consequences, pressure, discoveries, obligations, or opportunities. '
             'End with clear natural next moves or choices.'
         )

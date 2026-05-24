@@ -117,6 +117,12 @@ def fallback_image_prompt(save: dict, evo: dict, preferred_language: str) -> str
     location = (save.get('location') or 'the current scene').strip()
     universe = (save.get('universe') or save.get('world_id') or '').strip()
     summary = (evo.get('last_summary') or '').strip()
+    world = load_world(universe) if universe else {}
+    art_style = world.get('art_style')
+    art_direction = world.get('art_direction') or {}
+    visual_style = art_direction.get('visual_style')
+    style_bits = [str(x).strip() for x in [art_style, visual_style] if isinstance(x, str) and str(x).strip()]
+    style_clause = ', '.join(style_bits[:2]) if style_bits else 'world-specific YumFu illustration style'
 
     if preferred_language == 'zh':
         return (
@@ -124,14 +130,18 @@ def fallback_image_prompt(save: dict, evo: dict, preferred_language: str) -> str
             f"延续当前存档剧情，不要像新开局，不要做成独立海报；"
             f"重点表现回到现场时的局势压力与继续推进感。"
             f"{(' 当前风声：' + summary) if summary and looks_zh(summary) else ''}"
-            f" 世界观：{universe or '当前世界'}。 cinematic fantasy illustration, no text"
+            f" 世界观：{universe or '当前世界'}。"
+            f" 画风要求：{style_clause}。"
+            f" No text, no words, no letters, no captions, no signs, no speech bubbles, no watermark, image-only illustration."
         )
 
     return (
         f"YumFu continue-time gameplay image for {character} at {location}, visual continuity with the current save, "
         f"not a fresh opening scene, not a disconnected poster, emphasize immediate re-entry into the ongoing situation. "
         f"{('Current pressure: ' + summary + '. ') if summary and not looks_zh(summary) else ''}"
-        f"World: {universe or 'current world'}. cinematic fantasy illustration, no text"
+        f"World: {universe or 'current world'}. "
+        f"Art direction: {style_clause}. "
+        f"No text, no words, no letters, no captions, no signs, no speech bubbles, no watermark, image-only illustration."
     )
 
 
