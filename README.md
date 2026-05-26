@@ -1,9 +1,5 @@
 # YumFu - Multi-World MUD 🌍⚔️🧩
 
-**Play together in Telegram groups!** Text-based multiplayer RPG with AI-generated art.
-
-> 🎉 Add YumFu to your group chat and adventure with friends — fight, explore, and compete in a shared world!
-
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Security](https://img.shields.io/badge/security-audited-green.svg)](SECURITY.md)
 [![Safe Code](https://img.shields.io/badge/code-no%20eval-brightgreen.svg)](SECURITY.md)
@@ -11,25 +7,47 @@
 [![Multiplayer](https://img.shields.io/badge/multiplayer-Telegram%20%26%20Discord-blue)](https://clawhub.ai/skills/yumfu)
 [![Support via Stripe](https://img.shields.io/badge/Support-Stripe-635BFF?style=flat&logo=stripe&logoColor=white)](https://buy.stripe.com/8x26oHc329ha6GvaiggjC00)
 
-## 💖 Support YumFu
+> **A chat-native multiplayer RPG skill for OpenClaw.**
+>
+> Play inside Telegram groups, Discord, or other chat surfaces with:
+> - **AI-generated scene art**
+> - **voice / narrated story delivery**
+> - **illustrated storybooks and demos**
+> - **shared world state for group play**
 
-If YumFu helped you or made you smile, you can support future development here:
+**Think:** _MUD + AI art + voice story + multiplayer group chat chaos._
 
-[Donate via Stripe](https://buy.stripe.com/8x26oHc329ha6GvaiggjC00)
+## Why YumFu gets attention
 
----
+Most chat games are either command-heavy, single-player, or visually flat.
+YumFu is different because it treats chat as the actual game surface:
 
-## 💬 Join the YumFu Fun Discord
+- players can progress with **natural language**, not just rigid commands
+- major turns can arrive with **matching AI scene art**
+- sessions can become **audio stories** and **illustrated storybooks**
+- worlds are built for **shared multiplayer play**, not just solo prompting
 
-Come play, test new worlds, share screenshots, and hang out with other players:
+That makes YumFu easier to show, easier to share, and much more fun to demo
+than a typical text RPG.
 
-- **Invite:** <https://discord.gg/g6zBMHpP8>
+## Fast pitch
 
-### Discord QR Code
+Add YumFu to a group chat and people can:
+
+- team up on quests
+- duel each other in PvP
+- play in different worlds and tones
+- generate memorable scenes worth screenshotting
+- turn a session into something replayable or shareable later
+
+## Live demos
+
+- **Storybook index:** <https://yumyumtum.github.io/yumfu/storybooks/>
+- **Featured demo — Journey to the West / White Bone:**
+  <https://yumyumtum.github.io/yumfu/storybooks/journey-to-west-white-bone/>
+- **Community Discord:** <https://discord.gg/g6zBMHpP8>
 
 ![YumFu Fun Discord QR](docs/community/yumfu-fun-discord-qr.jpg)
-
----
 
 ## ✨ Why YumFu feels different
 
@@ -42,6 +60,12 @@ Come play, test new worlds, share screenshots, and hang out with other players:
 - 👥 **Multiplayer-first** — play inside group chats with PvP, teams, and shared world state
 - 🌍 **Multi-world, multi-language** — wuxia, magic school, epic fantasy, modern war, myth, comedy
 - 💬 **Natural language play** — just talk instead of memorizing commands
+
+## 💖 Support YumFu
+
+If YumFu helped you or made you smile, you can support future development here:
+
+[Donate via Stripe](https://buy.stripe.com/8x26oHc329ha6GvaiggjC00)
 
 ---
 
