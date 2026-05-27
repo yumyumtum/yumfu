@@ -45,6 +45,7 @@ Add YumFu to a group chat and people can:
 - **Storybook index:** <https://yumyumtum.github.io/yumfu/storybooks/>
 - **Featured demo — Journey to the West / White Bone:**
   <https://yumyumtum.github.io/yumfu/storybooks/journey-to-west-white-bone/>
+- **Blog / showcase notes:** <https://yumyumtum.github.io/yumfu/blog/>
 - **Community Discord:** <https://discord.gg/g6zBMHpP8>
 
 ![YumFu Fun Discord QR](docs/community/yumfu-fun-discord-qr.jpg)
