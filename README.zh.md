@@ -74,6 +74,13 @@
 </tr>
 </table>
 
+### 🩸 本能寺斩首展示
+
+![Honnō-ji Beheading Showcase](docs/showcase/showcase-honnouji-beheading.jpg)
+*本能寺一刀斩首——高戏剧张力的战国回合，兼具战利品、政治邀功与后续命运抉择。*
+
+- 英文展示文案：[`docs/showcase/honnouji-beheading.md`](docs/showcase/honnouji-beheading.md)
+
 *这些展示图来自 YumFu 实际游玩中的世界风格生图。*
 
 ### 📖 在线 Storybook 示例

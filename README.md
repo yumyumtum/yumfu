@@ -199,6 +199,13 @@ YumFu stores all game data **locally** on your machine:
 </tr>
 </table>
 
+### 🩸 Sengoku / Honnō-ji Showcase
+
+![Honnō-ji Beheading Showcase](docs/showcase/showcase-honnouji-beheading.jpg)
+*One-stroke execution at Honnō-ji — a high-drama Sengoku turn with loot, politics, and aftermath choices.*
+
+- English scene write-up: [docs/showcase/honnouji-beheading.md](docs/showcase/honnouji-beheading.md)
+
 *All showcase images are generated from real YumFu gameplay with world-specific art direction.*
 
 ### 📖 Live Storybook Demo
