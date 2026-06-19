@@ -1229,6 +1229,8 @@ The following original behaviors remain mandatory unless the user explicitly req
 ### World grounding rule
 Even though the content is dynamically generated, it must still stay grounded in each world’s canon/setting documents.
 
+**Canon reference files (source-based worlds):** for IP worlds that have one, also load `worlds/canon/<world-id>.md` together with `worlds/<world-id>.json`. The JSON drives systems/mechanics; the `canon.md` keeps the *story* faithful to the source (real geography, factions/houses/clans, characters, plot beats, artifacts, themes). Currently available: `xiaoao` (笑傲江湖), `yitian` (倚天屠龙记), `game-of-thrones`, `lotr`, `harry-potter`, `warrior-cats`. These canon files are fan-authored digests, **not** original text; plot may diverge from canon.
+
 ### Rich world-detail rule (NEW)
 Do not let YumFu worlds flatten into generic atmosphere.
 Whenever active play, daily evolution, or continue/re-entry is generated, actively look for chances to surface concrete detail from the save/world state such as:
