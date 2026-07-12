@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YumFu Warriors — Begin Your Clan</title>
+<style>
+  :root{--ink:#f3ece0;--paper:#241a0f;--panel:#2c2013;--edge:#4a3720;--gold:#e0b24a;--gold2:#b8872a;--moss:#6a8a4a;--red:#b5462e;--star:#9fc7e8;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Noto Serif SC',serif;background:#140d06;color:var(--ink);line-height:1.6;min-height:100vh}
+  .app{max-width:860px;margin:0 auto;padding:20px 18px 80px}
+  h1{font-size:2rem;text-align:center;color:var(--gold);text-shadow:0 2px 10px rgba(0,0,0,.6);margin-bottom:4px}
+  .tagline{text-align:center;color:#c9b892;margin-bottom:22px;font-size:.98rem}
+  .panel{background:linear-gradient(160deg,var(--panel),var(--paper));border:1px solid var(--edge);border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+  h2{color:#f6e4bd;font-size:1.35rem;margin-bottom:10px}
+  h3{color:var(--gold);font-size:1rem;letter-spacing:.03em;text-transform:uppercase;margin:14px 0 8px}
+  p{color:#d8cbb4}
+  label{display:block;color:#c9b892;font-size:.85rem;margin:12px 0 5px}
+  input[type=text],textarea{width:100%;background:#1b120a;border:1px solid var(--edge);color:var(--ink);padding:11px 12px;border-radius:10px;font-family:inherit;font-size:1rem}
+  textarea{min-height:70px;resize:vertical}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>*{flex:1;min-width:140px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:6px}
+  .opt{background:#1b120a;border:1px solid var(--edge);border-radius:12px;padding:12px;cursor:pointer;transition:.15s;text-align:center}
+  .opt:hover{border-color:var(--gold2)}
+  .opt.sel{border-color:var(--gold);background:#2e2211;box-shadow:0 0 0 2px rgba(224,178,74,.25) inset}
+  .opt .ic{font-size:1.5rem;display:block}
+  .opt .nm{font-weight:bold;color:#f6e4bd;margin-top:3px}
+  .opt .ds{font-size:.75rem;color:#a99a80;margin-top:2px}
+  .btn{display:inline-block;background:var(--gold);color:#241a0f;font-weight:bold;border:none;padding:12px 22px;border-radius:12px;cursor:pointer;font-family:inherit;font-size:1rem;margin-top:8px}
+  .btn:hover{background:#efc45c}
+  .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold2)}
+  .btn.red{background:var(--red);color:#fff}
+  .btn.small{padding:7px 14px;font-size:.85rem;margin-top:0}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .book{display:flex;gap:12px;align-items:center;background:#1b120a;border:1px solid var(--edge);border-radius:12px;padding:12px;margin-bottom:10px}
+  .book.locked{opacity:.45}
+  .book.done{border-color:var(--moss)}
+  .book .bic{font-size:1.7rem;width:40px;text-align:center}
+  .book .bmeta{flex:1}
+  .book .bt{font-weight:bold;color:#f6e4bd}
+  .book .bs{font-size:.8rem;color:#a99a80}
+  .badge{font-size:.7rem;padding:3px 8px;border-radius:999px;background:#3a2c19;color:#e6d3a6;white-space:nowrap}
+  .badge.done{background:var(--moss);color:#0f1a08}
+  .badge.lock{background:#2a2012;color:#7a6a50}
+  .worldcard{background:#1b120a;border:1px solid var(--edge);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .worldcard .wn{font-weight:bold;color:#f6e4bd;font-size:1.05rem}
+  .worldcard .ws{font-size:.78rem;color:#a99a80}
+  .hidden{display:none}
+  .scene{background:#1b120a;border-left:3px solid var(--gold2);padding:14px 16px;border-radius:0 10px 10px 0;margin:12px 0;white-space:pre-wrap}
+  .starbg{background:linear-gradient(180deg,#0a1420,#131f2e);border-color:#2a3d52}
+  .ghost{background:#0f1a26;border:1px solid #2a3d52;border-radius:10px;padding:10px 12px;margin:8px 0}
+  .ghost .gn{color:var(--star);font-weight:bold}
+  .foot{text-align:center;color:#8a7c64;font-size:.8rem;margin-top:26px}
+  a{color:var(--gold)}
+  .pill{display:inline-block;font-size:.72rem;background:#3a2c19;color:#e6d3a6;padding:3px 9px;border-radius:999px;margin:2px 4px 2px 0}
+  .statbar{display:flex;gap:8px;flex-wrap:wrap;font-size:.8rem;color:#c9b892;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>⚔️ YumFu Warriors</h1>
+  <div class="tagline">Choose your name. Choose your clan. Live your books — then rest among the stars.</div>
+
+  <div id="view-worlds" class="panel">
+    <h2>🌲 Your Worlds</h2>
+    <p>Each world is its own cat, its own clan, its own story. Create as many as you like — return to any of them whenever you want (like Hollow Knight save files).</p>
+    <div id="worldList" style="margin-top:14px"></div>
+    <div class="btnrow"><button class="btn" onclick="startNewWorld()">＋ Create New World</button></div>
+    <p class="foot">Saves live in this browser. Same device = your clans are always waiting.</p>
+  </div>
+
+  <div id="view-create" class="panel hidden">
+    <h2>🐾 A New Kit Is Born</h2>
+    <label>Name your world (this save slot)</label>
+    <input type="text" id="worldName" placeholder="e.g. Dilloheart's Legend, Mossfire Saga…" />
+    <label>Your cat's name</label>
+    <input type="text" id="catName" placeholder="e.g. Dilloheart, Emberpaw, Silkfrost…" />
+    <p class="foot" style="text-align:left;margin-top:4px">Kits are "-kit", apprentices "-paw", warriors "-heart / -fire / -frost". Type the name you dream of earning.</p>
+    <h3>Choose your Clan</h3><div class="grid" id="clanGrid"></div>
+    <h3>Choose your pelt</h3><div class="grid" id="peltGrid"></div>
+    <h3>Choose your strength</h3><div class="grid" id="traitGrid"></div>
+    <div class="btnrow">
+      <button class="btn" onclick="createCat()">🌅 Begin Your Story</button>
+      <button class="btn ghost small" onclick="show('worlds')">← Back</button>
+    </div>
+  </div>
+
+  <div id="view-books" class="panel hidden">
+    <h2>📖 The Path of a Warrior</h2>
+    <div id="catSummary" class="statbar"></div>
+    <p style="margin-top:10px">Complete each book to unlock the next. Finish the whole path and your story turns endless — you write your own legends.</p>
+    <div id="bookList" style="margin-top:14px"></div>
+    <div class="btnrow">
+      <button class="btn ghost small" onclick="show('worlds')">← Worlds</button>
+      <button class="btn ghost small" id="endlessBtn" onclick="show('endless')" style="display:none">✨ Endless legends</button>
+      <button class="btn red small" onclick="show('death')">🌙 Cross to StarClan…</button>
+    </div>
+  </div>
+
+  <div id="view-play" class="panel hidden">
+    <h2 id="playTitle">Book</h2>
+    <div id="playScene"></div>
+    <div id="playChoices" class="btnrow"></div>
+  </div>
+
+  <div id="view-endless" class="panel hidden">
+    <h2>✨ The Endless Territory</h2>
+    <p>You've completed every book — a true legend of your clan. From here, the story is yours to invent. Write your own tales, one after another.</p>
+    <label>Title your next story</label>
+    <input type="text" id="endlessTitle" placeholder="e.g. The Flood of Greenleaf…" />
+    <label>What happens?</label>
+    <textarea id="endlessBody" placeholder="Write your own legend here…"></textarea>
+    <div class="btnrow">
+      <button class="btn" onclick="saveEndless()">📜 Add to my legends</button>
+      <button class="btn ghost small" onclick="show('books')">← Path</button>
+    </div>
+    <div id="endlessList" style="margin-top:16px"></div>
+  </div>
+
+  <div id="view-death" class="panel hidden">
+    <h2>🌙 The Final Rest</h2>
+    <p>Every warrior chooses their moment. When you're ready, your cat lays down its head and its spirit rises to walk among the stars.</p>
+    <div class="scene" id="deathScene"></div>
+    <div class="btnrow">
+      <button class="btn red" onclick="crossToStarClan()">🌌 Cross to StarClan</button>
+      <button class="btn ghost small" onclick="show('books')">Not yet — keep living</button>
+    </div>
+  </div>
+
+  <div id="view-starclan" class="panel starbg hidden">
+    <h1 style="color:var(--star)">🌌 StarClan</h1>
+    <p id="starIntro" style="color:#bcd6ee"></p>
+    <h3 style="color:var(--star)">Speak with the ghost cats</h3>
+    <div id="ghostList"></div>
+    <label>Say something to the stars</label>
+    <div class="row">
+      <input type="text" id="starMsg" placeholder="Whisper to your ancestors…" />
+      <button class="btn small" style="flex:0 0 auto" onclick="whisperToStars()">Send</button>
+    </div>
+    <div id="starEcho" style="margin-top:12px"></div>
+    <div class="btnrow" style="margin-top:20px">
+      <button class="btn" onclick="startOverSameWorld()">🐾 Be reborn (new cat, same world)</button>
+      <button class="btn ghost" onclick="show('worlds')">🌲 Return to your Worlds</button>
+    </div>
+  </div>
+
+  <div class="foot">YumFu Warriors · interactive front-page for the <a href="../">storybook site</a> · play the full illustrated version with the <a href="./">AI bot</a> 🐱</div>
+</div>
+
+<script>
+const CLANS=[
+  {id:'skyclan',ic:'🌲',nm:'SkyClan',ds:'Leapers of tall trees'},
+  {id:'thunderclan',ic:'⚡',nm:'ThunderClan',ds:'Brave forest hunters'},
+  {id:'riverclan',ic:'🌊',nm:'RiverClan',ds:'Swimmers, calm & fed'},
+  {id:'windclan',ic:'🌾',nm:'WindClan',ds:'Swift moor runners'},
+  {id:'shadowclan',ic:'🌑',nm:'ShadowClan',ds:'Cunning night-stalkers'},
+];
+const PELTS=[
+  {id:'tabby',ic:'🐅',nm:'Tabby',ds:'Striped classic'},
+  {id:'black',ic:'⚫',nm:'Black',ds:'Sleek shadow'},
+  {id:'white',ic:'⚪',nm:'White',ds:'Snow-pale'},
+  {id:'ginger',ic:'🔥',nm:'Ginger',ds:'Fire-bright'},
+  {id:'gray',ic:'🌫️',nm:'Gray',ds:'Mist-coat'},
+  {id:'tortie',ic:'🍂',nm:'Tortoiseshell',ds:'Patchwork'},
+];
+const TRAITS=[
+  {id:'speed',ic:'💨',nm:'Swift',ds:'+ chase & flee'},
+  {id:'strength',ic:'💪',nm:'Strong',ds:'+ battle'},
+  {id:'cunning',ic:'🦊',nm:'Cunning',ds:'+ strategy'},
+  {id:'senses',ic:'👁️',nm:'Sharp',ds:'+ hunting'},
+  {id:'heart',ic:'❤️',nm:'Loyal',ds:'+ clan bonds'},
+];
+const BOOKS=[
+  {id:'kit',ic:'🍼',t:'Book I — Into the Wild',s:'Born a kit. Open your eyes to the clan.',
+    scene:n=>n+' squirms in the warm nursery moss. Beyond the bramble wall the clan sounds huge and wild — mews, growls, the scent of prey. Today you are finally old enough to explore.',
+    choices:['Pounce on a mossball','Sneak toward the camp entrance',"Listen to the elders' tales"]},
+  {id:'apprentice',ic:'🐾',t:'Book II — The Apprentice',s:'Earn your -paw name. Train with your mentor.',
+    scene:n=>'At the Apprentice Ceremony the whole clan yowls your new name. Your mentor pads over, eyes gleaming. "First lesson at dawn," they promise. The forest is yours to learn.',
+    choices:['Learn the hunting crouch','Practice a battle move','Explore the clan borders']},
+  {id:'firsthunt',ic:'🐭',t:'Book III — First Catch',s:'Prove yourself. Catch, fight, belong.',
+    scene:n=>'A mouse rustles in the leaf-fall. Your whiskers twitch. Your first true catch could feed the clan and earn real respect.',
+    choices:['Freeze and stalk slowly','Leap now, fast and bold','Drive it toward a denmate']},
+  {id:'warrior',ic:'⚔️',t:'Book IV — Warrior Vigil',s:'Take your warrior name. Guard in silence.',
+    scene:n=>'Your warrior ceremony ends at dusk. Tradition demands a silent vigil, guarding the sleeping camp until dawn. The stars of StarClan wheel overhead, watching.',
+    choices:['Watch the trees for danger','Reflect on how far you\u2019ve come','Listen for StarClan\u2019s whispers']},
+  {id:'trial',ic:'🩸',t:'Book V — The Border Trial',s:'War, loyalty, and hard choices.',
+    scene:n=>'A rival patrol crosses the scent line. Claws unsheathe. Your clan looks to you. The Warrior Code and your own heart pull in different directions.',
+    choices:['Stand and fight for territory','Call for a truce & talk','Fetch the leader for judgment']},
+  {id:'legend',ic:'👑',t:'Book VI — Nine Lives',s:'Rise toward deputy, leader, legend.',
+    scene:n=>'The leader is old. The clan murmurs your name for deputy. Accept, and one day you may climb to the Moonpool to receive nine lives from StarClan itself.',
+    choices:['Accept the burden of leadership','Serve loyally without the crown','Seek a sign from StarClan first']},
+];
+const GHOST_LINES=[
+  'A star flickers. "Well hunted, little one. The code lives on in you."',
+  'A silver tabby dips her head. "Even in death, the clan is never far."',
+  'An old tom purrs. "You fought with honor. Rest now — you have earned it."',
+  'A gentle voice: "Watch over those still walking the forest. We are always with them."',
+];
+
+const KEY='yumfu_warriors_worlds_v1';
+let DB=load(),cur=null,playing=null;
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{worlds:[]}}catch(e){return{worlds:[]}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(DB))}
+function uid(){return 'w'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function clan(id){return CLANS.find(x=>x.id===id)||{ic:'🐾',nm:id}}
+function pelt(id){return PELTS.find(x=>x.id===id)||{ic:'🐾',nm:id}}
+function trait(id){return TRAITS.find(x=>x.id===id)||{ic:'⭐',nm:id}}
+
+const VIEWS=['worlds','create','books','play','endless','death','starclan'];
+function show(v){VIEWS.forEach(x=>document.getElementById('view-'+x).classList.toggle('hidden',x!==v));window.scrollTo(0,0);
+  if(v==='worlds')renderWorlds();if(v==='books')renderBooks();if(v==='endless')renderEndless();
+  if(v==='death')renderDeath();if(v==='starclan')renderStar();}
+
+function renderWorlds(){
+  const el=document.getElementById('worldList');
+  if(!DB.worlds.length){el.innerHTML='<p style="color:#a99a80">No worlds yet. Create your first clan cat below. 🐾</p>';return;}
+  el.innerHTML=DB.worlds.map(w=>{
+    const done=w.books.filter(b=>b.done).length;
+    const state=w.dead?'🌌 In StarClan':(done>=BOOKS.length?'✨ Endless legend':'📖 '+done+'/'+BOOKS.length+' books');
+    return '<div class="worldcard"><div><div class="wn">'+esc(w.worldName)+'</div>'+
+      '<div class="ws">'+esc(w.cat.name)+' · '+clan(w.cat.clan).nm+' · '+state+'</div></div>'+
+      '<div style="display:flex;gap:6px">'+
+      '<button class="btn small" onclick="openWorld(\''+w.id+'\')">Continue</button>'+
+      '<button class="btn ghost small" onclick="delWorld(\''+w.id+'\')">🗑</button></div></div>';
+  }).join('');
+}
+function startNewWorld(){cur=null;show('create');buildCreate();}
+function delWorld(id){if(confirm('Delete this world forever?')){DB.worlds=DB.worlds.filter(w=>w.id!==id);save();renderWorlds();}}
+function openWorld(id){cur=DB.worlds.find(w=>w.id===id);if(!cur)return;cur.dead?show('starclan'):show('books');}
+
+let sel={clan:null,pelt:null,trait:null};
+function buildCreate(){sel={clan:null,pelt:null,trait:null};
+  document.getElementById('worldName').value='';document.getElementById('catName').value='';
+  fill('clanGrid',CLANS,'clan');fill('peltGrid',PELTS,'pelt');fill('traitGrid',TRAITS,'trait');}
+function fill(gid,arr,kind){document.getElementById(gid).innerHTML=arr.map(o=>
+  '<div class="opt" data-k="'+kind+'" onclick="pick(\''+kind+'\',\''+o.id+'\',this)">'+
+  '<span class="ic">'+o.ic+'</span><span class="nm">'+o.nm+'</span><span class="ds">'+o.ds+'</span></div>').join('');}
+function pick(kind,id,el){sel[kind]=id;document.querySelectorAll('[data-k="'+kind+'"]').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');}
+function createCat(){
+  const wn=document.getElementById('worldName').value.trim()||'Untitled Clan';
+  const nm=document.getElementById('catName').value.trim();
+  if(!nm){alert('Give your cat a name first! 🐾');return;}
+  if(!sel.clan||!sel.pelt||!sel.trait){alert('Choose a clan, pelt, and strength.');return;}
+  cur={id:uid(),worldName:wn,dead:false,createdAt:Date.now(),
+    cat:{name:nm,clan:sel.clan,pelt:sel.pelt,trait:sel.trait,lives:9},
+    books:BOOKS.map(b=>({id:b.id,done:false,choice:null})),endless:[],ancestors:[]};
+  DB.worlds.push(cur);save();show('books');
+}
+
+
+function renderBooks(){
+  if(!cur)return show('worlds');
+  var c=cur.cat;
+  document.getElementById('catSummary').innerHTML=
+    '<span class="pill">'+clan(c.clan).ic+' '+clan(c.clan).nm+'</span>'+
+    '<span class="pill">🐾 '+esc(c.name)+'</span>'+
+    '<span class="pill">'+pelt(c.pelt).ic+' '+pelt(c.pelt).nm+'</span>'+
+    '<span class="pill">'+trait(c.trait).ic+' '+trait(c.trait).nm+'</span>'+
+    '<span class="pill">❤️ '+c.lives+' lives</span>';
+  var done=cur.books.filter(function(b){return b.done}).length;
+  document.getElementById('endlessBtn').style.display = done>=BOOKS.length?'inline-block':'none';
+  document.getElementById('bookList').innerHTML=BOOKS.map(function(b,i){
+    var st=cur.books[i];
+    var unlocked=i===0||cur.books[i-1].done;
+    var cls=st.done?'done':(unlocked?'':'locked');
+    var badge=st.done?'<span class="badge done">✓ Complete</span>':
+      (unlocked?'<span class="badge">Play ▶</span>':'<span class="badge lock">🔒 Locked</span>');
+    var click=unlocked?'onclick="playBook('+i+')"':'';
+    return '<div class="book '+cls+'" style="'+(unlocked?'cursor:pointer':'')+'" '+click+'>'+
+      '<div class="bic">'+b.ic+'</div>'+
+      '<div class="bmeta"><div class="bt">'+b.t+'</div><div class="bs">'+b.s+'</div></div>'+
+      badge+'</div>';
+  }).join('');
+}
+
+function playBook(i){
+  playing=i;
+  var b=BOOKS[i];
+  document.getElementById('playTitle').innerHTML=b.ic+' '+b.t;
+  document.getElementById('playScene').innerHTML='<div class="scene">'+esc(b.scene(cur.cat.name))+'</div>';
+  document.getElementById('playChoices').innerHTML=b.choices.map(function(ch,ci){
+    return '<button class="btn" onclick="chooseBook('+ci+')">'+esc(ch)+'</button>';
+  }).join('')+'<button class="btn ghost small" onclick="show(\'books\')">← Path</button>';
+  show('play');
+}
+function chooseBook(ci){
+  var i=playing,b=BOOKS[i];
+  cur.books[i].done=true;
+  cur.books[i].choice=b.choices[ci];
+  save();
+  var next=i+1<BOOKS.length?BOOKS[i+1]:null;
+  var msg='<div class="scene">You chose: <b>'+esc(b.choices[ci])+'</b>\n\n'+
+    esc(cur.cat.name)+' grows stronger. '+(next?('The path opens toward <b>'+esc(next.t)+'</b>.'):
+    'You have completed every book — you are a legend now. ✨ The Endless Territory awaits.')+'</div>';
+  document.getElementById('playScene').innerHTML=msg;
+  var btns='<button class="btn" onclick="show(\'books\')">📖 Back to the Path</button>';
+  if(!next) btns='<button class="btn" onclick="show(\'endless\')">✨ Enter the Endless Territory</button>'+btns;
+  document.getElementById('playChoices').innerHTML=btns;
+}
+
+function renderEndless(){
+  if(!cur)return show('worlds');
+  var el=document.getElementById('endlessList');
+  if(!cur.endless.length){el.innerHTML='<p style="color:#a99a80">No legends written yet. Your story is a blank page. 📜</p>';return;}
+  el.innerHTML=cur.endless.slice().reverse().map(function(e){
+    return '<div class="scene"><b>'+esc(e.title)+'</b>\n'+esc(e.body)+'</div>';
+  }).join('');
+}
+function saveEndless(){
+  var t=document.getElementById('endlessTitle').value.trim();
+  var b=document.getElementById('endlessBody').value.trim();
+  if(!t&&!b){alert('Write a title or a story first. 📜');return;}
+  cur.endless.push({title:t||'Untitled Legend',body:b||'…',at:Date.now()});
+  save();
+  document.getElementById('endlessTitle').value='';document.getElementById('endlessBody').value='';
+  renderEndless();
+}
+
+function renderDeath(){
+  if(!cur)return show('worlds');
+  document.getElementById('deathScene').textContent=
+    cur.cat.name+' of '+clan(cur.cat.clan).nm+' has walked a long path. When you choose, their spirit will rise into StarClan — but their story stays written in this world forever.';
+}
+function crossToStarClan(){
+  cur.dead=true;
+  cur.ancestors=cur.ancestors||[];
+  cur.ancestors.push({name:cur.cat.name,clan:cur.cat.clan,books:cur.books.filter(function(b){return b.done}).length,at:Date.now()});
+  save();
+  show('starclan');
+}
+
+function renderStar(){
+  if(!cur)return show('worlds');
+  document.getElementById('starIntro').textContent=
+    'Above the forest, the stars burn cold and kind. '+cur.cat.name+' now walks among the ancestors of '+clan(cur.cat.clan).nm+'. Here, no cat is ever truly gone.';
+  var g=document.getElementById('ghostList');
+  var list=(cur.ancestors||[]);
+  g.innerHTML=list.length?list.map(function(a){
+    return '<div class="ghost"><span class="gn">🌟 '+esc(a.name)+'</span> — '+clan(a.clan).nm+
+      ', walked '+a.books+' books. <i>"The clan remembers you."</i></div>';
+  }).join(''):'<p style="color:#8aa6c0">The stars are quiet tonight.</p>';
+  document.getElementById('starEcho').innerHTML='';
+}
+function whisperToStars(){
+  var m=document.getElementById('starMsg').value.trim();
+  if(!m)return;
+  var reply=GHOST_LINES[Math.floor(Math.random()*GHOST_LINES.length)];
+  document.getElementById('starEcho').innerHTML=
+    '<div class="ghost"><span class="gn">You whisper:</span> '+esc(m)+'</div>'+
+    '<div class="ghost">'+esc(reply)+'</div>';
+  document.getElementById('starMsg').value='';
+}
+function startOverSameWorld(){
+  buildCreate();
+  document.getElementById('worldName').value=cur.worldName+' (new life)';
+  show('create');
+}
+
+renderWorlds();
+</script>
+</body>
+</html>
