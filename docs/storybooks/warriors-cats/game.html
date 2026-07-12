@@ -131,6 +131,7 @@
   <div id="view-starclan" class="panel starbg hidden">
     <h1 style="color:var(--star)">🌌 StarClan</h1>
     <p id="starIntro" style="color:#bcd6ee"></p>
+    <p style="color:#8aa6c0;font-size:.9rem;margin-top:6px">💫 Being here is never the end — you can always slip back to any of your other living worlds and keep playing.</p>
     <h3 style="color:var(--star)">Speak with the ghost cats</h3>
     <div id="ghostList"></div>
     <label>Say something to the stars</label>
@@ -139,9 +140,13 @@
       <button class="btn small" style="flex:0 0 auto" onclick="whisperToStars()">Send</button>
     </div>
     <div id="starEcho" style="margin-top:12px"></div>
-    <div class="btnrow" style="margin-top:20px">
+
+    <h3 style="color:var(--star);margin-top:22px">🌲 Continue another world</h3>
+    <div id="otherWorlds"></div>
+
+    <div class="btnrow" style="margin-top:16px">
       <button class="btn" onclick="startOverSameWorld()">🐾 Be reborn (new cat, same world)</button>
-      <button class="btn ghost" onclick="show('worlds')">🌲 Return to your Worlds</button>
+      <button class="btn ghost" onclick="show('worlds')">🌲 All my Worlds</button>
     </div>
   </div>
 
@@ -342,7 +347,22 @@ function renderStar(){
       ', walked '+a.books+' books. <i>"The clan remembers you."</i></div>';
   }).join(''):'<p style="color:#8aa6c0">The stars are quiet tonight.</p>';
   document.getElementById('starEcho').innerHTML='';
+  // other living worlds you can jump back into
+  var ow=document.getElementById('otherWorlds');
+  var others=DB.worlds.filter(function(w){return w.id!==cur.id && !w.dead;});
+  if(!others.length){
+    ow.innerHTML='<p style="color:#8aa6c0;font-size:.88rem">No other living worlds right now. You can start a fresh one from “All my Worlds.”</p>';
+  }else{
+    ow.innerHTML=others.map(function(w){
+      var done=w.books.filter(function(b){return b.done}).length;
+      var state=done>=BOOKS.length?'✨ Endless legend':'📖 '+done+'/'+BOOKS.length+' books';
+      return '<div class="worldcard"><div><div class="wn">'+esc(w.worldName)+'</div>'+
+        '<div class="ws">'+esc(w.cat.name)+' · '+clan(w.cat.clan).nm+' · '+state+'</div></div>'+
+        '<button class="btn small" onclick="jumpToWorld(\''+w.id+'\')">Continue ▶</button></div>';
+    }).join('');
+  }
 }
+function jumpToWorld(id){cur=DB.worlds.find(function(w){return w.id===id});if(!cur)return;cur.dead?show('starclan'):show('books');}
 function whisperToStars(){
   var m=document.getElementById('starMsg').value.trim();
   if(!m)return;
