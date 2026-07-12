@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YumFu — Live Your Own Story</title>
+<meta name="description" content="YumFu turns you into the hero of an ever-evolving illustrated adventure. Play Warriors: create your cat, choose your clan, walk the books, and rest among the stars." />
+<style>
+  :root{--ink:#f3ece0;--bg:#120c06;--panel:#241a0f;--edge:#4a3720;--gold:#e0b24a;--gold2:#b8872a;--moss:#6a8a4a;--star:#9fc7e8;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Noto Serif SC',serif;background:var(--bg);color:var(--ink);line-height:1.65}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  .hero{position:relative;text-align:center;padding:64px 22px 48px;
+    background:radial-gradient(ellipse at top,rgba(224,178,74,.14),transparent 60%)}
+  .hero h1{font-size:3rem;color:var(--gold);text-shadow:0 3px 18px rgba(0,0,0,.6);letter-spacing:.02em}
+  .hero .sub{color:#d8cbb4;font-size:1.2rem;margin-top:10px;max-width:640px;margin-left:auto;margin-right:auto}
+  .cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+  .btn{display:inline-block;background:var(--gold);color:#241a0f;font-weight:bold;padding:14px 26px;border-radius:14px;font-size:1.05rem}
+  .btn:hover{background:#efc45c;text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold2)}
+  section{padding:44px 0}
+  h2{font-size:1.8rem;color:#f6e4bd;margin-bottom:6px}
+  .lead{color:#c9b892;margin-bottom:22px}
+  .feature{display:flex;gap:26px;align-items:center;flex-wrap:wrap;background:linear-gradient(160deg,#2c2013,#241a0f);
+    border:1px solid var(--edge);border-radius:22px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+  .feature img{width:340px;max-width:100%;border-radius:16px;box-shadow:0 6px 22px rgba(0,0,0,.5)}
+  .feature .txt{flex:1;min-width:260px}
+  .feature h3{color:var(--gold);font-size:1.5rem;margin-bottom:8px}
+  .feature ul{margin:12px 0 18px 20px;color:#e2d6bf}
+  .feature li{margin-bottom:5px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:16px}
+  .card{background:#241a0f;border:1px solid var(--edge);border-radius:16px;overflow:hidden}
+  .card img{width:100%;height:150px;object-fit:cover;display:block}
+  .card .cc{padding:14px}
+  .card h4{color:#f6e4bd;font-size:1.05rem;margin-bottom:4px}
+  .card p{color:#a99a80;font-size:.85rem}
+  .pill{display:inline-block;font-size:.72rem;background:#3a2c19;color:#e6d3a6;padding:3px 9px;border-radius:999px;margin:2px 4px 2px 0}
+  .disc{display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#1c2a17;border:1px solid #3a5228;border-radius:20px;padding:24px;margin-top:14px}
+  .disc img{width:130px;border-radius:14px}
+  footer{text-align:center;color:#8a7c64;padding:40px 22px;font-size:.85rem;border-top:1px solid #2a1f14;margin-top:20px}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>⚔️ YumFu</h1>
+    <div class="sub">Live your own ever-evolving illustrated adventure. Become the hero, make the choices, and watch your story get drawn and remembered — turn by turn.</div>
+    <div class="cta">
+      <a class="btn" href="./storybooks/warriors-cats/game.html">🐾 Play Warriors — create your cat</a>
+      <a class="btn ghost" href="./storybooks/">📖 Read the storybooks</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section>
+      <div class="feature">
+        <img src="./storybooks/warriors-cats/cover.jpg" alt="Warrior cat at dusk" />
+        <div class="txt">
+          <h3>⚔️ Warriors — Begin Your Clan</h3>
+          <p class="lead">An interactive Warrior Cats adventure. Each player lives in their own world.</p>
+          <ul>
+            <li>🐾 <b>Choose your name & clan</b> — pelt, strength, and destiny</li>
+            <li>📖 <b>Walk the books</b> — complete one to unlock the next</li>
+            <li>✨ <b>Endless legends</b> — write your own tales after the path ends</li>
+            <li>🌙 <b>Cross to StarClan</b> — chat with ghost cats, or hop to another world</li>
+            <li>🌲 <b>Multiple named worlds</b> — Hollow Knight style, continue anytime</li>
+          </ul>
+          <a class="btn" href="./storybooks/warriors-cats/game.html">▶ Start playing</a>
+          <a class="btn ghost" href="./storybooks/warriors-cats/">Clan chronicles</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📖 Illustrated Storybooks</h2>
+      <p class="lead">Real play sessions, exported into shareable illustrated HTML books.</p>
+      <div class="grid">
+        <a class="card" href="./storybooks/warriors-cats/">
+          <img src="./storybooks/warriors-cats/cover.jpg" alt="Warriors" />
+          <div class="cc"><h4>⚔️ Warriors Chronicles</h4><p>Dilloheart of SkyClan · Tumpaw's Adventure</p></div>
+        </a>
+        <a class="card" href="./storybooks/journey-to-west-white-bone/">
+          <img src="./showcase/showcase-honnouji-beheading.jpg" alt="Journey to the West" onerror="this.style.display='none'" />
+          <div class="cc"><h4>白虎岭·差一块肉</h4><p>Journey to the West — White Bone 骨怪精灵传</p></div>
+        </a>
+        <a class="card" href="./storybooks/">
+          <img src="./showcase/showcase-game-of-thrones.png" alt="More" onerror="this.style.display='none'" />
+          <div class="cc"><h4>All storybooks →</h4><p>Browse the full collection</p></div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>🎨 Worlds You Can Play</h2>
+      <p class="lead">YumFu spans many universes — pick a world, and the AI narrates & illustrates your unique journey.</p>
+      <div class="grid">
+        <div class="card"><img src="./showcase/showcase-game-of-thrones.png" onerror="this.style.display='none'"><div class="cc"><h4>Game of Thrones</h4><p>Rise or fall in Westeros</p></div></div>
+        <div class="card"><img src="./showcase/showcase-harry-potter.png" onerror="this.style.display='none'"><div class="cc"><h4>Harry Potter</h4><p>Your years at Hogwarts</p></div></div>
+        <div class="card"><img src="./showcase/showcase-xiaoao-jianghu.png" onerror="this.style.display='none'"><div class="cc"><h4>笑傲江湖</h4><p>Wuxia legend of the jianghu</p></div></div>
+        <div class="card"><img src="./showcase/showcase-f15down.jpg" onerror="this.style.display='none'"><div class="cc"><h4>F-15 Down</h4><p>Survival behind enemy lines</p></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🤖 Play live with the YumFu bot</h2>
+      <p class="lead">The full experience: every turn the AI sends pictures + words, and remembers your whole journey.</p>
+      <div class="disc">
+        <img src="./community/yumfu-fun-discord-qr.jpg" alt="YumFu Discord QR" onerror="this.style.display='none'" />
+        <div>
+          <p style="color:#dbe8cf;font-size:1.05rem">Join the YumFu community and start your own adventure.</p>
+          <p style="margin-top:10px"><a class="btn" href="https://discord.gg/g6zBMHpP8">▶ Join YumFu on Discord</a></p>
+          <p style="color:#9ab087;font-size:.85rem;margin-top:10px">Play command: <code>/yumfu</code> · your save persists between sessions.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    YumFu · live your own story 🐱 · <a href="https://github.com/yumyumtum/yumfu">GitHub</a> · <a href="./storybooks/">Storybooks</a> · <a href="./storybooks/warriors-cats/game.html">Play Warriors</a>
+  </footer>
+</body>
+</html>
