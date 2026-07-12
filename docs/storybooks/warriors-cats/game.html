@@ -178,23 +178,102 @@ const TRAITS=[
 ];
 const BOOKS=[
   {id:'kit',ic:'🍼',t:'Book I — Into the Wild',s:'Born a kit. Open your eyes to the clan.',
-    scene:n=>n+' squirms in the warm nursery moss. Beyond the bramble wall the clan sounds huge and wild — mews, growls, the scent of prey. Today you are finally old enough to explore.',
-    choices:['Pounce on a mossball','Sneak toward the camp entrance',"Listen to the elders' tales"]},
+   scenes:[
+    {k:'start',text:n=>n+' blinks awake in the warm nursery moss. Beyond the bramble wall the clan roars with life — mews, growls, the rich scent of fresh-kill. Your mother nuzzles you. "Stay close today, little one."',
+      choices:[{t:'🐾 Explore the camp',go:'camp'},{t:'🌿 Listen to the elders',go:'elders'}]},
+    {k:'camp',text:n=>'You wobble into the clearing. Apprentices spar, warriors share tongues, and a huge tom — the Clan leader — watches from the Highrock. His gaze lands on you. "A bold kit," he rumbles. "Good."',
+      choices:[{t:'😼 Puff up and meet his eyes',go:'brave'},{t:'🙈 Duck behind a warrior',go:'shy'}]},
+    {k:'elders',text:n=>'In the elders\u2019 den, a scarred she-cat tells of StarClan — warrior ancestors who burn as stars. "They watch every paw-step," she whispers. Something in your chest stirs.',
+      choices:[{t:'✨ Ask about your destiny',go:'destiny'},{t:'🐭 Dash off to explore',go:'camp'}]},
+    {k:'brave',text:n=>'The leader\u2019s whiskers twitch with approval. "This one will be a warrior worth watching." The whole clan hears it. Pride swells in your tiny chest.',
+      choices:[{t:'➡ A moon passes…',go:'end'}]},
+    {k:'shy',text:n=>'The warrior chuckles and licks your ear. "Courage comes with time, little one." You feel safe here. This is your clan now, for life.',
+      choices:[{t:'➡ A moon passes…',go:'end'}]},
+    {k:'destiny',text:n=>'"Destiny?" the elder purrs. "That\u2019s for you to earn, kit. StarClan opens the path — your paws must walk it." The words settle deep inside you.',
+      choices:[{t:'➡ A moon passes…',go:'end'}]},
+    {k:'end',text:n=>'Moons pass. You grow strong, fast, and curious. At last you are old enough to become an apprentice. Tonight the clan gathers beneath the Highrock — and your true journey begins.',
+      ending:true,summary:'grew from a curious kit into a bold young cat, ready for apprenticeship'}
+   ]},
+
   {id:'apprentice',ic:'🐾',t:'Book II — The Apprentice',s:'Earn your -paw name. Train with your mentor.',
-    scene:n=>'At the Apprentice Ceremony the whole clan yowls your new name. Your mentor pads over, eyes gleaming. "First lesson at dawn," they promise. The forest is yours to learn.',
-    choices:['Learn the hunting crouch','Practice a battle move','Explore the clan borders']},
-  {id:'firsthunt',ic:'🐭',t:'Book III — First Catch',s:'Prove yourself. Catch, fight, belong.',
-    scene:n=>'A mouse rustles in the leaf-fall. Your whiskers twitch. Your first true catch could feed the clan and earn real respect.',
-    choices:['Freeze and stalk slowly','Leap now, fast and bold','Drive it toward a denmate']},
+   scenes:[
+    {k:'start',text:n=>'Beneath the Highrock the leader calls: "Until you earn your warrior name, you shall be known by your -paw name!" The clan yowls it to the sky. Your mentor steps forward. "Meet me at dawn."',
+      choices:[{t:'🌅 Arrive first, eager',go:'dawn'},{t:'🌙 Sneak out at night',go:'night'}]},
+    {k:'dawn',text:n=>'Your mentor teaches the hunting crouch — belly low, tail still. "Again," they say, over and over, until it flows like water. By sunhigh your muscles ache, but something clicks.',
+      choices:[{t:'🎯 Practice until perfect',go:'skilled'},{t:'🌳 Ask to hunt for real',go:'eager'}]},
+    {k:'night',text:n=>'The moonlit forest is beautiful — and dangerous. A fox scent hits your nose. Your fur spikes. Flee, or track it to learn its ways?',
+      choices:[{t:'🏃 Race back, wiser',go:'skilled'},{t:'🦊 Track the fox',go:'bold'}]},
+    {k:'skilled',text:n=>'Days blur into training — crouch, pounce, climb, listen. Your mentor finally nods. "You\u2019ve got the makings of a real hunter." Praise from them is rare gold.',
+      choices:[{t:'➡ Ready for the test…',go:'end'}]},
+    {k:'eager',text:n=>'Your mentor laughs. "Keen! But a good hunter is patient." They let you stalk a beetle — you miss, then catch it, grinning proudly. Small wins build great warriors.',
+      choices:[{t:'➡ Ready for the test…',go:'end'}]},
+    {k:'bold',text:n=>'You shadow the fox to its den and slip away unseen, memorizing its trails. When you report it, your mentor\u2019s eyes widen. "Risky… but that could save the clan one day."',
+      choices:[{t:'➡ Ready for the test…',go:'end'}]},
+    {k:'end',text:n=>'You\u2019ve learned the forest — crouch, climb, listen, strike. Your mentor rests a tail on your shoulder. "Soon you\u2019ll hunt for the whole clan. Ready?" Your heart says yes.',
+      ending:true,summary:'trained hard and mastered the ways of an apprentice'}
+   ]},
+
+  {id:'firsthunt',ic:'🐭',t:'Book III — First Catch',s:'Prove yourself. Feed the clan.',
+   scenes:[
+    {k:'start',text:n=>'Leaf-bare comes and prey is scarce. The clan is hungry. Your mentor sends you on your first solo hunt. "Bring back what you can. The clan is counting on you." The weight settles on your shoulders.',
+      choices:[{t:'🌲 Hunt the forest floor',go:'forest'},{t:'🌊 Try the riverbank',go:'river'}]},
+    {k:'forest',text:n=>'A plump mouse nibbles beneath an oak. You drop into the crouch your mentor drilled into you. One wrong pawstep and it\u2019s gone.',
+      choices:[{t:'🐍 Stalk slow and close',go:'catch'},{t:'⚡ Pounce now, bold',go:'miss'}]},
+    {k:'river',text:n=>'At the water a fish flickers silver. But across the river — a rival clan\u2019s patrol watches. Prey, or trouble?',
+      choices:[{t:'🐟 Snatch the fish',go:'catch'},{t:'🙊 Avoid the patrol',go:'wise'}]},
+    {k:'miss',text:n=>'You leap too soon — the mouse bolts! But your speed saves you; you twist mid-air and pin it by the tail. Not graceful, but caught.',
+      choices:[{t:'➡ Head home',go:'end'}]},
+    {k:'catch',text:n=>'A clean, silent strike — your first real catch. It hangs proud in your jaws. One less hungry belly in camp tonight.',
+      choices:[{t:'➡ Head home, head high',go:'end'}]},
+    {k:'wise',text:n=>'You slip away without a fight and find a rabbit in the brush instead. No blood spilled, and the clan still eats. Cleverness over recklessness.',
+      choices:[{t:'➡ Head home',go:'end'}]},
+    {k:'end',text:n=>'You lay your catch on the fresh-kill pile. Warriors nod. An elder eats first — because of you. You truly belong to this clan now. The warrior\u2019s path calls next.',
+      ending:true,summary:'made a first catch and fed the clan through hard times'}
+   ]},
+
   {id:'warrior',ic:'⚔️',t:'Book IV — Warrior Vigil',s:'Take your warrior name. Guard in silence.',
-    scene:n=>'Your warrior ceremony ends at dusk. Tradition demands a silent vigil, guarding the sleeping camp until dawn. The stars of StarClan wheel overhead, watching.',
-    choices:['Watch the trees for danger','Reflect on how far you\u2019ve come','Listen for StarClan\u2019s whispers']},
+   scenes:[
+    {k:'start',text:n=>'"I call upon StarClan to look down on this apprentice." The leader\u2019s voice rings out. "From this moment you shall be known by your warrior name!" The clan roars it. One duty remains: the silent dawn vigil.',
+      choices:[{t:'🌙 Take your post',go:'post'}]},
+    {k:'post',text:n=>'Alone in the cold dark, you must not speak until sunrise. The camp sleeps behind you. Stars wheel overhead. Then — a twig snaps in the bushes. Something is out there.',
+      choices:[{t:'👁 Stay silent, watch',go:'watch'},{t:'🐾 Pad toward the sound',go:'investigate'}]},
+    {k:'watch',text:n=>'You freeze, senses straining. Two glowing eyes — only a hedgehog, snuffling past. You let it go. A true warrior guards without needing to fight.',
+      choices:[{t:'➡ Keep the vigil',go:'dawn'}]},
+    {k:'investigate',text:n=>'You creep out and find fresh fox tracks skirting the camp. You memorize them to report at dawn. Your vigilance may have just protected sleeping kits.',
+      choices:[{t:'➡ Return to post',go:'dawn'}]},
+    {k:'dawn',text:n=>'The sky pales to gold. Your clanmates wake to find you steady at your post, eyes clear. The leader dips his head. "Well guarded, warrior." You have earned your place.',
+      ending:true,summary:'kept the warrior\u2019s dawn vigil and became a true guardian of the clan'}
+   ]},
+
   {id:'trial',ic:'🩸',t:'Book V — The Border Trial',s:'War, loyalty, and hard choices.',
-    scene:n=>'A rival patrol crosses the scent line. Claws unsheathe. Your clan looks to you. The Warrior Code and your own heart pull in different directions.',
-    choices:['Stand and fight for territory','Call for a truce & talk','Fetch the leader for judgment']},
+   scenes:[
+    {k:'start',text:n=>'Dawn patrol. The scent line reeks of a rival clan — and they\u2019ve crossed it, stealing prey. Their patrol snarls on your side of the border. Your clanmates look to you.',
+      choices:[{t:'🥁 Stand and fight',go:'fight'},{t:'🕊 Call for a truce',go:'talk'}]},
+    {k:'fight',text:n=>'You yowl the challenge and leap. Claws rake, fur flies — you fight beside your clanmates, driving the invaders back. You take a gash across the flank but hold the border.',
+      choices:[{t:'💙 Show mercy',go:'mercy'},{t:'😾 Drive them off hard',go:'harsh'}]},
+    {k:'talk',text:n=>'You raise your tail for peace. "The prey-theft ends today — or the next patrol won\u2019t talk." Their leader hesitates… then nods. Blood is spared. The elders respect your restraint.',
+      choices:[{t:'➡ Return home',go:'end'}]},
+    {k:'mercy',text:n=>'You let the wounded warrior limp home. "Tell your clan the border stands." Word spreads that you are strong — but not cruel. Worth more than any battle.',
+      choices:[{t:'➡ Return home, honored',go:'end'}]},
+    {k:'harsh',text:n=>'You chase them far past the line, making the cost of trespass clear. Your clan cheers your fierceness — though you wonder if fear is the same as respect.',
+      choices:[{t:'➡ Return home, victorious',go:'end'}]},
+    {k:'end',text:n=>'Back in camp, clanmates tell the tale of the border trial. You proved your loyalty and strength when it mattered most. The clan sees a leader in you now.',
+      ending:true,summary:'defended the border and proved true loyalty to the clan'}
+   ]},
+
   {id:'legend',ic:'👑',t:'Book VI — Nine Lives',s:'Rise toward deputy, leader, legend.',
-    scene:n=>'The leader is old. The clan murmurs your name for deputy. Accept, and one day you may climb to the Moonpool to receive nine lives from StarClan itself.',
-    choices:['Accept the burden of leadership','Serve loyally without the crown','Seek a sign from StarClan first']},
+   scenes:[
+    {k:'start',text:n=>'The old leader is failing. At the gathering the clan murmurs your name. The leader summons you. "I am on my last life. I would name you my deputy — if you will carry the clan when I am gone."',
+      choices:[{t:'👑 Accept leadership',go:'accept'},{t:'🥺 Ask if you are ready',go:'doubt'}]},
+    {k:'doubt',text:n=>'"No cat is ever ready," the old leader purrs. "That doubt is why you\u2019re right for it. A leader who never fears is a danger to the clan." The words steady you.',
+      choices:[{t:'👑 Accept the role',go:'accept'}]},
+    {k:'accept',text:n=>'You are named deputy. Moons later, the old leader takes his last breath among the stars. Now you must climb alone to the Moonpool, where StarClan waits to grant nine lives.',
+      choices:[{t:'⭐ Climb to the Moonpool',go:'moonpool'}]},
+    {k:'moonpool',text:n=>'At the silver water, star-cats rise around you — old friends, mentors, ancestors. One by one they touch noses to your head, each gifting a life: for courage, mercy, loyalty, the clan. Light floods through you.',
+      choices:[{t:'🌟 Wake as the new leader',go:'end'}]},
+    {k:'end',text:n=>'You descend at dawn with a new name and nine lives burning inside you. The clan bows as their new leader returns. You walked the whole path — kit, apprentice, warrior, legend. From here, your story is yours to write.',
+      ending:true,summary:'received nine lives and became leader of the clan — a living legend'}
+   ]},
 ];
 const GHOST_LINES=[
   'A star flickers. "Well hunted, little one. The code lives on in you."',
@@ -280,29 +359,42 @@ function renderBooks(){
   }).join('');
 }
 
+var storyLog=[];
+var sceneKey=null;
+function sceneByKey(b,k){for(var i=0;i<b.scenes.length;i++){if(b.scenes[i].k===k)return b.scenes[i];}return b.scenes[0];}
 function playBook(i){
-  playing=i;
-  var b=BOOKS[i];
-  document.getElementById('playTitle').innerHTML=b.ic+' '+b.t;
-  document.getElementById('playScene').innerHTML='<div class="scene">'+esc(b.scene(cur.cat.name))+'</div>';
-  document.getElementById('playChoices').innerHTML=b.choices.map(function(ch,ci){
-    return '<button class="btn" onclick="chooseBook('+ci+')">'+esc(ch)+'</button>';
-  }).join('')+'<button class="btn ghost small" onclick="show(\'books\')">← Path</button>';
-  show('play');
+  playing=i;storyLog=[];
+  document.getElementById('playTitle').innerHTML=BOOKS[i].ic+' '+BOOKS[i].t;
+  gotoScene('start');show('play');
 }
-function chooseBook(ci){
-  var i=playing,b=BOOKS[i];
-  cur.books[i].done=true;
-  cur.books[i].choice=b.choices[ci];
-  save();
-  var next=i+1<BOOKS.length?BOOKS[i+1]:null;
-  var msg='<div class="scene">You chose: <b>'+esc(b.choices[ci])+'</b>\n\n'+
-    esc(cur.cat.name)+' grows stronger. '+(next?('The path opens toward <b>'+esc(next.t)+'</b>.'):
-    'You have completed every book — you are a legend now. ✨ The Endless Territory awaits.')+'</div>';
-  document.getElementById('playScene').innerHTML=msg;
-  var btns='<button class="btn" onclick="show(\'books\')">📖 Back to the Path</button>';
-  if(!next) btns='<button class="btn" onclick="show(\'endless\')">✨ Enter the Endless Territory</button>'+btns;
-  document.getElementById('playChoices').innerHTML=btns;
+function renderScene(){
+  var b=BOOKS[playing];var sc=sceneByKey(b,sceneKey);
+  var html='';
+  for(var j=0;j<storyLog.length;j++){html+='<div class="scene" style="opacity:.72">'+esc(storyLog[j])+'</div>';}
+  html+='<div class="scene">'+esc(sc.text(cur.cat.name))+'</div>';
+  document.getElementById('playScene').innerHTML=html;
+  var choicesEl=document.getElementById('playChoices');
+  if(sc.ending){
+    cur.books[playing].done=true;cur.books[playing].summary=sc.summary;save();
+    var next=playing+1<BOOKS.length?BOOKS[playing+1]:null;
+    var done='<div class="scene" style="border-left-color:var(--moss)"><b>✓ '+esc(b.t)+' complete.</b>\n'+esc(cur.cat.name)+' '+esc(sc.summary)+'.</div>';
+    document.getElementById('playScene').innerHTML=html+done;
+    var btns=next
+      ?'<button class="btn" onclick="playBook('+(playing+1)+')">▶ Continue to '+esc(next.t)+'</button><button class="btn ghost small" onclick="show(\'books\')">📖 The Path</button>'
+      :'<button class="btn" onclick="show(\'endless\')">✨ Enter the Endless Territory</button><button class="btn ghost small" onclick="show(\'books\')">📖 The Path</button>';
+    choicesEl.innerHTML=btns;
+    window.scrollTo(0,document.body.scrollHeight);return;
+  }
+  choicesEl.innerHTML=sc.choices.map(function(ch){
+    return '<button class="btn" onclick="chooseScene(\''+ch.go+'\')">'+esc(ch.t)+'</button>';
+  }).join('')+'<button class="btn ghost small" onclick="show(\'books\')">← Leave (progress saves at chapter end)</button>';
+  window.scrollTo(0,document.body.scrollHeight);
+}
+function gotoScene(k){sceneKey=k;renderScene();}
+function chooseScene(k){
+  var sc=sceneByKey(BOOKS[playing],sceneKey);
+  storyLog.push(sc.text(cur.cat.name));
+  gotoScene(k);
 }
 
 function renderEndless(){
