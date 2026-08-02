@@ -1,0 +1,7005 @@
+{
+"count": 1000,
+"riddles": [
+{
+"id": 1,
+"q": "What has keys but can't open locks?",
+"a": "A piano",
+"hint": "You play it with your fingers.",
+"cat": "objects"
+},
+{
+"id": 2,
+"q": "What has a face and two hands but no arms or legs?",
+"a": "A clock",
+"hint": "It tells you something all day.",
+"cat": "objects"
+},
+{
+"id": 3,
+"q": "What has to be broken before you can use it?",
+"a": "An egg",
+"hint": "Breakfast food.",
+"cat": "food"
+},
+{
+"id": 4,
+"q": "What has many teeth but cannot bite?",
+"a": "A comb",
+"hint": "You use it on your hair.",
+"cat": "objects"
+},
+{
+"id": 5,
+"q": "What has a neck but no head?",
+"a": "A bottle",
+"hint": "It can hold liquid.",
+"cat": "objects"
+},
+{
+"id": 6,
+"q": "What gets wetter the more it dries?",
+"a": "A towel",
+"hint": "You use it after a shower.",
+"cat": "objects"
+},
+{
+"id": 7,
+"q": "What has an eye but cannot see?",
+"a": "A needle",
+"hint": "Used with thread.",
+"cat": "objects"
+},
+{
+"id": 8,
+"q": "What has a thumb and four fingers but is not alive?",
+"a": "A glove",
+"hint": "Keeps your hands warm.",
+"cat": "objects"
+},
+{
+"id": 9,
+"q": "What can travel around the world while staying in a corner?",
+"a": "A stamp",
+"hint": "It goes on an envelope.",
+"cat": "objects"
+},
+{
+"id": 10,
+"q": "What runs but never walks, has a bed but never sleeps?",
+"a": "A river",
+"hint": "Water flows in it.",
+"cat": "nature"
+},
+{
+"id": 11,
+"q": "What has cities but no houses, forests but no trees, and water but no fish?",
+"a": "A map",
+"hint": "You use it to navigate.",
+"cat": "objects"
+},
+{
+"id": 12,
+"q": "What goes up but never comes down?",
+"a": "Your age",
+"hint": "It only increases.",
+"cat": "concepts"
+},
+{
+"id": 13,
+"q": "What can you catch but not throw?",
+"a": "A cold",
+"hint": "You sneeze with it.",
+"cat": "concepts"
+},
+{
+"id": 14,
+"q": "What is full of holes but still holds water?",
+"a": "A sponge",
+"hint": "Used for cleaning.",
+"cat": "objects"
+},
+{
+"id": 15,
+"q": "What can fill a room but takes up no space?",
+"a": "Light",
+"hint": "Flip a switch.",
+"cat": "concepts"
+},
+{
+"id": 16,
+"q": "What has words but never speaks?",
+"a": "A book",
+"hint": "You read it.",
+"cat": "objects"
+},
+{
+"id": 17,
+"q": "What building has the most stories?",
+"a": "A library",
+"hint": "Full of books.",
+"cat": "places"
+},
+{
+"id": 18,
+"q": "What has a ring but no finger?",
+"a": "A telephone",
+"hint": "It makes a sound.",
+"cat": "objects"
+},
+{
+"id": 19,
+"q": "The more you take, the more you leave behind. What am I?",
+"a": "Footsteps",
+"hint": "You make them when walking.",
+"cat": "concepts"
+},
+{
+"id": 20,
+"q": "What is so fragile that saying its name breaks it?",
+"a": "Silence",
+"hint": "Shhh.",
+"cat": "concepts"
+},
+{
+"id": 21,
+"q": "What has 88 keys but can't open a single door?",
+"a": "A piano",
+"hint": "It makes music.",
+"cat": "objects"
+},
+{
+"id": 22,
+"q": "What flies without wings?",
+"a": "Time",
+"hint": "It passes.",
+"cat": "concepts"
+},
+{
+"id": 23,
+"q": "What is always in front of you but can't be seen?",
+"a": "The future",
+"hint": "It hasn't happened yet.",
+"cat": "concepts"
+},
+{
+"id": 24,
+"q": "What gets bigger the more you take away?",
+"a": "A hole",
+"hint": "Dig it.",
+"cat": "concepts"
+},
+{
+"id": 25,
+"q": "What has a spine but no bones?",
+"a": "A book",
+"hint": "Full of pages.",
+"cat": "objects"
+},
+{
+"id": 26,
+"q": "What has ears but cannot hear?",
+"a": "A cornfield",
+"hint": "Corn on the cob.",
+"cat": "nature"
+},
+{
+"id": 27,
+"q": "What is black when clean and white when dirty?",
+"a": "A chalkboard",
+"hint": "You write on it.",
+"cat": "objects"
+},
+{
+"id": 28,
+"q": "What has a tongue but cannot talk?",
+"a": "A shoe",
+"hint": "You wear it.",
+"cat": "objects"
+},
+{
+"id": 29,
+"q": "What has a head and a tail but no body?",
+"a": "A coin",
+"hint": "Heads or tails.",
+"cat": "objects"
+},
+{
+"id": 30,
+"q": "What word is spelled incorrectly in every dictionary?",
+"a": "Incorrectly",
+"hint": "Read it literally.",
+"cat": "words"
+},
+{
+"id": 31,
+"q": "What begins with T, ends with T, and has T in it?",
+"a": "A teapot",
+"hint": "Full of tea.",
+"cat": "objects"
+},
+{
+"id": 32,
+"q": "What five-letter word becomes shorter when you add two letters?",
+"a": "Short",
+"hint": "Add 'er'.",
+"cat": "words"
+},
+{
+"id": 33,
+"q": "Which month has 28 days?",
+"a": "All of them",
+"hint": "Every month has at least 28.",
+"cat": "trick"
+},
+{
+"id": 34,
+"q": "If you drop me I'm sure to crack, but smile at me and I'll smile back. What am I?",
+"a": "A mirror",
+"hint": "You see yourself.",
+"cat": "objects"
+},
+{
+"id": 35,
+"q": "I'm tall when young and short when old. What am I?",
+"a": "A candle",
+"hint": "It burns down.",
+"cat": "objects"
+},
+{
+"id": 36,
+"q": "What can be cracked, made, told, and played?",
+"a": "A joke",
+"hint": "Ha ha.",
+"cat": "concepts"
+},
+{
+"id": 37,
+"q": "What is always coming but never arrives?",
+"a": "Tomorrow",
+"hint": "Always a day away.",
+"cat": "concepts"
+},
+{
+"id": 38,
+"q": "What can you keep after giving it to someone?",
+"a": "Your word",
+"hint": "A promise.",
+"cat": "concepts"
+},
+{
+"id": 39,
+"q": "What loses its head in the morning and gets it back at night?",
+"a": "A pillow",
+"hint": "You sleep on it.",
+"cat": "objects"
+},
+{
+"id": 40,
+"q": "What is black, white, and read all over?",
+"a": "A newspaper",
+"hint": "Daily news.",
+"cat": "objects"
+},
+{
+"id": 41,
+"q": "What kind of room has no doors or windows?",
+"a": "A mushroom",
+"hint": "It's a fungus.",
+"cat": "food"
+},
+{
+"id": 42,
+"q": "What is light as a feather, yet the strongest person can't hold it for five minutes?",
+"a": "Breath",
+"hint": "Inhale, exhale.",
+"cat": "body"
+},
+{
+"id": 43,
+"q": "What can you hear but not see, and only comes when you speak?",
+"a": "An echo",
+"hint": "Shout in a canyon.",
+"cat": "concepts"
+},
+{
+"id": 44,
+"q": "What do you call a fish with no eyes?",
+"a": "A fsh",
+"hint": "Remove the i's.",
+"cat": "words"
+},
+{
+"id": 45,
+"q": "What has a crown but is not a king?",
+"a": "A tooth",
+"hint": "In your mouth.",
+"cat": "body"
+},
+{
+"id": 46,
+"q": "What is round on both ends and high in the middle?",
+"a": "Ohio",
+"hint": "A US state.",
+"cat": "places"
+},
+{
+"id": 47,
+"q": "I am an odd number. Take away one letter and I become even. What am I?",
+"a": "Seven",
+"hint": "Remove the 's'.",
+"cat": "numbers"
+},
+{
+"id": 48,
+"q": "A farmer has 17 sheep and all but 9 die. How many are left?",
+"a": "9",
+"hint": "'All but 9' means 9 remain.",
+"cat": "numbers"
+},
+{
+"id": 49,
+"q": "How many times can you subtract 10 from 100?",
+"a": "Once",
+"hint": "After that it's 90, not 100.",
+"cat": "numbers"
+},
+{
+"id": 50,
+"q": "Two fathers and two sons go fishing. Each catches one fish, but only three fish are caught. How?",
+"a": "They are grandfather, father, and son",
+"hint": "Count the generations.",
+"cat": "lateral"
+},
+{
+"id": 51,
+"q": "A cowboy rides into town on Friday, stays three days, and leaves on Friday. How?",
+"a": "His horse is named Friday",
+"hint": "Think about names.",
+"cat": "lateral"
+},
+{
+"id": 52,
+"q": "The person who makes it doesn't want it. The person who buys it doesn't use it. The person who uses it doesn't know it. What is it?",
+"a": "A coffin",
+"hint": "A somber one.",
+"cat": "lateral"
+},
+{
+"id": 53,
+"q": "What is at the end of a rainbow?",
+"a": "The letter W",
+"hint": "Spell 'rainbow'.",
+"cat": "words"
+},
+{
+"id": 54,
+"q": "What has feet but no legs?",
+"a": "A ruler",
+"hint": "Measures 12 inches.",
+"cat": "objects"
+},
+{
+"id": 55,
+"q": "What kind of coat is best put on wet?",
+"a": "A coat of paint",
+"hint": "For your walls.",
+"cat": "objects"
+},
+{
+"id": 56,
+"q": "What has a bark but no bite?",
+"a": "A tree",
+"hint": "It has leaves.",
+"cat": "nature"
+},
+{
+"id": 57,
+"q": "What has roots that nobody sees, and is taller than trees?",
+"a": "A mountain",
+"hint": "It reaches the sky.",
+"cat": "nature"
+},
+{
+"id": 58,
+"q": "What can you break, even if you never pick it up or touch it?",
+"a": "A promise",
+"hint": "You give your word.",
+"cat": "concepts"
+},
+{
+"id": 59,
+"q": "What has one head, one foot, and four legs?",
+"a": "A bed",
+"hint": "You sleep in it.",
+"cat": "objects"
+},
+{
+"id": 60,
+"q": "What comes down but never goes up?",
+"a": "Rain",
+"hint": "It falls from clouds.",
+"cat": "nature"
+},
+{
+"id": 61,
+"q": "What has a heart that doesn't beat?",
+"a": "An artichoke",
+"hint": "It's a vegetable.",
+"cat": "food"
+},
+{
+"id": 62,
+"q": "What has 13 hearts but no other organs?",
+"a": "A deck of cards",
+"hint": "Play a game.",
+"cat": "objects"
+},
+{
+"id": 63,
+"q": "What English word has three consecutive double letters?",
+"a": "Bookkeeper",
+"hint": "Someone who tracks money.",
+"cat": "words"
+},
+{
+"id": 64,
+"q": "What gets sharper the more you use it?",
+"a": "Your brain",
+"hint": "Keep learning.",
+"cat": "concepts"
+},
+{
+"id": 65,
+"q": "What is easy to get into but hard to get out of?",
+"a": "Trouble",
+"hint": "Avoid it.",
+"cat": "concepts"
+},
+{
+"id": 66,
+"q": "I'm a letter of the alphabet, and the word 'apple' begins with me. What letter am I?",
+"a": "A",
+"hint": "Start of 'apple'.",
+"cat": "words"
+},
+{
+"id": 67,
+"q": "I'm a letter of the alphabet, and the word 'banana' begins with me. What letter am I?",
+"a": "B",
+"hint": "Start of 'banana'.",
+"cat": "words"
+},
+{
+"id": 68,
+"q": "I'm a letter of the alphabet, and the word 'cat' begins with me. What letter am I?",
+"a": "C",
+"hint": "Start of 'cat'.",
+"cat": "words"
+},
+{
+"id": 69,
+"q": "I'm a letter of the alphabet, and the word 'dog' begins with me. What letter am I?",
+"a": "D",
+"hint": "Start of 'dog'.",
+"cat": "words"
+},
+{
+"id": 70,
+"q": "I'm a letter of the alphabet, and the word 'elephant' begins with me. What letter am I?",
+"a": "E",
+"hint": "Start of 'elephant'.",
+"cat": "words"
+},
+{
+"id": 71,
+"q": "I'm a letter of the alphabet, and the word 'fish' begins with me. What letter am I?",
+"a": "F",
+"hint": "Start of 'fish'.",
+"cat": "words"
+},
+{
+"id": 72,
+"q": "I'm a letter of the alphabet, and the word 'goat' begins with me. What letter am I?",
+"a": "G",
+"hint": "Start of 'goat'.",
+"cat": "words"
+},
+{
+"id": 73,
+"q": "I'm a letter of the alphabet, and the word 'horse' begins with me. What letter am I?",
+"a": "H",
+"hint": "Start of 'horse'.",
+"cat": "words"
+},
+{
+"id": 74,
+"q": "I'm a letter of the alphabet, and the word 'igloo' begins with me. What letter am I?",
+"a": "I",
+"hint": "Start of 'igloo'.",
+"cat": "words"
+},
+{
+"id": 75,
+"q": "I'm a letter of the alphabet, and the word 'jam' begins with me. What letter am I?",
+"a": "J",
+"hint": "Start of 'jam'.",
+"cat": "words"
+},
+{
+"id": 76,
+"q": "I'm a letter of the alphabet, and the word 'kite' begins with me. What letter am I?",
+"a": "K",
+"hint": "Start of 'kite'.",
+"cat": "words"
+},
+{
+"id": 77,
+"q": "I'm a letter of the alphabet, and the word 'lion' begins with me. What letter am I?",
+"a": "L",
+"hint": "Start of 'lion'.",
+"cat": "words"
+},
+{
+"id": 78,
+"q": "I'm a letter of the alphabet, and the word 'moon' begins with me. What letter am I?",
+"a": "M",
+"hint": "Start of 'moon'.",
+"cat": "words"
+},
+{
+"id": 79,
+"q": "I'm a letter of the alphabet, and the word 'nest' begins with me. What letter am I?",
+"a": "N",
+"hint": "Start of 'nest'.",
+"cat": "words"
+},
+{
+"id": 80,
+"q": "I'm a letter of the alphabet, and the word 'owl' begins with me. What letter am I?",
+"a": "O",
+"hint": "Start of 'owl'.",
+"cat": "words"
+},
+{
+"id": 81,
+"q": "I'm a letter of the alphabet, and the word 'pig' begins with me. What letter am I?",
+"a": "P",
+"hint": "Start of 'pig'.",
+"cat": "words"
+},
+{
+"id": 82,
+"q": "I'm a letter of the alphabet, and the word 'queen' begins with me. What letter am I?",
+"a": "Q",
+"hint": "Start of 'queen'.",
+"cat": "words"
+},
+{
+"id": 83,
+"q": "I'm a letter of the alphabet, and the word 'rain' begins with me. What letter am I?",
+"a": "R",
+"hint": "Start of 'rain'.",
+"cat": "words"
+},
+{
+"id": 84,
+"q": "I'm a letter of the alphabet, and the word 'sun' begins with me. What letter am I?",
+"a": "S",
+"hint": "Start of 'sun'.",
+"cat": "words"
+},
+{
+"id": 85,
+"q": "I'm a letter of the alphabet, and the word 'tree' begins with me. What letter am I?",
+"a": "T",
+"hint": "Start of 'tree'.",
+"cat": "words"
+},
+{
+"id": 86,
+"q": "I'm a letter of the alphabet, and the word 'umbrella' begins with me. What letter am I?",
+"a": "U",
+"hint": "Start of 'umbrella'.",
+"cat": "words"
+},
+{
+"id": 87,
+"q": "I'm a letter of the alphabet, and the word 'violin' begins with me. What letter am I?",
+"a": "V",
+"hint": "Start of 'violin'.",
+"cat": "words"
+},
+{
+"id": 88,
+"q": "I'm a letter of the alphabet, and the word 'whale' begins with me. What letter am I?",
+"a": "W",
+"hint": "Start of 'whale'.",
+"cat": "words"
+},
+{
+"id": 89,
+"q": "I'm a letter of the alphabet, and the word 'xylophone' begins with me. What letter am I?",
+"a": "X",
+"hint": "Start of 'xylophone'.",
+"cat": "words"
+},
+{
+"id": 90,
+"q": "I'm a letter of the alphabet, and the word 'yak' begins with me. What letter am I?",
+"a": "Y",
+"hint": "Start of 'yak'.",
+"cat": "words"
+},
+{
+"id": 91,
+"q": "I'm a letter of the alphabet, and the word 'zebra' begins with me. What letter am I?",
+"a": "Z",
+"hint": "Start of 'zebra'.",
+"cat": "words"
+},
+{
+"id": 92,
+"q": "I open when it rains and keep you dry, folded up small when the sky is high. What am I?",
+"a": "Umbrella",
+"hint": "An object starting with 'U'.",
+"cat": "objects"
+},
+{
+"id": 93,
+"q": "My hands go round and round all day, I tell you time but cannot play. What am I?",
+"a": "Clock",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 94,
+"q": "Look at me and you'll see you, everything you do I do too. What am I?",
+"a": "Mirror",
+"hint": "An object starting with 'M'.",
+"cat": "objects"
+},
+{
+"id": 95,
+"q": "I give you light and slowly die, the longer I burn the shorter I lie. What am I?",
+"a": "Candle",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 96,
+"q": "I follow you in the light of day, but in the dark I fade away. What am I?",
+"a": "Shadow",
+"hint": "An object starting with 'S'.",
+"cat": "objects"
+},
+{
+"id": 97,
+"q": "Turn my pages one by one, and worlds appear till you are done. What am I?",
+"a": "Book",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 98,
+"q": "Small and metal, I fit a hole, unlocking doors is my whole role. What am I?",
+"a": "Key",
+"hint": "An object starting with 'K'.",
+"cat": "objects"
+},
+{
+"id": 99,
+"q": "Step by step you climb on me, to reach the heights you wish to see. What am I?",
+"a": "Ladder",
+"hint": "An object starting with 'L'.",
+"cat": "objects"
+},
+{
+"id": 100,
+"q": "Fill me with air and I will grow, prick me once and off I go. What am I?",
+"a": "Balloon",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 101,
+"q": "On windy days I love to fly, a string keeps me from the sky. What am I?",
+"a": "Kite",
+"hint": "An object starting with 'K'.",
+"cat": "objects"
+},
+{
+"id": 102,
+"q": "I show you cities, roads, and seas, yet I fold up with the greatest ease. What am I?",
+"a": "Map",
+"hint": "An object starting with 'M'.",
+"cat": "objects"
+},
+{
+"id": 103,
+"q": "Rest your head on me at night, and I'll hold your dreams till morning light. What am I?",
+"a": "Pillow",
+"hint": "An object starting with 'P'.",
+"cat": "objects"
+},
+{
+"id": 104,
+"q": "I stretch across the river wide, so you can walk from side to side. What am I?",
+"a": "Bridge",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 105,
+"q": "In the dark I glow so bright, a little flame gives you sight. What am I?",
+"a": "Lantern",
+"hint": "An object starting with 'L'.",
+"cat": "objects"
+},
+{
+"id": 106,
+"q": "I always point you to the north, to guide your travels back and forth. What am I?",
+"a": "Compass",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 107,
+"q": "Sand runs through me grain by grain, when I'm empty, turn me again. What am I?",
+"a": "Hourglass",
+"hint": "An object starting with 'H'.",
+"cat": "objects"
+},
+{
+"id": 108,
+"q": "Look through me toward the night, and distant stars come into sight. What am I?",
+"a": "Telescope",
+"hint": "An object starting with 'T'.",
+"cat": "objects"
+},
+{
+"id": 109,
+"q": "Heavy and iron, I sink below, to keep the ship from drifting slow. What am I?",
+"a": "Anchor",
+"hint": "An object starting with 'A'.",
+"cat": "objects"
+},
+{
+"id": 110,
+"q": "Blow through me and I will sing, a sharp clear note is what I bring. What am I?",
+"a": "Whistle",
+"hint": "An object starting with 'W'.",
+"cat": "objects"
+},
+{
+"id": 111,
+"q": "Beat on me and I will boom, filling up the empty room. What am I?",
+"a": "Drum",
+"hint": "An object starting with 'D'.",
+"cat": "objects"
+},
+{
+"id": 112,
+"q": "Give me a swing and I will chime, ringing out to mark the time. What am I?",
+"a": "Bell",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 113,
+"q": "Full of holes yet I still catch, whatever swims into my patch. What am I?",
+"a": "Net",
+"hint": "An object starting with 'N'.",
+"cat": "objects"
+},
+{
+"id": 114,
+"q": "I stand in fields both night and day, to keep the hungry crows away. What am I?",
+"a": "Scarecrow",
+"hint": "An object starting with 'S'.",
+"cat": "objects"
+},
+{
+"id": 115,
+"q": "My arms turn round in country breeze, grinding grain with graceful ease. What am I?",
+"a": "Windmill",
+"hint": "An object starting with 'W'.",
+"cat": "objects"
+},
+{
+"id": 116,
+"q": "Water leaps from me up high, then falls back down and never dry. What am I?",
+"a": "Fountain",
+"hint": "An object starting with 'F'.",
+"cat": "objects"
+},
+{
+"id": 117,
+"q": "Speak to me and I will send, your voice across to a distant friend. What am I?",
+"a": "Telephone",
+"hint": "An object starting with 'T'.",
+"cat": "objects"
+},
+{
+"id": 118,
+"q": "Two sharp blades that cross and part, I cut the paper for your art. What am I?",
+"a": "Scissors",
+"hint": "An object starting with 'S'.",
+"cat": "objects"
+},
+{
+"id": 119,
+"q": "I pull the iron toward my side, a hidden force I cannot hide. What am I?",
+"a": "Magnet",
+"hint": "An object starting with 'M'.",
+"cat": "objects"
+},
+{
+"id": 120,
+"q": "Round and round forever I spin, to make the journey we begin. What am I?",
+"a": "Wheel",
+"hint": "An object starting with 'W'.",
+"cat": "objects"
+},
+{
+"id": 121,
+"q": "I come in colors bold and bright, I fill your pages with delight. What am I?",
+"a": "Crayon",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 122,
+"q": "Pack me full and off we go, to places near or far, you know. What am I?",
+"a": "Suitcase",
+"hint": "An object starting with 'S'.",
+"cat": "objects"
+},
+{
+"id": 123,
+"q": "I rise and fall to show the heat, telling if you're feverish or sweet. What am I?",
+"a": "Thermometer",
+"hint": "An object starting with 'T'.",
+"cat": "objects"
+},
+{
+"id": 124,
+"q": "Turn the key or spin the dial, I guard your secrets all the while. What am I?",
+"a": "Padlock",
+"hint": "An object starting with 'P'.",
+"cat": "objects"
+},
+{
+"id": 125,
+"q": "Draw the bow across my strings, and sweet and sorrowed music sings. What am I?",
+"a": "Violin",
+"hint": "An object starting with 'V'.",
+"cat": "objects"
+},
+{
+"id": 126,
+"q": "Black and white in tidy rows, where kings and queens and knights oppose. What am I?",
+"a": "Chessboard",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 127,
+"q": "I pound the nail with one hard smack, to build the house or fix the shack. What am I?",
+"a": "Hammer",
+"hint": "An object starting with 'H'.",
+"cat": "objects"
+},
+{
+"id": 128,
+"q": "With bristles wide I sweep the floor, and chase the dust right out the door. What am I?",
+"a": "Broom",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 129,
+"q": "Fill me up and heat me high, and steam will whistle from me by-and-by. What am I?",
+"a": "Kettle",
+"hint": "An object starting with 'K'.",
+"cat": "objects"
+},
+{
+"id": 130,
+"q": "High above the town I stand, my chiming heard across the land. What am I?",
+"a": "Clock Tower",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 131,
+"q": "Two round wheels and pedals too, I carry you the whole way through. What am I?",
+"a": "Bicycle",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 132,
+"q": "I fly at night and hoot so wise, with big round golden glowing eyes. What am I?",
+"a": "Owl",
+"hint": "An animal starting with 'O'.",
+"cat": "animals"
+},
+{
+"id": 133,
+"q": "I buzz from flower to flower all day, and make sweet honey along the way. What am I?",
+"a": "Bee",
+"hint": "An animal starting with 'B'.",
+"cat": "animals"
+},
+{
+"id": 134,
+"q": "Eight legs I have to spin my thread, catching flies within my web. What am I?",
+"a": "Spider",
+"hint": "An animal starting with 'S'.",
+"cat": "animals"
+},
+{
+"id": 135,
+"q": "I hop from lily pad to log, and croak all night from in the bog. What am I?",
+"a": "Frog",
+"hint": "An animal starting with 'F'.",
+"cat": "animals"
+},
+{
+"id": 136,
+"q": "I carry my house upon my back, and leave a slimy shiny track. What am I?",
+"a": "Snail",
+"hint": "An animal starting with 'S'.",
+"cat": "animals"
+},
+{
+"id": 137,
+"q": "I sleep by day, hang upside down, and fly at night around the town. What am I?",
+"a": "Bat",
+"hint": "An animal starting with 'B'.",
+"cat": "animals"
+},
+{
+"id": 138,
+"q": "In a tuxedo I always dress, on icy shores I love it best. What am I?",
+"a": "Penguin",
+"hint": "An animal starting with 'P'.",
+"cat": "animals"
+},
+{
+"id": 139,
+"q": "I hop on two strong springy feet, and keep my baby snug and neat. What am I?",
+"a": "Kangaroo",
+"hint": "An animal starting with 'K'.",
+"cat": "animals"
+},
+{
+"id": 140,
+"q": "I change my color as I please, to hide among the leaves and trees. What am I?",
+"a": "Chameleon",
+"hint": "An animal starting with 'C'.",
+"cat": "animals"
+},
+{
+"id": 141,
+"q": "Eight long arms I use to swim, in ocean deep and dark and dim. What am I?",
+"a": "Octopus",
+"hint": "An animal starting with 'O'.",
+"cat": "animals"
+},
+{
+"id": 142,
+"q": "I fan my tail of shining blue, with eye-like spots that stare at you. What am I?",
+"a": "Peacock",
+"hint": "An animal starting with 'P'.",
+"cat": "animals"
+},
+{
+"id": 143,
+"q": "Across the desert sand I plod, a hump of fat is quite my mod. What am I?",
+"a": "Camel",
+"hint": "An animal starting with 'C'.",
+"cat": "animals"
+},
+{
+"id": 144,
+"q": "I leap from waves with joyful grace, a friendly smile upon my face. What am I?",
+"a": "Dolphin",
+"hint": "An animal starting with 'D'.",
+"cat": "animals"
+},
+{
+"id": 145,
+"q": "I blink my light on summer nights, a tiny lantern taking flight. What am I?",
+"a": "Firefly",
+"hint": "An animal starting with 'F'.",
+"cat": "animals"
+},
+{
+"id": 146,
+"q": "I curl into a spiky ball, when danger comes I fear no fall. What am I?",
+"a": "Hedgehog",
+"hint": "An animal starting with 'H'.",
+"cat": "animals"
+},
+{
+"id": 147,
+"q": "I tap the tree trunk all day long, rat-a-tat is my only song. What am I?",
+"a": "Woodpecker",
+"hint": "An animal starting with 'W'.",
+"cat": "animals"
+},
+{
+"id": 148,
+"q": "I'm named for a land animal, but swim upright and very small. What am I?",
+"a": "Seahorse",
+"hint": "An animal starting with 'S'.",
+"cat": "animals"
+},
+{
+"id": 149,
+"q": "I build my dam of sticks and mud, to hold back the flowing flood. What am I?",
+"a": "Beaver",
+"hint": "An animal starting with 'B'.",
+"cat": "animals"
+},
+{
+"id": 150,
+"q": "On summer eves I chirp my tune, beneath the glowing silver moon. What am I?",
+"a": "Cricket",
+"hint": "An animal starting with 'C'.",
+"cat": "animals"
+},
+{
+"id": 151,
+"q": "The largest beast upon the land, with a trunk and tusks so grand. What am I?",
+"a": "Elephant",
+"hint": "An animal starting with 'E'.",
+"cat": "animals"
+},
+{
+"id": 152,
+"q": "My neck is long, I'm very tall, I reach the leaves above you all. What am I?",
+"a": "Giraffe",
+"hint": "An animal starting with 'G'.",
+"cat": "animals"
+},
+{
+"id": 153,
+"q": "Slow and steady on I creep, my shell's the fortress that I keep. What am I?",
+"a": "Turtle",
+"hint": "An animal starting with 'T'.",
+"cat": "animals"
+},
+{
+"id": 154,
+"q": "The fastest runner on the plain, I catch my prey with speed insane. What am I?",
+"a": "Cheetah",
+"hint": "An animal starting with 'C'.",
+"cat": "animals"
+},
+{
+"id": 155,
+"q": "White and graceful on the lake, a curving neck for beauty's sake. What am I?",
+"a": "Swan",
+"hint": "An animal starting with 'S'.",
+"cat": "animals"
+},
+{
+"id": 156,
+"q": "I howl beneath the moon so bright, and hunt in packs throughout the night. What am I?",
+"a": "Wolf",
+"hint": "An animal starting with 'W'.",
+"cat": "animals"
+},
+{
+"id": 157,
+"q": "Red and clever, sly and quick, escaping traps is my best trick. What am I?",
+"a": "Fox",
+"hint": "An animal starting with 'F'.",
+"cat": "animals"
+},
+{
+"id": 158,
+"q": "Sideways on the sand I walk, with pincer claws instead of talk. What am I?",
+"a": "Crab",
+"hint": "An animal starting with 'C'.",
+"cat": "animals"
+},
+{
+"id": 159,
+"q": "I mimic every word you say, in feathers green and bright and gay. What am I?",
+"a": "Parrot",
+"hint": "An animal starting with 'P'.",
+"cat": "animals"
+},
+{
+"id": 160,
+"q": "I gather nuts and climb the tree, my bushy tail flicks after me. What am I?",
+"a": "Squirrel",
+"hint": "An animal starting with 'S'.",
+"cat": "animals"
+},
+{
+"id": 161,
+"q": "Red with spots of blackest dot, a tiny beetle in the plot. What am I?",
+"a": "Ladybug",
+"hint": "An animal starting with 'L'.",
+"cat": "animals"
+},
+{
+"id": 162,
+"q": "In eucalyptus trees I doze, munching leaves in sleepy pose. What am I?",
+"a": "Koala",
+"hint": "An animal starting with 'K'.",
+"cat": "animals"
+},
+{
+"id": 163,
+"q": "Black and white and round and slow, on bamboo shoots I love to grow. What am I?",
+"a": "Panda",
+"hint": "An animal starting with 'P'.",
+"cat": "animals"
+},
+{
+"id": 164,
+"q": "I float on my back in the stream, and crack a shell — a happy dream. What am I?",
+"a": "Otter",
+"hint": "An animal starting with 'O'.",
+"cat": "animals"
+},
+{
+"id": 165,
+"q": "Beneath the ground I dig my hall, I rarely see the sun at all. What am I?",
+"a": "Mole",
+"hint": "An animal starting with 'M'.",
+"cat": "animals"
+},
+{
+"id": 166,
+"q": "With mighty horns and thunderous snort, I charge the red cape as my sport. What am I?",
+"a": "Bull",
+"hint": "An animal starting with 'B'.",
+"cat": "animals"
+},
+{
+"id": 167,
+"q": "I'm yellow and I have a peel, a monkey's favorite tasty meal. What am I?",
+"a": "Banana",
+"hint": "A food starting with 'B'.",
+"cat": "food"
+},
+{
+"id": 168,
+"q": "Green outside and red within, with black seeds beneath my skin. What am I?",
+"a": "Watermelon",
+"hint": "A food starting with 'W'.",
+"cat": "food"
+},
+{
+"id": 169,
+"q": "I start as tiny yellow seeds, then pop to white for movie needs. What am I?",
+"a": "Popcorn",
+"hint": "A food starting with 'P'.",
+"cat": "food"
+},
+{
+"id": 170,
+"q": "Spiky crown and golden hide, sweet and juicy fruit inside. What am I?",
+"a": "Pineapple",
+"hint": "A food starting with 'P'.",
+"cat": "food"
+},
+{
+"id": 171,
+"q": "From milk I'm made and often yellow, mice adore me, hungry fellow. What am I?",
+"a": "Cheese",
+"hint": "A food starting with 'C'.",
+"cat": "food"
+},
+{
+"id": 172,
+"q": "Golden, sticky, sweet, and thick, the bees all make me — take a lick. What am I?",
+"a": "Honey",
+"hint": "A food starting with 'H'.",
+"cat": "food"
+},
+{
+"id": 173,
+"q": "Long and orange, crunchy too, rabbits love to nibble through. What am I?",
+"a": "Carrot",
+"hint": "A food starting with 'C'.",
+"cat": "food"
+},
+{
+"id": 174,
+"q": "Red and round, some call me fruit, in salads I am quite the beaut. What am I?",
+"a": "Tomato",
+"hint": "A food starting with 'T'.",
+"cat": "food"
+},
+{
+"id": 175,
+"q": "From flour and water I am kneaded, baked in ovens, warm and needed. What am I?",
+"a": "Bread",
+"hint": "A food starting with 'B'.",
+"cat": "food"
+},
+{
+"id": 176,
+"q": "Yellow, sour, full of zest, in lemonade I taste the best. What am I?",
+"a": "Lemon",
+"hint": "A food starting with 'L'.",
+"cat": "food"
+},
+{
+"id": 177,
+"q": "Red and sweet with seeds outside, a summer treat none can hide. What am I?",
+"a": "Strawberry",
+"hint": "A food starting with 'S'.",
+"cat": "food"
+},
+{
+"id": 178,
+"q": "Hard and brown and hairy shell, sweet white milk inside as well. What am I?",
+"a": "Coconut",
+"hint": "A food starting with 'C'.",
+"cat": "food"
+},
+{
+"id": 179,
+"q": "Small and round in bunches grown, to raisins I am sometimes thrown. What am I?",
+"a": "Grape",
+"hint": "A food starting with 'G'.",
+"cat": "food"
+},
+{
+"id": 180,
+"q": "Orange and round in autumn air, carve my face for a Halloween scare. What am I?",
+"a": "Pumpkin",
+"hint": "A food starting with 'P'.",
+"cat": "food"
+},
+{
+"id": 181,
+"q": "Long and thin I twist and slide, in steaming soup I love to hide. What am I?",
+"a": "Noodle",
+"hint": "A food starting with 'N'.",
+"cat": "food"
+},
+{
+"id": 182,
+"q": "Small and red but full of fire, one bite raises your temper higher. What am I?",
+"a": "Chili",
+"hint": "A food starting with 'C'.",
+"cat": "food"
+},
+{
+"id": 183,
+"q": "Red or green upon a tree, keep the doctor away from thee. What am I?",
+"a": "Apple",
+"hint": "A food starting with 'A'.",
+"cat": "food"
+},
+{
+"id": 184,
+"q": "Round and bright, I share my name, with a color just the same. What am I?",
+"a": "Orange",
+"hint": "A food starting with 'O'.",
+"cat": "food"
+},
+{
+"id": 185,
+"q": "Beneath the soil I grow in dirt, mashed or fried, I'll never hurt. What am I?",
+"a": "Potato",
+"hint": "A food starting with 'P'.",
+"cat": "food"
+},
+{
+"id": 186,
+"q": "Cold and sweet on summer days, I melt beneath the sunny rays. What am I?",
+"a": "Ice Cream",
+"hint": "A food starting with 'I'.",
+"cat": "food"
+},
+{
+"id": 187,
+"q": "Flat and round upon your plate, with syrup poured, I taste so great. What am I?",
+"a": "Pancake",
+"hint": "A food starting with 'P'.",
+"cat": "food"
+},
+{
+"id": 188,
+"q": "Twisted, salty, baked with care, a knotted snack beyond compare. What am I?",
+"a": "Pretzel",
+"hint": "A food starting with 'P'.",
+"cat": "food"
+},
+{
+"id": 189,
+"q": "Golden, juicy, tropical treat, no fruit I know is quite so sweet. What am I?",
+"a": "Mango",
+"hint": "A food starting with 'M'.",
+"cat": "food"
+},
+{
+"id": 190,
+"q": "Round and leafy, layered tight, a green ball wrapped up nice and light. What am I?",
+"a": "Cabbage",
+"hint": "A food starting with 'C'.",
+"cat": "food"
+},
+{
+"id": 191,
+"q": "In cloves I come with pungent smell, I flavor soups and stews so well. What am I?",
+"a": "Garlic",
+"hint": "A food starting with 'G'.",
+"cat": "food"
+},
+{
+"id": 192,
+"q": "Round with a hole right in my center, sugar-glazed for those who enter. What am I?",
+"a": "Donut",
+"hint": "A food starting with 'D'.",
+"cat": "food"
+},
+{
+"id": 193,
+"q": "Square with pockets, crisp and light, I hold the syrup just right. What am I?",
+"a": "Waffle",
+"hint": "A food starting with 'W'.",
+"cat": "food"
+},
+{
+"id": 194,
+"q": "Small and red on slender stem, in pairs I hang, a shining gem. What am I?",
+"a": "Cherry",
+"hint": "A food starting with 'C'.",
+"cat": "food"
+},
+{
+"id": 195,
+"q": "Soft and fuzzy, sweet and round, the juiciest fruit that can be found. What am I?",
+"a": "Peach",
+"hint": "A food starting with 'P'.",
+"cat": "food"
+},
+{
+"id": 196,
+"q": "Peel my layers and you may cry, I add my flavor to the fry. What am I?",
+"a": "Onion",
+"hint": "A food starting with 'O'.",
+"cat": "food"
+},
+{
+"id": 197,
+"q": "After rain I arch the sky, seven colors way up high. What am I?",
+"a": "Rainbow",
+"hint": "A part of nature starting with 'R'.",
+"cat": "nature"
+},
+{
+"id": 198,
+"q": "No two of me are quite the same, I fall in winter, cold's my game. What am I?",
+"a": "Snowflake",
+"hint": "A part of nature starting with 'S'.",
+"cat": "nature"
+},
+{
+"id": 199,
+"q": "I float above you soft and white, then turn to grey and rain at night. What am I?",
+"a": "Cloud",
+"hint": "A part of nature starting with 'C'.",
+"cat": "nature"
+},
+{
+"id": 200,
+"q": "I sleep for years then wake to roar, spilling fire from my core. What am I?",
+"a": "Volcano",
+"hint": "A part of nature starting with 'V'.",
+"cat": "nature"
+},
+{
+"id": 201,
+"q": "I wind and flow from hill to sea, and never stop, just watch and see. What am I?",
+"a": "River",
+"hint": "A part of nature starting with 'R'.",
+"cat": "nature"
+},
+{
+"id": 202,
+"q": "You cannot see me, yet I'm strong, I push the sails and clouds along. What am I?",
+"a": "Wind",
+"hint": "A part of nature starting with 'W'.",
+"cat": "nature"
+},
+{
+"id": 203,
+"q": "I follow lightning with a boom, that shakes and rattles every room. What am I?",
+"a": "Thunder",
+"hint": "A part of nature starting with 'T'.",
+"cat": "nature"
+},
+{
+"id": 204,
+"q": "A jagged flash across the sky, I strike the ground from way up high. What am I?",
+"a": "Lightning",
+"hint": "A part of nature starting with 'L'.",
+"cat": "nature"
+},
+{
+"id": 205,
+"q": "I glow at night, I wax and wane, and pull the tides across the main. What am I?",
+"a": "Moon",
+"hint": "A part of nature starting with 'M'.",
+"cat": "nature"
+},
+{
+"id": 206,
+"q": "I rise each morning in the east, and give my warmth to man and beast. What am I?",
+"a": "Sun",
+"hint": "A part of nature starting with 'S'.",
+"cat": "nature"
+},
+{
+"id": 207,
+"q": "A tiny light in blackest night, I twinkle far, a distant sight. What am I?",
+"a": "Star",
+"hint": "A part of nature starting with 'S'.",
+"cat": "nature"
+},
+{
+"id": 208,
+"q": "I rise above the clouds so proud, my peak is often veiled in shroud. What am I?",
+"a": "Mountain",
+"hint": "A part of nature starting with 'M'.",
+"cat": "nature"
+},
+{
+"id": 209,
+"q": "I tumble down from ledge to pool, my misty spray is fresh and cool. What am I?",
+"a": "Waterfall",
+"hint": "A part of nature starting with 'W'.",
+"cat": "nature"
+},
+{
+"id": 210,
+"q": "Endless sand and blazing heat, few plants grow beneath my feet. What am I?",
+"a": "Desert",
+"hint": "A part of nature starting with 'D'.",
+"cat": "nature"
+},
+{
+"id": 211,
+"q": "A river made of ancient ice, I move so slow, I'm cold as vice. What am I?",
+"a": "Glacier",
+"hint": "A part of nature starting with 'G'.",
+"cat": "nature"
+},
+{
+"id": 212,
+"q": "Full of trees both tall and green, the deepest, greenest, leafy scene. What am I?",
+"a": "Forest",
+"hint": "A part of nature starting with 'F'.",
+"cat": "nature"
+},
+{
+"id": 213,
+"q": "A hollow deep within the stone, where bats and darkness make their home. What am I?",
+"a": "Cave",
+"hint": "A part of nature starting with 'C'.",
+"cat": "nature"
+},
+{
+"id": 214,
+"q": "Surrounded all around by sea, a piece of land where palms grow free. What am I?",
+"a": "Island",
+"hint": "A part of nature starting with 'I'.",
+"cat": "nature"
+},
+{
+"id": 215,
+"q": "A spinning funnel dark and wide, I tear the land on every side. What am I?",
+"a": "Tornado",
+"hint": "A part of nature starting with 'T'.",
+"cat": "nature"
+},
+{
+"id": 216,
+"q": "At dawn I sparkle on the grass, a tiny bead of morning glass. What am I?",
+"a": "Dewdrop",
+"hint": "A part of nature starting with 'D'.",
+"cat": "nature"
+},
+{
+"id": 217,
+"q": "On cold clear nights I paint the pane, with feathered ice, a crystal chain. What am I?",
+"a": "Frost",
+"hint": "A part of nature starting with 'F'.",
+"cat": "nature"
+},
+{
+"id": 218,
+"q": "With a blazing tail I streak the night, a wanderer of ancient light. What am I?",
+"a": "Comet",
+"hint": "A part of nature starting with 'C'.",
+"cat": "nature"
+},
+{
+"id": 219,
+"q": "The ground will tremble, shake, and crack, when I awake there's no way back. What am I?",
+"a": "Earthquake",
+"hint": "A part of nature starting with 'E'.",
+"cat": "nature"
+},
+{
+"id": 220,
+"q": "In polar skies I dance and glow, green and purple, soft and slow. What am I?",
+"a": "Aurora",
+"hint": "A part of nature starting with 'A'.",
+"cat": "nature"
+},
+{
+"id": 221,
+"q": "A field of grass and flowers gay, where butterflies and bees all play. What am I?",
+"a": "Meadow",
+"hint": "A part of nature starting with 'M'.",
+"cat": "nature"
+},
+{
+"id": 222,
+"q": "I am the number you get when you add 58 and 56. What number am I?",
+"a": "114",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 223,
+"q": "I am the number you get when you add 46 and 42. What number am I?",
+"a": "88",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 224,
+"q": "I am the number you get when you add 87 and 19. What number am I?",
+"a": "106",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 225,
+"q": "I am the number you get when you add 60 and 59. What number am I?",
+"a": "119",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 226,
+"q": "I am the number you get when you add 22 and 17. What number am I?",
+"a": "39",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 227,
+"q": "I am the number you get when you add 84 and 35. What number am I?",
+"a": "119",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 228,
+"q": "I am the number you get when you add 36 and 80. What number am I?",
+"a": "116",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 229,
+"q": "I am the number you get when you add 15 and 51. What number am I?",
+"a": "66",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 230,
+"q": "I am the number you get when you add 29 and 44. What number am I?",
+"a": "73",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 231,
+"q": "I am the number you get when you add 14 and 22. What number am I?",
+"a": "36",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 232,
+"q": "I am the number you get when you add 21 and 40. What number am I?",
+"a": "61",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 233,
+"q": "I am the number you get when you add 65 and 15. What number am I?",
+"a": "80",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 234,
+"q": "I am the number you get when you add 48 and 57. What number am I?",
+"a": "105",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 235,
+"q": "I am the number you get when you add 46 and 11. What number am I?",
+"a": "57",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 236,
+"q": "I am the number you get when you add 46 and 69. What number am I?",
+"a": "115",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 237,
+"q": "I am the number you get when you add 78 and 43. What number am I?",
+"a": "121",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 238,
+"q": "I am the number you get when you add 37 and 45. What number am I?",
+"a": "82",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 239,
+"q": "I am the number you get when you add 32 and 79. What number am I?",
+"a": "111",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 240,
+"q": "I am the number you get when you add 31 and 65. What number am I?",
+"a": "96",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 241,
+"q": "I am the number you get when you add 28 and 42. What number am I?",
+"a": "70",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 242,
+"q": "I am the number you get when you add 38 and 74. What number am I?",
+"a": "112",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 243,
+"q": "I am the number you get when you add 65 and 85. What number am I?",
+"a": "150",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 244,
+"q": "I am the number you get when you add 22 and 59. What number am I?",
+"a": "81",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 245,
+"q": "I am the number you get when you add 87 and 70. What number am I?",
+"a": "157",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 246,
+"q": "I am the number you get when you add 83 and 51. What number am I?",
+"a": "134",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 247,
+"q": "I am the number you get when you add 54 and 24. What number am I?",
+"a": "78",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 248,
+"q": "I am the number you get when you add 38 and 40. What number am I?",
+"a": "78",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 249,
+"q": "I am the number you get when you add 69 and 79. What number am I?",
+"a": "148",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 250,
+"q": "I am the number you get when you add 45 and 82. What number am I?",
+"a": "127",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 251,
+"q": "I am the number you get when you add 14 and 82. What number am I?",
+"a": "96",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 252,
+"q": "I am the number you get when you add 18 and 40. What number am I?",
+"a": "58",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 253,
+"q": "I am the number you get when you add 61 and 69. What number am I?",
+"a": "130",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 254,
+"q": "I am the number you get when you add 22 and 86. What number am I?",
+"a": "108",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 255,
+"q": "I am the number you get when you add 26 and 59. What number am I?",
+"a": "85",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 256,
+"q": "I am the number you get when you add 44 and 16. What number am I?",
+"a": "60",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 257,
+"q": "I am the number you get when you add 24 and 80. What number am I?",
+"a": "104",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 258,
+"q": "I am the number you get when you add 42 and 31. What number am I?",
+"a": "73",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 259,
+"q": "I am the number you get when you add 30 and 38. What number am I?",
+"a": "68",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 260,
+"q": "I am the number you get when you add 19 and 38. What number am I?",
+"a": "57",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 261,
+"q": "I am the number you get when you add 44 and 85. What number am I?",
+"a": "129",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 262,
+"q": "I am the number you get when you add 68 and 86. What number am I?",
+"a": "154",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 263,
+"q": "I am the number you get when you add 70 and 59. What number am I?",
+"a": "129",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 264,
+"q": "I am the number you get when you add 57 and 31. What number am I?",
+"a": "88",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 265,
+"q": "I am the number you get when you add 82 and 79. What number am I?",
+"a": "161",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 266,
+"q": "I am the number you get when you add 25 and 30. What number am I?",
+"a": "55",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 267,
+"q": "I am the number you get when you add 39 and 28. What number am I?",
+"a": "67",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 268,
+"q": "I am the number you get when you add 21 and 81. What number am I?",
+"a": "102",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 269,
+"q": "I am the number you get when you add 20 and 88. What number am I?",
+"a": "108",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 270,
+"q": "I am the number you get when you add 64 and 39. What number am I?",
+"a": "103",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 271,
+"q": "I am the number you get when you add 55 and 88. What number am I?",
+"a": "143",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 272,
+"q": "I am the number you get when you add 19 and 16. What number am I?",
+"a": "35",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 273,
+"q": "I am the number you get when you add 62 and 45. What number am I?",
+"a": "107",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 274,
+"q": "I am the number you get when you add 76 and 74. What number am I?",
+"a": "150",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 275,
+"q": "I am the number you get when you add 40 and 48. What number am I?",
+"a": "88",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 276,
+"q": "I am the number you get when you add 39 and 52. What number am I?",
+"a": "91",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 277,
+"q": "I am the number you get when you add 25 and 14. What number am I?",
+"a": "39",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 278,
+"q": "I am the number you get when you add 62 and 57. What number am I?",
+"a": "119",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 279,
+"q": "I am the number you get when you add 75 and 88. What number am I?",
+"a": "163",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 280,
+"q": "I am the number you get when you add 23 and 56. What number am I?",
+"a": "79",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 281,
+"q": "I am the number you get when you add 23 and 59. What number am I?",
+"a": "82",
+"hint": "Add the tens, then the ones.",
+"cat": "numbers"
+},
+{
+"id": 282,
+"q": "Multiply 6 by 12. What number do you get?",
+"a": "72",
+"hint": "Think of the 6 times table.",
+"cat": "numbers"
+},
+{
+"id": 283,
+"q": "Multiply 3 by 4. What number do you get?",
+"a": "12",
+"hint": "Think of the 3 times table.",
+"cat": "numbers"
+},
+{
+"id": 284,
+"q": "Multiply 4 by 3. What number do you get?",
+"a": "12",
+"hint": "Think of the 4 times table.",
+"cat": "numbers"
+},
+{
+"id": 285,
+"q": "Multiply 12 by 10. What number do you get?",
+"a": "120",
+"hint": "Think of the 12 times table.",
+"cat": "numbers"
+},
+{
+"id": 286,
+"q": "Multiply 4 by 6. What number do you get?",
+"a": "24",
+"hint": "Think of the 4 times table.",
+"cat": "numbers"
+},
+{
+"id": 287,
+"q": "Multiply 5 by 7. What number do you get?",
+"a": "35",
+"hint": "Think of the 5 times table.",
+"cat": "numbers"
+},
+{
+"id": 288,
+"q": "Multiply 9 by 5. What number do you get?",
+"a": "45",
+"hint": "Think of the 9 times table.",
+"cat": "numbers"
+},
+{
+"id": 289,
+"q": "Multiply 5 by 10. What number do you get?",
+"a": "50",
+"hint": "Think of the 5 times table.",
+"cat": "numbers"
+},
+{
+"id": 290,
+"q": "Multiply 10 by 6. What number do you get?",
+"a": "60",
+"hint": "Think of the 10 times table.",
+"cat": "numbers"
+},
+{
+"id": 291,
+"q": "Multiply 9 by 8. What number do you get?",
+"a": "72",
+"hint": "Think of the 9 times table.",
+"cat": "numbers"
+},
+{
+"id": 292,
+"q": "Multiply 11 by 5. What number do you get?",
+"a": "55",
+"hint": "Think of the 11 times table.",
+"cat": "numbers"
+},
+{
+"id": 293,
+"q": "Multiply 10 by 3. What number do you get?",
+"a": "30",
+"hint": "Think of the 10 times table.",
+"cat": "numbers"
+},
+{
+"id": 294,
+"q": "Multiply 11 by 11. What number do you get?",
+"a": "121",
+"hint": "Think of the 11 times table.",
+"cat": "numbers"
+},
+{
+"id": 295,
+"q": "Multiply 6 by 5. What number do you get?",
+"a": "30",
+"hint": "Think of the 6 times table.",
+"cat": "numbers"
+},
+{
+"id": 296,
+"q": "Multiply 6 by 11. What number do you get?",
+"a": "66",
+"hint": "Think of the 6 times table.",
+"cat": "numbers"
+},
+{
+"id": 297,
+"q": "Multiply 7 by 10. What number do you get?",
+"a": "70",
+"hint": "Think of the 7 times table.",
+"cat": "numbers"
+},
+{
+"id": 298,
+"q": "Multiply 12 by 9. What number do you get?",
+"a": "108",
+"hint": "Think of the 12 times table.",
+"cat": "numbers"
+},
+{
+"id": 299,
+"q": "Multiply 12 by 6. What number do you get?",
+"a": "72",
+"hint": "Think of the 12 times table.",
+"cat": "numbers"
+},
+{
+"id": 300,
+"q": "Multiply 4 by 8. What number do you get?",
+"a": "32",
+"hint": "Think of the 4 times table.",
+"cat": "numbers"
+},
+{
+"id": 301,
+"q": "Multiply 3 by 6. What number do you get?",
+"a": "18",
+"hint": "Think of the 3 times table.",
+"cat": "numbers"
+},
+{
+"id": 302,
+"q": "Multiply 3 by 12. What number do you get?",
+"a": "36",
+"hint": "Think of the 3 times table.",
+"cat": "numbers"
+},
+{
+"id": 303,
+"q": "Multiply 5 by 9. What number do you get?",
+"a": "45",
+"hint": "Think of the 5 times table.",
+"cat": "numbers"
+},
+{
+"id": 304,
+"q": "Multiply 4 by 11. What number do you get?",
+"a": "44",
+"hint": "Think of the 4 times table.",
+"cat": "numbers"
+},
+{
+"id": 305,
+"q": "Multiply 8 by 5. What number do you get?",
+"a": "40",
+"hint": "Think of the 8 times table.",
+"cat": "numbers"
+},
+{
+"id": 306,
+"q": "Multiply 5 by 12. What number do you get?",
+"a": "60",
+"hint": "Think of the 5 times table.",
+"cat": "numbers"
+},
+{
+"id": 307,
+"q": "Multiply 10 by 11. What number do you get?",
+"a": "110",
+"hint": "Think of the 10 times table.",
+"cat": "numbers"
+},
+{
+"id": 308,
+"q": "Multiply 11 by 10. What number do you get?",
+"a": "110",
+"hint": "Think of the 11 times table.",
+"cat": "numbers"
+},
+{
+"id": 309,
+"q": "Multiply 6 by 7. What number do you get?",
+"a": "42",
+"hint": "Think of the 6 times table.",
+"cat": "numbers"
+},
+{
+"id": 310,
+"q": "Multiply 6 by 10. What number do you get?",
+"a": "60",
+"hint": "Think of the 6 times table.",
+"cat": "numbers"
+},
+{
+"id": 311,
+"q": "Multiply 4 by 7. What number do you get?",
+"a": "28",
+"hint": "Think of the 4 times table.",
+"cat": "numbers"
+},
+{
+"id": 312,
+"q": "Multiply 4 by 4. What number do you get?",
+"a": "16",
+"hint": "Think of the 4 times table.",
+"cat": "numbers"
+},
+{
+"id": 313,
+"q": "Multiply 5 by 11. What number do you get?",
+"a": "55",
+"hint": "Think of the 5 times table.",
+"cat": "numbers"
+},
+{
+"id": 314,
+"q": "Multiply 8 by 4. What number do you get?",
+"a": "32",
+"hint": "Think of the 8 times table.",
+"cat": "numbers"
+},
+{
+"id": 315,
+"q": "Multiply 9 by 9. What number do you get?",
+"a": "81",
+"hint": "Think of the 9 times table.",
+"cat": "numbers"
+},
+{
+"id": 316,
+"q": "Multiply 8 by 7. What number do you get?",
+"a": "56",
+"hint": "Think of the 8 times table.",
+"cat": "numbers"
+},
+{
+"id": 317,
+"q": "Multiply 10 by 4. What number do you get?",
+"a": "40",
+"hint": "Think of the 10 times table.",
+"cat": "numbers"
+},
+{
+"id": 318,
+"q": "Multiply 9 by 6. What number do you get?",
+"a": "54",
+"hint": "Think of the 9 times table.",
+"cat": "numbers"
+},
+{
+"id": 319,
+"q": "Multiply 11 by 3. What number do you get?",
+"a": "33",
+"hint": "Think of the 11 times table.",
+"cat": "numbers"
+},
+{
+"id": 320,
+"q": "Multiply 8 by 10. What number do you get?",
+"a": "80",
+"hint": "Think of the 8 times table.",
+"cat": "numbers"
+},
+{
+"id": 321,
+"q": "Multiply 7 by 11. What number do you get?",
+"a": "77",
+"hint": "Think of the 7 times table.",
+"cat": "numbers"
+},
+{
+"id": 322,
+"q": "Multiply 11 by 12. What number do you get?",
+"a": "132",
+"hint": "Think of the 11 times table.",
+"cat": "numbers"
+},
+{
+"id": 323,
+"q": "Multiply 11 by 6. What number do you get?",
+"a": "66",
+"hint": "Think of the 11 times table.",
+"cat": "numbers"
+},
+{
+"id": 324,
+"q": "Multiply 6 by 6. What number do you get?",
+"a": "36",
+"hint": "Think of the 6 times table.",
+"cat": "numbers"
+},
+{
+"id": 325,
+"q": "Multiply 6 by 3. What number do you get?",
+"a": "18",
+"hint": "Think of the 6 times table.",
+"cat": "numbers"
+},
+{
+"id": 326,
+"q": "Multiply 7 by 8. What number do you get?",
+"a": "56",
+"hint": "Think of the 7 times table.",
+"cat": "numbers"
+},
+{
+"id": 327,
+"q": "What number comes next in the sequence: 2, 4, 6, 8, ...?",
+"a": "10",
+"hint": "Even numbers.",
+"cat": "numbers"
+},
+{
+"id": 328,
+"q": "What number comes next in the sequence: 1, 3, 5, 7, ...?",
+"a": "9",
+"hint": "Odd numbers.",
+"cat": "numbers"
+},
+{
+"id": 329,
+"q": "What number comes next in the sequence: 1, 4, 9, 16, ...?",
+"a": "25",
+"hint": "Perfect squares.",
+"cat": "numbers"
+},
+{
+"id": 330,
+"q": "What number comes next in the sequence: 1, 1, 2, 3, 5, 8, ...?",
+"a": "13",
+"hint": "Fibonacci - add the last two.",
+"cat": "numbers"
+},
+{
+"id": 331,
+"q": "What number comes next in the sequence: 2, 6, 12, 20, ...?",
+"a": "30",
+"hint": "n times (n+1).",
+"cat": "numbers"
+},
+{
+"id": 332,
+"q": "What number comes next in the sequence: 1, 2, 4, 8, 16, ...?",
+"a": "32",
+"hint": "Doubling each time.",
+"cat": "numbers"
+},
+{
+"id": 333,
+"q": "What number comes next in the sequence: 3, 6, 9, 12, ...?",
+"a": "15",
+"hint": "Multiples of three.",
+"cat": "numbers"
+},
+{
+"id": 334,
+"q": "What number comes next in the sequence: 5, 10, 15, 20, ...?",
+"a": "25",
+"hint": "Counting by fives.",
+"cat": "numbers"
+},
+{
+"id": 335,
+"q": "What number comes next in the sequence: 100, 90, 80, 70, ...?",
+"a": "60",
+"hint": "Counting down by tens.",
+"cat": "numbers"
+},
+{
+"id": 336,
+"q": "What number comes next in the sequence: 1, 8, 27, 64, ...?",
+"a": "125",
+"hint": "Perfect cubes.",
+"cat": "numbers"
+},
+{
+"id": 337,
+"q": "What number comes next in the sequence: 2, 3, 5, 7, 11, ...?",
+"a": "13",
+"hint": "Prime numbers.",
+"cat": "numbers"
+},
+{
+"id": 338,
+"q": "What number comes next in the sequence: 1, 2, 6, 24, 120, ...?",
+"a": "720",
+"hint": "Factorials.",
+"cat": "numbers"
+},
+{
+"id": 339,
+"q": "What number comes next in the sequence: 81, 27, 9, 3, ...?",
+"a": "1",
+"hint": "Divide by three each time.",
+"cat": "numbers"
+},
+{
+"id": 340,
+"q": "What number comes next in the sequence: 10, 20, 40, 80, ...?",
+"a": "160",
+"hint": "Doubling from ten.",
+"cat": "numbers"
+},
+{
+"id": 341,
+"q": "What number comes next in the sequence: 50, 45, 40, 35, ...?",
+"a": "30",
+"hint": "Down by five.",
+"cat": "numbers"
+},
+{
+"id": 342,
+"q": "What comes once in a minute, twice in a moment, but never in a thousand years?",
+"a": "The letter M",
+"hint": "Look at the spelling.",
+"cat": "words"
+},
+{
+"id": 343,
+"q": "What has 365 pages but is not a book?",
+"a": "A calendar",
+"hint": "One page per day.",
+"cat": "objects"
+},
+{
+"id": 344,
+"q": "What day comes three days after the day which comes two days after the day which comes immediately after the day before Monday?",
+"a": "Saturday",
+"hint": "Work it out step by step.",
+"cat": "trick"
+},
+{
+"id": 345,
+"q": "If yesterday was tomorrow, today would be Sunday. What day is it really?",
+"a": "Friday",
+"hint": "Solve the puzzle backward.",
+"cat": "trick"
+},
+{
+"id": 346,
+"q": "What season are you in when the leaves fall?",
+"a": "Autumn",
+"hint": "Also called fall.",
+"cat": "nature"
+},
+{
+"id": 347,
+"q": "How many seconds are in a minute?",
+"a": "60",
+"hint": "A full sweep of the clock.",
+"cat": "numbers"
+},
+{
+"id": 348,
+"q": "How many days are in a leap year?",
+"a": "366",
+"hint": "One extra day in February.",
+"cat": "numbers"
+},
+{
+"id": 349,
+"q": "What is the only day that is an anagram of nothing common but ends in -day like all the rest, coming right before Monday?",
+"a": "Sunday",
+"hint": "The first day of the week.",
+"cat": "trick"
+},
+{
+"id": 350,
+"q": "I rhyme with 'cat' and you wear me on your head. What am I?",
+"a": "A hat",
+"hint": "Keeps the sun off.",
+"cat": "words"
+},
+{
+"id": 351,
+"q": "I rhyme with 'star' and I drive on the road. What am I?",
+"a": "A car",
+"hint": "Has four wheels.",
+"cat": "words"
+},
+{
+"id": 352,
+"q": "I rhyme with 'house' and I'm a tiny squeaky animal. What am I?",
+"a": "A mouse",
+"hint": "Cats chase me.",
+"cat": "words"
+},
+{
+"id": 353,
+"q": "I rhyme with 'bee' and I grow tall with leaves. What am I?",
+"a": "A tree",
+"hint": "Green in summer.",
+"cat": "words"
+},
+{
+"id": 354,
+"q": "I rhyme with 'night' and I help you see in the dark. What am I?",
+"a": "A light",
+"hint": "Flip the switch.",
+"cat": "words"
+},
+{
+"id": 355,
+"q": "I rhyme with 'cake' and I'm a big body of water. What am I?",
+"a": "A lake",
+"hint": "Ducks swim on me.",
+"cat": "words"
+},
+{
+"id": 356,
+"q": "I rhyme with 'ring' and a bird uses me to fly. What am I?",
+"a": "A wing",
+"hint": "Birds have two.",
+"cat": "words"
+},
+{
+"id": 357,
+"q": "I rhyme with 'moon' and you eat soup with me. What am I?",
+"a": "A spoon",
+"hint": "Found in the kitchen.",
+"cat": "words"
+},
+{
+"id": 358,
+"q": "I rhyme with 'bell' and a snail lives inside me. What am I?",
+"a": "A shell",
+"hint": "Found on the beach.",
+"cat": "words"
+},
+{
+"id": 359,
+"q": "I rhyme with 'chair' and it grows on your head. What am I?",
+"a": "Hair",
+"hint": "You brush me.",
+"cat": "words"
+},
+{
+"id": 360,
+"q": "I rhyme with 'four' and you walk through me to enter. What am I?",
+"a": "A door",
+"hint": "It opens and closes.",
+"cat": "words"
+},
+{
+"id": 361,
+"q": "I rhyme with 'goat' and it floats on water. What am I?",
+"a": "A boat",
+"hint": "It sails.",
+"cat": "words"
+},
+{
+"id": 362,
+"q": "I rhyme with 'snow' and it curves in the sky after rain. What am I?",
+"a": "A bow (rainbow)",
+"hint": "Seven colors.",
+"cat": "words"
+},
+{
+"id": 363,
+"q": "I rhyme with 'red' and you sleep in me. What am I?",
+"a": "A bed",
+"hint": "Soft and cozy.",
+"cat": "words"
+},
+{
+"id": 364,
+"q": "I rhyme with 'fun' and it shines in the sky. What am I?",
+"a": "The sun",
+"hint": "Bright and hot.",
+"cat": "words"
+},
+{
+"id": 365,
+"q": "I rhyme with 'ball' and I'm very high, not short. What am I?",
+"a": "Tall",
+"hint": "Opposite of short.",
+"cat": "words"
+},
+{
+"id": 366,
+"q": "I rhyme with 'fox' and I'm a container with a lid. What am I?",
+"a": "A box",
+"hint": "You pack things in me.",
+"cat": "words"
+},
+{
+"id": 367,
+"q": "I rhyme with 'king' and it flies with feathers. What am I?",
+"a": "A wing",
+"hint": "Birds use two.",
+"cat": "words"
+},
+{
+"id": 368,
+"q": "I rhyme with 'blue' and you wear me on your foot. What am I?",
+"a": "A shoe",
+"hint": "Comes in a pair.",
+"cat": "words"
+},
+{
+"id": 369,
+"q": "I rhyme with 'clock' and it's on the seashore. What am I?",
+"a": "A rock",
+"hint": "Hard and heavy.",
+"cat": "words"
+},
+{
+"id": 370,
+"q": "A man is found dead in a locked room with a puddle of water and broken glass. How did he die?",
+"a": "He was standing on a block of ice that melted; hanged himself.",
+"hint": "The water was once solid.",
+"cat": "lateral"
+},
+{
+"id": 371,
+"q": "What can run but never walks, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?",
+"a": "A river",
+"hint": "It flows to the sea.",
+"cat": "lateral"
+},
+{
+"id": 372,
+"q": "I am not alive, but I can grow; I don't have lungs, but I need air; I don't have a mouth, but water kills me. What am I?",
+"a": "Fire",
+"hint": "It flickers and burns.",
+"cat": "lateral"
+},
+{
+"id": 373,
+"q": "The more of this there is, the less you see. What is it?",
+"a": "Darkness",
+"hint": "Turn off the lights.",
+"cat": "lateral"
+},
+{
+"id": 374,
+"q": "What can point in every direction but can't reach the destination by itself?",
+"a": "Your finger",
+"hint": "Or a signpost.",
+"cat": "lateral"
+},
+{
+"id": 375,
+"q": "A girl fell off a 20-foot ladder but wasn't hurt. How?",
+"a": "She fell off the bottom rung.",
+"hint": "How high was she really?",
+"cat": "lateral"
+},
+{
+"id": 376,
+"q": "What gets broken without being held?",
+"a": "A promise",
+"hint": "Or a record.",
+"cat": "lateral"
+},
+{
+"id": 377,
+"q": "If a rooster lays an egg on the peak of a roof, which way does it roll?",
+"a": "Roosters don't lay eggs.",
+"hint": "Think about biology.",
+"cat": "trick"
+},
+{
+"id": 378,
+"q": "Before Mount Everest was discovered, what was the tallest mountain on Earth?",
+"a": "Mount Everest - it was still tallest.",
+"hint": "It existed already.",
+"cat": "trick"
+},
+{
+"id": 379,
+"q": "A doctor and a boy were fishing. The boy was the doctor's son, but the doctor was not the boy's father. Who was the doctor?",
+"a": "His mother.",
+"hint": "Challenge your assumptions.",
+"cat": "lateral"
+},
+{
+"id": 380,
+"q": "What has to be given before you can keep it?",
+"a": "Your word",
+"hint": "A promise.",
+"cat": "lateral"
+},
+{
+"id": 381,
+"q": "How far can a dog run into the woods?",
+"a": "Halfway - after that it's running out.",
+"hint": "Think geometry.",
+"cat": "trick"
+},
+{
+"id": 382,
+"q": "What can you put in a bucket to make it weigh less?",
+"a": "A hole",
+"hint": "It lets water out.",
+"cat": "lateral"
+},
+{
+"id": 383,
+"q": "What word becomes a palindrome when you view it in a mirror... no, what 7-letter word has hundreds of letters in it?",
+"a": "Mailbox",
+"hint": "Think of what it holds.",
+"cat": "lateral"
+},
+{
+"id": 384,
+"q": "A plane crashes on the border of two countries. Where do you bury the survivors?",
+"a": "You don't bury survivors.",
+"hint": "Read carefully.",
+"cat": "trick"
+},
+{
+"id": 385,
+"q": "I am the capital city of France. What city am I?",
+"a": "Paris",
+"hint": "It's the main city of France.",
+"cat": "geography"
+},
+{
+"id": 386,
+"q": "I am the capital city of Japan. What city am I?",
+"a": "Tokyo",
+"hint": "It's the main city of Japan.",
+"cat": "geography"
+},
+{
+"id": 387,
+"q": "I am the capital city of Italy. What city am I?",
+"a": "Rome",
+"hint": "It's the main city of Italy.",
+"cat": "geography"
+},
+{
+"id": 388,
+"q": "I am the capital city of Spain. What city am I?",
+"a": "Madrid",
+"hint": "It's the main city of Spain.",
+"cat": "geography"
+},
+{
+"id": 389,
+"q": "I am the capital city of Germany. What city am I?",
+"a": "Berlin",
+"hint": "It's the main city of Germany.",
+"cat": "geography"
+},
+{
+"id": 390,
+"q": "I am the capital city of England. What city am I?",
+"a": "London",
+"hint": "It's the main city of England.",
+"cat": "geography"
+},
+{
+"id": 391,
+"q": "I am the capital city of Russia. What city am I?",
+"a": "Moscow",
+"hint": "It's the main city of Russia.",
+"cat": "geography"
+},
+{
+"id": 392,
+"q": "I am the capital city of China. What city am I?",
+"a": "Beijing",
+"hint": "It's the main city of China.",
+"cat": "geography"
+},
+{
+"id": 393,
+"q": "I am the capital city of Egypt. What city am I?",
+"a": "Cairo",
+"hint": "It's the main city of Egypt.",
+"cat": "geography"
+},
+{
+"id": 394,
+"q": "I am the capital city of Greece. What city am I?",
+"a": "Athens",
+"hint": "It's the main city of Greece.",
+"cat": "geography"
+},
+{
+"id": 395,
+"q": "I am the capital city of Canada. What city am I?",
+"a": "Ottawa",
+"hint": "It's the main city of Canada.",
+"cat": "geography"
+},
+{
+"id": 396,
+"q": "I am the capital city of Australia. What city am I?",
+"a": "Canberra",
+"hint": "It's the main city of Australia.",
+"cat": "geography"
+},
+{
+"id": 397,
+"q": "I am the capital city of Brazil. What city am I?",
+"a": "Brasilia",
+"hint": "It's the main city of Brazil.",
+"cat": "geography"
+},
+{
+"id": 398,
+"q": "I am the capital city of India. What city am I?",
+"a": "New Delhi",
+"hint": "It's the main city of India.",
+"cat": "geography"
+},
+{
+"id": 399,
+"q": "I am the capital city of Mexico. What city am I?",
+"a": "Mexico City",
+"hint": "It's the main city of Mexico.",
+"cat": "geography"
+},
+{
+"id": 400,
+"q": "I am the capital city of Portugal. What city am I?",
+"a": "Lisbon",
+"hint": "It's the main city of Portugal.",
+"cat": "geography"
+},
+{
+"id": 401,
+"q": "I am the capital city of Norway. What city am I?",
+"a": "Oslo",
+"hint": "It's the main city of Norway.",
+"cat": "geography"
+},
+{
+"id": 402,
+"q": "I am the capital city of Sweden. What city am I?",
+"a": "Stockholm",
+"hint": "It's the main city of Sweden.",
+"cat": "geography"
+},
+{
+"id": 403,
+"q": "I am the capital city of Ireland. What city am I?",
+"a": "Dublin",
+"hint": "It's the main city of Ireland.",
+"cat": "geography"
+},
+{
+"id": 404,
+"q": "I am the capital city of Austria. What city am I?",
+"a": "Vienna",
+"hint": "It's the main city of Austria.",
+"cat": "geography"
+},
+{
+"id": 405,
+"q": "I am the capital city of Turkey. What city am I?",
+"a": "Ankara",
+"hint": "It's the main city of Turkey.",
+"cat": "geography"
+},
+{
+"id": 406,
+"q": "I am the capital city of Thailand. What city am I?",
+"a": "Bangkok",
+"hint": "It's the main city of Thailand.",
+"cat": "geography"
+},
+{
+"id": 407,
+"q": "I am the capital city of Peru. What city am I?",
+"a": "Lima",
+"hint": "It's the main city of Peru.",
+"cat": "geography"
+},
+{
+"id": 408,
+"q": "I am the capital city of Cuba. What city am I?",
+"a": "Havana",
+"hint": "It's the main city of Cuba.",
+"cat": "geography"
+},
+{
+"id": 409,
+"q": "I am the capital city of Kenya. What city am I?",
+"a": "Nairobi",
+"hint": "It's the main city of Kenya.",
+"cat": "geography"
+},
+{
+"id": 410,
+"q": "I am the capital city of Poland. What city am I?",
+"a": "Warsaw",
+"hint": "It's the main city of Poland.",
+"cat": "geography"
+},
+{
+"id": 411,
+"q": "I am the capital city of Finland. What city am I?",
+"a": "Helsinki",
+"hint": "It's the main city of Finland.",
+"cat": "geography"
+},
+{
+"id": 412,
+"q": "I am the capital city of Denmark. What city am I?",
+"a": "Copenhagen",
+"hint": "It's the main city of Denmark.",
+"cat": "geography"
+},
+{
+"id": 413,
+"q": "I am the capital city of Iceland. What city am I?",
+"a": "Reykjavik",
+"hint": "It's the main city of Iceland.",
+"cat": "geography"
+},
+{
+"id": 414,
+"q": "I am the capital city of Hungary. What city am I?",
+"a": "Budapest",
+"hint": "It's the main city of Hungary.",
+"cat": "geography"
+},
+{
+"id": 415,
+"q": "I am the capital city of Argentina. What city am I?",
+"a": "Buenos Aires",
+"hint": "It's the main city of Argentina.",
+"cat": "geography"
+},
+{
+"id": 416,
+"q": "I am the capital city of Chile. What city am I?",
+"a": "Santiago",
+"hint": "It's the main city of Chile.",
+"cat": "geography"
+},
+{
+"id": 417,
+"q": "I am the capital city of Vietnam. What city am I?",
+"a": "Hanoi",
+"hint": "It's the main city of Vietnam.",
+"cat": "geography"
+},
+{
+"id": 418,
+"q": "I am the capital city of Morocco. What city am I?",
+"a": "Rabat",
+"hint": "It's the main city of Morocco.",
+"cat": "geography"
+},
+{
+"id": 419,
+"q": "I am the capital city of Netherlands. What city am I?",
+"a": "Amsterdam",
+"hint": "It's the main city of Netherlands.",
+"cat": "geography"
+},
+{
+"id": 420,
+"q": "I am the color of the sky on a clear day and of the deep ocean. What color am I?",
+"a": "Blue",
+"hint": "Think of the sea.",
+"cat": "colors"
+},
+{
+"id": 421,
+"q": "I am the color of grass and leaves in spring. What color am I?",
+"a": "Green",
+"hint": "Nature's shade.",
+"cat": "colors"
+},
+{
+"id": 422,
+"q": "I am the color of a ripe tomato and a fire truck. What color am I?",
+"a": "Red",
+"hint": "Stop signs use me.",
+"cat": "colors"
+},
+{
+"id": 423,
+"q": "I am the color of the sun and a banana. What color am I?",
+"a": "Yellow",
+"hint": "Bright and cheery.",
+"cat": "colors"
+},
+{
+"id": 424,
+"q": "I am the color of snow and clouds. What color am I?",
+"a": "White",
+"hint": "Pure and clean.",
+"cat": "colors"
+},
+{
+"id": 425,
+"q": "I am the color of the night sky and coal. What color am I?",
+"a": "Black",
+"hint": "Darkest of all.",
+"cat": "colors"
+},
+{
+"id": 426,
+"q": "I am the color you get by mixing red and blue. What color am I?",
+"a": "Purple",
+"hint": "Royal shade.",
+"cat": "colors"
+},
+{
+"id": 427,
+"q": "I am the color of a carrot and a sunset. What color am I?",
+"a": "Orange",
+"hint": "Shares a name with a fruit.",
+"cat": "colors"
+},
+{
+"id": 428,
+"q": "I am the color of chocolate and tree bark. What color am I?",
+"a": "Brown",
+"hint": "Earthy tone.",
+"cat": "colors"
+},
+{
+"id": 429,
+"q": "I am the color of a flamingo and cotton candy. What color am I?",
+"a": "Pink",
+"hint": "Soft and sweet.",
+"cat": "colors"
+},
+{
+"id": 430,
+"q": "I am the color of storm clouds and elephants. What color am I?",
+"a": "Grey",
+"hint": "Between black and white.",
+"cat": "colors"
+},
+{
+"id": 431,
+"q": "I am the color of gold and treasure. What color am I?",
+"a": "Gold",
+"hint": "Pirates seek me.",
+"cat": "colors"
+},
+{
+"id": 432,
+"q": "I let you smell flowers and food. What part of the body am I?",
+"a": "The nose",
+"hint": "In the middle of your face.",
+"cat": "body"
+},
+{
+"id": 433,
+"q": "You have two of me to hear with. What am I?",
+"a": "Ears",
+"hint": "On the sides of your head.",
+"cat": "body"
+},
+{
+"id": 434,
+"q": "You use me to chew your food, and I come in a set of many. What am I?",
+"a": "Teeth",
+"hint": "Brush me twice a day.",
+"cat": "body"
+},
+{
+"id": 435,
+"q": "I pump blood all around your body. What am I?",
+"a": "The heart",
+"hint": "I beat all day.",
+"cat": "body"
+},
+{
+"id": 436,
+"q": "You use me to see the world. I come in a pair. What am I?",
+"a": "Eyes",
+"hint": "Blink me sometimes.",
+"cat": "body"
+},
+{
+"id": 437,
+"q": "I help you grab and hold things, with five fingers each. What am I?",
+"a": "Hands",
+"hint": "You clap with me.",
+"cat": "body"
+},
+{
+"id": 438,
+"q": "I carry you around all day and end in ten toes. What am I?",
+"a": "Feet",
+"hint": "You wear shoes on me.",
+"cat": "body"
+},
+{
+"id": 439,
+"q": "I think and remember and live inside your skull. What am I?",
+"a": "The brain",
+"hint": "You use me to solve riddles.",
+"cat": "body"
+},
+{
+"id": 440,
+"q": "I help you breathe, filling with air. There are two of me. What am I?",
+"a": "Lungs",
+"hint": "Inside your chest.",
+"cat": "body"
+},
+{
+"id": 441,
+"q": "I am the longest bone in your body, in your upper leg. What am I?",
+"a": "The femur",
+"hint": "The thigh bone.",
+"cat": "body"
+},
+{
+"id": 442,
+"q": "I am a small furry pet that says meow. My name has 3 letters and starts with 'C'. What am I?",
+"a": "Cat",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 443,
+"q": "I am a loyal pet that says woof. My name has 3 letters and starts with 'D'. What am I?",
+"a": "Dog",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 444,
+"q": "I am something you wear on your head. My name has 3 letters and starts with 'H'. What am I?",
+"a": "Hat",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 445,
+"q": "I am the bright star that lights our day. My name has 3 letters and starts with 'S'. What am I?",
+"a": "Sun",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 446,
+"q": "I am an insect that makes honey. My name has 3 letters and starts with 'B'. What am I?",
+"a": "Bee",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 447,
+"q": "I am you drink your tea from me. My name has 3 letters and starts with 'C'. What am I?",
+"a": "Cup",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 448,
+"q": "I am a square container for storage. My name has 3 letters and starts with 'B'. What am I?",
+"a": "Box",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 449,
+"q": "I am you write with ink using me. My name has 3 letters and starts with 'P'. What am I?",
+"a": "Pen",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 450,
+"q": "I am you sleep on me at night. My name has 3 letters and starts with 'B'. What am I?",
+"a": "Bed",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 451,
+"q": "I am a hen lays me for breakfast. My name has 3 letters and starts with 'E'. What am I?",
+"a": "Egg",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 452,
+"q": "I am I spin to make cool air. My name has 3 letters and starts with 'F'. What am I?",
+"a": "Fan",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 453,
+"q": "I am a glass container with a lid. My name has 3 letters and starts with 'J'. What am I?",
+"a": "Jar",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 454,
+"q": "I am I unlock doors. My name has 3 letters and starts with 'K'. What am I?",
+"a": "Key",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 455,
+"q": "I am I show you where to go. My name has 3 letters and starts with 'M'. What am I?",
+"a": "Map",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 456,
+"q": "I am I catch fish and butterflies. My name has 3 letters and starts with 'N'. What am I?",
+"a": "Net",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 457,
+"q": "I am a wise bird of the night. My name has 3 letters and starts with 'O'. What am I?",
+"a": "Owl",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 458,
+"q": "I am a pink farm animal that oinks. My name has 3 letters and starts with 'P'. What am I?",
+"a": "Pig",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 459,
+"q": "I am a soft mat on the floor. My name has 3 letters and starts with 'R'. What am I?",
+"a": "Rug",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 460,
+"q": "I am a spider spins me. My name has 3 letters and starts with 'W'. What am I?",
+"a": "Web",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 461,
+"q": "I am I fasten your jacket. My name has 3 letters and starts with 'Z'. What am I?",
+"a": "Zip",
+"hint": "It rhymes and is a common 3-letter word.",
+"cat": "words"
+},
+{
+"id": 462,
+"q": "In this sport you kick a round ball into a net; the rest of the world calls it football. What is it?",
+"a": "Soccer",
+"hint": "World's most popular sport.",
+"cat": "sports"
+},
+{
+"id": 463,
+"q": "You shoot a ball through a hoop high off the ground in this sport. What is it?",
+"a": "Basketball",
+"hint": "Tall players excel.",
+"cat": "sports"
+},
+{
+"id": 464,
+"q": "You hit a small ball with a racket over a net, scoring love, 15, 30, 40. What sport is it?",
+"a": "Tennis",
+"hint": "Played at Wimbledon.",
+"cat": "sports"
+},
+{
+"id": 465,
+"q": "You swing a bat, run around bases, and try to reach home. What sport is it?",
+"a": "Baseball",
+"hint": "Home run!",
+"cat": "sports"
+},
+{
+"id": 466,
+"q": "You hit a small white ball into 18 holes using clubs. What sport is it?",
+"a": "Golf",
+"hint": "Yell 'fore!'.",
+"cat": "sports"
+},
+{
+"id": 467,
+"q": "You ride waves standing on a board. What sport is it?",
+"a": "Surfing",
+"hint": "Done in the ocean.",
+"cat": "sports"
+},
+{
+"id": 468,
+"q": "You glide on ice wearing blades on your feet. What sport is it?",
+"a": "Ice skating",
+"hint": "Cold and graceful.",
+"cat": "sports"
+},
+{
+"id": 469,
+"q": "You throw a ball to knock down ten pins. What sport is it?",
+"a": "Bowling",
+"hint": "Aim for a strike.",
+"cat": "sports"
+},
+{
+"id": 470,
+"q": "You punch an opponent wearing gloves inside a ring. What sport is it?",
+"a": "Boxing",
+"hint": "Ding ding, round one.",
+"cat": "sports"
+},
+{
+"id": 471,
+"q": "You race on two wheels using pedals and handlebars. What sport is it?",
+"a": "Cycling",
+"hint": "The Tour de France.",
+"cat": "sports"
+},
+{
+"id": 472,
+"q": "I have 88 black and white keys and make music when pressed. What am I?",
+"a": "Piano",
+"hint": "A large keyboard instrument.",
+"cat": "music"
+},
+{
+"id": 473,
+"q": "I have six strings and you strum me around a campfire. What am I?",
+"a": "Guitar",
+"hint": "Rock stars love me.",
+"cat": "music"
+},
+{
+"id": 474,
+"q": "I am small, have four strings, and come from Hawaii. What am I?",
+"a": "Ukulele",
+"hint": "A tiny guitar.",
+"cat": "music"
+},
+{
+"id": 475,
+"q": "You blow into me and press keys; I'm long, silver, and shrill. What am I?",
+"a": "Flute",
+"hint": "Held sideways.",
+"cat": "music"
+},
+{
+"id": 476,
+"q": "I am big, brass, and you blow into me for a deep booming sound. What am I?",
+"a": "Tuba",
+"hint": "The biggest brass.",
+"cat": "music"
+},
+{
+"id": 477,
+"q": "You hit me with sticks to keep the beat. What am I?",
+"a": "Drums",
+"hint": "Boom boom bang.",
+"cat": "music"
+},
+{
+"id": 478,
+"q": "I have black and white keys but you carry me and squeeze me. What am I?",
+"a": "Accordion",
+"hint": "Squeeze box.",
+"cat": "music"
+},
+{
+"id": 479,
+"q": "You draw a bow across my four strings, resting me under your chin. What am I?",
+"a": "Violin",
+"hint": "A small fiddle.",
+"cat": "music"
+},
+{
+"id": 480,
+"q": "I am like a violin but much bigger; you play me standing up. What am I?",
+"a": "Cello",
+"hint": "Deep and warm.",
+"cat": "music"
+},
+{
+"id": 481,
+"q": "You blow into me and I'm curly brass; heard often in jazz. What am I?",
+"a": "Trumpet",
+"hint": "Loud and bright.",
+"cat": "music"
+},
+{
+"id": 482,
+"q": "I put out fires and rescue cats from trees. Who am I?",
+"a": "A firefighter",
+"hint": "I ride a red truck.",
+"cat": "people"
+},
+{
+"id": 483,
+"q": "I care for sick people and help doctors in the hospital. Who am I?",
+"a": "A nurse",
+"hint": "I wear scrubs.",
+"cat": "people"
+},
+{
+"id": 484,
+"q": "I teach children lessons in a classroom. Who am I?",
+"a": "A teacher",
+"hint": "I write on the board.",
+"cat": "people"
+},
+{
+"id": 485,
+"q": "I fly airplanes across the sky. Who am I?",
+"a": "A pilot",
+"hint": "I sit in the cockpit.",
+"cat": "people"
+},
+{
+"id": 486,
+"q": "I bake bread and cakes early each morning. Who am I?",
+"a": "A baker",
+"hint": "I work in a bakery.",
+"cat": "people"
+},
+{
+"id": 487,
+"q": "I catch criminals and keep people safe. Who am I?",
+"a": "A police officer",
+"hint": "I wear a badge.",
+"cat": "people"
+},
+{
+"id": 488,
+"q": "I fix teeth and tell you to floss. Who am I?",
+"a": "A dentist",
+"hint": "Open wide!",
+"cat": "people"
+},
+{
+"id": 489,
+"q": "I grow crops and raise animals on the land. Who am I?",
+"a": "A farmer",
+"hint": "I drive a tractor.",
+"cat": "people"
+},
+{
+"id": 490,
+"q": "I deliver letters and packages to your door. Who am I?",
+"a": "A mail carrier",
+"hint": "I carry a big bag.",
+"cat": "people"
+},
+{
+"id": 491,
+"q": "I cook delicious meals in a restaurant kitchen. Who am I?",
+"a": "A chef",
+"hint": "I wear a tall white hat.",
+"cat": "people"
+},
+{
+"id": 492,
+"q": "I study the stars and planets through a telescope. Who am I?",
+"a": "An astronomer",
+"hint": "I work at night.",
+"cat": "people"
+},
+{
+"id": 493,
+"q": "I paint pictures and create art. Who am I?",
+"a": "An artist",
+"hint": "I use a brush.",
+"cat": "people"
+},
+{
+"id": 494,
+"q": "Start with 29 and take away 15. What number is left?",
+"a": "14",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 495,
+"q": "Start with 90 and take away 13. What number is left?",
+"a": "77",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 496,
+"q": "Start with 26 and take away 21. What number is left?",
+"a": "5",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 497,
+"q": "Start with 89 and take away 2. What number is left?",
+"a": "87",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 498,
+"q": "Start with 31 and take away 30. What number is left?",
+"a": "1",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 499,
+"q": "Start with 50 and take away 11. What number is left?",
+"a": "39",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 500,
+"q": "Start with 72 and take away 63. What number is left?",
+"a": "9",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 501,
+"q": "Start with 81 and take away 28. What number is left?",
+"a": "53",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 502,
+"q": "Start with 71 and take away 8. What number is left?",
+"a": "63",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 503,
+"q": "Start with 41 and take away 25. What number is left?",
+"a": "16",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 504,
+"q": "Start with 20 and take away 13. What number is left?",
+"a": "7",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 505,
+"q": "Start with 53 and take away 51. What number is left?",
+"a": "2",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 506,
+"q": "Start with 78 and take away 37. What number is left?",
+"a": "41",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 507,
+"q": "Start with 74 and take away 72. What number is left?",
+"a": "2",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 508,
+"q": "Start with 82 and take away 20. What number is left?",
+"a": "62",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 509,
+"q": "Start with 44 and take away 19. What number is left?",
+"a": "25",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 510,
+"q": "Start with 47 and take away 4. What number is left?",
+"a": "43",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 511,
+"q": "Start with 94 and take away 70. What number is left?",
+"a": "24",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 512,
+"q": "Start with 27 and take away 24. What number is left?",
+"a": "3",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 513,
+"q": "Start with 60 and take away 4. What number is left?",
+"a": "56",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 514,
+"q": "Start with 26 and take away 19. What number is left?",
+"a": "7",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 515,
+"q": "Start with 81 and take away 65. What number is left?",
+"a": "16",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 516,
+"q": "Start with 87 and take away 21. What number is left?",
+"a": "66",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 517,
+"q": "Start with 27 and take away 17. What number is left?",
+"a": "10",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 518,
+"q": "Start with 30 and take away 28. What number is left?",
+"a": "2",
+"hint": "Subtract step by step.",
+"cat": "numbers"
+},
+{
+"id": 519,
+"q": "Sling me on your shoulders two, I carry all the books for you. What am I?",
+"a": "Backpack",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 520,
+"q": "Click my switch in the dark of night, and out will beam a helpful light. What am I?",
+"a": "Flashlight",
+"hint": "An object starting with 'F'.",
+"cat": "objects"
+},
+{
+"id": 521,
+"q": "Slip a letter deep inside, then seal my flap and off you ride. What am I?",
+"a": "Envelope",
+"hint": "An object starting with 'E'.",
+"cat": "objects"
+},
+{
+"id": 522,
+"q": "Wind me tight and let me go, ticking fast then winding slow. What am I?",
+"a": "Clockwork",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 523,
+"q": "When the clouds begin to pour, wear me and you'll stay dry for sure. What am I?",
+"a": "Raincoat",
+"hint": "An object starting with 'R'.",
+"cat": "objects"
+},
+{
+"id": 524,
+"q": "Twice a day you pick me up, to scrub your teeth then rinse your cup. What am I?",
+"a": "Toothbrush",
+"hint": "An object starting with 'T'.",
+"cat": "objects"
+},
+{
+"id": 525,
+"q": "Three white balls stacked in the cold, a carrot nose and a hat so bold. What am I?",
+"a": "Snowman",
+"hint": "An object starting with 'S'.",
+"cat": "objects"
+},
+{
+"id": 526,
+"q": "On rocky shore I stand up tall, my beam of light guides ships and all. What am I?",
+"a": "Lighthouse",
+"hint": "An object starting with 'L'.",
+"cat": "objects"
+},
+{
+"id": 527,
+"q": "Jump from high and pull my cord, I bloom above and slow your fall toward the sward. What am I?",
+"a": "Parachute",
+"hint": "An object starting with 'P'.",
+"cat": "objects"
+},
+{
+"id": 528,
+"q": "Bounce on me and you will fly, springing up toward the sky. What am I?",
+"a": "Trampoline",
+"hint": "An object starting with 'T'.",
+"cat": "objects"
+},
+{
+"id": 529,
+"q": "Look through me at things so small, and tiny worlds appear for all. What am I?",
+"a": "Microscope",
+"hint": "An object starting with 'M'.",
+"cat": "objects"
+},
+{
+"id": 530,
+"q": "Two round lenses side by side, bring far-off birds up close to spied. What am I?",
+"a": "Binoculars",
+"hint": "An object starting with 'B'.",
+"cat": "objects"
+},
+{
+"id": 531,
+"q": "One wheel front and handles back, I haul the dirt along the track. What am I?",
+"a": "Wheelbarrow",
+"hint": "An object starting with 'W'.",
+"cat": "objects"
+},
+{
+"id": 532,
+"q": "Press my keys and letters clack, black on paper, front to back. What am I?",
+"a": "Typewriter",
+"hint": "An object starting with 'T'.",
+"cat": "objects"
+},
+{
+"id": 533,
+"q": "From the ceiling I hang bright, with crystal arms and glowing light. What am I?",
+"a": "Chandelier",
+"hint": "An object starting with 'C'.",
+"cat": "objects"
+},
+{
+"id": 534,
+"q": "From a sub beneath the sea, I let the sailors up-top see. What am I?",
+"a": "Periscope",
+"hint": "An object starting with 'P'.",
+"cat": "objects"
+},
+{
+"id": 535,
+"q": "Up and down we go in play, one goes high while one down-weighs. What am I?",
+"a": "Seesaw",
+"hint": "An object starting with 'S'.",
+"cat": "objects"
+},
+{
+"id": 536,
+"q": "Turn me toward the light and peep, at colored shapes in patterns deep. What am I?",
+"a": "Kaleidoscope",
+"hint": "An object starting with 'K'.",
+"cat": "objects"
+},
+{
+"id": 537,
+"q": "By my shadow on the ground, the hour of day is truly found. What am I?",
+"a": "Sundial",
+"hint": "An object starting with 'S'.",
+"cat": "objects"
+},
+{
+"id": 538,
+"q": "On the rooftop high I turn, which way the wind blows you can learn. What am I?",
+"a": "Weathervane",
+"hint": "An object starting with 'W'.",
+"cat": "objects"
+},
+{
+"id": 539,
+"q": "The king of beasts with golden mane, I roar across the grassy plain. What am I?",
+"a": "Lion",
+"hint": "An animal starting with 'L'.",
+"cat": "animals"
+},
+{
+"id": 540,
+"q": "Orange with stripes of blackest ink, a mighty cat, more fierce than you'd think. What am I?",
+"a": "Tiger",
+"hint": "An animal starting with 'T'.",
+"cat": "animals"
+},
+{
+"id": 541,
+"q": "Black and white in stripes I wear, a horse-like beast beyond compare. What am I?",
+"a": "Zebra",
+"hint": "An animal starting with 'Z'.",
+"cat": "animals"
+},
+{
+"id": 542,
+"q": "I swing from branches, love to play, and eat bananas every day. What am I?",
+"a": "Monkey",
+"hint": "An animal starting with 'M'.",
+"cat": "animals"
+},
+{
+"id": 543,
+"q": "Long ears and a fluffy tail, I hop through fields down every trail. What am I?",
+"a": "Rabbit",
+"hint": "An animal starting with 'R'.",
+"cat": "animals"
+},
+{
+"id": 544,
+"q": "Huge and grey, I love the mud, and wallow in the river's flood. What am I?",
+"a": "Hippo",
+"hint": "An animal starting with 'H'.",
+"cat": "animals"
+},
+{
+"id": 545,
+"q": "A horn upon my nose I bear, thick grey skin and heavy stare. What am I?",
+"a": "Rhino",
+"hint": "An animal starting with 'R'.",
+"cat": "animals"
+},
+{
+"id": 546,
+"q": "On one pink leg I like to stand, the pinkest bird in all the land. What am I?",
+"a": "Flamingo",
+"hint": "An animal starting with 'F'.",
+"cat": "animals"
+},
+{
+"id": 547,
+"q": "I bark and clap and swim with grace, on icy rocks I find my place. What am I?",
+"a": "Seal",
+"hint": "An animal starting with 'S'.",
+"cat": "animals"
+},
+{
+"id": 548,
+"q": "Two long tusks and whiskers wide, on Arctic ice I like to slide. What am I?",
+"a": "Walrus",
+"hint": "An animal starting with 'W'.",
+"cat": "animals"
+},
+{
+"id": 549,
+"q": "With mighty wings I rule the sky, and sharp-eyed catch my prey from high. What am I?",
+"a": "Eagle",
+"hint": "An animal starting with 'E'.",
+"cat": "animals"
+},
+{
+"id": 550,
+"q": "My tail's a fan of shining eyes, I strut about to win a prize. What am I?",
+"a": "Peafowl",
+"hint": "An animal starting with 'P'.",
+"cat": "animals"
+},
+{
+"id": 551,
+"q": "A giant colorful beak have I, in rainforest trees I love to fly. What am I?",
+"a": "Toucan",
+"hint": "An animal starting with 'T'.",
+"cat": "animals"
+},
+{
+"id": 552,
+"q": "Spotted coat and jungle prowl, the strongest cat with a silent growl. What am I?",
+"a": "Jaguar",
+"hint": "An animal starting with 'J'.",
+"cat": "animals"
+},
+{
+"id": 553,
+"q": "The largest ape, so strong and wise, I thump my chest to show my size. What am I?",
+"a": "Gorilla",
+"hint": "An animal starting with 'G'.",
+"cat": "animals"
+},
+{
+"id": 554,
+"q": "Fuzzy and tall in the mountain air, I hum and spit if you don't take care. What am I?",
+"a": "Llama",
+"hint": "An animal starting with 'L'.",
+"cat": "animals"
+},
+{
+"id": 555,
+"q": "A masked bandit of the night, I raid the trash with sneaky might. What am I?",
+"a": "Raccoon",
+"hint": "An animal starting with 'R'.",
+"cat": "animals"
+},
+{
+"id": 556,
+"q": "A duck-like bill, I lay an egg, yet I'm a mammal with webbed leg. What am I?",
+"a": "Platypus",
+"hint": "An animal starting with 'P'.",
+"cat": "animals"
+},
+{
+"id": 557,
+"q": "Five arms have I upon the floor, of the ocean by the shore. What am I?",
+"a": "Starfish",
+"hint": "An animal starting with 'S'.",
+"cat": "animals"
+},
+{
+"id": 558,
+"q": "Soft and clear I drift and sting, a floating, boneless, wobbly thing. What am I?",
+"a": "Jellyfish",
+"hint": "An animal starting with 'J'.",
+"cat": "animals"
+},
+{
+"id": 559,
+"q": "I am a sweet dessert for birthdays. What am I?",
+"a": "Cake",
+"hint": "Starts with 'C'.",
+"cat": "objects"
+},
+{
+"id": 560,
+"q": "I am runs on rails, choo-choo. What am I?",
+"a": "Train",
+"hint": "Starts with 'T'.",
+"cat": "objects"
+},
+{
+"id": 561,
+"q": "I am a long legless reptile that hisses. What am I?",
+"a": "Snake",
+"hint": "Starts with 'S'.",
+"cat": "objects"
+},
+{
+"id": 562,
+"q": "I am a king wears me on his head. What am I?",
+"a": "Crown",
+"hint": "Starts with 'C'.",
+"cat": "objects"
+},
+{
+"id": 563,
+"q": "I am you beat me to make rhythm. What am I?",
+"a": "Drum",
+"hint": "Starts with 'D'.",
+"cat": "objects"
+},
+{
+"id": 564,
+"q": "I am you smell with me. What am I?",
+"a": "Nose",
+"hint": "Starts with 'N'.",
+"cat": "objects"
+},
+{
+"id": 565,
+"q": "I am I tell the time on the wall. What am I?",
+"a": "Clock",
+"hint": "Starts with 'C'.",
+"cat": "objects"
+},
+{
+"id": 566,
+"q": "I am a green hopper that croaks. What am I?",
+"a": "Frog",
+"hint": "Starts with 'F'.",
+"cat": "objects"
+},
+{
+"id": 567,
+"q": "I am the largest animal in the sea. What am I?",
+"a": "Whale",
+"hint": "Starts with 'W'.",
+"cat": "objects"
+},
+{
+"id": 568,
+"q": "I am you sit on me at the table. What am I?",
+"a": "Chair",
+"hint": "Starts with 'C'.",
+"cat": "objects"
+},
+{
+"id": 569,
+"q": "I am I float white in the sky. What am I?",
+"a": "Cloud",
+"hint": "Starts with 'C'.",
+"cat": "objects"
+},
+{
+"id": 570,
+"q": "I am a witch flies on me. What am I?",
+"a": "Broom",
+"hint": "Starts with 'B'.",
+"cat": "objects"
+},
+{
+"id": 571,
+"q": "I am a warrior in shining armor. What am I?",
+"a": "Knight",
+"hint": "Starts with 'K'.",
+"cat": "objects"
+},
+{
+"id": 572,
+"q": "I am a royal woman who rules. What am I?",
+"a": "Queen",
+"hint": "Starts with 'Q'.",
+"cat": "objects"
+},
+{
+"id": 573,
+"q": "I am a shiny gem from an oyster. What am I?",
+"a": "Pearl",
+"hint": "Starts with 'P'.",
+"cat": "objects"
+},
+{
+"id": 574,
+"q": "I am a flame to light the dark. What am I?",
+"a": "Torch",
+"hint": "Starts with 'T'.",
+"cat": "objects"
+},
+{
+"id": 575,
+"q": "I am I hold the ship in place. What am I?",
+"a": "Anchor",
+"hint": "Starts with 'A'.",
+"cat": "objects"
+},
+{
+"id": 576,
+"q": "I am light and soft from a bird. What am I?",
+"a": "Feather",
+"hint": "Starts with 'F'.",
+"cat": "objects"
+},
+{
+"id": 577,
+"q": "I am a wax stick with a flame. What am I?",
+"a": "Candle",
+"hint": "Starts with 'C'.",
+"cat": "objects"
+},
+{
+"id": 578,
+"q": "I am you climb my rungs to go up. What am I?",
+"a": "Ladder",
+"hint": "Starts with 'L'.",
+"cat": "objects"
+},
+{
+"id": 579,
+"q": "I am the capital city of Switzerland. What city am I?",
+"a": "Bern",
+"hint": "Main city of Switzerland.",
+"cat": "geography"
+},
+{
+"id": 580,
+"q": "I am the capital city of Belgium. What city am I?",
+"a": "Brussels",
+"hint": "Main city of Belgium.",
+"cat": "geography"
+},
+{
+"id": 581,
+"q": "I am the capital city of Scotland. What city am I?",
+"a": "Edinburgh",
+"hint": "Main city of Scotland.",
+"cat": "geography"
+},
+{
+"id": 582,
+"q": "I am the capital city of South Korea. What city am I?",
+"a": "Seoul",
+"hint": "Main city of South Korea.",
+"cat": "geography"
+},
+{
+"id": 583,
+"q": "I am the capital city of Indonesia. What city am I?",
+"a": "Jakarta",
+"hint": "Main city of Indonesia.",
+"cat": "geography"
+},
+{
+"id": 584,
+"q": "I am the capital city of Philippines. What city am I?",
+"a": "Manila",
+"hint": "Main city of Philippines.",
+"cat": "geography"
+},
+{
+"id": 585,
+"q": "I am the capital city of New Zealand. What city am I?",
+"a": "Wellington",
+"hint": "Main city of New Zealand.",
+"cat": "geography"
+},
+{
+"id": 586,
+"q": "I am the capital city of Nigeria. What city am I?",
+"a": "Abuja",
+"hint": "Main city of Nigeria.",
+"cat": "geography"
+},
+{
+"id": 587,
+"q": "I am the capital city of Colombia. What city am I?",
+"a": "Bogota",
+"hint": "Main city of Colombia.",
+"cat": "geography"
+},
+{
+"id": 588,
+"q": "I am the capital city of Ukraine. What city am I?",
+"a": "Kyiv",
+"hint": "Main city of Ukraine.",
+"cat": "geography"
+},
+{
+"id": 589,
+"q": "I am the capital city of Czechia. What city am I?",
+"a": "Prague",
+"hint": "Main city of Czechia.",
+"cat": "geography"
+},
+{
+"id": 590,
+"q": "I am the capital city of Croatia. What city am I?",
+"a": "Zagreb",
+"hint": "Main city of Croatia.",
+"cat": "geography"
+},
+{
+"id": 591,
+"q": "I am the capital city of Romania. What city am I?",
+"a": "Bucharest",
+"hint": "Main city of Romania.",
+"cat": "geography"
+},
+{
+"id": 592,
+"q": "I am the capital city of Cambodia. What city am I?",
+"a": "Phnom Penh",
+"hint": "Main city of Cambodia.",
+"cat": "geography"
+},
+{
+"id": 593,
+"q": "I am the capital city of Nepal. What city am I?",
+"a": "Kathmandu",
+"hint": "Main city of Nepal.",
+"cat": "geography"
+},
+{
+"id": 594,
+"q": "I am the capital city of Jordan. What city am I?",
+"a": "Amman",
+"hint": "Main city of Jordan.",
+"cat": "geography"
+},
+{
+"id": 595,
+"q": "I am the capital city of Lebanon. What city am I?",
+"a": "Beirut",
+"hint": "Main city of Lebanon.",
+"cat": "geography"
+},
+{
+"id": 596,
+"q": "I am the capital city of Malaysia. What city am I?",
+"a": "Kuala Lumpur",
+"hint": "Main city of Malaysia.",
+"cat": "geography"
+},
+{
+"id": 597,
+"q": "Riddle me this: A one-eyed giant of Greek myth who trapped Odysseus in a cave. Who or what am I?",
+"a": "A Cyclops",
+"hint": "One giant eye.",
+"cat": "myth"
+},
+{
+"id": 598,
+"q": "Riddle me this: A horse with a single spiraling horn on its forehead. Who or what am I?",
+"a": "A unicorn",
+"hint": "A magical creature.",
+"cat": "myth"
+},
+{
+"id": 599,
+"q": "Riddle me this: A fire-breathing beast with scales, wings, and a hoard of gold. Who or what am I?",
+"a": "A dragon",
+"hint": "Knights fight me.",
+"cat": "myth"
+},
+{
+"id": 600,
+"q": "Riddle me this: Half man, half horse, galloping through legends. Who or what am I?",
+"a": "A centaur",
+"hint": "An archer of myth.",
+"cat": "myth"
+},
+{
+"id": 601,
+"q": "Riddle me this: A bird that bursts into flame and is reborn from its ashes. Who or what am I?",
+"a": "A phoenix",
+"hint": "Reborn from fire.",
+"cat": "myth"
+},
+{
+"id": 602,
+"q": "Riddle me this: A woman with snakes for hair whose gaze turns you to stone. Who or what am I?",
+"a": "Medusa",
+"hint": "Do not look directly.",
+"cat": "myth"
+},
+{
+"id": 603,
+"q": "Riddle me this: A giant sea monster of the deep with many long tentacles. Who or what am I?",
+"a": "The Kraken",
+"hint": "It sinks ships.",
+"cat": "myth"
+},
+{
+"id": 604,
+"q": "Riddle me this: A creature that is part lion, part goat, and part serpent. Who or what am I?",
+"a": "A chimera",
+"hint": "A mix of three beasts.",
+"cat": "myth"
+},
+{
+"id": 605,
+"q": "Riddle me this: A hairy man-beast said to roam the northwest forests. Who or what am I?",
+"a": "Bigfoot",
+"hint": "Also called Sasquatch.",
+"cat": "myth"
+},
+{
+"id": 606,
+"q": "Riddle me this: A small mischievous creature that hides gold at the rainbow end. Who or what am I?",
+"a": "A leprechaun",
+"hint": "Irish luck.",
+"cat": "myth"
+},
+{
+"id": 607,
+"q": "Riddle me this: A person who transforms into a wolf under the full moon. Who or what am I?",
+"a": "A werewolf",
+"hint": "Beware the full moon.",
+"cat": "myth"
+},
+{
+"id": 608,
+"q": "Riddle me this: A three-headed dog that guards the gates of the underworld. Who or what am I?",
+"a": "Cerberus",
+"hint": "Three heads, one job.",
+"cat": "myth"
+},
+{
+"id": 609,
+"q": "Riddle me this: A tiny winged being that sprinkles magic dust. Who or what am I?",
+"a": "A fairy",
+"hint": "Think Tinker Bell.",
+"cat": "myth"
+},
+{
+"id": 610,
+"q": "Riddle me this: A beautiful sea maiden, half woman and half fish. Who or what am I?",
+"a": "A mermaid",
+"hint": "She sings by the shore.",
+"cat": "myth"
+},
+{
+"id": 611,
+"q": "Riddle me this: A genie of legend who grants three wishes from a lamp. Who or what am I?",
+"a": "A genie",
+"hint": "Rub the lamp.",
+"cat": "myth"
+},
+{
+"id": 612,
+"q": "I fall in soft white flakes and blanket the ground in winter. What am I?",
+"a": "Snow",
+"hint": "Cold and white.",
+"cat": "nature"
+},
+{
+"id": 613,
+"q": "I am the loud sound after a lightning flash. What am I?",
+"a": "Thunder",
+"hint": "It rumbles.",
+"cat": "nature"
+},
+{
+"id": 614,
+"q": "I am thick and grey and make it hard to see in the morning. What am I?",
+"a": "Fog",
+"hint": "A low cloud.",
+"cat": "nature"
+},
+{
+"id": 615,
+"q": "I am frozen rain that bounces when it hits the ground. What am I?",
+"a": "Hail",
+"hint": "Ice from the sky.",
+"cat": "nature"
+},
+{
+"id": 616,
+"q": "I am a violent storm that spins over the ocean with strong winds. What am I?",
+"a": "A hurricane",
+"hint": "Also a typhoon.",
+"cat": "nature"
+},
+{
+"id": 617,
+"q": "I am the gentle movement of air you feel on your face. What am I?",
+"a": "A breeze",
+"hint": "A soft wind.",
+"cat": "nature"
+},
+{
+"id": 618,
+"q": "I sparkle on the grass in the cool of early morning. What am I?",
+"a": "Dew",
+"hint": "Morning droplets.",
+"cat": "nature"
+},
+{
+"id": 619,
+"q": "I am ice that forms feathery patterns on cold windows. What am I?",
+"a": "Frost",
+"hint": "Winter artwork.",
+"cat": "nature"
+},
+{
+"id": 620,
+"q": "I am a spinning column of wind that touches down on land. What am I?",
+"a": "A tornado",
+"hint": "A twister.",
+"cat": "nature"
+},
+{
+"id": 621,
+"q": "I am tiny ice pellets falling, between rain and snow. What am I?",
+"a": "Sleet",
+"hint": "Half-frozen rain.",
+"cat": "nature"
+},
+{
+"id": 622,
+"q": "I have two wheels and a motor; wear a helmet to ride me fast. What am I?",
+"a": "A motorcycle",
+"hint": "Vroom.",
+"cat": "vehicles"
+},
+{
+"id": 623,
+"q": "I fly with wings and jet engines carrying many people. What am I?",
+"a": "An airplane",
+"hint": "Takes off from a runway.",
+"cat": "vehicles"
+},
+{
+"id": 624,
+"q": "I sail across the ocean carrying cargo or passengers. What am I?",
+"a": "A ship",
+"hint": "It floats on water.",
+"cat": "vehicles"
+},
+{
+"id": 625,
+"q": "I run on rails and pull many cars, going choo-choo. What am I?",
+"a": "A train",
+"hint": "Engine and cars.",
+"cat": "vehicles"
+},
+{
+"id": 626,
+"q": "I dive beneath the waves and travel underwater. What am I?",
+"a": "A submarine",
+"hint": "Under the sea.",
+"cat": "vehicles"
+},
+{
+"id": 627,
+"q": "I have a spinning rotor on top and can hover in the air. What am I?",
+"a": "A helicopter",
+"hint": "Lifts straight up.",
+"cat": "vehicles"
+},
+{
+"id": 628,
+"q": "I carry astronauts far beyond the sky into space. What am I?",
+"a": "A rocket",
+"hint": "Blast off!",
+"cat": "vehicles"
+},
+{
+"id": 629,
+"q": "I am a long vehicle that carries passengers around the city. What am I?",
+"a": "A bus",
+"hint": "You pay a fare.",
+"cat": "vehicles"
+},
+{
+"id": 630,
+"q": "I float in the sky held up by hot air. What am I?",
+"a": "A hot air balloon",
+"hint": "Rises with heat.",
+"cat": "vehicles"
+},
+{
+"id": 631,
+"q": "I put out fires and race with sirens and a ladder. What am I?",
+"a": "A fire truck",
+"hint": "Bright red.",
+"cat": "vehicles"
+},
+{
+"id": 632,
+"q": "I carry the sick quickly to the hospital with flashing lights. What am I?",
+"a": "An ambulance",
+"hint": "Emergency vehicle.",
+"cat": "vehicles"
+},
+{
+"id": 633,
+"q": "I have big tires and a bucket to dig and move dirt. What am I?",
+"a": "An excavator",
+"hint": "A construction machine.",
+"cat": "vehicles"
+},
+{
+"id": 634,
+"q": "I am the closest planet to the Sun and the smallest. What am I?",
+"a": "Mercury",
+"hint": "A fast messenger.",
+"cat": "space"
+},
+{
+"id": 635,
+"q": "I am the hottest planet, named for a goddess of love. What am I?",
+"a": "Venus",
+"hint": "Earth twin in size.",
+"cat": "space"
+},
+{
+"id": 636,
+"q": "I am the blue planet where you live. What am I?",
+"a": "Earth",
+"hint": "Home sweet home.",
+"cat": "space"
+},
+{
+"id": 637,
+"q": "I am the red planet, named after the god of war. What am I?",
+"a": "Mars",
+"hint": "Two tiny moons.",
+"cat": "space"
+},
+{
+"id": 638,
+"q": "I am the largest planet, a gas giant with a great red spot. What am I?",
+"a": "Jupiter",
+"hint": "The biggest of all.",
+"cat": "space"
+},
+{
+"id": 639,
+"q": "I am famous for my rings of ice and rock. What am I?",
+"a": "Saturn",
+"hint": "Look for my rings.",
+"cat": "space"
+},
+{
+"id": 640,
+"q": "I am a tilted ice giant that spins on my side. What am I?",
+"a": "Uranus",
+"hint": "The sideways planet.",
+"cat": "space"
+},
+{
+"id": 641,
+"q": "I am the farthest planet, deep blue and very windy. What am I?",
+"a": "Neptune",
+"hint": "Named for the sea god.",
+"cat": "space"
+},
+{
+"id": 642,
+"q": "I am the star at the center of our solar system. What am I?",
+"a": "The Sun",
+"hint": "Gives light and heat.",
+"cat": "space"
+},
+{
+"id": 643,
+"q": "I orbit the Earth and glow at night, going through phases. What am I?",
+"a": "The Moon",
+"hint": "It waxes and wanes.",
+"cat": "space"
+},
+{
+"id": 644,
+"q": "I am a rocky world beyond Neptune, once the ninth planet. What am I?",
+"a": "Pluto",
+"hint": "Now a dwarf planet.",
+"cat": "space"
+},
+{
+"id": 645,
+"q": "I streak across the sky as a shooting star. What am I?",
+"a": "A meteor",
+"hint": "Make a wish.",
+"cat": "space"
+},
+{
+"id": 646,
+"q": "You wear me on your feet and lace me up before a walk. What am I?",
+"a": "Shoes",
+"hint": "A pair.",
+"cat": "objects"
+},
+{
+"id": 647,
+"q": "You pull me over your head; I keep your top half warm. What am I?",
+"a": "A sweater",
+"hint": "Cozy in winter.",
+"cat": "objects"
+},
+{
+"id": 648,
+"q": "I wrap around your neck to keep out the cold wind. What am I?",
+"a": "A scarf",
+"hint": "Long and warm.",
+"cat": "objects"
+},
+{
+"id": 649,
+"q": "You slip me on your hands with a place for each finger. What am I?",
+"a": "Gloves",
+"hint": "Warm hands.",
+"cat": "objects"
+},
+{
+"id": 650,
+"q": "I cover your legs, one tube for each, and have pockets. What am I?",
+"a": "Pants",
+"hint": "Wear a belt with me.",
+"cat": "objects"
+},
+{
+"id": 651,
+"q": "You wear me over everything when it is cold outside. What am I?",
+"a": "A coat",
+"hint": "The outer layer.",
+"cat": "objects"
+},
+{
+"id": 652,
+"q": "I hold up your pants and buckle around your waist. What am I?",
+"a": "A belt",
+"hint": "It has a buckle.",
+"cat": "objects"
+},
+{
+"id": 653,
+"q": "You wear me over your eyes to block the bright sun. What am I?",
+"a": "Sunglasses",
+"hint": "Cool and shady.",
+"cat": "objects"
+},
+{
+"id": 654,
+"q": "You tie me at your throat with a fancy shirt. What am I?",
+"a": "A necktie",
+"hint": "Worn to formal events.",
+"cat": "objects"
+},
+{
+"id": 655,
+"q": "I keep your feet warm inside your shoes. What am I?",
+"a": "Socks",
+"hint": "Come in pairs.",
+"cat": "objects"
+},
+{
+"id": 656,
+"q": "I am full of words and meanings, arranged from A to Z. What am I?",
+"a": "A dictionary",
+"hint": "Look up a word.",
+"cat": "objects"
+},
+{
+"id": 657,
+"q": "You write on me with chalk and wipe me clean. What am I?",
+"a": "A blackboard",
+"hint": "In the classroom.",
+"cat": "objects"
+},
+{
+"id": 658,
+"q": "I am where you borrow books for free and stay quiet. What am I?",
+"a": "A library",
+"hint": "Full of shelves.",
+"cat": "places"
+},
+{
+"id": 659,
+"q": "You erase your pencil mistakes with me. What am I?",
+"a": "An eraser",
+"hint": "Rubs out pencil.",
+"cat": "objects"
+},
+{
+"id": 660,
+"q": "I hold your papers together with a metal pinch. What am I?",
+"a": "A stapler",
+"hint": "Click!",
+"cat": "objects"
+},
+{
+"id": 661,
+"q": "You measure straight lines and length with me. What am I?",
+"a": "A ruler",
+"hint": "Marked in inches.",
+"cat": "objects"
+},
+{
+"id": 662,
+"q": "I am a bag you wear to carry books to school. What am I?",
+"a": "A backpack",
+"hint": "Worn on the back.",
+"cat": "objects"
+},
+{
+"id": 663,
+"q": "You sharpen your pencil by twisting it inside me. What am I?",
+"a": "A pencil sharpener",
+"hint": "Makes a point.",
+"cat": "objects"
+},
+{
+"id": 664,
+"q": "I am a round model of the Earth you can spin. What am I?",
+"a": "A globe",
+"hint": "Find countries on me.",
+"cat": "objects"
+},
+{
+"id": 665,
+"q": "You use me to add and subtract numbers quickly. What am I?",
+"a": "A calculator",
+"hint": "Press the buttons.",
+"cat": "objects"
+},
+{
+"id": 666,
+"q": "I am the opposite of 'hot'. What word am I?",
+"a": "Cold",
+"hint": "The reverse of 'hot'.",
+"cat": "words"
+},
+{
+"id": 667,
+"q": "I am the opposite of 'up'. What word am I?",
+"a": "Down",
+"hint": "The reverse of 'up'.",
+"cat": "words"
+},
+{
+"id": 668,
+"q": "I am the opposite of 'big'. What word am I?",
+"a": "Small",
+"hint": "The reverse of 'big'.",
+"cat": "words"
+},
+{
+"id": 669,
+"q": "I am the opposite of 'fast'. What word am I?",
+"a": "Slow",
+"hint": "The reverse of 'fast'.",
+"cat": "words"
+},
+{
+"id": 670,
+"q": "I am the opposite of 'day'. What word am I?",
+"a": "Night",
+"hint": "The reverse of 'day'.",
+"cat": "words"
+},
+{
+"id": 671,
+"q": "I am the opposite of 'happy'. What word am I?",
+"a": "Sad",
+"hint": "The reverse of 'happy'.",
+"cat": "words"
+},
+{
+"id": 672,
+"q": "I am the opposite of 'open'. What word am I?",
+"a": "Closed",
+"hint": "The reverse of 'open'.",
+"cat": "words"
+},
+{
+"id": 673,
+"q": "I am the opposite of 'light'. What word am I?",
+"a": "Dark",
+"hint": "The reverse of 'light'.",
+"cat": "words"
+},
+{
+"id": 674,
+"q": "I am the opposite of 'wet'. What word am I?",
+"a": "Dry",
+"hint": "The reverse of 'wet'.",
+"cat": "words"
+},
+{
+"id": 675,
+"q": "I am the opposite of 'full'. What word am I?",
+"a": "Empty",
+"hint": "The reverse of 'full'.",
+"cat": "words"
+},
+{
+"id": 676,
+"q": "I am the opposite of 'hard'. What word am I?",
+"a": "Soft",
+"hint": "The reverse of 'hard'.",
+"cat": "words"
+},
+{
+"id": 677,
+"q": "I am the opposite of 'loud'. What word am I?",
+"a": "Quiet",
+"hint": "The reverse of 'loud'.",
+"cat": "words"
+},
+{
+"id": 678,
+"q": "I am the opposite of 'high'. What word am I?",
+"a": "Low",
+"hint": "The reverse of 'high'.",
+"cat": "words"
+},
+{
+"id": 679,
+"q": "I am the opposite of 'young'. What word am I?",
+"a": "Old",
+"hint": "The reverse of 'young'.",
+"cat": "words"
+},
+{
+"id": 680,
+"q": "I am the opposite of 'rich'. What word am I?",
+"a": "Poor",
+"hint": "The reverse of 'rich'.",
+"cat": "words"
+},
+{
+"id": 681,
+"q": "I am the opposite of 'near'. What word am I?",
+"a": "Far",
+"hint": "The reverse of 'near'.",
+"cat": "words"
+},
+{
+"id": 682,
+"q": "I am the opposite of 'clean'. What word am I?",
+"a": "Dirty",
+"hint": "The reverse of 'clean'.",
+"cat": "words"
+},
+{
+"id": 683,
+"q": "I am the opposite of 'first'. What word am I?",
+"a": "Last",
+"hint": "The reverse of 'first'.",
+"cat": "words"
+},
+{
+"id": 684,
+"q": "I am the opposite of 'push'. What word am I?",
+"a": "Pull",
+"hint": "The reverse of 'push'.",
+"cat": "words"
+},
+{
+"id": 685,
+"q": "I am the opposite of 'win'. What word am I?",
+"a": "Lose",
+"hint": "The reverse of 'win'.",
+"cat": "words"
+},
+{
+"id": 686,
+"q": "I am the opposite of 'above'. What word am I?",
+"a": "Below",
+"hint": "The reverse of 'above'.",
+"cat": "words"
+},
+{
+"id": 687,
+"q": "I am the opposite of 'begin'. What word am I?",
+"a": "End",
+"hint": "The reverse of 'begin'.",
+"cat": "words"
+},
+{
+"id": 688,
+"q": "I am the opposite of 'brave'. What word am I?",
+"a": "Afraid",
+"hint": "The reverse of 'brave'.",
+"cat": "words"
+},
+{
+"id": 689,
+"q": "I am the opposite of 'buy'. What word am I?",
+"a": "Sell",
+"hint": "The reverse of 'buy'.",
+"cat": "words"
+},
+{
+"id": 690,
+"q": "I am the opposite of 'give'. What word am I?",
+"a": "Take",
+"hint": "The reverse of 'give'.",
+"cat": "words"
+},
+{
+"id": 691,
+"q": "I am the opposite of 'left'. What word am I?",
+"a": "Right",
+"hint": "The reverse of 'left'.",
+"cat": "words"
+},
+{
+"id": 692,
+"q": "I am the opposite of 'true'. What word am I?",
+"a": "False",
+"hint": "The reverse of 'true'.",
+"cat": "words"
+},
+{
+"id": 693,
+"q": "I am the opposite of 'thick'. What word am I?",
+"a": "Thin",
+"hint": "The reverse of 'thick'.",
+"cat": "words"
+},
+{
+"id": 694,
+"q": "I am the opposite of 'smooth'. What word am I?",
+"a": "Rough",
+"hint": "The reverse of 'smooth'.",
+"cat": "words"
+},
+{
+"id": 695,
+"q": "I am the opposite of 'early'. What word am I?",
+"a": "Late",
+"hint": "The reverse of 'early'.",
+"cat": "words"
+},
+{
+"id": 696,
+"q": "I am a compound word. Join 'rain' and 'bow' to name a colorful arc after a storm. What word am I?",
+"a": "Rainbow",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 697,
+"q": "I am a compound word. Join 'sun' and 'flower' to name a tall yellow bloom that follows the sun. What word am I?",
+"a": "Sunflower",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 698,
+"q": "I am a compound word. Join 'butter' and 'fly' to name a colorful winged insect. What word am I?",
+"a": "Butterfly",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 699,
+"q": "I am a compound word. Join 'basket' and 'ball' to name a sport with a hoop. What word am I?",
+"a": "Basketball",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 700,
+"q": "I am a compound word. Join 'foot' and 'ball' to name a sport you kick or throw. What word am I?",
+"a": "Football",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 701,
+"q": "I am a compound word. Join 'snow' and 'man' to name a figure built from snowballs. What word am I?",
+"a": "Snowman",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 702,
+"q": "I am a compound word. Join 'fire' and 'place' to name where logs burn in a home. What word am I?",
+"a": "Fireplace",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 703,
+"q": "I am a compound word. Join 'tooth' and 'brush' to name you clean your teeth with it. What word am I?",
+"a": "Toothbrush",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 704,
+"q": "I am a compound word. Join 'hair' and 'brush' to name you tidy your hair with it. What word am I?",
+"a": "Hairbrush",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 705,
+"q": "I am a compound word. Join 'book' and 'shelf' to name where you store your books. What word am I?",
+"a": "Bookshelf",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 706,
+"q": "I am a compound word. Join 'water' and 'fall' to name water tumbling off a cliff. What word am I?",
+"a": "Waterfall",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 707,
+"q": "I am a compound word. Join 'moon' and 'light' to name the glow of night's satellite. What word am I?",
+"a": "Moonlight",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 708,
+"q": "I am a compound word. Join 'star' and 'fish' to name a five-armed sea creature. What word am I?",
+"a": "Starfish",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 709,
+"q": "I am a compound word. Join 'sea' and 'shell' to name found on the beach, once a home. What word am I?",
+"a": "Seashell",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 710,
+"q": "I am a compound word. Join 'play' and 'ground' to name where children swing and slide. What word am I?",
+"a": "Playground",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 711,
+"q": "I am a compound word. Join 'bed' and 'room' to name where you sleep. What word am I?",
+"a": "Bedroom",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 712,
+"q": "I am a compound word. Join 'news' and 'paper' to name daily printed news. What word am I?",
+"a": "Newspaper",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 713,
+"q": "I am a compound word. Join 'pan' and 'cake' to name a flat breakfast round. What word am I?",
+"a": "Pancake",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 714,
+"q": "I am a compound word. Join 'straw' and 'berry' to name a red seedy summer fruit. What word am I?",
+"a": "Strawberry",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 715,
+"q": "I am a compound word. Join 'black' and 'board' to name a dark writing surface. What word am I?",
+"a": "Blackboard",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 716,
+"q": "I am a compound word. Join 'gold' and 'fish' to name a small orange pet swimmer. What word am I?",
+"a": "Goldfish",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 717,
+"q": "I am a compound word. Join 'rail' and 'road' to name where trains travel. What word am I?",
+"a": "Railroad",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 718,
+"q": "I am a compound word. Join 'light' and 'house' to name a tower guiding ships. What word am I?",
+"a": "Lighthouse",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 719,
+"q": "I am a compound word. Join 'wheel' and 'chair' to name a seat with wheels. What word am I?",
+"a": "Wheelchair",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 720,
+"q": "I am a compound word. Join 'earth' and 'quake' to name the shaking of the ground. What word am I?",
+"a": "Earthquake",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 721,
+"q": "I am a compound word. Join 'water' and 'melon' to name a big green-and-red juicy fruit. What word am I?",
+"a": "Watermelon",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 722,
+"q": "I am a compound word. Join 'pop' and 'corn' to name a fluffy movie snack. What word am I?",
+"a": "Popcorn",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 723,
+"q": "I am a compound word. Join 'cup' and 'cake' to name a small frosted treat. What word am I?",
+"a": "Cupcake",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 724,
+"q": "I am a compound word. Join 'hedge' and 'hog' to name a small spiny animal. What word am I?",
+"a": "Hedgehog",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 725,
+"q": "I am a compound word. Join 'dragon' and 'fly' to name a shimmering pond insect. What word am I?",
+"a": "Dragonfly",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 726,
+"q": "I am a compound word. Join 'grass' and 'hopper' to name a green jumping insect. What word am I?",
+"a": "Grasshopper",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 727,
+"q": "I am a compound word. Join 'lady' and 'bug' to name a red spotted beetle. What word am I?",
+"a": "Ladybug",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 728,
+"q": "I am a compound word. Join 'hum' and 'mingbird' to name a tiny bird that hovers. What word am I?",
+"a": "Hummingbird",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 729,
+"q": "I am a compound word. Join 'jelly' and 'fish' to name a soft floating stinger. What word am I?",
+"a": "Jellyfish",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 730,
+"q": "I am a compound word. Join 'skate' and 'board' to name a board with four wheels for tricks. What word am I?",
+"a": "Skateboard",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 731,
+"q": "I am a compound word. Join 'sand' and 'castle' to name a beach tower of sand. What word am I?",
+"a": "Sandcastle",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 732,
+"q": "I am a compound word. Join 'snow' and 'ball' to name a packed sphere of snow. What word am I?",
+"a": "Snowball",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 733,
+"q": "I am a compound word. Join 'thunder' and 'storm' to name a storm with lightning and booms. What word am I?",
+"a": "Thunderstorm",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 734,
+"q": "I am a compound word. Join 'under' and 'ground' to name below the surface of the earth. What word am I?",
+"a": "Underground",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 735,
+"q": "I am a compound word. Join 'bird' and 'house' to name a tiny home for birds. What word am I?",
+"a": "Birdhouse",
+"hint": "Put the two words together.",
+"cat": "words"
+},
+{
+"id": 736,
+"q": "What do you call a baby dog?",
+"a": "A puppy",
+"hint": "A young dog.",
+"cat": "animals"
+},
+{
+"id": 737,
+"q": "What do you call a baby cat?",
+"a": "A kitten",
+"hint": "A young cat.",
+"cat": "animals"
+},
+{
+"id": 738,
+"q": "What do you call a baby cow?",
+"a": "A calf",
+"hint": "A young cow.",
+"cat": "animals"
+},
+{
+"id": 739,
+"q": "What do you call a baby horse?",
+"a": "A foal",
+"hint": "A young horse.",
+"cat": "animals"
+},
+{
+"id": 740,
+"q": "What do you call a baby sheep?",
+"a": "A lamb",
+"hint": "A young sheep.",
+"cat": "animals"
+},
+{
+"id": 741,
+"q": "What do you call a baby goat?",
+"a": "A kid",
+"hint": "A young goat.",
+"cat": "animals"
+},
+{
+"id": 742,
+"q": "What do you call a baby pig?",
+"a": "A piglet",
+"hint": "A young pig.",
+"cat": "animals"
+},
+{
+"id": 743,
+"q": "What do you call a baby chicken?",
+"a": "A chick",
+"hint": "A young chicken.",
+"cat": "animals"
+},
+{
+"id": 744,
+"q": "What do you call a baby duck?",
+"a": "A duckling",
+"hint": "A young duck.",
+"cat": "animals"
+},
+{
+"id": 745,
+"q": "What do you call a baby frog?",
+"a": "A tadpole",
+"hint": "A young frog.",
+"cat": "animals"
+},
+{
+"id": 746,
+"q": "What do you call a baby kangaroo?",
+"a": "A joey",
+"hint": "A young kangaroo.",
+"cat": "animals"
+},
+{
+"id": 747,
+"q": "What do you call a baby bear?",
+"a": "A cub",
+"hint": "A young bear.",
+"cat": "animals"
+},
+{
+"id": 748,
+"q": "What do you call a baby lion?",
+"a": "A cub",
+"hint": "A young lion.",
+"cat": "animals"
+},
+{
+"id": 749,
+"q": "What do you call a baby deer?",
+"a": "A fawn",
+"hint": "A young deer.",
+"cat": "animals"
+},
+{
+"id": 750,
+"q": "What do you call a baby goose?",
+"a": "A gosling",
+"hint": "A young goose.",
+"cat": "animals"
+},
+{
+"id": 751,
+"q": "What do you call a baby swan?",
+"a": "A cygnet",
+"hint": "A young swan.",
+"cat": "animals"
+},
+{
+"id": 752,
+"q": "What do you call a baby owl?",
+"a": "A owlet",
+"hint": "A young owl.",
+"cat": "animals"
+},
+{
+"id": 753,
+"q": "What do you call a baby fox?",
+"a": "A kit",
+"hint": "A young fox.",
+"cat": "animals"
+},
+{
+"id": 754,
+"q": "What do you call a baby rabbit?",
+"a": "A kit",
+"hint": "A young rabbit.",
+"cat": "animals"
+},
+{
+"id": 755,
+"q": "What do you call a baby seal?",
+"a": "A pup",
+"hint": "A young seal.",
+"cat": "animals"
+},
+{
+"id": 756,
+"q": "What do you call a baby whale?",
+"a": "A calf",
+"hint": "A young whale.",
+"cat": "animals"
+},
+{
+"id": 757,
+"q": "What do you call a baby elephant?",
+"a": "A calf",
+"hint": "A young elephant.",
+"cat": "animals"
+},
+{
+"id": 758,
+"q": "What do you call a baby eagle?",
+"a": "A eaglet",
+"hint": "A young eagle.",
+"cat": "animals"
+},
+{
+"id": 759,
+"q": "What do you call a baby spider?",
+"a": "A spiderling",
+"hint": "A young spider.",
+"cat": "animals"
+},
+{
+"id": 760,
+"q": "What do you call a baby butterfly?",
+"a": "A caterpillar",
+"hint": "A young butterfly.",
+"cat": "animals"
+},
+{
+"id": 761,
+"q": "Where does a bee live? Name its home.",
+"a": "A hive",
+"hint": "A bee home.",
+"cat": "animals"
+},
+{
+"id": 762,
+"q": "Where does a bird live? Name its home.",
+"a": "A nest",
+"hint": "A bird home.",
+"cat": "animals"
+},
+{
+"id": 763,
+"q": "Where does a bear live? Name its home.",
+"a": "A den",
+"hint": "A bear home.",
+"cat": "animals"
+},
+{
+"id": 764,
+"q": "Where does a rabbit live? Name its home.",
+"a": "A burrow",
+"hint": "A rabbit home.",
+"cat": "animals"
+},
+{
+"id": 765,
+"q": "Where does a spider live? Name its home.",
+"a": "A web",
+"hint": "A spider home.",
+"cat": "animals"
+},
+{
+"id": 766,
+"q": "Where does a fox live? Name its home.",
+"a": "A den",
+"hint": "A fox home.",
+"cat": "animals"
+},
+{
+"id": 767,
+"q": "Where does a horse live? Name its home.",
+"a": "A stable",
+"hint": "A horse home.",
+"cat": "animals"
+},
+{
+"id": 768,
+"q": "Where does a pig live? Name its home.",
+"a": "A sty",
+"hint": "A pig home.",
+"cat": "animals"
+},
+{
+"id": 769,
+"q": "Where does a dog live? Name its home.",
+"a": "A kennel",
+"hint": "A dog home.",
+"cat": "animals"
+},
+{
+"id": 770,
+"q": "Where does a cow live? Name its home.",
+"a": "A barn",
+"hint": "A cow home.",
+"cat": "animals"
+},
+{
+"id": 771,
+"q": "Where does a bat live? Name its home.",
+"a": "A cave",
+"hint": "A bat home.",
+"cat": "animals"
+},
+{
+"id": 772,
+"q": "Where does a fish live? Name its home.",
+"a": "A aquarium",
+"hint": "A fish home.",
+"cat": "animals"
+},
+{
+"id": 773,
+"q": "Where does a ant live? Name its home.",
+"a": "A colony",
+"hint": "A ant home.",
+"cat": "animals"
+},
+{
+"id": 774,
+"q": "Where does a eagle live? Name its home.",
+"a": "A eyrie",
+"hint": "A eagle home.",
+"cat": "animals"
+},
+{
+"id": 775,
+"q": "Where does a beaver live? Name its home.",
+"a": "A lodge",
+"hint": "A beaver home.",
+"cat": "animals"
+},
+{
+"id": 776,
+"q": "Unscramble these letters to find a common word: 'PLEAP'. What is the word?",
+"a": "Apple",
+"hint": "It has 5 letters and starts with 'A'.",
+"cat": "words"
+},
+{
+"id": 777,
+"q": "Unscramble these letters to find a common word: 'ETRIG'. What is the word?",
+"a": "Tiger",
+"hint": "It has 5 letters and starts with 'T'.",
+"cat": "words"
+},
+{
+"id": 778,
+"q": "Unscramble these letters to find a common word: 'OSUEH'. What is the word?",
+"a": "House",
+"hint": "It has 5 letters and starts with 'H'.",
+"cat": "words"
+},
+{
+"id": 779,
+"q": "Unscramble these letters to find a common word: 'EIVRR'. What is the word?",
+"a": "River",
+"hint": "It has 5 letters and starts with 'R'.",
+"cat": "words"
+},
+{
+"id": 780,
+"q": "Unscramble these letters to find a common word: 'CODUL'. What is the word?",
+"a": "Cloud",
+"hint": "It has 5 letters and starts with 'C'.",
+"cat": "words"
+},
+{
+"id": 781,
+"q": "Unscramble these letters to find a common word: 'SCIMU'. What is the word?",
+"a": "Music",
+"hint": "It has 5 letters and starts with 'M'.",
+"cat": "words"
+},
+{
+"id": 782,
+"q": "Unscramble these letters to find a common word: 'HTGLI'. What is the word?",
+"a": "Light",
+"hint": "It has 5 letters and starts with 'L'.",
+"cat": "words"
+},
+{
+"id": 783,
+"q": "Unscramble these letters to find a common word: 'AHCIR'. What is the word?",
+"a": "Chair",
+"hint": "It has 5 letters and starts with 'C'.",
+"cat": "words"
+},
+{
+"id": 784,
+"q": "Unscramble these letters to find a common word: 'ANTPL'. What is the word?",
+"a": "Plant",
+"hint": "It has 5 letters and starts with 'P'.",
+"cat": "words"
+},
+{
+"id": 785,
+"q": "Unscramble these letters to find a common word: 'OETSN'. What is the word?",
+"a": "Stone",
+"hint": "It has 5 letters and starts with 'S'.",
+"cat": "words"
+},
+{
+"id": 786,
+"q": "Unscramble these letters to find a common word: 'BARED'. What is the word?",
+"a": "Bread",
+"hint": "It has 5 letters and starts with 'B'.",
+"cat": "words"
+},
+{
+"id": 787,
+"q": "Unscramble these letters to find a common word: 'NDEAC'. What is the word?",
+"a": "Dance",
+"hint": "It has 5 letters and starts with 'D'.",
+"cat": "words"
+},
+{
+"id": 788,
+"q": "Unscramble these letters to find a common word: 'LMSEI'. What is the word?",
+"a": "Smile",
+"hint": "It has 5 letters and starts with 'S'.",
+"cat": "words"
+},
+{
+"id": 789,
+"q": "Unscramble these letters to find a common word: 'AERMD'. What is the word?",
+"a": "Dream",
+"hint": "It has 5 letters and starts with 'D'.",
+"cat": "words"
+},
+{
+"id": 790,
+"q": "Unscramble these letters to find a common word: 'OACNE'. What is the word?",
+"a": "Ocean",
+"hint": "It has 5 letters and starts with 'O'.",
+"cat": "words"
+},
+{
+"id": 791,
+"q": "Unscramble these letters to find a common word: 'PAONI'. What is the word?",
+"a": "Piano",
+"hint": "It has 5 letters and starts with 'P'.",
+"cat": "words"
+},
+{
+"id": 792,
+"q": "Unscramble these letters to find a common word: 'RGEAP'. What is the word?",
+"a": "Grape",
+"hint": "It has 5 letters and starts with 'G'.",
+"cat": "words"
+},
+{
+"id": 793,
+"q": "Unscramble these letters to find a common word: 'BORTO'. What is the word?",
+"a": "Robot",
+"hint": "It has 5 letters and starts with 'R'.",
+"cat": "words"
+},
+{
+"id": 794,
+"q": "Unscramble these letters to find a common word: 'ACYND'. What is the word?",
+"a": "Candy",
+"hint": "It has 5 letters and starts with 'C'.",
+"cat": "words"
+},
+{
+"id": 795,
+"q": "Unscramble these letters to find a common word: 'RSUHB'. What is the word?",
+"a": "Brush",
+"hint": "It has 5 letters and starts with 'B'.",
+"cat": "words"
+},
+{
+"id": 796,
+"q": "Unscramble these letters to find a common word: 'ELAGE'. What is the word?",
+"a": "Eagle",
+"hint": "It has 5 letters and starts with 'E'.",
+"cat": "words"
+},
+{
+"id": 797,
+"q": "Unscramble these letters to find a common word: 'OLNEM'. What is the word?",
+"a": "Lemon",
+"hint": "It has 5 letters and starts with 'L'.",
+"cat": "words"
+},
+{
+"id": 798,
+"q": "Unscramble these letters to find a common word: 'BRZAE'. What is the word?",
+"a": "Zebra",
+"hint": "It has 5 letters and starts with 'Z'.",
+"cat": "words"
+},
+{
+"id": 799,
+"q": "Unscramble these letters to find a common word: 'NOPOS'. What is the word?",
+"a": "Spoon",
+"hint": "It has 5 letters and starts with 'S'.",
+"cat": "words"
+},
+{
+"id": 800,
+"q": "Unscramble these letters to find a common word: 'CKOCL'. What is the word?",
+"a": "Clock",
+"hint": "It has 5 letters and starts with 'C'.",
+"cat": "words"
+},
+{
+"id": 801,
+"q": "Unscramble these letters to find a common word: 'RESHO'. What is the word?",
+"a": "Horse",
+"hint": "It has 5 letters and starts with 'H'.",
+"cat": "words"
+},
+{
+"id": 802,
+"q": "Unscramble these letters to find a common word: 'OTGSH'. What is the word?",
+"a": "Ghost",
+"hint": "It has 5 letters and starts with 'G'.",
+"cat": "words"
+},
+{
+"id": 803,
+"q": "Unscramble these letters to find a common word: 'ALFEM'. What is the word?",
+"a": "Flame",
+"hint": "It has 5 letters and starts with 'F'.",
+"cat": "words"
+},
+{
+"id": 804,
+"q": "Unscramble these letters to find a common word: 'ARPLE'. What is the word?",
+"a": "Pearl",
+"hint": "It has 5 letters and starts with 'P'.",
+"cat": "words"
+},
+{
+"id": 805,
+"q": "Unscramble these letters to find a common word: 'SMTOR'. What is the word?",
+"a": "Storm",
+"hint": "It has 5 letters and starts with 'S'.",
+"cat": "words"
+},
+{
+"id": 806,
+"q": "Unscramble these letters to find a common word: 'KRBCI'. What is the word?",
+"a": "Brick",
+"hint": "It has 5 letters and starts with 'B'.",
+"cat": "words"
+},
+{
+"id": 807,
+"q": "Unscramble these letters to find a common word: 'ECSHS'. What is the word?",
+"a": "Chess",
+"hint": "It has 5 letters and starts with 'C'.",
+"cat": "words"
+},
+{
+"id": 808,
+"q": "Unscramble these letters to find a common word: 'IVEOL'. What is the word?",
+"a": "Olive",
+"hint": "It has 5 letters and starts with 'O'.",
+"cat": "words"
+},
+{
+"id": 809,
+"q": "Unscramble these letters to find a common word: 'TORTE'. What is the word?",
+"a": "Otter",
+"hint": "It has 5 letters and starts with 'O'.",
+"cat": "words"
+},
+{
+"id": 810,
+"q": "Unscramble these letters to find a common word: 'NADPA'. What is the word?",
+"a": "Panda",
+"hint": "It has 5 letters and starts with 'P'.",
+"cat": "words"
+},
+{
+"id": 811,
+"q": "Unscramble these letters to find a common word: 'EUNQE'. What is the word?",
+"a": "Queen",
+"hint": "It has 5 letters and starts with 'Q'.",
+"cat": "words"
+},
+{
+"id": 812,
+"q": "Unscramble these letters to find a common word: 'TSTAO'. What is the word?",
+"a": "Toast",
+"hint": "It has 5 letters and starts with 'T'.",
+"cat": "words"
+},
+{
+"id": 813,
+"q": "Unscramble these letters to find a common word: 'DIIVV'. What is the word?",
+"a": "Vivid",
+"hint": "It has 5 letters and starts with 'V'.",
+"cat": "words"
+},
+{
+"id": 814,
+"q": "Unscramble these letters to find a common word: 'OAWGN'. What is the word?",
+"a": "Wagon",
+"hint": "It has 5 letters and starts with 'W'.",
+"cat": "words"
+},
+{
+"id": 815,
+"q": "Unscramble these letters to find a common word: 'TCYAH'. What is the word?",
+"a": "Yacht",
+"hint": "It has 5 letters and starts with 'Y'.",
+"cat": "words"
+},
+{
+"id": 816,
+"q": "I am the largest ocean on Earth. What am I?",
+"a": "The Pacific Ocean",
+"hint": "It's on the west of the Americas.",
+"cat": "geography"
+},
+{
+"id": 817,
+"q": "I am the longest river in the world (by many counts). What am I?",
+"a": "The Nile",
+"hint": "It flows through Egypt.",
+"cat": "geography"
+},
+{
+"id": 818,
+"q": "I am the tallest mountain on Earth above sea level. What am I?",
+"a": "Mount Everest",
+"hint": "In the Himalayas.",
+"cat": "geography"
+},
+{
+"id": 819,
+"q": "I am the largest desert on Earth (a cold one). What am I?",
+"a": "Antarctica",
+"hint": "It's covered in ice.",
+"cat": "geography"
+},
+{
+"id": 820,
+"q": "I am the biggest animal that has ever lived. What am I?",
+"a": "The blue whale",
+"hint": "Bigger than any dinosaur.",
+"cat": "animals"
+},
+{
+"id": 821,
+"q": "I am the fastest land animal. What am I?",
+"a": "The cheetah",
+"hint": "Spotted sprinter.",
+"cat": "animals"
+},
+{
+"id": 822,
+"q": "I am the tallest animal in the world. What am I?",
+"a": "The giraffe",
+"hint": "Long neck.",
+"cat": "animals"
+},
+{
+"id": 823,
+"q": "I am the largest planet in our solar system. What am I?",
+"a": "Jupiter",
+"hint": "A gas giant.",
+"cat": "space"
+},
+{
+"id": 824,
+"q": "I am the hardest natural substance on Earth. What am I?",
+"a": "A diamond",
+"hint": "A precious gem.",
+"cat": "concepts"
+},
+{
+"id": 825,
+"q": "I am the only metal that is liquid at room temperature. What am I?",
+"a": "Mercury",
+"hint": "Found in old thermometers.",
+"cat": "concepts"
+},
+{
+"id": 826,
+"q": "I am the gas that plants breathe in and we breathe out. What am I?",
+"a": "Carbon dioxide",
+"hint": "CO2.",
+"cat": "concepts"
+},
+{
+"id": 827,
+"q": "I am the gas humans need to breathe to live. What am I?",
+"a": "Oxygen",
+"hint": "About 21% of the air.",
+"cat": "concepts"
+},
+{
+"id": 828,
+"q": "I am the closest star to Earth. What am I?",
+"a": "The Sun",
+"hint": "It's daytime because of me.",
+"cat": "space"
+},
+{
+"id": 829,
+"q": "I am the smallest prime number. What am I?",
+"a": "2",
+"hint": "The only even prime.",
+"cat": "numbers"
+},
+{
+"id": 830,
+"q": "I am the number of sides on a hexagon. What am I?",
+"a": "6",
+"hint": "Like a honeycomb cell.",
+"cat": "numbers"
+},
+{
+"id": 831,
+"q": "I am the number of colors in a rainbow. What am I?",
+"a": "7",
+"hint": "Red to violet.",
+"cat": "numbers"
+},
+{
+"id": 832,
+"q": "I am the number of continents on Earth. What am I?",
+"a": "7",
+"hint": "Count them on a globe.",
+"cat": "geography"
+},
+{
+"id": 833,
+"q": "I am the number of legs a spider has. What am I?",
+"a": "8",
+"hint": "Arachnid legs.",
+"cat": "animals"
+},
+{
+"id": 834,
+"q": "I am the number of players on a soccer team on the field. What am I?",
+"a": "11",
+"hint": "Including the goalkeeper.",
+"cat": "sports"
+},
+{
+"id": 835,
+"q": "I am the number of strings on a standard guitar. What am I?",
+"a": "6",
+"hint": "Strum them all.",
+"cat": "music"
+},
+{
+"id": 836,
+"q": "What is half of 474?",
+"a": "237",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 837,
+"q": "What is half of 534?",
+"a": "267",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 838,
+"q": "What is half of 738?",
+"a": "369",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 839,
+"q": "What is half of 444?",
+"a": "222",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 840,
+"q": "What is half of 144?",
+"a": "72",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 841,
+"q": "What is half of 722?",
+"a": "361",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 842,
+"q": "What is half of 548?",
+"a": "274",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 843,
+"q": "What is half of 290?",
+"a": "145",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 844,
+"q": "What is half of 326?",
+"a": "163",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 845,
+"q": "What is half of 586?",
+"a": "293",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 846,
+"q": "What is half of 674?",
+"a": "337",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 847,
+"q": "What is half of 702?",
+"a": "351",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 848,
+"q": "What is half of 768?",
+"a": "384",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 849,
+"q": "What is half of 62?",
+"a": "31",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 850,
+"q": "What is half of 598?",
+"a": "299",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 851,
+"q": "What is half of 622?",
+"a": "311",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 852,
+"q": "What is half of 428?",
+"a": "214",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 853,
+"q": "What is half of 404?",
+"a": "202",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 854,
+"q": "What is half of 510?",
+"a": "255",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 855,
+"q": "What is half of 366?",
+"a": "183",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 856,
+"q": "What is half of 644?",
+"a": "322",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 857,
+"q": "What is half of 74?",
+"a": "37",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 858,
+"q": "What is half of 106?",
+"a": "53",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 859,
+"q": "What is half of 276?",
+"a": "138",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 860,
+"q": "What is half of 204?",
+"a": "102",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 861,
+"q": "What is half of 782?",
+"a": "391",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 862,
+"q": "What is half of 766?",
+"a": "383",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 863,
+"q": "What is half of 798?",
+"a": "399",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 864,
+"q": "What is half of 238?",
+"a": "119",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 865,
+"q": "What is half of 148?",
+"a": "74",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 866,
+"q": "What is half of 692?",
+"a": "346",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 867,
+"q": "What is half of 306?",
+"a": "153",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 868,
+"q": "What is half of 392?",
+"a": "196",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 869,
+"q": "What is half of 712?",
+"a": "356",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 870,
+"q": "What is half of 16?",
+"a": "8",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 871,
+"q": "What is half of 216?",
+"a": "108",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 872,
+"q": "What is half of 416?",
+"a": "208",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 873,
+"q": "What is half of 512?",
+"a": "256",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 874,
+"q": "What is half of 540?",
+"a": "270",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 875,
+"q": "What is half of 338?",
+"a": "169",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 876,
+"q": "What is half of 220?",
+"a": "110",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 877,
+"q": "What is half of 214?",
+"a": "107",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 878,
+"q": "What is half of 348?",
+"a": "174",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 879,
+"q": "What is half of 184?",
+"a": "92",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 880,
+"q": "What is half of 576?",
+"a": "288",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 881,
+"q": "What is half of 240?",
+"a": "120",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 882,
+"q": "What is half of 302?",
+"a": "151",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 883,
+"q": "What is half of 670?",
+"a": "335",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 884,
+"q": "What is half of 676?",
+"a": "338",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 885,
+"q": "What is half of 44?",
+"a": "22",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 886,
+"q": "What is half of 360?",
+"a": "180",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 887,
+"q": "What is half of 46?",
+"a": "23",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 888,
+"q": "What is half of 796?",
+"a": "398",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 889,
+"q": "What is half of 408?",
+"a": "204",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 890,
+"q": "What is half of 450?",
+"a": "225",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 891,
+"q": "What is half of 206?",
+"a": "103",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 892,
+"q": "What is half of 374?",
+"a": "187",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 893,
+"q": "What is half of 456?",
+"a": "228",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 894,
+"q": "What is half of 724?",
+"a": "362",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 895,
+"q": "What is half of 156?",
+"a": "78",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 896,
+"q": "What is half of 118?",
+"a": "59",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 897,
+"q": "What is half of 734?",
+"a": "367",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 898,
+"q": "What is half of 54?",
+"a": "27",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 899,
+"q": "What is half of 680?",
+"a": "340",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 900,
+"q": "What is half of 574?",
+"a": "287",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 901,
+"q": "What is half of 182?",
+"a": "91",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 902,
+"q": "What is half of 172?",
+"a": "86",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 903,
+"q": "What is half of 610?",
+"a": "305",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 904,
+"q": "What is half of 660?",
+"a": "330",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 905,
+"q": "What is half of 730?",
+"a": "365",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 906,
+"q": "What is half of 612?",
+"a": "306",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 907,
+"q": "What is half of 236?",
+"a": "118",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 908,
+"q": "What is half of 442?",
+"a": "221",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 909,
+"q": "What is half of 28?",
+"a": "14",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 910,
+"q": "What is half of 626?",
+"a": "313",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 911,
+"q": "What is half of 650?",
+"a": "325",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 912,
+"q": "What is half of 750?",
+"a": "375",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 913,
+"q": "What is half of 666?",
+"a": "333",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 914,
+"q": "What is half of 258?",
+"a": "129",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 915,
+"q": "What is half of 280?",
+"a": "140",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 916,
+"q": "What is half of 52?",
+"a": "26",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 917,
+"q": "What is half of 596?",
+"a": "298",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 918,
+"q": "What is half of 600?",
+"a": "300",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 919,
+"q": "What is half of 252?",
+"a": "126",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 920,
+"q": "What is half of 344?",
+"a": "172",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 921,
+"q": "What is half of 248?",
+"a": "124",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 922,
+"q": "What is half of 164?",
+"a": "82",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 923,
+"q": "What is half of 528?",
+"a": "264",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 924,
+"q": "What is half of 354?",
+"a": "177",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 925,
+"q": "What is half of 700?",
+"a": "350",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 926,
+"q": "What is half of 58?",
+"a": "29",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 927,
+"q": "What is half of 568?",
+"a": "284",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 928,
+"q": "What is half of 4?",
+"a": "2",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 929,
+"q": "What is half of 590?",
+"a": "295",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 930,
+"q": "What is half of 778?",
+"a": "389",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 931,
+"q": "What is half of 210?",
+"a": "105",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 932,
+"q": "What is half of 24?",
+"a": "12",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 933,
+"q": "What is half of 186?",
+"a": "93",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 934,
+"q": "What is half of 212?",
+"a": "106",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 935,
+"q": "What is half of 294?",
+"a": "147",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 936,
+"q": "What is half of 728?",
+"a": "364",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 937,
+"q": "What is half of 378?",
+"a": "189",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 938,
+"q": "What is half of 756?",
+"a": "378",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 939,
+"q": "What is half of 242?",
+"a": "121",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 940,
+"q": "What is half of 526?",
+"a": "263",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 941,
+"q": "What is half of 682?",
+"a": "341",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 942,
+"q": "What is half of 440?",
+"a": "220",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 943,
+"q": "What is half of 716?",
+"a": "358",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 944,
+"q": "What is half of 132?",
+"a": "66",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 945,
+"q": "What is half of 68?",
+"a": "34",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 946,
+"q": "What is half of 130?",
+"a": "65",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 947,
+"q": "What is half of 642?",
+"a": "321",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 948,
+"q": "What is half of 490?",
+"a": "245",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 949,
+"q": "What is half of 780?",
+"a": "390",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 950,
+"q": "What is half of 556?",
+"a": "278",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 951,
+"q": "What is half of 270?",
+"a": "135",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 952,
+"q": "What is half of 584?",
+"a": "292",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 953,
+"q": "What is half of 634?",
+"a": "317",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 954,
+"q": "What is half of 390?",
+"a": "195",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 955,
+"q": "What is half of 178?",
+"a": "89",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 956,
+"q": "What is half of 318?",
+"a": "159",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 957,
+"q": "What is half of 370?",
+"a": "185",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 958,
+"q": "What is half of 12?",
+"a": "6",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 959,
+"q": "What is half of 452?",
+"a": "226",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 960,
+"q": "What is half of 292?",
+"a": "146",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 961,
+"q": "What is half of 82?",
+"a": "41",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 962,
+"q": "What is half of 706?",
+"a": "353",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 963,
+"q": "What is half of 224?",
+"a": "112",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 964,
+"q": "What is half of 530?",
+"a": "265",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 965,
+"q": "What is half of 618?",
+"a": "309",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 966,
+"q": "What is half of 498?",
+"a": "249",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 967,
+"q": "What is half of 470?",
+"a": "235",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 968,
+"q": "What is half of 192?",
+"a": "96",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 969,
+"q": "What is half of 524?",
+"a": "262",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 970,
+"q": "What is half of 508?",
+"a": "254",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 971,
+"q": "What is half of 562?",
+"a": "281",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 972,
+"q": "What is half of 672?",
+"a": "336",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 973,
+"q": "What is half of 334?",
+"a": "167",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 974,
+"q": "What is half of 208?",
+"a": "104",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 975,
+"q": "What is half of 690?",
+"a": "345",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 976,
+"q": "What is half of 202?",
+"a": "101",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 977,
+"q": "What is half of 744?",
+"a": "372",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 978,
+"q": "What is half of 748?",
+"a": "374",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 979,
+"q": "What is half of 122?",
+"a": "61",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 980,
+"q": "What is half of 460?",
+"a": "230",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 981,
+"q": "What is half of 478?",
+"a": "239",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 982,
+"q": "What is half of 272?",
+"a": "136",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 983,
+"q": "What is half of 516?",
+"a": "258",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 984,
+"q": "What is half of 320?",
+"a": "160",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 985,
+"q": "What is half of 358?",
+"a": "179",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 986,
+"q": "What is half of 426?",
+"a": "213",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 987,
+"q": "What is half of 398?",
+"a": "199",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 988,
+"q": "What is half of 434?",
+"a": "217",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 989,
+"q": "What is half of 168?",
+"a": "84",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 990,
+"q": "What is half of 324?",
+"a": "162",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 991,
+"q": "What is half of 630?",
+"a": "315",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 992,
+"q": "What is half of 328?",
+"a": "164",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 993,
+"q": "What is half of 98?",
+"a": "49",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 994,
+"q": "What is half of 188?",
+"a": "94",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 995,
+"q": "What is half of 274?",
+"a": "137",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 996,
+"q": "What is half of 580?",
+"a": "290",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 997,
+"q": "What is half of 658?",
+"a": "329",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 998,
+"q": "What is half of 72?",
+"a": "36",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 999,
+"q": "What is half of 616?",
+"a": "308",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+},
+{
+"id": 1000,
+"q": "What is half of 632?",
+"a": "316",
+"hint": "Split it into two equal parts.",
+"cat": "numbers"
+}
+]
+}

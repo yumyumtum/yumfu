@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YumFu Riddles — 1000 Riddles to Solve</title>
+<meta name="description" content="Test your wits with 1000 riddles! Type your answer, get hints, and track your score. Objects, animals, words, numbers, myths, and more." />
+<style>
+  :root{--ink:#f3ece0;--bg:#120c06;--panel:#241a0f;--edge:#4a3720;--gold:#e0b24a;--gold2:#b8872a;--moss:#6a8a4a;--star:#9fc7e8;--wrong:#c85a4a;--right:#6fae5a;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Noto Serif SC',serif;background:var(--bg);color:var(--ink);line-height:1.6;min-height:100vh}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px 60px}
+  .hero{text-align:center;padding:46px 18px 24px;background:radial-gradient(ellipse at top,rgba(224,178,74,.16),transparent 60%)}
+  .hero h1{font-size:2.6rem;color:var(--gold);text-shadow:0 3px 18px rgba(0,0,0,.6)}
+  .hero .sub{color:#d8cbb4;font-size:1.05rem;margin-top:8px}
+  .topbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:18px}
+  .stat{background:#241a0f;border:1px solid var(--edge);border-radius:12px;padding:8px 14px;font-size:.9rem;color:#e6d3a6}
+  .stat b{color:var(--gold)}
+  select{background:#241a0f;color:var(--ink);border:1px solid var(--edge);border-radius:12px;padding:9px 12px;font-family:inherit;font-size:.9rem}
+  .card{background:linear-gradient(160deg,#2c2013,#241a0f);border:1px solid var(--edge);border-radius:22px;padding:30px 26px;box-shadow:0 8px 30px rgba(0,0,0,.45);margin-top:22px}
+  .catpill{display:inline-block;font-size:.72rem;background:#3a2c19;color:#e6d3a6;padding:3px 11px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
+  .qnum{float:right;color:#8a7c64;font-size:.8rem}
+  .question{font-size:1.4rem;color:#f6e4bd;margin:16px 0 20px;line-height:1.5}
+  .answerRow{display:flex;gap:10px;flex-wrap:wrap}
+  input[type=text]{flex:1;min-width:200px;background:#1b130a;color:var(--ink);border:1px solid var(--edge);border-radius:12px;padding:13px 15px;font-family:inherit;font-size:1.05rem}
+  input[type=text]:focus{outline:none;border-color:var(--gold)}
+  .btn{display:inline-block;background:var(--gold);color:#241a0f;font-weight:bold;padding:13px 22px;border-radius:12px;font-size:1rem;border:none;cursor:pointer;font-family:inherit}
+  .btn:hover{background:#efc45c}
+  .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold2)}
+  .btn.ghost:hover{background:#2c2013}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .feedback{margin-top:18px;font-size:1.05rem;min-height:26px}
+  .feedback.right{color:var(--right)}
+  .feedback.wrong{color:var(--wrong)}
+  .reveal{margin-top:14px;padding:14px 16px;background:#1b130a;border:1px solid var(--edge);border-radius:12px;color:#e2d6bf}
+  .reveal b{color:var(--gold)}
+  .hint{margin-top:12px;color:#c9b892;font-style:italic}
+  footer{text-align:center;color:#8a7c64;padding:34px 18px;font-size:.82rem;border-top:1px solid #2a1f14;margin-top:30px}
+  .backlink{display:block;text-align:center;margin-top:16px;font-size:.9rem}
+  @media(max-width:520px){.hero h1{font-size:2.1rem}.question{font-size:1.2rem}}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>🧩 RIDDLES</h1>
+    <div class="sub">1000 riddles to puzzle over. Type your answer — or peek at a hint if you're stumped.</div>
+    <div class="topbar">
+      <div class="stat">Solved: <b id="solved">0</b></div>
+      <div class="stat">Streak: <b id="streak">0</b></div>
+      <div class="stat">Attempted: <b id="attempted">0</b></div>
+      <select id="catFilter"><option value="all">All categories</option></select>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card" id="card">
+      <span class="catpill" id="cat">—</span>
+      <span class="qnum" id="qnum">#0</span>
+      <div class="question" id="question">Loading riddles…</div>
+
+      <div class="answerRow">
+        <input type="text" id="answer" placeholder="Type your answer…" autocomplete="off" />
+        <button class="btn" id="checkBtn">Check</button>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+      <div class="hint" id="hint" style="display:none"></div>
+      <div class="reveal" id="reveal" style="display:none"></div>
+
+      <div class="actions">
+        <button class="btn ghost" id="hintBtn">💡 Hint</button>
+        <button class="btn ghost" id="revealBtn">👁 Reveal answer</button>
+        <button class="btn" id="nextBtn">Next ▶</button>
+        <button class="btn ghost" id="randomBtn">🎲 Random</button>
+      </div>
+    </div>
+
+    <a class="backlink" href="../">← Back to YumFu home</a>
+  </div>
+
+  <footer>
+    YumFu · 1000 Riddles 🧩 · <a href="https://github.com/yumyumtum/yumfu">GitHub</a> · <a href="../">Home</a> · <a href="../storybooks/">Storybooks</a>
+  </footer>
+
+<script>
+let RIDDLES = [], order = [], pos = 0, current = null;
+let solvedSet = new Set(), attempted = 0, streak = 0, answered = false;
+let activeCat = "all";
+
+const $ = id => document.getElementById(id);
+
+function normalize(s){
+  return (s||"").toLowerCase()
+    .replace(/[.,!?;:'"`()\-]/g,"")
+    .replace(/\b(a|an|the)\b/g," ")
+    .replace(/\s+/g," ").trim();
+}
+function answerMatches(guess, answer){
+  const g = normalize(guess), a = normalize(answer);
+  if(!g) return false;
+  if(g === a) return true;
+  // accept if guess contains the core answer or vice versa (for "a river" vs "river")
+  const aCore = a.replace(/\b(is|are|was|it|they)\b/g," ").replace(/\s+/g," ").trim();
+  if(aCore && (g === aCore || g.includes(aCore) || aCore.includes(g))) return true;
+  // multi-answer split on 'or' / ','
+  const alts = a.split(/\bor\b|,/).map(x=>x.trim()).filter(Boolean);
+  return alts.some(alt => g === alt || (alt.length>2 && g.includes(alt)));
+}
+
+function buildOrder(){
+  const pool = RIDDLES.filter(r => activeCat==="all" || r.cat===activeCat);
+  order = pool.map((_,i)=>i).map(i=>pool[i]);
+  // Fisher-Yates shuffle
+  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+  pos = 0;
+}
+function updateStats(){
+  $("solved").textContent = solvedSet.size;
+  $("streak").textContent = streak;
+  $("attempted").textContent = attempted;
+}
+function show(){
+  if(order.length===0){buildOrder();}
+  if(pos>=order.length){buildOrder();}
+  current = order[pos];
+  answered = false;
+  $("cat").textContent = current.cat;
+  $("qnum").textContent = "#"+current.id;
+  $("question").textContent = current.q;
+  $("answer").value = "";
+  $("feedback").textContent = ""; $("feedback").className="feedback";
+  $("hint").style.display="none"; $("hint").textContent="";
+  $("reveal").style.display="none"; $("reveal").innerHTML="";
+  $("answer").focus();
+}
+function check(){
+  if(!current || answered) { if(answered){next();} return; }
+  const guess = $("answer").value;
+  if(!guess.trim()) return;
+  attempted++;
+  if(answerMatches(guess, current.a)){
+    answered = true;
+    solvedSet.add(current.id);
+    streak++;
+    $("feedback").textContent = "✅ Correct! " + current.a;
+    $("feedback").className = "feedback right";
+    saveProgress();
+  } else {
+    streak = 0;
+    $("feedback").textContent = "❌ Not quite — try again, or use a hint / reveal.";
+    $("feedback").className = "feedback wrong";
+  }
+  updateStats();
+}
+function next(){ pos++; show(); }
+function randomJump(){ pos = Math.floor(Math.random()*order.length); show(); }
+function showHint(){
+  if(!current) return;
+  $("hint").style.display="block";
+  $("hint").textContent = "💡 " + current.hint;
+}
+function reveal(){
+  if(!current) return;
+  answered = true;
+  $("reveal").style.display="block";
+  $("reveal").innerHTML = "Answer: <b>"+current.a+"</b>";
+  if(streak>0 && !solvedSet.has(current.id)) streak = 0;
+  updateStats();
+}
+function saveProgress(){
+  try{ localStorage.setItem("yumfu_riddles", JSON.stringify({solved:[...solvedSet]})); }catch(e){}
+}
+function loadProgress(){
+  try{
+    const d = JSON.parse(localStorage.getItem("yumfu_riddles")||"{}");
+    if(d.solved) solvedSet = new Set(d.solved);
+  }catch(e){}
+}
+
+$("checkBtn").onclick = check;
+$("nextBtn").onclick = next;
+$("randomBtn").onclick = randomJump;
+$("hintBtn").onclick = showHint;
+$("revealBtn").onclick = reveal;
+$("answer").addEventListener("keydown", e=>{ if(e.key==="Enter") check(); });
+$("catFilter").onchange = e=>{ activeCat = e.target.value; buildOrder(); show(); };
+
+fetch("riddles.json").then(r=>r.json()).then(data=>{
+  RIDDLES = data.riddles;
+  const cats = [...new Set(RIDDLES.map(r=>r.cat))].sort();
+  const sel = $("catFilter");
+  const labels = {objects:"Objects",food:"Food",nature:"Nature",concepts:"Concepts",
+    places:"Places",words:"Words & Wordplay",trick:"Trick Questions",body:"Body",
+    numbers:"Numbers & Math",lateral:"Brain Teasers",animals:"Animals",geography:"Geography",
+    colors:"Colors",sports:"Sports",music:"Music",people:"Jobs & People",myth:"Myth & Legend",
+    vehicles:"Vehicles",space:"Space"};
+  cats.forEach(c=>{
+    const o=document.createElement("option"); o.value=c;
+    o.textContent=(labels[c]||c)+" ("+RIDDLES.filter(r=>r.cat===c).length+")";
+    sel.appendChild(o);
+  });
+  loadProgress();
+  updateStats();
+  buildOrder();
+  show();
+}).catch(err=>{
+  $("question").textContent = "Couldn't load riddles. Please refresh.";
+  console.error(err);
+});
+</script>
+</body>
+</html>
