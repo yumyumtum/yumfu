@@ -9,4 +9,4 @@
 
 ## Notes
 - The Xuanzang world does not bundle the source corpus or modern translations.
-- This release has not been published to GitHub, ClawHub, or SkillHub. SkillHub listing ownership must be confirmed before updating it.
+- GitHub release v1.7.12 is published. The existing ClawHub yumfu version history still reports v1.7.11 despite the publish CLI accepting the upload; the new version is not yet independently verifiable in the registry. The SkillHub listing remains unclaimed and non-claimable, so it was not updated.
